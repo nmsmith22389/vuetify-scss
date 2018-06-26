@@ -1,0 +1,20 @@
+// stylelint-disable declaration-no-important
+@each $size, $width in $grid-breakpoints {
+    @media all and (min-width: $width) {
+        .text-#{$size}-left {
+            text-align: left !important;
+        }
+
+        .text-#{$size}-center {
+            text-align: center !important;
+        }
+
+        .text-#{$size}-right {
+            text-align: right !important;
+        }
+
+        .text-#{$size}-justify {
+            text-align: justify !important;
+        }
+    }
+}

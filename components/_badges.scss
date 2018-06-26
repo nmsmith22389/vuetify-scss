@@ -1,0 +1,60 @@
+@import '../bootstrap';
+
+.badge {
+    display: inline-block;
+    position: relative;
+
+    &__badge {
+        color: $badge-color;
+        display: flex;
+        position: absolute;
+        font-size: $badge-font-size;
+        top: -($badge-height / 2);
+        right: -($badge-width);
+        border-radius: $badge-border-radius;
+        height: $badge-height;
+        width: $badge-width;
+        justify-content: center;
+        align-items: center;
+        flex-flow: row wrap;
+        transition: $primary-transition;
+
+        .icon {
+            font-size: $badge-font-size;
+        }
+    }
+
+    &--overlap {
+        .badge__badge {
+            top: -8px;
+            right: -8px;
+        }
+
+        &.badge--left {
+            .badge__badge {
+                left: -8px;
+                right: initial;
+            }
+        }
+
+        &.badge--bottom {
+            .badge__badge {
+                bottom: -8px;
+                top: initial;
+            }
+        }
+    }
+
+    &--left {
+        .badge__badge {
+            left: -($badge-width);
+        }
+    }
+
+    &--bottom {
+        .badge__badge {
+            bottom: -($badge-height / 2);
+            top: initial;
+        }
+    }
+}

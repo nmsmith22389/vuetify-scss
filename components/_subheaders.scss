@@ -1,0 +1,27 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin subheader($material) {
+    color: map-get(map-get($material, text), secondary);
+}
+
+@include theme(light, 'subheader') {
+    @include subheader($material-light);
+}
+
+@include theme(dark, 'subheader') {
+    @include subheader($material-dark);
+}
+
+.subheader {
+    height: $list-item-single-height;
+    display: flex;
+    align-items: center;
+    font-size: $subheader-height-font-size;
+    font-weight: $subheader-font-weight;
+    padding: 0 $list-right-padding 0 $list-left-padding;
+
+    &--inset {
+        margin-left: $subheader-inset-margin;
+    }
+}

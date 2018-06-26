@@ -1,0 +1,168 @@
+@import '../bootstrap';
+
+.snack {
+    position: fixed;
+    display: flex;
+    align-items: center;
+    color: $snackbar-color;
+    pointer-events: none;
+    z-index: 1000;
+    font-size: 14px;
+    left: 0;
+    right: 0;
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--top {
+        top: 0;
+    }
+
+    &--bottom {
+        bottom: 0;
+    }
+
+    &__wrapper {
+        display: flex;
+        align-items: center;
+        background-color: $snackbar-background-color;
+        pointer-events: auto;
+        width: 100%;
+
+        @include elevation(6);
+    }
+
+    &__content {
+        width: 100%;
+        height: 48px;
+        padding: 14px 24px;
+        display: flex;
+        align-items: center;
+        justify-content: space-between;
+        overflow: hidden;
+
+        .btn {
+            color: $snackbar-color;
+            flex: 0 0 auto;
+            margin: 0 0 0 24px;
+            height: auto;
+            min-width: auto;
+            width: auto;
+
+            &__content {
+                padding: 8px;
+                margin: -8px;
+
+                &::before {
+                    display: none;
+                }
+            }
+        }
+    }
+
+    &--multi-line &__content {
+        height: 80px;
+        padding: 24px;
+    }
+
+    &--vertical &__content {
+        height: 112px;
+        padding: 24px 24px 14px;
+        flex-direction: column;
+
+        // https://stackoverflow.com/questions/35111090/text-in-a-flex-container-doesnt-wrap-in-ie11
+        align-items: stretch;
+
+        .btn {
+            &.btn {
+                justify-content: flex-end;
+                margin-left: 0;
+                margin-top: 24px;
+            }
+
+            &__content {
+                padding: 0;
+                flex: 0 0 auto;
+                margin: 0;
+            }
+        }
+    }
+
+    &--auto-height &__content {
+        height: auto;
+    }
+}
+
+@media #{map-get($display-breakpoints, sm-and-up)} {
+    .snack {
+        &__wrapper {
+            width: auto;
+            max-width: 568px;
+            min-width: 288px;
+            margin: 0 auto;
+            border-radius: 2px;
+
+            .snack--left & {
+                margin-left: 0;
+            }
+
+            .snack--right & {
+                margin-right: 0;
+            }
+        }
+
+        &--left,
+        &--right {
+            margin: 0 $snackbar-corner-offset;
+
+            &.snack--top {
+                transform: translateY($snackbar-corner-offset);
+            }
+
+            &.snack--bottom {
+                transform: translateY(0 - $snackbar-corner-offset);
+            }
+        }
+
+        &__content .btn:first-of-type {
+            margin-left: 48px;
+        }
+    }
+}
+
+.snack-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: transform 0.4s map-get($transition, swing);
+
+        .snack__content {
+            transition: opacity 0.3s linear 0.1s;
+        }
+    }
+
+    &-enter {
+        .snack__content {
+            opacity: 0;
+        }
+    }
+
+    &-enter-to,
+    &-leave {
+        .snack__content {
+            opacity: 1;
+        }
+    }
+
+    &-enter,
+    &-leave-to {
+        &.snack.snack--top {
+            // Extra 8px to hide the bottom shadow
+            transform: translateY(calc(-100% - 8px));
+        }
+
+        &.snack.snack--bottom {
+            transform: translateY(100%);
+        }
+    }
+}

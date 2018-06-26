@@ -1,0 +1,5 @@
+@mixin firefox() {
+    @-moz-document url-prefix() {
+        @content;
+    }
+}

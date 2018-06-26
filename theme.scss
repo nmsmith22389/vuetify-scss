@@ -1,0 +1,60 @@
+@import 'settings/theme';
+
+@mixin app($theme: light) {
+    .application {
+        @if ($theme == light) {
+            &.theme--light {
+                @content;
+            }
+        } @else {
+            &.theme--dark {
+                @content;
+            }
+        }
+    }
+}
+// @mixin theme($component, $name) {
+// light($component, $name)
+// dark($component, $name)
+// }
+
+// @mixin light($component, $name) {
+//     .theme--light .#{$name},
+//     .application .theme--light.#{$name} {
+// $component($material-light)
+//     }
+// }
+
+// @mixin dark($component, $name) {
+//     .theme--dark .#{$name},
+//     .application .theme--dark.#{$name} {
+// $component($material-dark)
+//     }
+// }
+
+@mixin theme-light($name) {
+    .theme--light .#{$name},
+    .application .theme--light.#{$name} {
+        @content;
+    }
+}
+
+@mixin theme-dark($name) {
+    .theme--dark .#{$name},
+    .application .theme--dark.#{$name} {
+        @content;
+    }
+}
+
+// TODO: Get rid of default parameter for $name.
+@mixin theme($theme: light, $name: item) {
+    @if ($theme == light) {
+        @include theme-light($name) {
+            @content;
+        }
+    } @else {
+        @include theme-dark($name) {
+            @content;
+        }
+    }
+}

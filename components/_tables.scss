@@ -1,0 +1,161 @@
+@import '../bootstrap';
+@import '../theme';
+
+/* Theme */
+@mixin table($material) {
+    background-color: map-get($material, cards);
+    color: map-get(map-get($material, text), primary);
+
+    thead {
+        tr {
+            &:first-child {
+                border-bottom: 1px solid
+                    rgba(
+                        map-get($material, fg-color),
+                        map-get($material, divider-percent)
+                    );
+            }
+        }
+
+        th {
+            color: rgba(
+                map-get($material, text-color),
+                map-get($material, secondary-text-percent)
+            );
+        }
+    }
+
+    tbody {
+        tr {
+            &:not(:last-child) {
+                border-bottom: 1px solid
+                    rgba(
+                        map-get($material, fg-color),
+                        map-get($material, divider-percent)
+                    );
+            }
+
+            &[active] {
+                background: map-get(map-get($material, table), active);
+            }
+
+            &:hover:not(.datatable__expand-row) {
+                background: map-get(map-get($material, table), hover);
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            border-top: 1px solid
+                rgba(
+                    map-get($material, fg-color),
+                    map-get($material, divider-percent)
+                );
+        }
+    }
+}
+
+@include theme(light, 'table') {
+    @include table($material-light);
+}
+
+@include theme(dark, 'table') {
+    @include table($material-dark);
+}
+
+.table {
+    &__overflow {
+        width: 100%;
+        overflow-x: auto;
+        overflow-y: hidden;
+    }
+}
+
+table.table {
+    border-radius: 2px;
+    border-collapse: collapse;
+    border-spacing: 0;
+    width: 100%;
+    max-width: 100%;
+
+    thead,
+    tbody {
+        td,
+        th {
+            &:not(:nth-child(1)),
+            &:first-child {
+                padding: 0 24px;
+            }
+        }
+    }
+
+    thead {
+        tr {
+            height: 56px;
+        }
+
+        th {
+            font-weight: 500;
+            font-size: 12px;
+            transition: 0.3s map-get($transition, swing);
+            white-space: nowrap;
+            user-select: none;
+
+            &.sortable {
+                pointer-events: auto;
+            }
+
+            > div {
+                width: 100%;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            transition: background $primary-transition;
+            will-change: background;
+        }
+
+        td,
+        th {
+            height: 48px;
+        }
+
+        td {
+            font-weight: 400;
+            font-size: 13px;
+        }
+    }
+
+    .input-group--selection-controls {
+        padding: 0;
+
+        .input-group__details {
+            display: none;
+        }
+
+        &.checkbox {
+            .icon {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .input-group--selection-controls__ripple {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            height: 48px;
+
+            td {
+                padding: 0 24px;
+            }
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin divider($material) {
+    background-color: map-get($material, dividers);
+}
+
+@include theme(light, 'divider') {
+    @include divider($material-light);
+}
+
+@include theme(dark, 'divider') {
+    @include divider($material-dark);
+}
+
+.divider {
+    border: none;
+    display: block;
+    height: 1px;
+    min-height: 1px;
+    flex: 1;
+    width: 100%;
+
+    &--inset {
+        margin-left: 72px;
+        width: calc(100% - 72px);
+    }
+}

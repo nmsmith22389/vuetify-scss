@@ -1,0 +1,283 @@
+@import '../bootstrap';
+@import '../theme';
+
+/* Theme */
+@mixin slider($material) {
+    label {
+        color: map-get(map-get($material, text), secondary);
+    }
+
+    .slider__track,
+    .slider__track-fill {
+        background: map-get(map-get($material, slider), inactive);
+    }
+
+    .slider__track__container {
+        &:after {
+            border: 1px solid map-get(map-get($material, text), primary);
+        }
+    }
+
+    .slider__tick {
+        border: 1px solid map-get(map-get($material, text), primary);
+    }
+
+    &:not(.input-group--dirty) {
+        .slider__thumb--label {
+            background: map-get(map-get($material, slider), inactive);
+        }
+
+        .slider__thumb {
+            border: 3px solid map-get(map-get($material, slider), inactive);
+        }
+
+        &:focus {
+            .slider__thumb {
+                border: 3px solid map-get(map-get($material, slider), active);
+            }
+        }
+    }
+
+    &.input-group--disabled {
+        .slider__thumb {
+            background: none;
+            border: 3px solid map-get(map-get($material, slider), disabled);
+        }
+    }
+
+    &.input-group--disabled.input-group--dirty {
+        .slider__thumb {
+            background: map-get(map-get($material, slider), disabled);
+            border: 0 solid transparent;
+        }
+    }
+
+    &:focus {
+        .slider__track {
+            background: map-get(map-get($material, slider), active);
+        }
+    }
+}
+
+@include theme(light, 'input-group--slider') {
+    @include slider($material-light);
+}
+
+@include theme(dark, 'input-group--slider') {
+    @include slider($material-dark);
+}
+
+/** Input Group */
+.input-group.input-group--slider {
+    flex-flow: row wrap;
+
+    // Allow for right space if inline with other inputs
+    padding-right: 16px;
+
+    .input-group__details:before,
+    .input-group__details:after {
+        display: none;
+    }
+
+    .input-group__input {
+        flex: 1 1 100%;
+    }
+
+    label {
+        flex: 0 1 auto;
+        width: auto;
+        align-items: center;
+        display: inline-flex;
+        font-size: 18px;
+        transform: none;
+
+        + .input-group__input {
+            margin-left: 16px;
+            flex: 1 0 auto;
+        }
+    }
+
+    &.input-group--active {
+        .slider__thumb {
+            transform: translateY(-50%) scale(1.2);
+        }
+
+        .slider__track {
+            transition: none;
+        }
+
+        .slider__thumb-container {
+            &--label {
+                .slider__thumb {
+                    transform: translateY(-50%) scale(0);
+
+                    &:hover {
+                        transform: translateY(-50%) scale(0);
+                    }
+                }
+            }
+        }
+
+        .slider__thumb-container,
+        .slider__track-fill {
+            transition: none;
+        }
+
+        &.input-group--ticks {
+            .slider {
+                &__track__container:after,
+                &__tick {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.input-group--disabled {
+        pointer-events: none;
+
+        .slider__thumb {
+            transform: translateY(-50%) scale(0.5);
+            background: transparent;
+        }
+
+        &.input-group--dirty {
+            border-color: transparent;
+        }
+    }
+
+    &.input-group--prepend-icon {
+        .slider {
+            margin-left: 40px;
+        }
+    }
+
+    &.input-group--append-icon {
+        .slider {
+            margin-right: 40px;
+        }
+    }
+}
+
+/** Slider */
+.slider {
+    cursor: default;
+    display: flex;
+    align-items: center;
+    position: relative;
+    height: 30px;
+    flex: 1;
+    user-select: none;
+
+    /** Thumb/Track/Ticks */
+    &__track__container {
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        height: 2px;
+        width: 100%;
+        overflow: hidden;
+
+        &:after {
+            content: '';
+            position: absolute;
+            right: 0;
+            top: 0;
+            height: 2px;
+            transition: 0.3s map-get($transition, swing);
+            width: 2px;
+            opacity: 0;
+        }
+    }
+
+    &__track,
+    &__thumb,
+    &__tick {
+        position: absolute;
+        top: 0;
+    }
+
+    &__track {
+        height: 2px;
+        left: 0;
+        transition: 0.3s map-get($transition, swing);
+        transform-origin: right;
+        overflow: hidden;
+        width: 100%;
+
+        &-fill {
+            position: absolute;
+            left: 0;
+            height: 2px;
+            transform-origin: left;
+            width: 100%;
+            transition: 0.3s map-get($transition, swing);
+        }
+    }
+
+    &__ticks-container {
+        position: absolute;
+        left: 0;
+        height: 2px;
+        width: 100%;
+        top: 50%;
+        overflow: hidden;
+    }
+
+    &__tick {
+        transition: 0.3s map-get($transition, swing);
+        opacity: 0;
+    }
+
+    &__thumb-container {
+        position: absolute;
+        top: 50%;
+        transition: 0.3s map-get($transition, swing);
+    }
+
+    &__thumb {
+        width: 16px;
+        height: 16px;
+        left: -8px;
+        top: 50%;
+        border-radius: 50%;
+        background: transparent;
+        transition: 0.3s map-get($transition, swing);
+        transform: translateY(-50%) scale(0.8);
+        user-select: none;
+    }
+
+    /** Thumb Label */
+    &__thumb--label__container {
+        position: absolute;
+        left: 0;
+        top: 0;
+        transition: 0.3s ease-in-out;
+    }
+
+    &__thumb--label {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 12px;
+        color: #ffffff;
+        width: 28px;
+        height: 28px;
+        border-radius: 50% 50% 0;
+        position: absolute;
+        left: -14px;
+        top: -40px;
+        transform: rotate(45deg);
+        user-select: none;
+        transition: 0.3s ease-in-out;
+
+        span {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__track,
+    &__track-fill {
+        position: absolute;
+    }
+}

@@ -1,0 +1,177 @@
+// stylelint-disable declaration-no-important, value-keyword-case
+@import '../bootstrap';
+@import '../theme';
+
+/* Theme */
+@mixin datatable($material) {
+    thead {
+        th.column.sortable {
+            i {
+                color: rgba(
+                    map-get($material, fg-color),
+                    map-get($material, disabledORhints-text-percent)
+                );
+            }
+            &:hover {
+                color: rgba(
+                    map-get($material, fg-color),
+                    map-get($material, primary-text-percent)
+                );
+            }
+            &.active {
+                color: rgba(
+                    map-get($material, fg-color),
+                    map-get($material, primary-text-percent)
+                );
+                i {
+                    color: rgba(
+                        map-get($material, fg-color),
+                        map-get($material, primary-text-percent)
+                    );
+                }
+            }
+        }
+    }
+    .datatable__actions {
+        background-color: map-get($material, cards);
+        color: rgba(
+            map-get($material, fg-color),
+            map-get($material, secondary-text-percent)
+        );
+        border-top: 1px solid
+            rgba(
+                map-get($material, fg-color),
+                map-get($material, divider-percent)
+            );
+        &__select {
+            .input-group--select {
+                .input-group__selections__comma {
+                    color: rgba(
+                        map-get($material, fg-color),
+                        map-get($material, secondary-text-percent)
+                    ) !important;
+                }
+                .input-group__append-icon {
+                    color: rgba(
+                        map-get($material, fg-color),
+                        map-get($material, secondary-text-percent)
+                    ) !important;
+                }
+            }
+        }
+    }
+}
+
+@include theme(light, 'datatable') {
+    @include datatable($material-light);
+}
+
+@include theme(dark, 'datatable') {
+    @include datatable($material-dark);
+}
+
+.datatable {
+    thead {
+        th.column.sortable {
+            cursor: pointer;
+            i {
+                font-size: 16px;
+                vertical-align: sub;
+                display: inline-block;
+                opacity: 0;
+                transition: 0.3s map-get($transition, swing);
+            }
+            &:hover {
+                i {
+                    opacity: 0.6;
+                }
+            }
+            &.active {
+                transform: none;
+                i {
+                    opacity: 1;
+                }
+                &.desc {
+                    i {
+                        transform: rotate(-180deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+/*Actions */
+.datatable__actions {
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    font-size: 12px;
+    flex-wrap: wrap-reverse;
+    .btn {
+        color: inherit;
+        &:last-of-type {
+            margin-left: 14px;
+        }
+    }
+    &__range-controls {
+        display: flex;
+        align-items: center;
+        min-height: 48px;
+    }
+    &__pagination {
+        display: block;
+        text-align: center;
+        margin: 0 32px 0 24px;
+    }
+    &__select {
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        margin-right: 14px;
+        .input-group--select {
+            margin: 13px 0 13px 34px;
+            padding: 0;
+            position: initial;
+            .input-group__selections__comma {
+                font-size: 12px;
+            }
+        }
+    }
+}
+
+.datatable__progress {
+    height: auto !important;
+    tr,
+    td,
+    th {
+        height: auto !important;
+    }
+    th {
+        padding: 0 !important;
+        .progress-linear {
+            top: -2px;
+            margin: 0 0 -2px;
+        }
+    }
+}
+
+.datatable__expand {
+    &-row {
+        border: none !important;
+    }
+    &-col {
+        padding: 0 !important;
+        height: 0 !important;
+        &--expanded {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+    }
+    &-content {
+        transition: height $primary-transition;
+        > .card {
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+}

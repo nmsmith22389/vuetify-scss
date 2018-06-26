@@ -1,0 +1,57 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin small-dialog($material) {
+    &__content {
+        background: map-get($material, cards);
+    }
+
+    &__actions {
+        background: map-get($material, cards);
+    }
+
+    a {
+        color: rgba(
+            map-get($material, fg-color),
+            map-get($material, primary-text-percent)
+        );
+    }
+}
+
+@include theme(light, 'small-dialog') {
+    @include small-dialog($material-light);
+}
+
+@include theme(dark, 'small-dialog') {
+    @include small-dialog($material-dark);
+}
+
+.small-dialog {
+    display: block;
+    width: 100%;
+    height: 100%;
+
+    &__content {
+        padding: 0 24px;
+    }
+
+    &__actions {
+        text-align: right;
+    }
+
+    a {
+        display: flex;
+        align-items: center;
+
+        height: 100%;
+        text-decoration: none;
+
+        > * {
+            width: 100%;
+        }
+    }
+
+    .menu__activator {
+        height: 100%;
+    }
+}

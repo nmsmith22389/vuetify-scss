@@ -1,0 +1,93 @@
+@import '../bootstrap';
+@import '../theme';
+
+/* Themes */
+@mixin card($material) {
+    background-color: map-get($material, cards);
+    color: map-get(map-get($material, text), primary);
+}
+
+@include theme(light, 'card') {
+    @include card($material-light);
+}
+
+@include theme(dark, 'card') {
+    @include card($material-dark);
+}
+
+.card {
+    display: block;
+    border-radius: $card-border-radius;
+    min-width: 0;
+    position: relative;
+    text-decoration: none;
+    @include elevation(1);
+    > *:first-child:not(.btn) {
+        border-top-left-radius: inherit;
+        border-top-right-radius: inherit;
+    }
+    > *:last-child:not(.btn) {
+        border-bottom-left-radius: inherit;
+        border-bottom-right-radius: inherit;
+    }
+    &--raised {
+        @include elevation(3);
+    }
+    &--tile {
+        border-radius: 0;
+    }
+    &--flat {
+        @include elevation(0);
+    }
+    &--hover {
+        cursor: pointer;
+        transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-property: box-shadow;
+        &:hover {
+            @include elevation(8);
+        }
+    }
+    &__title {
+        align-items: center;
+        display: flex;
+        flex-wrap: wrap;
+        padding: 16px;
+        &--primary {
+            padding-top: 24px;
+        }
+    }
+    &__text {
+        padding: 16px;
+        width: 100%;
+    }
+    &__media {
+        display: flex;
+        overflow: hidden;
+        position: relative;
+        img {
+            width: 100%;
+        }
+        &__background {
+            border-radius: inherit;
+            position: absolute;
+            left: 0;
+            top: 0;
+            width: 100%;
+            height: 100%;
+        }
+        &__content {
+            display: flex;
+            flex: 1 1 auto;
+            position: relative;
+        }
+    }
+    &__actions {
+        align-items: center;
+        display: flex;
+        padding: 8px 4px;
+        > *,
+        .btn {
+            margin: 0 4px;
+        }
+    }
+}

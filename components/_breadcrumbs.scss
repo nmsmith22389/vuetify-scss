@@ -1,0 +1,67 @@
+﻿@import '../bootstrap';
+@import '../theme';
+
+@mixin breadcrumbs($material) {
+    li.breadcrumbs__divider,
+    li:last-child .breadcrumbs__item,
+    li .breadcrumbs__item--disabled {
+        color: map-get(map-get($material, text), disabled);
+    }
+}
+
+@include theme(light, 'breadcrumbs') {
+    @include breadcrumbs($material-light);
+}
+@include theme(dark, 'breadcrumbs') {
+    @include breadcrumbs($material-dark);
+}
+
+.breadcrumbs {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap;
+    flex: $breadcrumbs-flex;
+    list-style-type: none;
+    margin: $breadcrumbs-margin;
+    padding: $breadcrumbs-padding;
+
+    li {
+        align-items: center;
+        display: inline-flex;
+        font-size: $breadcrumbs-item-font-size;
+
+        .icon {
+            font-size: $breadcrumbs-item-large-font-size;
+        }
+
+        &:last-child a {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        &:nth-child(even) {
+            padding: $breadcrumbs-even-child-padding;
+        }
+    }
+
+    &--large {
+        li {
+            font-size: $breadcrumbs-item-large-font-size;
+
+            .icon {
+                font-size: $breadcrumbs-item-large-font-size;
+            }
+        }
+    }
+
+    &__item {
+        align-items: center;
+        display: inline-flex;
+        text-decoration: none;
+        transition: $primary-transition;
+
+        &--disabled {
+            pointer-events: none;
+        }
+    }
+}

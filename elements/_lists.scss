@@ -1,0 +1,7 @@
+.browser-list {
+    padding-left: map-get(map-get($spacers, four), x);
+
+    &--unstyled {
+        list-style-type: none;
+    }
+}

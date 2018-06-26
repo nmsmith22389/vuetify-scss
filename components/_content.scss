@@ -1,0 +1,24 @@
+@import '../bootstrap';
+@import '../browsers';
+
+.content {
+    @include bootable;
+
+    display: flex;
+    flex: 1 0 auto;
+    max-width: 100%;
+    will-change: padding;
+
+    &--wrap {
+        flex: 1 1 auto;
+        max-width: 100%;
+    }
+}
+
+@include firefox {
+    @media print {
+        .content {
+            display: block;
+        }
+    }
+}
