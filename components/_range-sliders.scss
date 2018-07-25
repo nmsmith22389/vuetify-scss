@@ -1,0 +1,43 @@
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-range-slider($material) {
+    &.v-input--slider.v-input--is-disabled {
+        .v-slider.v-slider {
+            .v-slider__thumb {
+                background: map-deep-get(
+                    $material,
+                    selection-controls,
+                    thumb,
+                    disabled
+                );
+            }
+        }
+    }
+}
+
+@include theme(light, 'v-input--range-slider') {
+    @include v-range-slider($material-light);
+}
+
+@include theme(dark, 'v-input--range-slider') {
+    @include v-range-slider($material-dark);
+}
+
+// Input Group
+.v-input--range-slider {
+    &.v-input--is-disabled {
+        .v-slider__track-fill {
+            display: none;
+        }
+
+        &.v-input--slider {
+            .v-slider.v-slider {
+                .v-slider__thumb {
+                    border-color: transparent;
+                }
+            }
+        }
+    }
+}

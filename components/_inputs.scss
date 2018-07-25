@@ -1,0 +1,150 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-input($material) {
+    &:not(.v-input--is-disabled) {
+        input,
+        textarea {
+            color: map-deep-get($material, text, primary);
+        }
+    }
+
+    input::placeholder,
+    textarea::placeholder {
+        color: map-deep-get($material, text, disabled);
+    }
+
+    &--is-disabled {
+        .v-label,
+        input,
+        textarea {
+            color: map-deep-get($material, text, disabled);
+        }
+    }
+}
+
+@include theme(light, 'v-input') {
+    @include v-input($material-light);
+}
+
+@include theme(dark, 'v-input') {
+    @include v-input($material-dark);
+}
+
+.v-input {
+    align-items: flex-start;
+    display: flex;
+    flex: 1 1 auto;
+    font-size: 1rem;
+    margin-top: 1rem; // 12px for label, 16px for spec
+    text-align: left;
+
+    .v-progress-linear {
+        left: 0;
+        margin: 0;
+        position: absolute;
+        top: calc(100% - 1px);
+    }
+
+    input {
+        max-height: 2rem;
+    }
+
+    input,
+    textarea {
+        // Remove Firefox red outline
+        &:invalid {
+            box-shadow: none;
+        }
+
+        &:focus,
+        &:active {
+            outline: none;
+        }
+    }
+
+    .v-label {
+        height: 1.25rem;
+        line-height: 1.25rem;
+    }
+
+    &__append-outer,
+    &__prepend-outer {
+        display: inline-flex;
+        line-height: 1;
+        margin-bottom: 0.25rem;
+        margin-top: 0.25rem;
+
+        .v-icon {
+            user-select: none;
+        }
+    }
+
+    &__append-outer {
+        margin-left: 0.5625rem;
+    }
+
+    &__prepend-outer {
+        margin-right: 0.5625rem;
+    }
+
+    &__control {
+        display: flex;
+        flex-flow: column wrap;
+        flex-grow: 1;
+        height: auto;
+        position: relative;
+        width: 100%; // For IE11
+    }
+
+    &__icon {
+        align-items: center;
+        display: inline-flex;
+        flex: 1 0 auto;
+        height: 1.5rem;
+        justify-content: center;
+        min-width: 1.5rem;
+        width: 1.5rem;
+
+        &--clear {
+            border-radius: 50%;
+        }
+    }
+
+    &__slot {
+        align-items: center;
+        color: inherit;
+        display: flex;
+        margin-bottom: 8px;
+        min-height: inherit;
+        position: relative;
+        transition: $primary-transition;
+        width: 100%;
+    }
+
+    &--is-disabled:not(.v-input--is-readonly) {
+        pointer-events: none;
+    }
+
+    &--is-loading {
+        .v-input__slot::before,
+        .v-input__slot::after {
+            display: none;
+        }
+    }
+
+    &--hide-details {
+        .v-input__slot {
+            margin-bottom: 0;
+        }
+    }
+
+    &--has-state {
+        &.error--text .v-label {
+            // stylelint-disable-next-line no-unknown-animations
+            animation: shake 0.6s map-get($transition, swing);
+        }
+    }
+}

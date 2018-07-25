@@ -2,42 +2,41 @@
 @import '../bootstrap';
 @import '../theme';
 
-@mixin navigation-drawer($material) {
+@mixin v-navigation-drawer($material) {
     background-color: map-get($material, cards);
 
-    &:not(.navigation-drawer--floating) {
-        .navigation-drawer__border {
+    &:not(.v-navigation-drawer--floating) {
+        .v-navigation-drawer__border {
             background-color: map-get($material, dividers);
         }
     }
 
-    .divider {
+    .v-divider {
         background-color: map-get($material, dividers);
     }
 }
 
-@include theme(light, 'navigation-drawer') {
-    @include navigation-drawer($material-light);
+@include theme(light, 'v-navigation-drawer') {
+    @include v-navigation-drawer($material-light);
 }
 
-@include theme(dark, 'navigation-drawer') {
-    @include navigation-drawer($material-dark);
+@include theme(dark, 'v-navigation-drawer') {
+    @include v-navigation-drawer($material-dark);
 }
 
-.navigation-drawer {
+.v-navigation-drawer {
     @include bootable;
 
     display: block;
     left: 0;
     max-width: 100%;
-    overflow-y: auto;
+    -webkit-overflow-scrolling: touch;
     overflow-x: hidden;
-    padding: 0 0 100px;
+    overflow-y: auto;
     pointer-events: auto;
     top: 0;
     will-change: transform;
     z-index: 3;
-    -webkit-overflow-scrolling: touch;
 
     &[data-booted='true'] {
         // Work around for Safari bug. See https://github.com/vuetifyjs/vuetify/issues/2773
@@ -54,15 +53,15 @@
     }
 
     &__border {
+        height: 100%;
         position: absolute;
         right: 0;
         top: 0;
-        height: 100%;
         width: 1px;
     }
 
-    &.navigation-drawer--right {
-        &:after {
+    &.v-navigation-drawer--right {
+        &::after {
             left: 0;
             right: initial;
         }
@@ -72,9 +71,9 @@
         left: auto;
         right: 0;
 
-        > .navigation-drawer__border {
-            right: auto;
+        > .v-navigation-drawer__border {
             left: 0;
+            right: auto;
         }
     }
 
@@ -86,33 +85,33 @@
         position: fixed;
     }
 
-    &--floating:after {
+    &--floating::after {
         display: none;
     }
 
     &--mini-variant {
         overflow: hidden;
 
-        .list__group__header__prepend-icon {
+        .v-list__group__header__prepend-icon {
             flex: 1 0 auto;
             justify-content: center;
             width: 100%;
         }
 
-        .list__tile__action,
-        .list__tile__avatar {
+        .v-list__tile__action,
+        .v-list__tile__avatar {
             justify-content: center;
-            min-width: 48px;
+            min-width: 3rem;
         }
 
-        .list__tile__content,
-        .list__tile:after {
+        .v-list__tile__content,
+        .v-list__tile::after {
             opacity: 0;
         }
 
         .subheader,
         .divider,
-        .list--group {
+        .v-list--group {
             display: none !important;
         }
     }
@@ -121,42 +120,42 @@
     &--is-mobile {
         z-index: 6;
 
-        &:not(.navigation-drawer--close) {
+        &:not(.v-navigation-drawer--close) {
             @include elevation(16);
         }
     }
 
-    .list {
+    .v-list {
         background: inherit;
     }
 
-    > .list {
-        .list__tile {
-            transition: none;
+    > .v-list {
+        .v-list__tile {
             font-weight: $navigation-drawer-item-font-weight;
+            transition: none;
 
             &--active {
-                .list__tile__title {
+                .v-list__tile__title {
                     color: inherit;
                 }
             }
         }
 
-        .list--group {
-            .list__tile {
+        .v-list--group {
+            .v-list__tile {
                 font-weight: $navigation-drawer-group-item-font-weight;
             }
 
             &__header--active {
-                &:after {
+                &::after {
                     background: transparent;
                 }
             }
         }
     }
 
-    > .list:not(.list--dense) {
-        .list__tile {
+    > .v-list:not(.v-list--dense) {
+        .v-list__tile {
             font-size: $navigation-drawer-item-font-size;
         }
     }

@@ -1,6 +1,6 @@
 .blockquote {
-    padding: map-get(map-get($spacers, three), y) 0
-        map-get(map-get($spacers, three), y) map-get(map-get($spacers, four), x);
-    font-size: 18px;
-    font-weight: 300;
+    font-size: 1.125rem;
+    font-weight: font-weight(light);
+    padding: map-deep-get($spacers, three, y) 0
+        map-deep-get($spacers, three, y) map-deep-get($spacers, four, x);
 }

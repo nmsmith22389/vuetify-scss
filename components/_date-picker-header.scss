@@ -2,50 +2,54 @@
 @import '../bootstrap';
 @import '../theme';
 
-@mixin date-picker-header($material) {
-    .date-picker-header__value:not(.date-picker-header__value--disabled) {
+@mixin v-date-picker-header($material) {
+    .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) {
         strong:not(:hover) {
-            color: map-get(map-get($material, text), primary) !important;
+            color: map-deep-get($material, text, primary) !important;
         }
     }
-    .date-picker-header__value--disabled strong {
-        color: map-get(map-get($material, text), disabled);
+
+    .v-date-picker-header__value--disabled strong {
+        color: map-deep-get($material, text, disabled);
     }
 }
 
-@include theme(light, 'date-picker-header') {
-    @include date-picker-header($material-light);
+@include theme(light, 'v-date-picker-header') {
+    @include v-date-picker-header($material-light);
 }
 
-@include theme(dark, 'date-picker-header') {
-    @include date-picker-header($material-dark);
+@include theme(dark, 'v-date-picker-header') {
+    @include v-date-picker-header($material-dark);
 }
 
-.date-picker-header {
-    padding: 4px 16px;
+.v-date-picker-header {
     align-items: center;
     display: flex;
     justify-content: space-between;
+    padding: 0.25rem 1rem;
     position: relative;
-    .btn {
+
+    .v-btn {
         margin: 0;
         z-index: auto;
     }
-    .icon {
+
+    .v-icon {
         cursor: pointer;
         user-select: none;
     }
 }
 
-.date-picker-header__value {
+.v-date-picker-header__value {
     flex: 1;
-    text-align: center;
-    position: relative;
     overflow: hidden;
+    position: relative;
+    text-align: center;
+
     strong {
         cursor: pointer;
-        transition: $primary-transition;
         display: block;
+        transition: $primary-transition;
         width: 100%;
     }
 }

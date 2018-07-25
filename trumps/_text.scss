@@ -18,3 +18,37 @@
         }
     }
 }
+
+@each $name, $weight in $font-weights {
+    .font-weight {
+        &-#{$name} {
+            font-weight: $weight !important;
+        }
+    }
+}
+
+.font-italic {
+    font-style: italic !important;
+}
+
+.text-capitalize {
+    text-transform: capitalize !important;
+}
+
+.text-lowercase {
+    text-transform: lowercase !important;
+}
+
+.text-uppercase {
+    text-transform: uppercase !important;
+}
+
+.text-no-wrap {
+    white-space: nowrap !important;
+}
+
+.text-truncate {
+    overflow: hidden !important;
+    text-overflow: ellipsis !important;
+    white-space: nowrap !important;
+}

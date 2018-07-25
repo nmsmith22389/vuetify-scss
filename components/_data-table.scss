@@ -2,95 +2,75 @@
 @import '../bootstrap';
 @import '../theme';
 
-/* Theme */
-@mixin datatable($material) {
+// Theme
+@mixin v-datatable($material) {
     thead {
-        th.column.sortable {
+        .column.sortable {
             i {
-                color: rgba(
-                    map-get($material, fg-color),
-                    map-get($material, disabledORhints-text-percent)
-                );
+                color: rgba(map-get($material, fg-color), map-get($material, disabledORhints-text-percent));
             }
+
             &:hover {
-                color: rgba(
-                    map-get($material, fg-color),
-                    map-get($material, primary-text-percent)
-                );
+                color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
             }
+
             &.active {
-                color: rgba(
-                    map-get($material, fg-color),
-                    map-get($material, primary-text-percent)
-                );
+                color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
+
                 i {
-                    color: rgba(
-                        map-get($material, fg-color),
-                        map-get($material, primary-text-percent)
-                    );
+                    color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
                 }
             }
         }
     }
-    .datatable__actions {
+
+    .v-datatable__actions {
         background-color: map-get($material, cards);
-        color: rgba(
-            map-get($material, fg-color),
-            map-get($material, secondary-text-percent)
-        );
-        border-top: 1px solid
-            rgba(
-                map-get($material, fg-color),
-                map-get($material, divider-percent)
-            );
-        &__select {
-            .input-group--select {
-                .input-group__selections__comma {
-                    color: rgba(
-                        map-get($material, fg-color),
-                        map-get($material, secondary-text-percent)
-                    ) !important;
-                }
-                .input-group__append-icon {
-                    color: rgba(
-                        map-get($material, fg-color),
-                        map-get($material, secondary-text-percent)
-                    ) !important;
-                }
-            }
-        }
+        border-top: 1px solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
+        color: rgba(map-get($material, fg-color), map-get($material, secondary-text-percent));
     }
 }
 
-@include theme(light, 'datatable') {
-    @include datatable($material-light);
+@include theme(light, 'v-datatable') {
+    @include v-datatable($material-light);
 }
 
-@include theme(dark, 'datatable') {
-    @include datatable($material-dark);
+@include theme(dark, 'v-datatable') {
+    @include v-datatable($material-dark);
 }
 
-.datatable {
+.v-datatable {
+    .v-input--selection-controls {
+        margin: 0;
+    }
+
     thead {
         th.column.sortable {
             cursor: pointer;
+            outline: 0;
+
             i {
-                font-size: 16px;
-                vertical-align: sub;
                 display: inline-block;
+                font-size: 1rem;
                 opacity: 0;
                 transition: 0.3s map-get($transition, swing);
+                vertical-align: sub;
             }
+
+            &:focus,
             &:hover {
                 i {
                     opacity: 0.6;
                 }
             }
+
             &.active {
                 transform: none;
+
                 i {
                     opacity: 1;
                 }
+
                 &.desc {
                     i {
                         transform: rotate(-180deg);
@@ -101,75 +81,91 @@
     }
 }
 
-/*Actions */
-.datatable__actions {
-    display: flex;
-    justify-content: flex-end;
+// Actions
+.v-datatable__actions {
     align-items: center;
-    font-size: 12px;
+    display: flex;
     flex-wrap: wrap-reverse;
-    .btn {
+    font-size: 0.75rem;
+    justify-content: flex-end;
+
+    .v-btn {
         color: inherit;
+
         &:last-of-type {
-            margin-left: 14px;
+            margin-left: 0.875rem;
         }
     }
+
     &__range-controls {
-        display: flex;
         align-items: center;
-        min-height: 48px;
+        display: flex;
+        min-height: 3rem;
     }
+
     &__pagination {
         display: block;
+        margin: 0 2rem 0 1.5rem;
         text-align: center;
-        margin: 0 32px 0 24px;
     }
+
     &__select {
-        display: flex;
         align-items: center;
-        justify-content: center;
-        margin-right: 14px;
-        .input-group--select {
-            margin: 13px 0 13px 34px;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0.875rem;
+        white-space: nowrap;
+
+        .v-select {
+            flex: 0 1 0;
+            margin: 0.8125rem 0 0.8125rem 2.125rem;
             padding: 0;
             position: initial;
-            .input-group__selections__comma {
-                font-size: 12px;
+
+            .v-select__selection--comma {
+                font-size: 0.75rem;
             }
         }
     }
 }
 
-.datatable__progress {
+.v-datatable__progress {
     height: auto !important;
+
     tr,
     td,
     th {
         height: auto !important;
     }
+
     th {
         padding: 0 !important;
-        .progress-linear {
-            top: -2px;
+
+        .v-progress-linear {
             margin: 0 0 -2px;
+            top: -2px;
         }
     }
 }
 
-.datatable__expand {
+.v-datatable__expand {
     &-row {
         border: none !important;
     }
+
     &-col {
-        padding: 0 !important;
         height: 0 !important;
+        padding: 0 !important;
+
         &--expanded {
             border-bottom: 1px solid rgba(0, 0, 0, 0.12);
         }
     }
+
     &-content {
         transition: height $primary-transition;
-        > .card {
+
+        > .v-card {
             border-radius: 0;
             box-shadow: none;
         }

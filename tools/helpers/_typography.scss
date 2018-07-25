@@ -1,0 +1,9 @@
+// @import '../../settings/variables';
+
+@function font-weight($weight: regular) {
+    @return if(
+        map-has-key($font-weights, $weight),
+        map-get($font-weights, $weight),
+        map-get($font-weights, regular)
+    );
+}

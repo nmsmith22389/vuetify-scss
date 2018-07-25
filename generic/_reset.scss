@@ -1,4 +1,4 @@
-// stylelint-disable declaration-no-important, property-no-vendor-prefix, font-weight-notation, no-duplicate-selectors
+// stylelint-disable selector-no-vendor-prefix, property-no-vendor-prefix, no-duplicate-selectors
 /* ! ress.css • v1.1.1 - MIT License - github.com/filipelinhares/ress */
 
 /* # =================================================================
@@ -26,8 +26,8 @@ html {
 /* Remove margin, padding of all elements and set background-no-repeat as default */
 * {
     background-repeat: no-repeat; /* Set `background-repeat: no-repeat` to all elements */
-    padding: 0; /* Reset `padding` and `margin` of all elements */
     margin: 0;
+    padding: 0; /* Reset `padding` and `margin` of all elements */
 }
 
 /* # =================================================================
@@ -201,8 +201,8 @@ button:-moz-focusring,
 [type='button']::-moz-focus-inner,
 [type='reset']::-moz-focus-inner,
 [type='submit']::-moz-focus-inner {
-    outline: 0;
     border: 0;
+    outline: 0;
 }
 
 button,
@@ -292,9 +292,10 @@ video {
     [hidden~='screen'] {
         display: inherit;
     }
+
     [hidden~='screen']:not(:active):not(:focus):not(:target) {
-        position: absolute !important;
         clip: rect(0 0 0 0) !important;
+        position: absolute !important;
     }
 }
 

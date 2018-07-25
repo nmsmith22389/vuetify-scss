@@ -2,25 +2,26 @@
 @import '../bootstrap';
 @import '../theme';
 
-@mixin footer($material) {
+@mixin v-footer($material) {
     background: map-get($material, app-bar);
-    color: map-get(map-get($material, text), primary);
+    color: map-deep-get($material, text, primary);
 }
 
-@include theme(light, 'footer') {
-    @include footer($material-light);
+@include theme(light, 'v-footer') {
+    @include v-footer($material-light);
 }
 
-@include theme(dark, 'footer') {
-    @include footer($material-dark);
+@include theme(dark, 'v-footer') {
+    @include v-footer($material-dark);
 }
 
-.footer {
+.v-footer {
     align-items: center;
     display: flex;
-    flex: 0 1 auto !important;
+    flex: 0 1 auto !important; // Don't let devs break their code
     min-height: $footer-height;
     transition: 0.2s map-get($transition, fast-out-slow-in);
+
     &--absolute,
     &--fixed {
         bottom: 0;
@@ -28,12 +29,15 @@
         width: 100%;
         z-index: 3;
     }
+
     &--inset {
         z-index: 2;
     }
+
     &--absolute {
         position: absolute;
     }
+
     &--fixed {
         position: fixed;
     }

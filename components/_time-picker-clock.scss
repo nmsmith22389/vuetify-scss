@@ -2,97 +2,99 @@
 @import '../bootstrap';
 @import '../theme';
 
-/** Themes */
-@mixin time-picker-clock($material) {
-    background: map-get(map-get($material, picker), clock);
+// Theme
+@mixin v-time-picker-clock($material) {
+    background: map-deep-get($material, picker, clock);
 
     > span.disabled {
-        color: map-get(map-get($material, buttons), disabled);
+        color: map-deep-get($material, buttons, disabled);
 
         &.active {
-            color: map-get(map-get($material-dark, buttons), disabled);
+            color: map-deep-get($material-dark, buttons, disabled);
         }
     }
 
     &--indeterminate {
-        .time-picker-clock__hand {
-            background-color: map-get(
-                map-get($material, picker),
+        .v-time-picker-clock__hand {
+            background-color: map-deep-get(
+                $material,
+                picker,
                 indeterminateTime
             );
 
-            &:after {
-                color: map-get(map-get($material, picker), indeterminateTime);
+            &::after {
+                color: map-deep-get($material, picker, indeterminateTime);
             }
         }
 
         > span.active {
-            background-color: map-get(
-                map-get($material, picker),
+            background-color: map-deep-get(
+                $material,
+                picker,
                 indeterminateTime
             );
         }
     }
 }
 
-@include theme(light, 'time-picker-clock') {
-    @include time-picker-clock($material-light);
+@include theme(light, 'v-time-picker-clock') {
+    @include v-time-picker-clock($material-light);
 }
 
-@include theme(dark, 'time-picker-clock') {
-    @include time-picker-clock($material-dark);
+@include theme(dark, 'v-time-picker-clock') {
+    @include v-time-picker-clock($material-dark);
 }
 
-.time-picker-clock {
+.v-time-picker-clock {
     border-radius: 100%;
     position: relative;
     transition: $primary-transition;
     user-select: none;
 
     &__container {
-        display: flex;
         align-items: center;
+        display: flex;
         justify-content: center;
-        padding: 10px;
+        padding: 0.625rem;
     }
 
     &__hand {
-        height: calc(50% - 28px);
-        width: 2px;
         bottom: 50%;
+        height: calc(50% - 1.75rem);
         left: calc(50% - 1px);
-        transform-origin: center bottom;
         position: absolute;
+        transform-origin: center bottom;
+        width: 2px;
         will-change: transform;
         z-index: 1;
 
-        &:before {
+        &::before {
             background: transparent;
-            border-width: 2px;
-            border-style: solid;
             border-color: inherit;
             border-radius: 100%;
-            width: 10px;
-            height: 10px;
+            border-style: solid;
+            border-width: 2px;
             content: '';
+            height: 0.625rem;
+            left: 50%;
             position: absolute;
             top: -3%;
-            left: 50%;
             transform: translate(-50%, -50%);
+            width: 0.625rem;
         }
 
-        &:after {
-            content: '';
-            position: absolute;
-            height: 8px;
-            width: 8px;
-            top: 100%;
-            left: 50%;
+        &::after {
+            background-color: inherit;
+            border-color: inherit;
             border-radius: 100%;
             border-style: solid;
-            border-color: inherit;
-            background-color: inherit;
+            content: '';
+            height: 0.5rem;
+            left: 50%;
+            position: absolute;
+            top: 100%;
             transform: translate(calc(-50%, - 1px), -50%);
+            width: 0.5rem;
         }
     }
 
@@ -102,31 +104,31 @@
         cursor: default;
         display: flex;
         font-size: $time-picker-number-font-size;
+        height: $time-picker-indicator-size;
         justify-content: center;
         left: calc(50% - #{$time-picker-indicator-size} / 2);
-        height: $time-picker-indicator-size;
         position: absolute;
         text-align: center;
         top: calc(50% - #{$time-picker-indicator-size} / 2);
-        width: $time-picker-indicator-size;
         user-select: none;
+        width: $time-picker-indicator-size;
 
         > span {
             z-index: 1;
         }
 
-        &:before,
-        &:after {
-            content: '';
+        &::before,
+        &::after {
             border-radius: 100%;
+            content: '';
+            // height: 0.875rem;
+            // width: 0.875rem;
+            height: $time-picker-indicator-size;
+            left: 50%;
             position: absolute;
             top: 50%;
-            left: 50%;
-            // height: 14px;
-            // width: 14px;
-            height: $time-picker-indicator-size;
-            width: $time-picker-indicator-size;
             transform: translate(-50%, -50%);
+            width: $time-picker-indicator-size;
         }
 
         &.active {

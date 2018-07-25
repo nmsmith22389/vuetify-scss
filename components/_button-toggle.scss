@@ -1,62 +1,57 @@
 @import '../bootstrap';
 @import '../theme';
 
-/** Themes */
-
-@mixin btn-toggle($material) {
+// Theme
+@mixin v-btn-toggle($material) {
     background: map-get($material, cards);
 
-    .btn {
-        color: map-get(map-get($material, text), primary);
+    .v-btn {
+        color: map-deep-get($material, text, primary);
 
-        &.btn--active:not(:last-child):not([data-only-child]) {
-            border-right-color: map-get(map-get($material, buttons), disabled);
+        &.v-btn--active:not(:last-child):not([data-only-child]) {
+            border-right-color: map-deep-get($material, buttons, disabled);
         }
     }
 }
 
-@include theme(light, 'btn-toggle') {
-    @include btn-toggle($material-light);
+@include theme(light, 'v-btn-toggle') {
+    @include v-btn-toggle($material-light);
 }
 
-@include theme(dark, 'btn-toggle') {
-    @include btn-toggle($material-dark);
+@include theme(dark, 'v-btn-toggle') {
+    @include v-btn-toggle($material-dark);
 }
 
-.btn-toggle {
-    display: inline-flex;
+.v-btn-toggle {
     border-radius: 2px;
+    display: inline-flex;
     transition: $primary-transition;
     will-change: background, box-shadow;
 
-    .btn {
-        justify-content: center;
-        min-width: auto;
-        width: auto;
-        padding: 0 8px;
-        margin: 0;
-        opacity: 0.4;
+    .v-btn {
         border-radius: 0;
+        justify-content: center;
+        margin: 0;
+        min-width: auto;
+        opacity: 0.4;
+        padding: 0 0.5rem;
+        width: auto;
 
         &:not(:last-child) {
             border-right: 1px solid transparent;
         }
 
-        &:after {
+        &::after {
             display: none;
         }
 
-        &.btn--active {
+        &.v-btn--active {
             opacity: 1;
         }
 
-        &__content {
-            padding: 0;
-        }
-
-        span + .icon {
+        span + .v-icon {
             font-size: initial;
-            margin-left: 10px;
+            margin-left: 0.625rem;
         }
 
         &:first-child {

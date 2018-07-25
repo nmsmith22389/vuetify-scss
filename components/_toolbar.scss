@@ -2,98 +2,121 @@
 @import '../bootstrap';
 @import '../theme';
 
-/* Theme */
-@mixin toolbar($material) {
+// Theme
+@mixin v-toolbar($material) {
     background-color: map-get($material, app-bar);
-    color: map-get(map-get($material, text), primary);
+    color: map-deep-get($material, text, primary);
 }
 
-@include theme(light, 'toolbar') {
-    @include toolbar($material-light);
+@include theme(light, 'v-toolbar') {
+    @include v-toolbar($material-light);
 }
 
-@include theme(dark, 'toolbar') {
-    @include toolbar($material-dark);
+@include theme(dark, 'v-toolbar') {
+    @include v-toolbar($material-dark);
 }
 
-@mixin toolbar-content($left) {
-    .toolbar__content,
-    .toolbar__extension {
-        > *:first-child {
-            margin-left: $left;
+@mixin v-toolbar-content($direction) {
+    &.v-btn--icon {
+        margin-#{$direction}: -0.375rem;
+    }
+
+    &.v-menu .v-menu__activator,
+    &.v-tooltip span {
+        .v-btn {
+            margin-#{$direction}: 0;
         }
 
-        > *:last-child {
-            margin-right: $left;
+        .v-btn--icon {
+            margin-#{$direction}: -0.375rem;
         }
     }
+    margin-#{$direction}: 0;
 }
 
-.toolbar {
+.v-toolbar {
     @include bootable;
     @include elevation(4);
 
-    display: block;
     position: relative;
     width: 100%;
-    will-change: padding-left;
+    will-change: padding-left, padding-right;
 
-    .input-group--solo {
-        .input-group__details {
+    // TODO: Do we even need this?
+    .v-text-field--enclosed,
+    .v-text-field--box {
+        margin: 0;
+
+        .v-text-field__details {
             display: none;
         }
     }
 
-    .input-group--single-line:not(.input-group--solo) {
-        padding: 0;
-
-        label {
-            top: auto;
-        }
-    }
-
-    /** Children */
-    .tabs {
+    // Children
+    .v-tabs {
         width: 100%;
     }
 
     &__title {
-        font-size: map-get(map-get($headings, h6), size);
-        font-weight: map-get(map-get($headings, h6), weight);
-        letter-spacing: map-get(map-get($headings, h6), letter-spacing);
-        margin-left: 16px;
-        white-space: nowrap;
+        font-size: map-deep-get($headings, h6, size);
+        font-weight: map-deep-get($headings, h6, weight);
+        letter-spacing: map-deep-get($headings, h6, letter-spacing);
         overflow: hidden;
         text-overflow: ellipsis;
+        white-space: nowrap;
+
+        &:not(:first-child) {
+            margin-left: 1.25rem;
+        }
     }
 
     &__content,
     &__extension {
         align-items: center;
         display: flex;
+        padding: 0 map-get($grid-gutters, xl);
 
-        > .list {
+        .v-btn--icon {
+            margin: 0.375rem;
+        }
+
+        > *:first-child {
+            @include v-toolbar-content(left);
+        }
+
+        > *:last-child {
+            @include v-toolbar-content(right);
+        }
+
+        > .v-list {
             flex: 1 1 auto;
-            margin: 0 !important;
             max-height: 100%;
         }
 
-        > .btn:last-child,
-        > .menu:last-child {
-            margin-right: 8px;
+        > .v-list:first-child {
+            margin-left: -#{map-get($grid-gutters, xl)};
+
+            @media #{map-get($display-breakpoints, sm-and-down)} {
+                margin-left: -#{map-get($grid-gutters, lg)};
+            }
         }
 
-        > .btn:first-child,
-        > .menu:first-child {
-            margin-left: 8px;
+        > .v-list:last-child {
+            margin-right: -#{map-get($grid-gutters, xl)};
+
+            @media #{map-get($display-breakpoints, sm-and-down)} {
+                margin-right: -#{map-get($grid-gutters, lg)};
+            }
         }
 
-        > *:not(.btn):not(.menu):first-child:not(:only-child) {
-            margin-left: map-get($grid-gutters, lg);
+        @media #{map-get($display-breakpoints, sm-and-down)} {
+            padding: 0 map-get($grid-gutters, lg);
         }
+    }
 
-        > *:not(.btn):not(.menu):last-child:not(:only-child) {
-            margin-right: map-get($grid-gutters, lg);
+    &__extension {
+        > .v-toolbar__title {
+            margin-left: 4.5rem !important;
         }
     }
 
@@ -103,53 +126,45 @@
         max-width: 100%;
         padding: 0;
 
-        .btn {
+        .v-btn {
             align-items: stretch;
         }
 
-        .tooltip,
-        .tooltip > span {
+        .v-tooltip,
+        .v-tooltip > span {
             height: inherit;
         }
 
-        .btn,
-        .menu,
-        .menu__activator {
+        .v-btn,
+        .v-menu,
+        .v-menu__activator {
             height: inherit;
             margin: 0;
         }
     }
 
-    @media #{map-get($display-breakpoints, xs-only)} {
-        .toolbar__content,
-        .toolbar__extension {
-            > .btn:last-child {
-                margin-right: 17px;
-            }
+    // Types
+    .v-overflow-btn,
+    .v-btn-toggle {
+        @include elevation(0);
+    }
 
-            > .btn:first-child {
-                margin-left: 17px;
-            }
+    .v-input {
+        margin: 0;
+    }
 
-            > *:not(.btn):not(.menu):first-child:not(:only-child) {
-                margin-left: map-get($grid-gutters, xl);
-            }
-
-            > *:not(.btn):not(.menu):last-child:not(:only-child) {
-                margin-right: map-get($grid-gutters, xl);
+    .v-overflow-btn {
+        .v-input__control,
+        .v-input__slot {
+            &::before {
+                display: none;
             }
         }
     }
 
-    @media all and (max-width: map-get($grid-breakpoints, sm)) and (orientation: portrait) {
-        @include toolbar-content(7px);
-    }
-
-    /** Types */
     &--card {
-        border-radius: $card-border-radius $card-border-radius 0 0;
-
         @include elevation(0);
+        border-radius: $card-border-radius $card-border-radius 0 0;
     }
 
     &--fixed {
@@ -159,31 +174,22 @@
 
     &--fixed,
     &--absolute {
-        top: 0;
         left: 0;
+        top: 0;
     }
 
     &--absolute {
         position: absolute;
-
         z-index: 2;
     }
 
     &--floating {
         display: inline-flex;
-        margin: 16px;
+        margin: map-get($grid-gutters, lg);
         width: auto;
     }
 
     &--clipped {
         z-index: 3;
-    }
-
-    &--prominent {
-        @include toolbar-content(15px);
-    }
-
-    &--dense {
-        @include toolbar-content(7px);
     }
 }

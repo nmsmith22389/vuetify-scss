@@ -2,11 +2,12 @@
 @import '../bootstrap';
 @import '../theme';
 
-/* Themes */
+// Theme
 @mixin fa-icon($material) {
-    color: map-get(map-get($material, icons), active);
-    &.icon--disabled:not(.input-group__append-icon) {
-        color: map-get(map-get($material, icons), inactive) !important;
+    color: map-deep-get($material, icons, active);
+
+    &.v-icon--disabled {
+        color: map-deep-get($material, icons, inactive) !important;
     }
 }
 
@@ -19,15 +20,16 @@
 }
 
 .svg-inline--fa {
+    display: inline-block;
+    font-size: 1em;
     -moz-osx-font-smoothing: grayscale;
     -webkit-font-smoothing: antialiased;
-    display: inline-block;
     font-style: normal;
     font-variant: normal;
-    text-rendering: auto;
     line-height: 1;
+    text-rendering: auto;
 
-    &.icon--disabled {
+    &.v-icon--disabled {
         pointer-events: none;
     }
 
@@ -35,6 +37,38 @@
         &.fa-w-#{$width} {
             width: 0.0625em * $width;
         }
+    }
+
+    &.fa-pull-left {
+        margin-right: 0.3em;
+        width: auto;
+    }
+
+    &.fa-pull-right {
+        margin-left: 0.3em;
+        width: auto;
+    }
+
+    &.fa-border {
+        height: 1.5em;
+    }
+
+    &.fa-li {
+        width: 2em;
+    }
+
+    &.fa-fw {
+        width: 1.25em;
+    }
+
+    &.fa-stack-1x {
+        height: 1em;
+        width: 1em;
+    }
+
+    &.fa-stack-2x {
+        height: 2em;
+        width: 2em;
     }
 }
 
@@ -45,7 +79,7 @@ svg:not(:root).svg-inline--fa {
 //* Variables
 //* --------------------------
 
-$fa-font-size-base: 16px !default;
+$fa-font-size-base: 1rem !default;
 $fa-css-prefix: fa !default;
 $fa-version: '5.1.0' !default;
 $fa-border-color: #eeeeee !default;
@@ -200,10 +234,10 @@ $fa-li-width: 2em !default;
 
 .#{$fa-css-prefix}-li {
     left: -$fa-li-width;
+    line-height: inherit;
     position: absolute;
     text-align: center;
     width: $fa-li-width;
-    line-height: inherit;
 }
 
 //* Bordered & Pulled
@@ -218,6 +252,7 @@ $fa-li-width: 2em !default;
 .#{$fa-css-prefix}-pull-left {
     float: left;
 }
+
 .#{$fa-css-prefix}-pull-right {
     float: right;
 }
@@ -231,6 +266,7 @@ $fa-li-width: 2em !default;
     &.#{$fa-css-prefix}-pull-left {
         margin-right: 0.3em;
     }
+
     &.#{$fa-css-prefix}-pull-right {
         margin-left: 0.3em;
     }
@@ -271,9 +307,11 @@ $fa-li-width: 2em !default;
 .#{$fa-css-prefix}-rotate-90 {
     @include fa-icon-rotate(90deg, 1);
 }
+
 .#{$fa-css-prefix}-rotate-180 {
     @include fa-icon-rotate(180deg, 2);
 }
+
 .#{$fa-css-prefix}-rotate-270 {
     @include fa-icon-rotate(270deg, 3);
 }
@@ -281,9 +319,11 @@ $fa-li-width: 2em !default;
 .#{$fa-css-prefix}-flip-horizontal {
     @include fa-icon-flip(-1, 1, 0);
 }
+
 .#{$fa-css-prefix}-flip-vertical {
     @include fa-icon-flip(1, -1, 2);
 }
+
 .#{$fa-css-prefix}-flip-horizontal.#{$fa-css-prefix}-flip-vertical {
     @include fa-icon-flip(-1, -1, 2);
 }
@@ -346,6 +386,7 @@ $fa-li-width: 2em !default;
     position: absolute;
     width: 1px;
 }
+
 .sr-only-focusable {
     &:active,
     &:focus {

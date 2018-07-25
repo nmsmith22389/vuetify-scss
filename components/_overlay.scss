@@ -1,23 +1,26 @@
+// stylelint-disable declaration-no-important
 @import '../bootstrap';
 
-.overlay {
-    position: fixed;
-    top: 0;
-    left: 0;
-    right: 0;
+.v-overlay {
     bottom: 0;
+    left: 0;
     pointer-events: none;
+    position: fixed;
+    right: 0;
+    top: 0;
     // The overlay has a dynamically set
     // z-index, we want the transition
     // timing to affect its changing
     // https://github.com/vuetifyjs/vuetify/issues/2146
-    transition: 0.5s map-get($transition, swing);
+    transition: 0.3s map-get($transition, swing);
     // This is the standard index
     z-index: 5;
+
     &--absolute {
         position: absolute;
     }
-    &:before {
+
+    &::before {
         background-color: rgba(33, 33, 33, 1);
         bottom: 0;
         content: '';
@@ -35,10 +38,12 @@
         transition-delay: 150ms;
         width: 100%;
     }
+
     &--active {
         pointer-events: auto;
         touch-action: none;
-        &:before {
+
+        &::before {
             opacity: 0.46;
         }
     }

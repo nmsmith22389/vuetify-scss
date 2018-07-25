@@ -1,15 +1,21 @@
 @import '../bootstrap';
 @import '../theme';
 
-@mixin jumbotron($material) {
+@mixin v-jumbotron($material) {
     &__content {
-        color: map-get(map-get($material, text), primary);
+        color: map-deep-get($material, text, primary);
     }
 }
 
-// theme(jumbotron, 'jumbotron')
+@include theme(light, 'v-jumbotron') {
+    @include v-jumbotron($material-light);
+}
 
-.jumbotron {
+@include theme(dark, 'v-jumbotron') {
+    @include v-jumbotron($material-dark);
+}
+
+.v-jumbotron {
     display: block;
     top: 0;
     transition: 0.3s map-get($transition, swing);
@@ -24,23 +30,23 @@
     }
 
     &__background {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
         bottom: 0;
         contain: strict;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
         transition: inherit;
     }
 
     &__image {
+        left: 50%;
+        min-width: 100%;
         position: absolute;
         top: 50%;
-        left: 50%;
         transform: translate(-50%, -50%);
-        min-width: 100%;
-        will-change: transform;
         transition: inherit;
+        will-change: transform;
     }
 
     &__content {

@@ -1,50 +1,29 @@
 @import '../bootstrap';
 @import '../theme';
 
-@mixin radiogroup($material) {
-    .input-group--selection-controls {
-        //
-    }
-}
-
-@include theme(light, 'radio-group') {
-    @include radiogroup($material-light);
-}
-
-@include theme(dark, 'radio-group') {
-    @include radiogroup($material-dark);
-}
-
-.radio-group {
-    .input-group__details {
-        &:before,
-        &:after {
-            display: none;
-        }
+.v-input--radio-group {
+    .v-radio {
+        margin-bottom: 0.5rem;
     }
 
-    .input-group {
-        padding: 0;
-    }
+    &__input {
+        display: flex;
+        width: 100%;
 
-    &--column {
-        .input-group__input {
-            display: block;
+        > .v-label {
+            padding-bottom: 0.5rem;
         }
     }
 
     &--row {
-        .input-group__input {
-            flex-direction: row;
+        .v-input--radio-group__input {
+            flex-flow: row wrap;
         }
     }
 
-    &.input-group--error {
-        .radio {
-            label,
-            .icon--selection-control {
-                color: inherit;
-            }
+    &--column {
+        .v-input--radio-group__input {
+            flex-direction: column;
         }
     }
 }

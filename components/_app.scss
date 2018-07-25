@@ -6,20 +6,24 @@
 .application {
     display: flex;
 
+    &--is-rtl {
+        direction: rtl;
+    }
+
     &--wrap {
-        flex: 1 1 auto;
         backface-visibility: hidden;
         display: flex;
+        flex: 1 1 auto;
         flex-direction: column;
-        min-height: 100vh;
         max-width: 100%;
+        min-height: 100vh;
         position: relative;
     }
 }
 
 @mixin application($material) {
     background: map-get($material, background);
-    color: map-get(map-get($material, text), primary);
+    color: map-deep-get($material, text, primary);
 
     a {
         cursor: pointer;
@@ -27,15 +31,15 @@
 
     .text {
         &--primary {
-            color: map-get(map-get($material, text), primary) !important;
+            color: map-deep-get($material, text, primary) !important;
         }
 
         &--secondary {
-            color: map-get(map-get($material, text), secondary) !important;
+            color: map-deep-get($material, text, secondary) !important;
         }
 
         &--disabled {
-            color: map-get(map-get($material, text), disabled) !important;
+            color: map-deep-get($material, text, disabled) !important;
         }
     }
 }

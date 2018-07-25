@@ -2,40 +2,41 @@
 @import '../bootstrap';
 @import '../theme';
 
-/* Theme */
-@mixin system-bar($material) {
-    background-color: map-get(map-get($material, status-bar), regular);
-    color: map-get(map-get($material, text), secondary);
+// Theme
+@mixin v-system-bar($material) {
+    background-color: map-deep-get($material, status-bar, regular);
+    color: map-deep-get($material, text, secondary);
 
-    .icon {
-        color: map-get(map-get($material, text), secondary);
+    .v-icon {
+        color: map-deep-get($material, text, secondary);
     }
 
     &--lights-out {
-        background-color: map-get(
-            map-get($material, status-bar),
+        background-color: map-deep-get(
+            $material,
+            status-bar,
             lights-out
         ) !important;
     }
 }
 
-@include theme(light, 'system-bar') {
-    @include system-bar($material-light);
+@include theme(light, 'v-system-bar') {
+    @include v-system-bar($material-light);
 }
 
-@include theme(dark, 'system-bar') {
-    @include system-bar($material-dark);
+@include theme(dark, 'v-system-bar') {
+    @include v-system-bar($material-dark);
 }
 
-.system-bar {
+.v-system-bar {
     align-items: center;
     display: flex;
-    font-size: map-get(map-get($headings, body-2), size);
-    font-weight: map-get(map-get($headings, body-2), weight);
-    padding: 0 8px;
+    font-size: map-deep-get($headings, body-2, size);
+    font-weight: map-deep-get($headings, body-2, weight);
+    padding: 0 0.5rem;
 
-    .icon {
-        font-size: map-get(map-get($headings, subheading), size);
+    .v-icon {
+        font-size: map-deep-get($headings, subheading, size);
     }
 
     &--fixed,
@@ -55,15 +56,15 @@
     }
 
     &--status {
-        .icon {
-            margin-right: 4px;
+        .v-icon {
+            margin-right: 0.25rem;
         }
     }
 
     &--window {
-        .icon {
-            font-size: map-get(map-get($headings, h6), size);
-            margin-right: 8px;
+        .v-icon {
+            font-size: map-deep-get($headings, h6, size);
+            margin-right: 0.5rem;
         }
     }
 }

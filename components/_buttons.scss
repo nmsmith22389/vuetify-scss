@@ -1,222 +1,227 @@
 // stylelint-disable declaration-no-important
 @import '../bootstrap';
-@import '../components/_ripples';
+@import '../components/ripples';
 @import '../theme';
 
 @mixin button($material) {
-    color: map-get(map-get($material, text), primary);
+    color: map-deep-get($material, text, primary);
 
-    &.btn--disabled {
-        color: map-get(map-get($material, buttons), disabled) !important;
+    &.v-btn--disabled {
+        color: map-deep-get($material, buttons, disabled) !important;
 
-        .icon {
-            color: map-get(map-get($material, buttons), disabled) !important;
+        .v-icon,
+        .v-btn__loading {
+            color: map-deep-get($material, buttons, disabled) !important;
         }
 
-        &:not(.btn--icon):not(.btn--flat) {
-            background-color: map-get(
-                map-get($material, buttons),
+        &:not(.v-btn--icon):not(.v-btn--flat) {
+            background-color: map-deep-get(
+                $material,
+                buttons,
                 focused
             ) !important;
         }
     }
 
-    &:not(.btn--icon):not(.btn--flat) {
-        background-color: map-get($material, app-ba);
+    &:not(.v-btn--icon):not(.v-btn--flat) {
+        background-color: map-get($material, app-bar);
     }
 }
 
-@include theme(light, 'btn') {
+@include theme(light, 'v-btn') {
     @include button($material-light);
 }
 
-@include theme(dark, 'btn') {
+@include theme(dark, 'v-btn') {
     @include button($material-dark);
 }
 
-/** Base Spec */
-.btn {
+// Base Spec
+.v-btn {
     align-items: center;
     border-radius: $button-border-radius;
     display: inline-flex;
-    height: $button-height;
-    flex: 0 1 auto;
+    flex: 0 0 auto;
     font-size: $button-font-size;
     font-weight: $button-font-weight;
+    height: $button-height;
     justify-content: center;
     margin: $button-margin;
     min-width: $button-min-width;
     outline: 0;
-    text-transform: $button-text-transform;
-    text-decoration: none;
-    transition: 0.3s map-get($transition, swin), color 1ms;
     position: relative;
-    vertical-align: middle;
+    text-decoration: none;
+    text-transform: $button-text-transform;
+    transition: $primary-transition, color 1ms;
     user-select: none;
+    vertical-align: middle;
 }
 
-/*Psuedo */
+// Psuedo
 // stylelint-disable-next-line
-.btn {
-    &__content:before {
+.v-btn {
+    &::before {
         border-radius: inherit;
         color: inherit;
         content: '';
-        position: absolute;
-        left: 0;
-        top: 0;
         height: 100%;
+        left: 0;
         opacity: 0.12;
+        position: absolute;
+        top: 0;
         transition: $primary-transition;
         width: 100%;
     }
 }
 
-/*Sizes */
+// Content
 // stylelint-disable-next-line
-.btn {
-    &--small {
-        font-size: $button-small-font-size;
-        height: $button-small-height;
-        .btn__content {
-            padding: $button-small-padding;
-        }
-    }
-    &--large {
-        font-size: $button-large-font-size;
-        height: $button-large-height;
-        .btn__content {
-            padding: $button-large-padding;
-        }
-    }
-}
+.v-btn {
+    padding: $button-padding;
 
-/*Content */
-// stylelint-disable-next-line
-.btn {
     &--active,
     &:hover,
     &:focus {
-        .btn__content:before {
+        position: relative;
+
+        &::before {
             background-color: currentColor;
         }
     }
+
     &__content {
         align-items: center;
         border-radius: inherit;
         color: inherit;
         display: flex;
-        height: inherit;
         flex: 1 0 auto;
+        height: inherit;
         justify-content: center;
         margin: 0 auto;
-        padding: $button-padding;
+        // Fixes bug where IE11 moves
+        // button content when clicked
+        // https://stackoverflow.com/questions/10305658/prevent-button-from-shifting-during-click-in-ie
+        position: relative;
         transition: $primary-transition;
         white-space: nowrap;
         width: inherit;
     }
 }
 
-/*Icons */
-.btn .btn__content .icon {
+// Sizes
+// stylelint-disable-next-line
+.v-btn {
+    &--small {
+        font-size: $button-small-font-size;
+        height: $button-small-height;
+        padding: $button-small-padding;
+    }
+
+    &--large {
+        font-size: $button-large-font-size;
+        height: $button-large-height;
+        padding: $button-large-padding;
+    }
+}
+
+// Icons
+.v-btn .v-btn__content .v-icon {
     color: inherit;
 }
 
-/*Types */
+// Types
 // stylelint-disable-next-line
-.btn {
-    &--flat {
-        background-color: transparent !important;
-        box-shadow: none !important;
-    }
-    &:not(.btn--depressed) {
+.v-btn {
+    &:not(.v-btn--depressed):not(.v-btn--flat) {
         @include elevation(2);
         will-change: box-shadow;
 
         &:active {
             @include elevation(8);
         }
-
-        // Fixes bug where IE11 moves
-        // button content when clicked
-        // https://stackoverflow.com/questions/10305658/prevent-button-from-shifting-during-click-in-ie
-        &:active,
-        &:focus {
-            .btn__content {
-                position: relative;
-                top: 0;
-                left: 0;
-            }
-        }
     }
+
     &--icon {
         background: transparent;
-        box-shadow: none !important;
         border-radius: 50%;
+        box-shadow: none !important;
         justify-content: center;
         min-width: 0;
         width: $button-height;
-        &.btn--small {
+
+        &.v-btn--small {
             width: $button-small-height;
         }
-        &.btn--large {
+
+        &.v-btn--large {
             width: $button-large-height;
         }
-        .btn__content:before {
+
+        &::before {
             border-radius: 50%;
         }
     }
+
     &--floating {
         border-radius: 50%;
-        min-width: 0;
         height: $button-floating-width;
-        width: $button-floating-width;
+        min-width: 0;
         padding: 0;
-        &.btn--fixed,
-        &.btn--absolute {
+        width: $button-floating-width;
+
+        &.v-btn--fixed,
+        &.v-btn--absolute {
             z-index: 4;
         }
-        &:not(.btn--depressed) {
+
+        &:not(.v-btn--depressed):not(.v-btn--flat) {
             @include elevation(6);
+
             &:active {
                 @include elevation(12);
             }
         }
-        &:after {
+
+        &::after {
             border-radius: 50%;
         }
-        .btn__content {
+
+        .v-btn__content {
             flex: 1 1 auto;
             margin: 0;
-            padding: 0;
 
-            &:not(:only-child) {
+            :not(:only-child) {
                 transition: $primary-transition;
+
                 &:first-child {
                     opacity: 1;
                 }
+
                 &:last-child {
                     opacity: 0;
                     transform: rotate(-45deg);
                 }
+
                 &:last-child,
                 &:first-child {
                     // https://stackoverflow.com/questions/14729492/css3-transform-rotate-causing-1px-shift-in-chrome
                     // -webkit-backface-visibility: hidden;
                     backface-visibility: hidden; // unprefixed of above
-                    position: absolute;
                     left: 0;
+                    position: absolute;
                     top: 0;
                 }
             }
         }
-        &.btn--active {
-            .btn__content {
-                &:not(:only-child) {
+
+        &.v-btn--active {
+            .v-btn__content {
+                :not(:only-child) {
                     &:first-child {
                         opacity: 0;
                         transform: rotate(45deg);
                     }
+
                     &:last-child {
                         opacity: 1;
                         transform: rotate(0);
@@ -224,110 +229,136 @@
                 }
             }
         }
-        .icon {
+
+        .v-icon {
             height: inherit;
             width: inherit;
         }
-        &.btn--small {
+
+        &.v-btn--small {
             height: $button-floating-small-width;
             width: $button-floating-small-width;
-            .icon {
+
+            .v-icon {
                 font-size: $button-floating-small-icon-width;
             }
         }
-        &.btn--large {
+
+        &.v-btn--large {
             height: $button-floating-large-width;
             width: $button-floating-large-width;
-            .icon {
+
+            .v-icon {
                 font-size: $button-floating-large-icon-width;
             }
         }
     }
+
     &--reverse {
-        .btn__content {
+        .v-btn__content {
             flex-direction: row-reverse;
         }
-        &.btn--column {
-            .btn__content {
+
+        &.v-btn--column {
+            .v-btn__content {
                 flex-direction: column-reverse;
             }
         }
     }
+
     &--fixed,
     &--absolute {
         margin: 0;
     }
-    // Position must have prepended .btn
+
+    // Position must have prepended .v-btn
     // to account for tooltip
     // TODO: Remove this once tooltips are
     // converted to elements
-    &.btn--absolute {
+    &.v-btn--absolute {
         position: absolute;
     }
-    &.btn--fixed {
+
+    &.v-btn--fixed {
         position: fixed;
     }
+
     &--top {
-        &:not(.btn--absolute) {
-            top: map-get($grid-gutters, l);
+        &:not(.v-btn--absolute) {
+            top: map-get($grid-gutters, lg);
         }
-        &.btn--absolute {
+
+        &.v-btn--absolute {
             top: -($button-floating-width / 2);
-            &.btn--small {
+
+            &.v-btn--small {
                 top: -($button-floating-small-width / 2);
             }
-            &.btn--large {
+
+            &.v-btn--large {
                 top: -($button-floating-large-width / 2);
             }
         }
     }
+
     &--bottom {
-        &:not(.btn--absolute) {
-            bottom: map-get($grid-gutters, l);
+        &:not(.v-btn--absolute) {
+            bottom: map-get($grid-gutters, lg);
         }
-        &.btn--absolute {
+
+        &.v-btn--absolute {
             bottom: -($button-floating-width / 2);
-            &.btn--small {
+
+            &.v-btn--small {
                 bottom: -($button-floating-small-width / 2);
             }
-            &.btn--large {
+
+            &.v-btn--large {
                 bottom: -($button-floating-large-width / 2);
             }
         }
     }
+
     &--left {
-        left: map-get($grid-gutters, l);
+        left: map-get($grid-gutters, lg);
     }
+
     &--right {
-        right: map-get($grid-gutters, l);
+        right: map-get($grid-gutters, lg);
     }
 }
 
-/*Disabled */
+// Disabled
 // stylelint-disable-next-line
-.btn {
-    &.btn--disabled {
+.v-btn {
+    &.v-btn--disabled {
         box-shadow: none !important;
         pointer-events: none;
     }
-}
 
-// stylelint-disable-next-line
-.btn--icon {
-    .btn__content {
-        padding: 0;
+    &:not(.v-btn--disabled):not(.v-btn--floating):not(.v-btn--icon) {
+        .v-btn__content .v-icon {
+            transition: none;
+        }
     }
 }
 
-/*Loader */
 // stylelint-disable-next-line
-.btn {
+.v-btn--icon {
+    padding: 0;
+}
+
+// Loader
+// stylelint-disable-next-line
+.v-btn {
     &--loader {
         pointer-events: none;
-        .btn__content {
+
+        .v-btn__content {
             opacity: 0;
         }
     }
+
     &__loading {
         align-items: center;
         display: flex;
@@ -337,60 +368,67 @@
         position: absolute;
         top: 0;
         width: 100%;
-        .icon {
+
+        .v-icon {
             &--left {
+                line-height: inherit;
                 margin-right: 1rem;
-                line-height: inherit;
             }
+
             &--right {
-                margin-left: 1rem;
                 line-height: inherit;
+                margin-left: 1rem;
             }
         }
     }
 }
 
-/*Custom Buttons */
+// Custom Buttons
 // stylelint-disable-next-line
-.btn {
-    &.btn--outline {
-        border: 1px solid currentColor;
+.v-btn {
+    &.v-btn--outline {
         background: transparent !important;
+        border: 1px solid currentColor;
         box-shadow: none;
+
         &:hover {
             box-shadow: none;
         }
     }
+
     &--block {
         display: flex;
         flex: 1;
         margin: $button-margin-y 0;
         width: 100%;
     }
+
     &--round {
         border-radius: 28px;
-        &:after {
+
+        &::after {
             border-radius: 28px;
         }
     }
 }
 
-/*Button w/ directional Icon */
+// Button w/ directional Icon
 // stylelint-disable-next-line
-.btn {
-    .icon {
+.v-btn {
+    .v-icon {
         &--right {
-            margin-left: 16px;
+            margin-left: 1rem;
         }
+
         &--left {
-            margin-right: 16px;
+            margin-right: 1rem;
         }
     }
 }
 
-/*Themes */
+// Theme
 // stylelint-disable-next-line
-.btn {
+.v-btn {
     &.primary,
     &.secondary,
     &.accent,
@@ -398,6 +436,6 @@
     &.error,
     &.warning,
     &.info {
-        color: map-get(map-get($material-dark, text), primary);
+        color: map-deep-get($material-dark, text, primary);
     }
 }

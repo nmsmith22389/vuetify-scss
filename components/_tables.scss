@@ -1,10 +1,10 @@
 @import '../bootstrap';
 @import '../theme';
 
-/* Theme */
-@mixin table($material) {
+// Theme
+@mixin v-table($material) {
     background-color: map-get($material, cards);
-    color: map-get(map-get($material, text), primary);
+    color: map-deep-get($material, text, primary);
 
     thead {
         tr {
@@ -36,11 +36,11 @@
             }
 
             &[active] {
-                background: map-get(map-get($material, table), active);
+                background: map-deep-get($material, table, active);
             }
 
-            &:hover:not(.datatable__expand-row) {
-                background: map-get(map-get($material, table), hover);
+            &:hover:not(.v-datatable__expand-row) {
+                background: map-deep-get($material, table, hover);
             }
         }
     }
@@ -56,28 +56,28 @@
     }
 }
 
-@include theme(light, 'table') {
-    @include table($material-light);
+@include theme(light, 'v-table') {
+    @include v-table($material-light);
 }
 
-@include theme(dark, 'table') {
-    @include table($material-dark);
+@include theme(dark, 'v-table') {
+    @include v-table($material-dark);
 }
 
-.table {
+.v-table {
     &__overflow {
-        width: 100%;
         overflow-x: auto;
         overflow-y: hidden;
+        width: 100%;
     }
 }
 
-table.table {
-    border-radius: 2px;
+table.v-table {
     border-collapse: collapse;
+    border-radius: 2px;
     border-spacing: 0;
-    width: 100%;
     max-width: 100%;
+    width: 100%;
 
     thead,
     tbody {
@@ -85,22 +85,22 @@ table.table {
         th {
             &:not(:nth-child(1)),
             &:first-child {
-                padding: 0 24px;
+                padding: 0 1.5rem;
             }
         }
     }
 
     thead {
         tr {
-            height: 56px;
+            height: 3.5rem;
         }
 
         th {
-            font-weight: 500;
-            font-size: 12px;
+            font-size: 0.75rem;
+            font-weight: font-weight(medium);
             transition: 0.3s map-get($transition, swing);
-            white-space: nowrap;
             user-select: none;
+            white-space: nowrap;
 
             &.sortable {
                 pointer-events: auto;
@@ -120,29 +120,29 @@ table.table {
 
         td,
         th {
-            height: 48px;
+            height: 3rem;
         }
 
         td {
-            font-weight: 400;
-            font-size: 13px;
+            font-size: 0.8125rem;
+            font-weight: font-weight(regular);
         }
     }
 
-    .input-group--selection-controls {
+    .v-input--selection-controls {
         padding: 0;
 
-        .input-group__details {
+        .v-input__details {
             display: none;
         }
 
         &.checkbox {
-            .icon {
+            .v-icon {
                 left: 50%;
                 transform: translateX(-50%);
             }
 
-            .input-group--selection-controls__ripple {
+            .v-input--selection-controls__ripple {
                 left: 50%;
                 transform: translate(-50%, -50%);
             }
@@ -151,10 +151,10 @@ table.table {
 
     tfoot {
         tr {
-            height: 48px;
+            height: 3rem;
 
             td {
-                padding: 0 24px;
+                padding: 0 1.5rem;
             }
         }
     }

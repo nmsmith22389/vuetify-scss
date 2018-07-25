@@ -1,0 +1,9 @@
+@mixin rtl($name) {
+    .application {
+        &--is-rtl {
+            .#{$name} {
+                @content;
+            }
+        }
+    }
+}

@@ -1,26 +1,26 @@
-﻿@import '../bootstrap';
+@import '../bootstrap';
 @import '../theme';
 
-@mixin breadcrumbs($material) {
-    li.breadcrumbs__divider,
-    li:last-child .breadcrumbs__item,
-    li .breadcrumbs__item--disabled {
-        color: map-get(map-get($material, text), disabled);
+@mixin v-breadcrumbs($material) {
+    li.v-breadcrumbs__divider,
+    li:last-child .v-breadcrumbs__item,
+    li .v-breadcrumbs__item--disabled {
+        color: map-deep-get($material, text, disabled);
     }
 }
 
-@include theme(light, 'breadcrumbs') {
-    @include breadcrumbs($material-light);
+@include theme(light, 'v-breadcrumbs') {
+    @include v-breadcrumbs($material-light);
 }
-@include theme(dark, 'breadcrumbs') {
-    @include breadcrumbs($material-dark);
+@include theme(dark, 'v-breadcrumbs') {
+    @include v-breadcrumbs($material-dark);
 }
 
-.breadcrumbs {
+.v-breadcrumbs {
     align-items: center;
     display: flex;
-    flex-wrap: wrap;
     flex: $breadcrumbs-flex;
+    flex-wrap: wrap;
     list-style-type: none;
     margin: $breadcrumbs-margin;
     padding: $breadcrumbs-padding;
@@ -30,7 +30,7 @@
         display: inline-flex;
         font-size: $breadcrumbs-item-font-size;
 
-        .icon {
+        .v-icon {
             font-size: $breadcrumbs-item-large-font-size;
         }
 
@@ -48,7 +48,7 @@
         li {
             font-size: $breadcrumbs-item-large-font-size;
 
-            .icon {
+            .v-icon {
                 font-size: $breadcrumbs-item-large-font-size;
             }
         }

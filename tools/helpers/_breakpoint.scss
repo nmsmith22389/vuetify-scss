@@ -1,0 +1,26 @@
+// @import '../../settings/variables';
+
+@function breakpoint($value) {
+    $str: '';
+
+    @if map-has-key($display-breakpoints, $value) {
+        $str: map-get($display-breakpoints, $value);
+    } @else {
+        $str: map-get($display-breakpoints, small-and-up);
+        @warn 'breakpoint(): "#{$value}" is not defined in your $display-breakpoints setting.';
+    }
+
+    @return $str;
+}
+
+@mixin breakpoint($value) {
+    $str: breakpoint($value);
+
+    @if $str == '' {
+        @content;
+    } @else {
+        @media #{$str} {
+            @content;
+        }
+    }
+}

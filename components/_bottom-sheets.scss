@@ -1,16 +1,16 @@
 @import '../bootstrap';
 @import '../theme';
 
-.bottom-sheet.dialog {
+.v-bottom-sheet.v-dialog {
     align-self: flex-end;
     border-radius: 0;
     flex: 1 0 100%;
     margin: 0;
     min-width: 100%;
     overflow: visible;
-    transition: 0.4s map-get($transition, swing);
+    transition: 0.3s map-get($transition, fast-in-fast-out);
 
-    &.bottom-sheet--inset {
+    &.v-bottom-sheet--inset {
         max-width: 70%;
         min-width: 0;
 

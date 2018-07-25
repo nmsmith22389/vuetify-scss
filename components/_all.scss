@@ -1,5 +1,6 @@
 @import 'app';
 @import 'alerts';
+@import 'autocompletes';
 @import 'avatars';
 @import 'badges';
 @import 'bottom-navs';
@@ -11,6 +12,7 @@
 @import 'carousel';
 @import 'chips';
 @import 'content';
+@import 'counters';
 @import 'data-iterator';
 @import 'data-table';
 @import 'date-picker-header';
@@ -20,15 +22,19 @@
 @import 'dialogs';
 @import 'dividers';
 @import 'expansion-panel';
+@import 'fa-icons';
 @import 'footer';
+@import 'forms';
 @import 'grid';
 @import 'icons';
-@import 'fa-icons';
-@import 'input-groups';
+@import 'inputs';
 @import 'jumbotrons';
+@import 'labels';
 @import 'lists';
 @import 'menus';
+@import 'messages';
 @import 'navigation-drawer';
+@import 'overflow-buttons';
 @import 'overlay';
 @import 'pagination';
 @import 'parallax';
@@ -36,6 +42,8 @@
 @import 'progress-circular';
 @import 'progress-linear';
 @import 'radio-group';
+@import 'radios';
+@import 'range-sliders';
 @import 'ripples';
 @import 'select';
 @import 'selection-controls';
@@ -50,6 +58,7 @@
 @import 'tables';
 @import 'tabs';
 @import 'text-fields';
+@import 'textarea';
 @import 'time-picker-clock';
 @import 'time-picker-title';
 @import 'toolbar';

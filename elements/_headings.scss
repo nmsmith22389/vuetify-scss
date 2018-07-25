@@ -1,7 +1,7 @@
 @import '../theme';
 
 @mixin heading($material) {
-    color: map-get(map-get($material, text), primary);
+    color: map-deep-get($material, text, primary);
 }
 
 @include theme(light, 'heading') {

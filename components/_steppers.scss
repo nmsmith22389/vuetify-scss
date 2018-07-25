@@ -2,12 +2,12 @@
 @import '../bootstrap';
 @import '../theme';
 
-@mixin stepper($material) {
+@mixin v-stepper($material) {
     background: map-get($material, bg-color);
 
-    .stepper__step {
-        &:not(.stepper__step--active):not(.stepper__step--complete):not(.stepper__step--error) {
-            .stepper__step__step {
+    .v-stepper__step {
+        &:not(.v-stepper__step--active):not(.v-stepper__step--complete):not(.v-stepper__step--error) {
+            .v-stepper__step__step {
                 background: rgba(
                     map-get($material, fg-color),
                     map-get($material, disabledORhints-text-percent)
@@ -16,15 +16,15 @@
         }
 
         &__step {
-            color: map-get(map-get($material, stepper), active);
+            color: map-deep-get($material, stepper, active);
 
-            .icon {
-                color: map-get(map-get($material, stepper), active);
+            .v-icon {
+                color: map-deep-get($material, stepper, active);
             }
         }
 
         &--active {
-            .stepper__label {
+            .v-stepper__label {
                 text-shadow: 0 0 0 rgba(map-get($material, fg-color), 1);
             }
         }
@@ -32,29 +32,29 @@
         &--editable:hover {
             background: rgba(map-get($material, fg-color), 0.06);
 
-            .stepper__label {
+            .v-stepper__label {
                 text-shadow: 0 0 0 rgba(map-get($material, fg-color), 1);
             }
         }
 
         &--complete {
-            .stepper__label {
-                color: map-get(map-get($material, stepper), completed);
+            .v-stepper__label {
+                color: map-deep-get($material, stepper, completed);
             }
         }
 
         &--inactive {
-            &.stepper__step--editable:not(.stepper__step--error) {
+            &.v-stepper__step--editable:not(.v-stepper__step--error) {
                 &:hover {
-                    .stepper__step__step {
-                        background: map-get(map-get($material, stepper), hover);
+                    .v-stepper__step__step {
+                        background: map-deep-get($material, stepper, hover);
                     }
                 }
             }
         }
     }
 
-    .stepper__header {
+    .v-stepper__header {
         .divider {
             background: rgba(
                 map-get($material, fg-color),
@@ -63,7 +63,7 @@
         }
     }
 
-    .stepper__label {
+    .v-stepper__label {
         color: rgba(
             map-get($material, fg-color),
             map-get($material, disabledORhints-text-percent)
@@ -78,8 +78,8 @@
     }
 
     &--non-linear {
-        .stepper__step:not(.stepper__step--complete):not(.stepper__step--error) {
-            .stepper__label {
+        .v-stepper__step:not(.v-stepper__step--complete):not(.v-stepper__step--error) {
+            .v-stepper__label {
                 color: rgba(
                     map-get($material, fg-color),
                     map-get($material, secondary-text-percent)
@@ -89,7 +89,7 @@
     }
 
     &--vertical {
-        .stepper__content:not(:last-child) {
+        .v-stepper__content:not(:last-child) {
             border-left: 1px solid
                 rgba(
                     map-get($material, fg-color),
@@ -99,54 +99,52 @@
     }
 }
 
-@include theme(light, 'stepper') {
-    @include stepper($material-light);
+@include theme(light, 'v-stepper') {
+    @include v-stepper($material-light);
 }
 
-@include theme(dark, 'stepper') {
-    @include stepper($material-dark);
+@include theme(dark, 'v-stepper') {
+    @include v-stepper($material-dark);
 }
 
-.stepper {
+.v-stepper {
+    @include elevation(2);
     overflow: hidden;
     position: relative;
 
-    @include elevation(2);
-
     &__header {
-        height: 72px;
+        @include elevation(2);
         align-items: stretch;
         display: flex;
         flex-wrap: wrap;
+        height: 4.5rem;
         justify-content: space-between;
 
-        @include elevation(2);
-
-        .divider {
+        .v-divider {
             align-self: center;
-            margin: 0 -16px;
+            margin: 0 -1rem;
         }
     }
 
     &__items {
-        position: relative;
         overflow: hidden;
+        position: relative;
     }
 
     &__step__step {
         align-items: center;
         border-radius: 50%;
         display: inline-flex;
-        font-size: 12px;
+        font-size: 0.75rem;
+        height: 1.5rem;
         justify-content: center;
-        height: 24px;
-        margin-right: 8px;
-        min-width: 24px;
-        width: 24px;
+        margin-right: 0.5rem;
+        min-width: 1.5rem;
         transition: 0.3s map-get($transition, fast-in-fast-out);
+        width: 1.5rem;
 
-        .icon {
-            font-size: 18px;
+        .v-icon {
+            font-size: 1.125rem;
         }
     }
 
@@ -154,11 +152,11 @@
         align-items: center;
         display: flex;
         flex-direction: row;
-        padding: 24px;
+        padding: 1.5rem;
         position: relative;
 
         &--active {
-            .stepper__label {
+            .v-stepper__label {
                 transition: 0.3s map-get($transition, ease-in-out);
             }
         }
@@ -167,21 +165,22 @@
             cursor: pointer;
         }
 
-        &.stepper__step--error {
-            .stepper__step__step {
+        &.v-stepper__step--error {
+            .v-stepper__step__step {
                 background: transparent;
                 color: inherit;
 
-                .icon {
-                    font-size: 24px;
+                .v-icon {
                     color: inherit;
+                    font-size: 1.5rem;
                 }
             }
 
-            .stepper__label {
+            .v-stepper__label {
                 color: inherit;
+                // stylelint-disable-next-line font-weight-notation
+                font-weight: font-weight(medium);
                 text-shadow: none;
-                font-weight: 500;
 
                 small {
                     color: inherit;
@@ -197,8 +196,9 @@
         text-align: left;
 
         small {
-            font-size: 12px;
-            font-weight: 300;
+            font-size: 0.75rem;
+            // stylelint-disable-next-line font-weight-notation
+            font-weight: font-weight(light);
             text-shadow: none;
         }
     }
@@ -209,10 +209,9 @@
     }
 
     &__content {
-        top: 0;
-        padding: 24px 24px 16px;
         flex: 1 0 auto;
-
+        padding: 1.5rem 1.5rem 1rem;
+        top: 0;
         // Chrome has an issue with overflow hidden for rendering
         // Originally used translateZ but this messes up fixed
         // elements within the stepper
@@ -220,71 +219,71 @@
         // overflow: hidden
         width: 100%;
 
-        > .btn {
-            margin: 24px 8px 8px 0;
+        > .v-btn {
+            margin: 1.5rem 0.5rem 0.5rem 0;
         }
     }
 
     &--is-booted {
-        .stepper__content,
-        .stepper__wrapper {
+        .v-stepper__content,
+        .v-stepper__wrapper {
             transition: 0.3s map-get($transition, swing);
         }
     }
 
     &--vertical {
-        padding-bottom: 36px;
+        padding-bottom: 2.25rem;
 
-        .stepper__content {
-            margin: (-8px) -36px -16px 36px;
-            padding: 16px 60px 16px 23px;
+        .v-stepper__content {
+            margin: -0.5rem -2.25rem -1rem 2.25rem;
+            padding: 1rem 3.75rem 1rem 1.4375rem;
             width: auto;
         }
 
-        .stepper__step {
-            padding: 24px 24px 16px;
+        .v-stepper__step {
+            padding: 1.5rem 1.5rem 1rem;
         }
 
-        .stepper__step__step {
-            margin-right: 12px;
+        .v-stepper__step__step {
+            margin-right: 0.75rem;
         }
     }
 
     &--alt-labels {
-        .stepper__header {
+        .v-stepper__header {
             height: auto;
 
-            .divider {
-                margin: 35px -67px 0;
+            .v-divider {
                 align-self: flex-start;
+                margin: 2.1875rem -4.1875rem 0;
             }
         }
 
-        .stepper__step {
+        .v-stepper__step {
+            align-items: center;
+            flex-basis: 10.9375rem;
             flex-direction: column;
             justify-content: flex-start;
-            align-items: center;
-            flex-basis: 175px;
 
             small {
                 align-self: center;
             }
         }
 
-        .stepper__step__step {
+        .v-stepper__step__step {
+            margin-bottom: 0.6875rem;
             margin-right: 0;
-            margin-bottom: 11px;
         }
     }
 }
 
 @media #{map-get($display-breakpoints, sm-and-down)} {
-    .stepper:not(.stepper--vertical) {
-        .stepper__label {
+    .v-stepper:not(.v-stepper--vertical) {
+        .v-stepper__label {
             display: none;
         }
 
-        .stepper__step__step {
+        .v-stepper__step__step {
             margin-right: 0;
         }
     }

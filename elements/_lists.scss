@@ -1,7 +1,9 @@
-.browser-list {
-    padding-left: map-get(map-get($spacers, four), x);
+ul,
+ol {
+    padding-left: map-deep-get($spacers, four, x);
 
-    &--unstyled {
-        list-style-type: none;
-    }
+    // TODO: Do I need?
+    // &--unstyled {
+    //     list-style-type: none;
+    // }
 }

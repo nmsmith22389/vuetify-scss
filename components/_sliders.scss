@@ -1,277 +1,327 @@
 @import '../bootstrap';
 @import '../theme';
 
-/* Theme */
-@mixin slider($material) {
-    label {
-        color: map-get(map-get($material, text), secondary);
+// Theme
+@mixin v-slider($material) {
+    .v-slider__track,
+    .v-slider__track-fill {
+        background: map-deep-get($material, slider, inactive);
     }
 
-    .slider__track,
-    .slider__track-fill {
-        background: map-get(map-get($material, slider), inactive);
-    }
-
-    .slider__track__container {
-        &:after {
-            border: 1px solid map-get(map-get($material, text), primary);
+    .v-slider__track__container {
+        &::after {
+            border: 1px solid map-deep-get($material, text, primary);
         }
     }
 
-    .slider__tick {
-        border: 1px solid map-get(map-get($material, text), primary);
+    .v-slider__ticks {
+        border-color: map-deep-get($material, text, primary);
+        color: map-deep-get($material, text, secondary);
     }
 
-    &:not(.input-group--dirty) {
-        .slider__thumb--label {
-            background: map-get(map-get($material, slider), inactive);
+    &:not(.v-input--is-dirty) {
+        .v-slider__thumb-label {
+            background: map-deep-get($material, slider, inactive);
         }
 
-        .slider__thumb {
-            border: 3px solid map-get(map-get($material, slider), inactive);
+        .v-slider__thumb {
+            border: 3px solid map-deep-get($material, slider, inactive);
         }
 
-        &:focus {
-            .slider__thumb {
-                border: 3px solid map-get(map-get($material, slider), active);
+        &.v-input--slider--is-active {
+            .v-slider__thumb {
+                border: 3px solid map-deep-get($material, slider, active);
             }
         }
     }
 
-    &.input-group--disabled {
-        .slider__thumb {
-            background: none;
-            border: 3px solid map-get(map-get($material, slider), disabled);
+    &.v-input--is-disabled {
+        .v-slider__thumb {
+            border: 5px solid map-deep-get($material, slider, disabled);
         }
     }
 
-    &.input-group--disabled.input-group--dirty {
-        .slider__thumb {
-            background: map-get(map-get($material, slider), disabled);
-            border: 0 solid transparent;
+    &.v-input--is-disabled.v-input--is-dirty {
+        .v-slider__thumb {
+            background: map-deep-get($material, slider, disabled);
         }
     }
 
-    &:focus {
-        .slider__track {
-            background: map-get(map-get($material, slider), active);
+    &.v-input--slider--is-active {
+        .v-slider__track {
+            background: map-deep-get($material, slider, active);
         }
     }
 }
 
-@include theme(light, 'input-group--slider') {
-    @include slider($material-light);
+@mixin v-slider-rtl {
+    .v-label {
+        margin-left: 1rem;
+        margin-right: 0;
+    }
 }
 
-@include theme(dark, 'input-group--slider') {
-    @include slider($material-dark);
+@include theme(light, 'v-input--slider') {
+    @include v-slider($material-light);
 }
 
-/** Input Group */
-.input-group.input-group--slider {
-    flex-flow: row wrap;
+@include theme(dark, 'v-input--slider') {
+    @include v-slider($material-dark);
+}
 
-    // Allow for right space if inline with other inputs
-    padding-right: 16px;
+@include rtl('v-input--slider') {
+    @include v-slider-rtl;
+}
 
-    .input-group__details:before,
-    .input-group__details:after {
-        display: none;
+// Input Group
+.v-input--slider {
+    &:not(.v-input--slider--thumb-label) {
+        margin-top: 0;
     }
 
-    .input-group__input {
-        flex: 1 1 100%;
-    }
-
-    label {
-        flex: 0 1 auto;
-        width: auto;
-        align-items: center;
-        display: inline-flex;
-        font-size: 18px;
-        transform: none;
-
-        + .input-group__input {
-            margin-left: 16px;
-            flex: 1 0 auto;
-        }
-    }
-
-    &.input-group--active {
-        .slider__thumb {
-            transform: translateY(-50%) scale(1.2);
-        }
-
-        .slider__track {
-            transition: none;
-        }
-
-        .slider__thumb-container {
-            &--label {
-                .slider__thumb {
-                    transform: translateY(-50%) scale(0);
-
-                    &:hover {
-                        transform: translateY(-50%) scale(0);
-                    }
-                }
+    &.v-input--is-focused {
+        .v-slider__thumb-container--is-active:not(.v-slider__thumb-container--show-label) {
+            &::before {
+                opacity: 0.2;
+                transform: scale(1);
             }
         }
 
-        .slider__thumb-container,
-        .slider__track-fill {
+        .v-slider__track {
             transition: none;
         }
 
-        &.input-group--ticks {
-            .slider {
-                &__track__container:after,
-                &__tick {
+        &.v-input--slider--ticks {
+            .v-slider {
+                &__track__container::after,
+                .v-slider__tick {
                     opacity: 1;
                 }
             }
         }
     }
 
-    &.input-group--disabled {
+    &.v-input--slider--ticks {
+        .v-slider__ticks.v-slider__ticks--always-show {
+            opacity: 1;
+        }
+
+        &-labels {
+            .v-input__slot {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    &.v-input--is-readonly {
         pointer-events: none;
+    }
 
-        .slider__thumb {
-            transform: translateY(-50%) scale(0.5);
-            background: transparent;
+    &.v-input--is-disabled {
+        .v-slider__thumb {
+            transform: translateY(-50%) scale(0.45);
         }
 
-        &.input-group--dirty {
-            border-color: transparent;
+        &.v-input--is-dirty {
+            .v-slider__thumb {
+                border: 0 solid transparent;
+            }
         }
     }
 
-    &.input-group--prepend-icon {
-        .slider {
-            margin-left: 40px;
-        }
-    }
-
-    &.input-group--append-icon {
-        .slider {
-            margin-right: 40px;
-        }
+    .v-input__slot > *:first-child:not(:only-child) {
+        margin-right: 1rem;
     }
 }
 
-/** Slider */
-.slider {
+// Slider
+.v-slider {
+    align-items: center;
     cursor: default;
     display: flex;
-    align-items: center;
-    position: relative;
-    height: 30px;
     flex: 1;
+    height: 2rem;
+    outline: none;
+    position: relative;
     user-select: none;
 
-    /** Thumb/Track/Ticks */
+    input {
+        cursor: default;
+        opacity: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    // Thumb/Track/Ticks
     &__track__container {
+        height: 0.125rem;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
         position: absolute;
         top: 50%;
         transform: translateY(-50%);
-        height: 2px;
         width: 100%;
-        overflow: hidden;
 
-        &:after {
+        &::after {
             content: '';
+            height: 0.125rem;
+            opacity: 0;
             position: absolute;
             right: 0;
             top: 0;
-            height: 2px;
             transition: 0.3s map-get($transition, swing);
-            width: 2px;
-            opacity: 0;
+            width: 0.125rem;
         }
     }
 
     &__track,
     &__thumb,
-    &__tick {
+    &__ticks {
         position: absolute;
         top: 0;
     }
 
     &__track {
-        height: 2px;
+        height: 0.125rem;
         left: 0;
-        transition: 0.3s map-get($transition, swing);
-        transform-origin: right;
         overflow: hidden;
+        transform-origin: right;
+        transition: 0.3s map-get($transition, swing);
         width: 100%;
 
         &-fill {
-            position: absolute;
+            height: 0.125rem;
             left: 0;
-            height: 2px;
+            position: absolute;
             transform-origin: left;
-            width: 100%;
             transition: 0.3s map-get($transition, swing);
+            width: 100%;
         }
     }
 
     &__ticks-container {
-        position: absolute;
+        height: 0.125rem;
         left: 0;
-        height: 2px;
-        width: 100%;
+        position: absolute;
         top: 50%;
-        overflow: hidden;
+        transform: translate(0, -50%);
+        width: 100%;
     }
 
-    &__tick {
-        transition: 0.3s map-get($transition, swing);
+    &__ticks {
+        border-style: solid;
         opacity: 0;
+        transition: 0.3s map-get($transition, swing);
+
+        > span {
+            position: absolute;
+            top: 0.5rem;
+            transform: translateX(-50%);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        &:first-child > span {
+            transform: translateX(0);
+        }
+
+        &:last-child > span {
+            transform: translateX(-100%);
+        }
+    }
+
+    &:not(.v-input--is-dirty) {
+        .v-slider__ticks:first-child {
+            border-color: transparent;
+        }
     }
 
     &__thumb-container {
         position: absolute;
         top: 50%;
         transition: 0.3s map-get($transition, swing);
+
+        &::before {
+            background: currentColor;
+            border-radius: 50%;
+            color: inherit;
+            content: '';
+            height: 2rem;
+            left: -1rem;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: -1rem;
+            transform: scale(0.2);
+            transition: $ripple-animation-transition;
+            width: 2rem;
+            will-change: transform, opacity;
+        }
     }
 
     &__thumb {
-        width: 16px;
-        height: 16px;
-        left: -8px;
-        top: 50%;
-        border-radius: 50%;
         background: transparent;
+        border-radius: 50%;
+        height: 1.5rem;
+        left: -0.75rem;
+        top: 50%;
+        transform: translateY(-50%) scale(0.6);
         transition: 0.3s map-get($transition, swing);
-        transform: translateY(-50%) scale(0.8);
         user-select: none;
+        width: 1.5rem;
     }
 
-    /** Thumb Label */
-    &__thumb--label__container {
-        position: absolute;
+    // Thumb Label
+    &--is-active {
+        .v-slider__thumb-container--is-active {
+            .v-slider__thumb {
+                transform: translateY(-50%) scale(1);
+            }
+
+            &.v-slider__thumb-container--show-label {
+                .v-slider__thumb {
+                    transform: translateY(-50%) scale(0);
+                }
+            }
+        }
+
+        .v-slider__ticks-container {
+            .v-slider__ticks {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__thumb-label__container {
         left: 0;
+        position: absolute;
         top: 0;
-        transition: 0.3s ease-in-out;
+        transition: 0.3s map-get($transition, fast-in-fast-out);
     }
 
-    &__thumb--label {
-        display: flex;
+    &__thumb-label {
         align-items: center;
-        justify-content: center;
-        font-size: 12px;
-        color: #ffffff;
-        width: 28px;
-        height: 28px;
         border-radius: 50% 50% 0;
+        bottom: 100%;
+        color: #ffffff;
+        display: flex;
+        font-size: 0.75rem;
+        height: 2rem;
+        justify-content: center;
+        left: 0;
         position: absolute;
-        left: -14px;
-        top: -40px;
-        transform: rotate(45deg);
+        // Needed for IE11 which does not
+        // process translateY(calc(-20% - 0.75rem))
+        // or translate(-50%, calc(-20% - 0.75rem))
+        transform: translateY(-20%) translateY(-0.75rem) translateX(-50%)
+            rotate(45deg);
+        transition: 0.3s map-get($transition, fast-in-fast-out);
         user-select: none;
-        transition: 0.3s ease-in-out;
+        width: 2rem;
 
-        span {
+        > * {
             transform: rotate(-45deg);
         }
     }

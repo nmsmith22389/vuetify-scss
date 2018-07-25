@@ -1,99 +1,99 @@
 // stylelint-disable declaration-no-important
 @import '../bootstrap';
 
-.menu {
-    display: inline-block;
+.v-menu {
+    display: block;
     position: relative;
     vertical-align: middle;
-    &--disabled {
-        cursor: default;
-        .menu__activator,
-        .menu__activator > * {
-            cursor: default;
-            pointer-events: none;
-        }
+
+    &--inline {
+        display: inline-block;
     }
+
     &__activator {
         align-items: center;
         cursor: pointer;
-        height: inherit;
+        display: flex;
+        height: 100%;
         position: relative;
-        input[readonly] {
+
+        * {
             cursor: pointer;
         }
+
+        &--disabled {
+            pointer-events: none;
+        }
     }
+
     &__content {
-        position: absolute;
-        display: inline-block;
+        @include elevation(8);
         border-radius: 2px;
-        max-width: 80%;
-        overflow-y: auto;
-        overflow-x: hidden;
         contain: content;
+        display: inline-block;
+        max-width: 80%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
         // This is required for an issue on Chrome 65
         // that prevents scrolling after a menu is opened
         will-change: transform;
-        @include elevation(8);
+
         &--active {
             pointer-events: none;
         }
-        &--dropdown {
-            border-top-left-radius: 0;
-            border-top-right-radius: 0;
-            border-top: 1px solid map-get($material-light, dividers);
-        }
-        & > .card {
-            contain: content;
+
+        > .v-card {
             backface-visibility: hidden;
+            contain: content;
         }
     }
-    > .menu__content {
+
+    > .v-menu__content {
         max-width: none;
     }
+
     &-transition {
         &-enter {
-            .list__tile {
+            .v-list__tile {
                 min-width: 0;
-                transition-delay: 0.4s;
-                opacity: 0;
-                transform: translateY(-15px);
                 pointer-events: none;
             }
-            &.menu__content--auto {
-                .list__tile--active {
+
+            &.v-menu__content--auto {
+                .v-list__tile {
+                    opacity: 0;
+                    transform: translateY(-15px);
+                }
+
+                .v-list__tile--active {
                     opacity: 1;
-                    transform: none !important;
                     pointer-events: auto;
+                    transform: none !important;
                 }
             }
         }
+
         &-enter-to {
-            .list__tile {
+            .v-list__tile {
                 pointer-events: auto;
-                opacity: 1;
-            }
-            .list__tile--active {
-                transform: none !important;
+                transition-delay: 0.1s;
             }
         }
-        &-leave-to {
-            transform: translateY(-10px);
-        }
+
         &-leave-active,
         &-leave-to {
             pointer-events: none;
         }
+
         &-enter,
         &-leave-to {
             opacity: 0;
         }
-        &-enter-to,
-        &-leave {
-            opacity: 1;
-        }
+
         &-enter-active,
         &-leave-active {
-            transition: all 0.5s map-get($transition, swing);
+            transition: all 0.3s map-get($transition, fast-in-fast-out);
         }
     }
 }

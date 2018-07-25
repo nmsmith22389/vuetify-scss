@@ -1,22 +1,23 @@
+// stylelint-disable color-named
 code,
 kbd {
-    display: inline-block;
     border-radius: 3px;
-    white-space: pre-wrap;
+    display: inline-block;
     font-size: 85%;
-    font-weight: 900;
+    font-weight: font-weight(black);
+    white-space: pre-wrap;
 
-    &:after,
-    &:before {
+    &::after,
+    &::before {
         content: '\00a0';
         letter-spacing: -1px;
     }
 }
 
 code {
+    @include elevation(1);
     background-color: map-get($grey, lighten-4);
     color: #bd4147;
-    @include elevation(1);
 }
 
 kbd {

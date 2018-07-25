@@ -1,10 +1,10 @@
 // stylelint-disable declaration-no-important
 @import '../bootstrap';
 
-.alert {
+.v-alert {
     border-radius: $alert-border-radius;
-    border-width: $alert-border-width;
     border-style: solid;
+    border-width: $alert-border-width;
     color: #ffffff;
     display: flex;
     font-size: $alert-font-size;
@@ -13,14 +13,14 @@
     position: relative;
     transition: $primary-transition;
 
-    .alert__icon.icon,
-    &__dismissible .icon {
+    .v-alert__icon.v-icon,
+    &__dismissible .v-icon {
         align-self: center;
         color: $alert-icon-color;
         font-size: $alert-icon-font-size;
     }
 
-    &--outline .icon {
+    &--outline .v-icon {
         color: inherit !important;
     }
 
@@ -43,7 +43,7 @@
     }
 
     &--no-icon {
-        .alert__icon {
+        .v-alert__icon {
             display: none;
         }
     }
@@ -60,10 +60,10 @@
     }
 }
 
-// Double .alert is intended - it increases css specificity
+// Double .v-alert is intended - it increases css specificity
 // to properly set the border color where alert has set color
 // with modifier (for example "red lighten-2")
-.alert.alert {
+.v-alert.v-alert {
     border-color: map-get($material-light, dividers) !important;
 
     &--outline {

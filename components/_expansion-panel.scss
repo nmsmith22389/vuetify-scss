@@ -2,27 +2,36 @@
 @import '../bootstrap';
 @import '../theme';
 
-/*Theme */
-@mixin expansion-panel($material) {
-    .expansion-panel__container {
+// Theme
+@mixin v-expansion-panel($material) {
+    .v-expansion-panel__container {
+        background-color: map-get($material, cards);
         border-top: 1px solid
             rgba(
                 map-get($material, fg-color),
                 map-get($material, divider-percent)
             );
-        background-color: map-get($material, cards);
-        color: map-get(map-get($material, text), primary);
-        .expansion-panel__header {
-            .icon {
-                color: map-get(map-get($material, icons), active);
+        color: map-deep-get($material, text, primary);
+
+        .v-expansion-panel__header {
+            .v-expansion-panel__header__icon {
+                .v-icon {
+                    color: map-deep-get($material, icons, active);
+                }
             }
         }
+
+        &--disabled {
+            color: map-deep-get($material, text, disabled);
+        }
     }
+
     &--focusable {
-        .expansion-panel__container {
+        .v-expansion-panel__container {
             &:focus {
-                background-color: map-get(
-                    map-get($material, expansion-panels),
+                background-color: map-deep-get(
+                    $material,
+                    expansion-panels,
                     focus
                 );
             }
@@ -30,15 +39,16 @@
     }
 }
 
-@include theme(light, 'expansion-panel') {
-    @include expansion-panel($material-light);
+@include theme(light, 'v-expansion-panel') {
+    @include v-expansion-panel($material-light);
 }
 
-@include theme(dark, 'expansion-panel') {
-    @include expansion-panel($material-dark);
+@include theme(dark, 'v-expansion-panel') {
+    @include v-expansion-panel($material-dark);
 }
 
-.expansion-panel {
+.v-expansion-panel {
+    @include elevation(1);
     display: flex;
     flex-wrap: wrap;
     justify-content: center;
@@ -46,65 +56,80 @@
     padding: 0;
     text-align: left;
     width: 100%;
-    @include elevation(1);
+
     &__container {
         flex: 1 0 100%;
         max-width: 100%;
         outline: none;
-        transition: 0.3s map-get($transition, swing);
+        transition: $primary-transition;
+
         &:first-child {
             border-top: none !important;
         }
-        .header__icon {
+
+        .v-expansion-panel__header__icon {
             margin-left: auto;
-            .icon {
-                // Edge rendering issue TODO: revisit later
-                transition: none;
+        }
+
+        &--disabled {
+            .v-expansion-panel__header {
+                pointer-events: none;
             }
         }
+
         &--active {
-            > .expansion-panel__header {
-                .header__icon .icon {
+            > .v-expansion-panel__header {
+                .v-expansion-panel__header__icon .v-icon {
                     transform: rotate(-180deg);
                 }
             }
         }
     }
+
     &__header {
-        display: flex;
-        cursor: pointer;
         align-items: center;
+        cursor: pointer;
+        display: flex;
+        height: 3rem;
+        padding: 0.75rem 1.5rem;
         position: relative;
-        padding: 12px 24px;
-        > *:not(.header__icon) {
+
+        > *:not(.v-expansion-panel__header__icon) {
             flex: 1 1 auto;
         }
     }
+
     &__body {
         transition: $primary-transition;
-        .card {
-            border-radius: 0;
+
+        .v-card {
             @include elevation(0);
+            border-radius: 0;
         }
     }
+
     &--popout,
     &--inset {
         @include elevation(0);
-        .expansion-panel__container--active {
-            margin: map-get(map-get($spacers, three), x);
+
+        .v-expansion-panel__container--active {
             @include elevation(3);
+            margin: map-deep-get($spacers, three, x);
         }
-        .expansion-panel__container {
+
+        .v-expansion-panel__container {
             max-width: 95%;
         }
     }
+
     &--popout {
-        .expansion-panel__container--active {
+        .v-expansion-panel__container--active {
             max-width: 100%;
         }
     }
+
     &--inset {
-        .expansion-panel__container--active {
+        .v-expansion-panel__container--active {
             max-width: 85%;
         }
     }

@@ -13,24 +13,6 @@
         }
     }
 }
-// @mixin theme($component, $name) {
-// light($component, $name)
-// dark($component, $name)
-// }
-
-// @mixin light($component, $name) {
-//     .theme--light .#{$name},
-//     .application .theme--light.#{$name} {
-// $component($material-light)
-//     }
-// }
-
-// @mixin dark($component, $name) {
-//     .theme--dark .#{$name},
-//     .application .theme--dark.#{$name} {
-// $component($material-dark)
-//     }
-// }
 
 @mixin theme-light($name) {
     .theme--light .#{$name},
@@ -46,8 +28,11 @@
     }
 }
 
-// TODO: Get rid of default parameter for $name.
-@mixin theme($theme: light, $name: item) {
+@mixin theme($theme: light, $name: null) {
+    @if (not $name) or ($name == '') or ($name == 0) or ($name == ()) or (length($name) == 0) {
+        @error ('Name parameter expected for mixin: theme().');
+    }
+
     @if ($theme == light) {
         @include theme-light($name) {
             @content;

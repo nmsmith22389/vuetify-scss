@@ -1,15 +1,15 @@
 @import '../bootstrap';
 
-.snack {
-    position: fixed;
-    display: flex;
+.v-snack {
     align-items: center;
     color: $snackbar-color;
-    pointer-events: none;
-    z-index: 1000;
-    font-size: 14px;
+    display: flex;
+    font-size: 0.875rem;
     left: 0;
+    pointer-events: none;
+    position: fixed;
     right: 0;
+    z-index: 1000;
 
     &--absolute {
         position: absolute;
@@ -24,35 +24,34 @@
     }
 
     &__wrapper {
-        display: flex;
+        @include elevation(6);
         align-items: center;
         background-color: $snackbar-background-color;
+        display: flex;
         pointer-events: auto;
         width: 100%;
-
-        @include elevation(6);
     }
 
     &__content {
-        width: 100%;
-        height: 48px;
-        padding: 14px 24px;
-        display: flex;
         align-items: center;
+        display: flex;
+        height: 3rem;
         justify-content: space-between;
         overflow: hidden;
+        padding: 0.875rem 1.5rem;
+        width: 100%;
 
-        .btn {
+        .v-btn {
             color: $snackbar-color;
             flex: 0 0 auto;
-            margin: 0 0 0 24px;
             height: auto;
+            margin: 0 0 0 1.5rem;
             min-width: auto;
+            padding: 0.5rem;
             width: auto;
 
             &__content {
-                padding: 8px;
-                margin: -8px;
+                margin: -0.125rem;
 
                 &::before {
                     display: none;
@@ -62,27 +61,27 @@
     }
 
     &--multi-line &__content {
-        height: 80px;
-        padding: 24px;
+        height: 5rem;
+        padding: 1.5rem;
     }
 
     &--vertical &__content {
-        height: 112px;
-        padding: 24px 24px 14px;
-        flex-direction: column;
-
         // https://stackoverflow.com/questions/35111090/text-in-a-flex-container-doesnt-wrap-in-ie11
         align-items: stretch;
+        flex-direction: column;
+        height: 7rem;
+        padding: 1.5rem 1.5rem 0.875rem;
 
-        .btn {
-            &.btn {
+        .v-btn {
+            // specificity
+            &.v-btn {
                 justify-content: flex-end;
                 margin-left: 0;
-                margin-top: 24px;
+                margin-top: 1.5rem;
+                padding: 0;
             }
 
             &__content {
-                padding: 0;
                 flex: 0 0 auto;
                 margin: 0;
             }
@@ -95,19 +94,19 @@
 }
 
 @media #{map-get($display-breakpoints, sm-and-up)} {
-    .snack {
+    .v-snack {
         &__wrapper {
-            width: auto;
-            max-width: 568px;
-            min-width: 288px;
-            margin: 0 auto;
             border-radius: 2px;
+            margin: 0 auto;
+            max-width: 35.5rem;
+            min-width: 18rem;
+            width: auto;
 
-            .snack--left & {
+            .v-snack--left & {
                 margin-left: 0;
             }
 
-            .snack--right & {
+            .v-snack--right & {
                 margin-right: 0;
             }
         }
@@ -116,52 +115,52 @@
         &--right {
             margin: 0 $snackbar-corner-offset;
 
-            &.snack--top {
+            &.v-snack--top {
                 transform: translateY($snackbar-corner-offset);
             }
 
-            &.snack--bottom {
+            &.v-snack--bottom {
                 transform: translateY(0 - $snackbar-corner-offset);
             }
         }
 
-        &__content .btn:first-of-type {
-            margin-left: 48px;
+        &__content .v-btn:first-of-type {
+            margin-left: 3rem;
         }
     }
 }
 
-.snack-transition {
+.v-snack-transition {
     &-enter-active,
     &-leave-active {
         transition: transform 0.4s map-get($transition, swing);
 
-        .snack__content {
+        .v-snack__content {
             transition: opacity 0.3s linear 0.1s;
         }
     }
 
     &-enter {
-        .snack__content {
+        .v-snack__content {
             opacity: 0;
         }
     }
 
     &-enter-to,
     &-leave {
-        .snack__content {
+        .v-snack__content {
             opacity: 1;
         }
     }
 
     &-enter,
     &-leave-to {
-        &.snack.snack--top {
+        &.v-snack.v-snack--top {
             // Extra 8px to hide the bottom shadow
-            transform: translateY(calc(-100% - 8px));
+            transform: translateY(calc(-100% - 0.5rem));
         }
 
-        &.snack.snack--bottom {
+        &.v-snack.v-snack--bottom {
             transform: translateY(100%);
         }
     }

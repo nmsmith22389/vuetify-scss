@@ -39,8 +39,8 @@
 .dialog-transition {
     &-enter,
     &-leave-to {
-        transform: scale(0.5);
         opacity: 0;
+        transform: scale(0.5);
     }
 
     &-enter-to,
@@ -126,10 +126,6 @@
         transform: translate(100%, 0);
     }
 
-    &-enter-to {
-        transform: translate(0, 0);
-    }
-
     &-leave,
     &-leave-active {
         position: absolute;
@@ -149,8 +145,8 @@
 
     &-leave,
     &-leave-to {
-        top: 0;
         position: absolute;
+        top: 0;
         transform: translate(100%, 0);
     }
 }
@@ -170,6 +166,24 @@
     }
 }
 
+.message-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    &-leave,
+    &-leave-active {
+        position: absolute;
+    }
+}
+
 .slide-y-transition {
     &-enter-active,
     &-leave-active {
@@ -179,7 +193,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateY(-15px);
+        transform: translateY(-1rem);
     }
 }
 
@@ -192,7 +206,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateY(15px);
+        transform: translateY(1rem);
     }
 }
 
@@ -205,7 +219,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateX(-15px);
+        transform: translateX(-1rem);
     }
 }
 
@@ -218,7 +232,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateX(15px);
+        transform: translateX(1rem);
     }
 }
 

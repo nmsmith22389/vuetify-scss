@@ -1,0 +1,26 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-label($material) {
+    color: map-deep-get($material, text, secondary);
+
+    &--is-disabled {
+        color: map-deep-get($material, text, disabled);
+    }
+}
+
+@include theme(light, 'v-label') {
+    @include v-label($material-light);
+}
+
+@include theme(dark, 'v-label') {
+    @include v-label($material-dark);
+}
+
+.v-label {
+    font-size: 1rem;
+    line-height: 1;
+    min-height: 0.5rem;
+    transition: 0.3s map-get($transition, swing);
+}

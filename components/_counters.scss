@@ -1,0 +1,23 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-counter($material) {
+    color: map-deep-get($material, text, secondary);
+}
+
+@include theme(light, 'v-counter') {
+    @include v-counter($material-light);
+}
+
+@include theme(dark, 'v-counter') {
+    @include v-counter($material-dark);
+}
+
+.v-counter {
+    flex: 0 1 auto;
+    font-size: 0.75rem;
+    line-height: 1;
+    min-height: 0.75rem;
+}

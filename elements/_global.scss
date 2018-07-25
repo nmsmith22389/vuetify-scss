@@ -1,10 +1,15 @@
 html {
     font-size: $font-size-root;
-    overflow-x: hidden;
-    text-rendering: optimizeLegibility;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
     -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-size: map-deep-get($headings, body-1, size);
+    font-weight: map-deep-get($headings, body-1, weight);
 }
 
 .application {
