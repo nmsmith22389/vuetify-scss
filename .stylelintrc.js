@@ -1,177 +1,78 @@
 module.exports = {
-    "plugins": [
-        "stylelint-scss"
-    ],
-    "rules": {
-        /**
-         *! ***************
-         *! Possible Errors
-         *! ***************
-         */
-        //* Color
-        "color-no-invalid-hex": true,
+    extends: 'stylelint-config-sass-guidelines',
+    rules: {
+        'declaration-property-value-blacklist': null,
+        indentation: [4, { ignore: 'value' }],
+        'max-nesting-depth': null,
+        'function-parentheses-space-inside': 'never-single-line',
+
+        //! Make sure this actually works... othewise just get rid of it.
+        // "selector-class-pattern": "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
+        'selector-class-pattern': null,
+
+        'selector-max-compound-selectors': null,
+        //! I would prefer not to have this but vuetify does use some tag selectors. :(
+        'selector-no-qualifying-type': null,
+
+        'scss/at-mixin-pattern': null,
+
+        // ---- FROM OLD .stylelintrc.js ----
+        //* Function
+        'function-calc-no-unspaced-operator': true,
+        'function-linear-gradient-no-nonstandard-direction': true,
 
         //* Font Family
-        "font-family-no-duplicate-names": true,
-        "font-family-no-missing-generic-family-keyword": true,
-
-        //* Function
-        "function-calc-no-unspaced-operator": true,
-        "function-linear-gradient-no-nonstandard-direction": true,
+        'font-family-no-duplicate-names': true,
+        'font-family-no-missing-generic-family-keyword': true,
 
         //* String
-        "string-no-newline": true,
+        'string-no-newline': true,
 
         //* Unit
-        "unit-no-unknown": true,
-
-        //* Property
-        "property-no-unknown": true,
+        'unit-no-unknown': true,
 
         //* Keyframe Declaration
-        "keyframe-declaration-no-important": true,
+        'keyframe-declaration-no-important': true,
 
         //* Declaration Block
-        "declaration-block-no-duplicate-properties": true,
-        "declaration-block-no-shorthand-property-overrides": true,
-
-        //* Block
-        "block-no-empty": true,
+        'declaration-block-no-duplicate-properties': true,
+        'declaration-block-no-shorthand-property-overrides': true,
 
         //* Selector
-        "selector-pseudo-class-no-unknown": true,
-        "selector-pseudo-element-no-unknown": true,
-        "selector-type-no-unknown": true,
+        'selector-pseudo-class-no-unknown': true,
+        'selector-type-no-unknown': true,
 
         //* Media Feature
-        "media-feature-name-no-unknown": true,
-
-        //* At-Rule
-        // "at-rule-no-unknown": true,
+        'media-feature-name-no-unknown': true,
 
         //* Comment
-        "comment-no-empty": true,
+        'comment-no-empty': true,
 
         //* General / Sheet
-        "no-descending-specificity": null,
-        "no-duplicate-at-import-rules": true,
-        "no-duplicate-selectors": true,
-        "no-empty-source": true,
-        "no-extra-semicolons": true,
-        "no-invalid-double-slash-comments": true,
-
-        /**
-         *! ***************
-         *! Limit Language Features
-         *! ***************
-         */
-        //* Color
-        "color-named": "never",
+        'no-duplicate-at-import-rules': true,
+        'no-duplicate-selectors': true,
+        'no-empty-source': true,
+        'no-extra-semicolons': true,
+        'no-invalid-double-slash-comments': true,
 
         //* Function
-        "function-url-no-scheme-relative": true,
-
-        //* Shorthand Property
-        "shorthand-property-no-redundant-values": true,
-
-        //* Value
-        "value-no-vendor-prefix": true,
-
-        //* Property
-        "property-no-vendor-prefix": true,
+        'function-url-no-scheme-relative': true,
 
         //* Declaration
-        "declaration-block-no-redundant-longhand-properties": true,
-        "declaration-no-important": true,
-
-        //* Declaration Block
-        "declaration-block-single-line-max-declarations": 1,
+        'declaration-block-no-redundant-longhand-properties': true,
 
         //* General / Sheet
-        "no-unknown-animations": true,
+        'no-unknown-animations': true,
 
-        /**
-         *! ***************
-         *! Stylistic Issues
-         *! ***************
-         */
         //* Color
-        "color-hex-case": "lower",
-        "color-hex-length": "long",
-
-        //* Font Family
-        "font-family-name-quotes": "always-where-recommended",
-
-        //* Font Weight
-        "font-weight-notation": "numeric",
+        'color-hex-length': 'long',
 
         //* Function
-        "function-comma-newline-after": "always-multi-line",
-        "function-comma-space-after": "always-single-line",
-        "function-comma-space-before": "never",
-        "function-max-empty-lines": 0,
-        "function-name-case": "lower",
-        "function-parentheses-space-inside": "never-single-line",
-        "function-url-quotes": ["always", {"except": ["empty"]}],
-        "function-whitespace-after": "always",
-
-        //* Number
-        "number-leading-zero": "always",
-        "number-no-trailing-zeros": true,
-
-        //* String
-        "string-quotes": "single",
-
-        //* Length
-        "length-zero-no-unit": [true, {"ignore": ["custom-properties"]}],
-
-        //* Unit
-        "unit-case": "lower",
-
-        //* Value
-        "value-keyword-case": ["lower", {ignoreProperties: ["/font/"]}],
-
-        //* Value List
-        // "": true,
-
-        //* Custom Property
-        // "": true,
-
-        //* Property
-        // "": true,
-
-        //* Declaration
-        // "": true,
-
-        //* Declaration Block
-        // "": true,
-
-        //* Block
-        // "": true,
-
-        //* Selector
-        // "": true,
-
-        //* Selector List
-        // "": true,
-
-        //* Rule
-        // "": true,
-
-        //* Media Feature
-        // "": true,
-
-        //* Media Query List
-        // "": true,
-
-        //* At-Rule
-        // "": true,
-
-        //* Comment
-        // "": true,
-
-        //* General / Sheet
-        // "": true,
-
-    }
-}
+        'function-comma-newline-after': 'always-multi-line',
+        'function-comma-space-before': 'never',
+        'function-max-empty-lines': 0,
+        'function-name-case': 'lower',
+        'function-url-quotes': ['always', { except: ['empty'] }],
+        'function-whitespace-after': 'always',
+    },
+};

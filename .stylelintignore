@@ -1,3 +1,4 @@
 node_modules/
-resources/assets/sass/_settings.scss
 public/css/
+dist/
+css/
