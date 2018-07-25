@@ -1,0 +1,84 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-dataiterator($material) {
+    .v-data-iterator__actions {
+        color: rgba(
+            map-get($material, fg-color),
+            map-get($material, secondary-text-percent)
+        );
+
+        &__select {
+            .v-select {
+                .v-select__selection--comma {
+                    color: rgba(
+                        map-get($material, fg-color),
+                        map-get($material, secondary-text-percent)
+                    ) !important;
+                }
+
+                .v-input__append-inner {
+                    color: rgba(
+                        map-get($material, fg-color),
+                        map-get($material, secondary-text-percent)
+                    ) !important;
+                }
+            }
+        }
+    }
+}
+
+@include theme(light, 'v-data-iterator') {
+    @include v-dataiterator($material-light);
+}
+
+@include theme(dark, 'v-data-iterator') {
+    @include v-dataiterator($material-dark);
+}
+
+// Actions
+.v-data-iterator__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    font-size: 0.75rem;
+    justify-content: flex-end;
+
+    .v-btn {
+        color: inherit;
+
+        &:last-of-type {
+            margin-left: 0.875rem;
+        }
+    }
+
+    &__range-controls {
+        align-items: center;
+        display: flex;
+        min-height: 3rem;
+    }
+
+    &__pagination {
+        display: block;
+        margin: 0 2rem 0 1.5rem;
+        text-align: center;
+    }
+
+    &__select {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        margin-right: 0.875rem;
+
+        .v-select {
+            margin: 0.8125rem 0 0.8125rem 2.125rem;
+            padding: 0;
+            position: initial;
+
+            .v-select__selection--comma {
+                font-size: 0.75rem;
+            }
+        }
+    }
+}

@@ -1,0 +1,57 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-small-dialog($material) {
+    &__content {
+        background: map-get($material, cards);
+    }
+
+    &__actions {
+        background: map-get($material, cards);
+    }
+
+    a {
+        color: rgba(
+            map-get($material, fg-color),
+            map-get($material, primary-text-percent)
+        );
+    }
+}
+
+@include theme(light, 'v-small-dialog') {
+    @include v-small-dialog($material-light);
+}
+
+@include theme(dark, 'v-small-dialog') {
+    @include v-small-dialog($material-dark);
+}
+
+.v-small-dialog {
+    display: block;
+    height: 100%;
+    width: 100%;
+
+    &__content {
+        padding: 0 1.5rem;
+    }
+
+    &__actions {
+        text-align: right;
+    }
+
+    a {
+        align-items: center;
+        display: flex;
+
+        height: 100%;
+        text-decoration: none;
+
+        > * {
+            width: 100%;
+        }
+    }
+
+    .menu__activator {
+        height: 100%;
+    }
+}

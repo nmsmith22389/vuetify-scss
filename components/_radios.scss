@@ -1,0 +1,36 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-radio($material) {
+    &--is-disabled {
+        label {
+            color: map-deep-get($material, text, disabled);
+        }
+
+        .v-icon {
+            // needed for helper override
+            color: map-deep-get($material, buttons, disabled) !important;
+        }
+    }
+}
+
+@include theme(light, 'v-radio') {
+    @include v-radio($material-light);
+}
+
+@include theme(dark, 'v-radio') {
+    @include v-radio($material-dark);
+}
+
+.v-radio {
+    align-items: center;
+    display: flex;
+    height: auto;
+    margin-right: 1rem;
+    outline: none;
+
+    &--is-disabled {
+        pointer-events: none;
+    }
+}

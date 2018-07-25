@@ -1,0 +1,144 @@
+// stylelint-disable value-keyword-case
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-time-picker-clock($material) {
+    background: map-deep-get($material, picker, clock);
+
+    > span.disabled {
+        color: map-deep-get($material, buttons, disabled);
+
+        &.active {
+            color: map-deep-get($material-dark, buttons, disabled);
+        }
+    }
+
+    &--indeterminate {
+        .v-time-picker-clock__hand {
+            background-color: map-deep-get(
+                $material,
+                picker,
+                indeterminateTime
+            );
+
+            &::after {
+                color: map-deep-get($material, picker, indeterminateTime);
+            }
+        }
+
+        > span.active {
+            background-color: map-deep-get(
+                $material,
+                picker,
+                indeterminateTime
+            );
+        }
+    }
+}
+
+@include theme(light, 'v-time-picker-clock') {
+    @include v-time-picker-clock($material-light);
+}
+
+@include theme(dark, 'v-time-picker-clock') {
+    @include v-time-picker-clock($material-dark);
+}
+
+.v-time-picker-clock {
+    border-radius: 100%;
+    position: relative;
+    transition: $primary-transition;
+    user-select: none;
+
+    &__container {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+        padding: 0.625rem;
+    }
+
+    &__hand {
+        bottom: 50%;
+        height: calc(50% - 1.75rem);
+        left: calc(50% - 1px);
+        position: absolute;
+        transform-origin: center bottom;
+        width: 2px;
+        will-change: transform;
+        z-index: 1;
+
+        &::before {
+            background: transparent;
+            border-color: inherit;
+            border-radius: 100%;
+            border-style: solid;
+            border-width: 2px;
+            content: '';
+            height: 0.625rem;
+            left: 50%;
+            position: absolute;
+            top: -3%;
+            transform: translate(-50%, -50%);
+            width: 0.625rem;
+        }
+
+        &::after {
+            background-color: inherit;
+            border-color: inherit;
+            border-radius: 100%;
+            border-style: solid;
+            content: '';
+            height: 0.5rem;
+            left: 50%;
+            position: absolute;
+            top: 100%;
+            transform: translate(calc(-50%, - 1px), -50%);
+            width: 0.5rem;
+        }
+    }
+
+    > span {
+        align-items: center;
+        border-radius: 100%;
+        cursor: default;
+        display: flex;
+        font-size: $time-picker-number-font-size;
+        height: $time-picker-indicator-size;
+        justify-content: center;
+        left: calc(50% - #{$time-picker-indicator-size} / 2);
+        position: absolute;
+        text-align: center;
+        top: calc(50% - #{$time-picker-indicator-size} / 2);
+        user-select: none;
+        width: $time-picker-indicator-size;
+
+        > span {
+            z-index: 1;
+        }
+
+        &::before,
+        &::after {
+            border-radius: 100%;
+            content: '';
+            // height: 0.875rem;
+            // width: 0.875rem;
+            height: $time-picker-indicator-size;
+            left: 50%;
+            position: absolute;
+            top: 50%;
+            transform: translate(-50%, -50%);
+            width: $time-picker-indicator-size;
+        }
+
+        &.active {
+            color: #ffffff;
+            cursor: default;
+            z-index: 2;
+        }
+
+        &.disabled {
+            pointer-events: none;
+        }
+    }
+}

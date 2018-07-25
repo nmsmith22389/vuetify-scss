@@ -1,0 +1,290 @@
+// stylelint-disable value-keyword-case
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-stepper($material) {
+    background: map-get($material, bg-color);
+
+    .v-stepper__step {
+        &:not(.v-stepper__step--active):not(.v-stepper__step--complete):not(.v-stepper__step--error) {
+            .v-stepper__step__step {
+                background: rgba(
+                    map-get($material, fg-color),
+                    map-get($material, disabledORhints-text-percent)
+                );
+            }
+        }
+
+        &__step {
+            color: map-deep-get($material, stepper, active);
+
+            .v-icon {
+                color: map-deep-get($material, stepper, active);
+            }
+        }
+
+        &--active {
+            .v-stepper__label {
+                text-shadow: 0 0 0 rgba(map-get($material, fg-color), 1);
+            }
+        }
+
+        &--editable:hover {
+            background: rgba(map-get($material, fg-color), 0.06);
+
+            .v-stepper__label {
+                text-shadow: 0 0 0 rgba(map-get($material, fg-color), 1);
+            }
+        }
+
+        &--complete {
+            .v-stepper__label {
+                color: map-deep-get($material, stepper, completed);
+            }
+        }
+
+        &--inactive {
+            &.v-stepper__step--editable:not(.v-stepper__step--error) {
+                &:hover {
+                    .v-stepper__step__step {
+                        background: map-deep-get($material, stepper, hover);
+                    }
+                }
+            }
+        }
+    }
+
+    .v-stepper__header {
+        .divider {
+            background: rgba(
+                map-get($material, fg-color),
+                map-get($material, divider-percent)
+            );
+        }
+    }
+
+    .v-stepper__label {
+        color: rgba(
+            map-get($material, fg-color),
+            map-get($material, disabledORhints-text-percent)
+        );
+
+        small {
+            color: rgba(
+                map-get($material, fg-color),
+                map-get($material, secondary-text-percent)
+            );
+        }
+    }
+
+    &--non-linear {
+        .v-stepper__step:not(.v-stepper__step--complete):not(.v-stepper__step--error) {
+            .v-stepper__label {
+                color: rgba(
+                    map-get($material, fg-color),
+                    map-get($material, secondary-text-percent)
+                );
+            }
+        }
+    }
+
+    &--vertical {
+        .v-stepper__content:not(:last-child) {
+            border-left: 1px solid
+                rgba(
+                    map-get($material, fg-color),
+                    map-get($material, divider-percent)
+                );
+        }
+    }
+}
+
+@include theme(light, 'v-stepper') {
+    @include v-stepper($material-light);
+}
+
+@include theme(dark, 'v-stepper') {
+    @include v-stepper($material-dark);
+}
+
+.v-stepper {
+    @include elevation(2);
+    overflow: hidden;
+    position: relative;
+
+    &__header {
+        @include elevation(2);
+        align-items: stretch;
+        display: flex;
+        flex-wrap: wrap;
+        height: 4.5rem;
+        justify-content: space-between;
+
+        .v-divider {
+            align-self: center;
+            margin: 0 -1rem;
+        }
+    }
+
+    &__items {
+        overflow: hidden;
+        position: relative;
+    }
+
+    &__step__step {
+        align-items: center;
+        border-radius: 50%;
+        display: inline-flex;
+        font-size: 0.75rem;
+        height: 1.5rem;
+        justify-content: center;
+        margin-right: 0.5rem;
+        min-width: 1.5rem;
+        transition: 0.3s map-get($transition, fast-in-fast-out);
+        width: 1.5rem;
+
+        .v-icon {
+            font-size: 1.125rem;
+        }
+    }
+
+    &__step {
+        align-items: center;
+        display: flex;
+        flex-direction: row;
+        padding: 1.5rem;
+        position: relative;
+
+        &--active {
+            .v-stepper__label {
+                transition: 0.3s map-get($transition, ease-in-out);
+            }
+        }
+
+        &--editable {
+            cursor: pointer;
+        }
+
+        &.v-stepper__step--error {
+            .v-stepper__step__step {
+                background: transparent;
+                color: inherit;
+
+                .v-icon {
+                    color: inherit;
+                    font-size: 1.5rem;
+                }
+            }
+
+            .v-stepper__label {
+                color: inherit;
+                // stylelint-disable-next-line font-weight-notation
+                font-weight: font-weight(medium);
+                text-shadow: none;
+
+                small {
+                    color: inherit;
+                }
+            }
+        }
+    }
+
+    &__label {
+        align-items: flex-start;
+        display: flex;
+        flex-direction: column;
+        text-align: left;
+
+        small {
+            font-size: 0.75rem;
+            // stylelint-disable-next-line font-weight-notation
+            font-weight: font-weight(light);
+            text-shadow: none;
+        }
+    }
+
+    &__wrapper {
+        overflow: hidden;
+        transition: none;
+    }
+
+    &__content {
+        flex: 1 0 auto;
+        padding: 1.5rem 1.5rem 1rem;
+        top: 0;
+        // Chrome has an issue with overflow hidden for rendering
+        // Originally used translateZ but this messes up fixed
+        // elements within the stepper
+        // Fix for #512 and #620
+        // overflow: hidden
+        width: 100%;
+
+        > .v-btn {
+            margin: 1.5rem 0.5rem 0.5rem 0;
+        }
+    }
+
+    &--is-booted {
+        .v-stepper__content,
+        .v-stepper__wrapper {
+            transition: 0.3s map-get($transition, swing);
+        }
+    }
+
+    &--vertical {
+        padding-bottom: 2.25rem;
+
+        .v-stepper__content {
+            margin: -0.5rem -2.25rem -1rem 2.25rem;
+            padding: 1rem 3.75rem 1rem 1.4375rem;
+            width: auto;
+        }
+
+        .v-stepper__step {
+            padding: 1.5rem 1.5rem 1rem;
+        }
+
+        .v-stepper__step__step {
+            margin-right: 0.75rem;
+        }
+    }
+
+    &--alt-labels {
+        .v-stepper__header {
+            height: auto;
+
+            .v-divider {
+                align-self: flex-start;
+                margin: 2.1875rem -4.1875rem 0;
+            }
+        }
+
+        .v-stepper__step {
+            align-items: center;
+            flex-basis: 10.9375rem;
+            flex-direction: column;
+            justify-content: flex-start;
+
+            small {
+                align-self: center;
+            }
+        }
+
+        .v-stepper__step__step {
+            margin-bottom: 0.6875rem;
+            margin-right: 0;
+        }
+    }
+}
+
+@media #{map-get($display-breakpoints, sm-and-down)} {
+    .v-stepper:not(.v-stepper--vertical) {
+        .v-stepper__label {
+            display: none;
+        }
+
+        .v-stepper__step__step {
+            margin-right: 0;
+        }
+    }
+}

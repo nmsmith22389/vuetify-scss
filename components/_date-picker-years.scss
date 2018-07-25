@@ -1,0 +1,33 @@
+@import '../bootstrap';
+
+.v-date-picker-years {
+    font-size: 1rem;
+    font-weight: font-weight(regular);
+    height: 20.875rem;
+    list-style-type: none;
+    overflow: auto;
+    padding: 0;
+    text-align: center;
+
+    li {
+        cursor: pointer;
+        padding: 0.5rem 0;
+        transition: none;
+
+        &.active {
+            font-size: 1.625rem;
+            font-weight: font-weight(medium);
+            padding: 0.625rem 0;
+        }
+
+        &:hover {
+            background: rgba(0, 0, 0, 0.12);
+        }
+    }
+}
+
+.v-picker--landscape {
+    .v-date-picker-years {
+        height: 17.875rem;
+    }
+}

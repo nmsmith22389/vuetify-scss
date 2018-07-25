@@ -1,0 +1,460 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-text-field($material) {
+    .v-input__slot::before {
+        border-color: map-get($material, input-bottom-line);
+    }
+
+    &:not(.v-input--has-state) {
+        .v-input__slot:hover::before {
+            border-color: map-deep-get($material, text, primary);
+        }
+    }
+
+    &.v-input--is-disabled {
+        .v-input__slot::before {
+            border-image: repeating-linear-gradient(
+                to right,
+                map-deep-get($material, text, disabled) 0,
+                map-deep-get($material, text, disabled) 2px,
+                transparent 2px,
+                transparent 4px
+            )
+                1 repeat;
+        }
+    }
+
+    &__prefix,
+    &__suffix {
+        color: map-deep-get($material, text, secondary);
+    }
+
+    &--solo {
+        .v-input__slot {
+            background: map-get($material, cards);
+            border-radius: 2px;
+        }
+    }
+
+    &--solo-inverted.v-text-field--solo {
+        .v-input__slot {
+            background: map-deep-get($material, inputs, solo-inverted);
+        }
+
+        &.v-input--is-focused {
+            .v-input__slot {
+                background: map-deep-get(
+                    $material,
+                    inputs,
+                    solo-inverted-focused
+                );
+
+                .v-label,
+                input {
+                    color: map-deep-get(
+                        $material,
+                        inputs,
+                        solo-inverted-focused-text
+                    );
+                }
+            }
+        }
+    }
+
+    &--box {
+        .v-input__slot {
+            background: map-deep-get($material, text-fields, box);
+        }
+
+        &:not(.v-input--is-focused) {
+            .v-input__slot:hover {
+                background: map-deep-get($material, text-fields, box-hover);
+            }
+        }
+    }
+
+    &--outline {
+        .v-input__slot {
+            border: 2px solid map-deep-get($material, text, secondary);
+        }
+
+        &:not(.v-input--is-focused) {
+            .v-input__slot:hover {
+                border: 2px solid map-deep-get($material, text, primary);
+            }
+        }
+    }
+}
+
+@mixin v-text-field-rtl {
+    .v-label {
+        transform-origin: top right;
+    }
+
+    .v-counter {
+        margin-left: 0;
+        margin-right: 0.5rem;
+    }
+
+    &--enclosed {
+        .v-input__append-outer {
+            margin-left: 0;
+            margin-right: 1rem;
+        }
+
+        .v-input__prepend-outer {
+            margin-left: 1rem;
+            margin-right: 0;
+        }
+    }
+
+    &--reverse {
+        input {
+            text-align: left;
+        }
+
+        .v-label {
+            transform-origin: top left;
+        }
+    }
+
+    &__prefix {
+        padding-left: 0.25rem;
+        padding-right: 0;
+        text-align: left;
+    }
+
+    &__suffix {
+        padding-left: 0;
+        padding-right: 0.25rem;
+    }
+
+    // stylelint-disable-next-line no-duplicate-selectors
+    &--reverse {
+        .v-text-field__prefix {
+            padding-left: 0;
+            padding-right: 0.25rem;
+            text-align: right;
+        }
+
+        .v-text-field__suffix {
+            padding-left: 0;
+            padding-right: 0.25rem;
+        }
+    }
+}
+
+@include theme(light, 'v-text-field') {
+    @include v-text-field($material-light);
+}
+
+@include theme(dark, 'v-text-field') {
+    @include v-text-field($material-dark);
+}
+
+@include rtl('v-text-field') {
+    @include v-text-field-rtl;
+}
+
+.v-text-field {
+    input {
+        flex: 1 1 auto;
+        line-height: 1.25rem;
+        max-width: 100%;
+        padding: 0.5rem 0;
+        width: 100%;
+    }
+
+    .v-input__prepend-inner,
+    .v-input__append-inner {
+        align-self: flex-start;
+        display: inline-flex;
+        line-height: 1;
+        margin-top: 0.25rem;
+        user-select: none;
+    }
+
+    .v-input__prepend-inner {
+        margin-right: auto;
+        padding-right: 0.25rem;
+    }
+
+    .v-input__append-inner {
+        margin-left: auto;
+        padding-left: 0.25rem;
+    }
+
+    .v-counter {
+        margin-left: 0.5rem;
+        white-space: nowrap;
+    }
+
+    .v-label {
+        max-width: 90%;
+        overflow: hidden;
+        text-overflow: ellipsis;
+        top: 6px;
+        transform-origin: top left;
+        white-space: nowrap;
+
+        &--active {
+            max-width: 100%;
+            transform: translateY(-18px) scale(0.75);
+        }
+    }
+
+    .v-input__slot {
+        transition: background $primary-transition;
+
+        &::before,
+        &::after {
+            bottom: -1px;
+            content: '';
+            left: 0;
+            position: absolute;
+            transition: $primary-transition;
+            width: 100%;
+        }
+
+        &::before {
+            border-style: solid;
+            border-width: thin 0 0;
+        }
+
+        &::after {
+            border-color: currentColor;
+            border-style: solid;
+            border-width: thin 0;
+            transform: scaleX(0);
+        }
+    }
+
+    &__details {
+        display: flex;
+        flex: 1 0 auto;
+        max-width: 100%;
+        overflow: hidden;
+    }
+
+    &__prefix,
+    &__suffix {
+        align-self: center;
+        cursor: default;
+    }
+
+    &__prefix {
+        padding-right: 0.25rem;
+        text-align: right;
+        width: 1rem;
+    }
+
+    &__suffix {
+        padding-left: 0.25rem;
+        white-space: nowrap;
+    }
+
+    &--reverse {
+        .v-text-field__prefix {
+            padding-left: 0.25rem;
+            padding-right: 0;
+            text-align: left;
+        }
+
+        .v-text-field__suffix {
+            padding-left: 0;
+            padding-right: 0.25rem;
+        }
+    }
+
+    &__slot {
+        display: flex;
+        flex: 1 1 auto;
+        height: 100%;
+        position: relative;
+    }
+
+    &--box,
+    &--outline {
+        position: relative;
+
+        .v-input__slot {
+            align-items: stretch;
+            min-height: 3.5rem;
+        }
+
+        input {
+            margin-top: 1.375rem;
+        }
+
+        &.v-text-field--single-line {
+            input {
+                margin-top: 0.75rem;
+            }
+        }
+
+        .v-label {
+            top: 18px;
+
+            &--active {
+                transform: translateY(-6px) scale(0.75);
+            }
+        }
+    }
+
+    &--box {
+        .v-input__slot {
+            border-top-left-radius: 4px;
+            border-top-right-radius: 4px;
+
+            &::before {
+                border-style: solid;
+                border-width: thin 0;
+            }
+        }
+    }
+
+    &.v-text-field--enclosed {
+        margin: 0;
+
+        &:not(.v-text-field--box) {
+            .v-progress-linear__background {
+                display: none;
+            }
+        }
+
+        .v-input__prepend-outer,
+        .v-input__prepend-inner,
+        .v-input__append-inner,
+        .v-input__append-outer {
+            margin-top: 1rem;
+        }
+
+        .v-text-field__details,
+        .v-input__slot {
+            padding: 0 0.75rem;
+        }
+
+        .v-text-field__details {
+            margin-bottom: 0.5rem;
+        }
+    }
+
+    &.v-text-field--full-width {
+        &.v-input {
+            margin-bottom: 0;
+            margin-top: 0;
+        }
+
+        .v-label {
+            top: calc(50% - 10px);
+        }
+
+        .v-input__control {
+            padding: 0.75rem 0;
+        }
+
+        .v-input__prepend-outer,
+        .v-input__append-outer {
+            margin-top: 0.25rem;
+        }
+
+        .v-input__append-inner {
+            align-self: center;
+            margin-top: 0;
+        }
+    }
+
+    // stylelint-disable-next-line no-duplicate-selectors
+    &--reverse {
+        input {
+            text-align: right;
+        }
+
+        .v-label {
+            transform-origin: top right;
+        }
+
+        .v-input__slot,
+        .v-text-field__slot {
+            flex-direction: row-reverse;
+        }
+    }
+
+    &--solo,
+    &--outline,
+    &--full-width {
+        .v-input__slot {
+            &::before,
+            &::after {
+                display: none;
+            }
+        }
+    }
+
+    &--outline {
+        margin-bottom: 1rem;
+        transition: border $primary-transition;
+
+        .v-input__slot {
+            background: transparent !important;
+            border-radius: 4px;
+        }
+
+        .v-input__prepend-outer,
+        .v-input__append-outer {
+            margin-top: 1.125rem;
+        }
+
+        &.v-input--is-focused {
+            .v-input__slot {
+                border: 2px solid currentColor;
+                transition: border $primary-transition;
+            }
+        }
+    }
+
+    &.v-text-field--solo {
+        .v-label {
+            top: calc(50% - 10px);
+        }
+
+        .v-input__control {
+            min-height: 3rem;
+            padding: 0;
+        }
+
+        &:not(.v-text-field--solo-flat) {
+            .v-input__slot {
+                @include elevation(2);
+            }
+        }
+
+        .v-text-field__slot {
+            align-items: center;
+        }
+
+        .v-input__append-inner,
+        .v-input__prepend-inner {
+            align-self: center;
+            margin-top: 0;
+        }
+
+        .v-input__prepend-outer,
+        .v-input__append-outer {
+            margin-top: 0.75rem;
+        }
+    }
+
+    &.v-input--is-focused {
+        .v-input__slot::after {
+            transform: scaleX(1);
+        }
+    }
+
+    &.v-input--has-state {
+        .v-input__slot::before {
+            border-color: currentColor;
+        }
+    }
+}

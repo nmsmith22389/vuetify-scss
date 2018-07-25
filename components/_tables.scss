@@ -1,0 +1,161 @@
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-table($material) {
+    background-color: map-get($material, cards);
+    color: map-deep-get($material, text, primary);
+
+    thead {
+        tr {
+            &:first-child {
+                border-bottom: 1px solid
+                    rgba(
+                        map-get($material, fg-color),
+                        map-get($material, divider-percent)
+                    );
+            }
+        }
+
+        th {
+            color: rgba(
+                map-get($material, text-color),
+                map-get($material, secondary-text-percent)
+            );
+        }
+    }
+
+    tbody {
+        tr {
+            &:not(:last-child) {
+                border-bottom: 1px solid
+                    rgba(
+                        map-get($material, fg-color),
+                        map-get($material, divider-percent)
+                    );
+            }
+
+            &[active] {
+                background: map-deep-get($material, table, active);
+            }
+
+            &:hover:not(.v-datatable__expand-row) {
+                background: map-deep-get($material, table, hover);
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            border-top: 1px solid
+                rgba(
+                    map-get($material, fg-color),
+                    map-get($material, divider-percent)
+                );
+        }
+    }
+}
+
+@include theme(light, 'v-table') {
+    @include v-table($material-light);
+}
+
+@include theme(dark, 'v-table') {
+    @include v-table($material-dark);
+}
+
+.v-table {
+    &__overflow {
+        overflow-x: auto;
+        overflow-y: hidden;
+        width: 100%;
+    }
+}
+
+table.v-table {
+    border-collapse: collapse;
+    border-radius: 2px;
+    border-spacing: 0;
+    max-width: 100%;
+    width: 100%;
+
+    thead,
+    tbody {
+        td,
+        th {
+            &:not(:nth-child(1)),
+            &:first-child {
+                padding: 0 1.5rem;
+            }
+        }
+    }
+
+    thead {
+        tr {
+            height: 3.5rem;
+        }
+
+        th {
+            font-size: 0.75rem;
+            font-weight: font-weight(medium);
+            transition: 0.3s map-get($transition, swing);
+            user-select: none;
+            white-space: nowrap;
+
+            &.sortable {
+                pointer-events: auto;
+            }
+
+            > div {
+                width: 100%;
+            }
+        }
+    }
+
+    tbody {
+        tr {
+            transition: background $primary-transition;
+            will-change: background;
+        }
+
+        td,
+        th {
+            height: 3rem;
+        }
+
+        td {
+            font-size: 0.8125rem;
+            font-weight: font-weight(regular);
+        }
+    }
+
+    .v-input--selection-controls {
+        padding: 0;
+
+        .v-input__details {
+            display: none;
+        }
+
+        &.checkbox {
+            .v-icon {
+                left: 50%;
+                transform: translateX(-50%);
+            }
+
+            .v-input--selection-controls__ripple {
+                left: 50%;
+                transform: translate(-50%, -50%);
+            }
+        }
+    }
+
+    tfoot {
+        tr {
+            height: 3rem;
+
+            td {
+                padding: 0 1.5rem;
+            }
+        }
+    }
+}

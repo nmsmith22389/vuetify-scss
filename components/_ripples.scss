@@ -1,0 +1,37 @@
+.v-ripple {
+    &__container {
+        border-radius: inherit;
+        color: inherit;
+        contain: strict;
+        height: 100%;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+    }
+
+    &__animation {
+        background: currentColor;
+        border-radius: 50%;
+        color: inherit;
+        left: 0;
+        opacity: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 0;
+        transition: $ripple-animation-transition;
+        will-change: transform, opacity;
+
+        &--enter {
+            transition: none;
+        }
+
+        &--visible {
+            opacity: $ripple-animation-visible-opacity;
+        }
+    }
+}

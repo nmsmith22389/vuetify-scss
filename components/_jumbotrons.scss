@@ -1,0 +1,57 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-jumbotron($material) {
+    &__content {
+        color: map-deep-get($material, text, primary);
+    }
+}
+
+@include theme(light, 'v-jumbotron') {
+    @include v-jumbotron($material-light);
+}
+
+@include theme(dark, 'v-jumbotron') {
+    @include v-jumbotron($material-dark);
+}
+
+.v-jumbotron {
+    display: block;
+    top: 0;
+    transition: 0.3s map-get($transition, swing);
+    width: 100%;
+
+    &__wrapper {
+        height: 100%;
+        overflow: hidden;
+        position: relative;
+        transition: inherit;
+        width: 100%;
+    }
+
+    &__background {
+        bottom: 0;
+        contain: strict;
+        left: 0;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transition: inherit;
+    }
+
+    &__image {
+        left: 50%;
+        min-width: 100%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transition: inherit;
+        will-change: transform;
+    }
+
+    &__content {
+        height: 100%;
+        position: relative;
+        transition: inherit;
+    }
+}

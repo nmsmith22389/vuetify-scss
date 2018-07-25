@@ -1,0 +1,173 @@
+// stylelint-disable declaration-no-important, value-keyword-case
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-datatable($material) {
+    thead {
+        .column.sortable {
+            i {
+                color: rgba(map-get($material, fg-color), map-get($material, disabledORhints-text-percent));
+            }
+
+            &:hover {
+                color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
+            }
+
+            &.active {
+                color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
+
+                i {
+                    color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
+                }
+            }
+        }
+    }
+
+    .v-datatable__actions {
+        background-color: map-get($material, cards);
+        border-top: 1px solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
+        color: rgba(map-get($material, fg-color), map-get($material, secondary-text-percent));
+    }
+}
+
+@include theme(light, 'v-datatable') {
+    @include v-datatable($material-light);
+}
+
+@include theme(dark, 'v-datatable') {
+    @include v-datatable($material-dark);
+}
+
+.v-datatable {
+    .v-input--selection-controls {
+        margin: 0;
+    }
+
+    thead {
+        th.column.sortable {
+            cursor: pointer;
+            outline: 0;
+
+            i {
+                display: inline-block;
+                font-size: 1rem;
+                opacity: 0;
+                transition: 0.3s map-get($transition, swing);
+                vertical-align: sub;
+            }
+
+            &:focus,
+            &:hover {
+                i {
+                    opacity: 0.6;
+                }
+            }
+
+            &.active {
+                transform: none;
+
+                i {
+                    opacity: 1;
+                }
+
+                &.desc {
+                    i {
+                        transform: rotate(-180deg);
+                    }
+                }
+            }
+        }
+    }
+}
+
+// Actions
+.v-datatable__actions {
+    align-items: center;
+    display: flex;
+    flex-wrap: wrap-reverse;
+    font-size: 0.75rem;
+    justify-content: flex-end;
+
+    .v-btn {
+        color: inherit;
+
+        &:last-of-type {
+            margin-left: 0.875rem;
+        }
+    }
+
+    &__range-controls {
+        align-items: center;
+        display: flex;
+        min-height: 3rem;
+    }
+
+    &__pagination {
+        display: block;
+        margin: 0 2rem 0 1.5rem;
+        text-align: center;
+    }
+
+    &__select {
+        align-items: center;
+        display: flex;
+        justify-content: flex-end;
+        margin-right: 0.875rem;
+        white-space: nowrap;
+
+        .v-select {
+            flex: 0 1 0;
+            margin: 0.8125rem 0 0.8125rem 2.125rem;
+            padding: 0;
+            position: initial;
+
+            .v-select__selection--comma {
+                font-size: 0.75rem;
+            }
+        }
+    }
+}
+
+.v-datatable__progress {
+    height: auto !important;
+
+    tr,
+    td,
+    th {
+        height: auto !important;
+    }
+
+    th {
+        padding: 0 !important;
+
+        .v-progress-linear {
+            margin: 0 0 -2px;
+            top: -2px;
+        }
+    }
+}
+
+.v-datatable__expand {
+    &-row {
+        border: none !important;
+    }
+
+    &-col {
+        height: 0 !important;
+        padding: 0 !important;
+
+        &--expanded {
+            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+        }
+    }
+
+    &-content {
+        transition: height $primary-transition;
+
+        > .v-card {
+            border-radius: 0;
+            box-shadow: none;
+        }
+    }
+}

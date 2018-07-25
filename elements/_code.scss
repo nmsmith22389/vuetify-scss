@@ -1,0 +1,26 @@
+// stylelint-disable color-named
+code,
+kbd {
+    border-radius: 3px;
+    display: inline-block;
+    font-size: 85%;
+    font-weight: font-weight(black);
+    white-space: pre-wrap;
+
+    &::after,
+    &::before {
+        content: '\00a0';
+        letter-spacing: -1px;
+    }
+}
+
+code {
+    @include elevation(1);
+    background-color: map-get($grey, lighten-4);
+    color: #bd4147;
+}
+
+kbd {
+    background: map-get($grey, darken-3);
+    color: #ffffff;
+}

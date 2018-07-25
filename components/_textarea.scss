@@ -1,0 +1,133 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-textarea($material) {
+    &.v-text-field--solo-inverted.v-text-field--solo {
+        &.v-input--is-focused {
+            textarea {
+                color: map-deep-get(
+                    $material,
+                    inputs,
+                    solo-inverted-focused-text
+                );
+            }
+        }
+    }
+}
+
+@mixin v-textarea-rtl {
+    &.v-text-field--enclosed {
+        .v-text-field__slot {
+            margin-left: -0.75rem;
+            margin-right: 0;
+
+            textarea {
+                padding-left: 0.75rem;
+                padding-right: 0;
+            }
+        }
+    }
+}
+
+@include theme(light, 'v-textarea') {
+    @include v-textarea($material-light);
+}
+
+@include theme(dark, 'v-textarea') {
+    @include v-textarea($material-dark);
+}
+
+@include rtl('v-textarea') {
+    @include v-textarea-rtl;
+}
+
+.v-textarea {
+    textarea {
+        flex: 1 1 auto;
+        line-height: 1.125rem;
+        max-width: 100%;
+        min-height: 2rem;
+        outline: none;
+        padding: 0.4375rem 0 0.5rem;
+        width: 100%;
+    }
+
+    .v-text-field__prefix {
+        align-self: start;
+        padding-top: 0.25rem;
+    }
+
+    &.v-text-field--full-width,
+    &.v-text-field--full-width.v-text-field--single-line {
+        .v-text-field__slot {
+            textarea {
+                margin-top: 0;
+            }
+        }
+
+        .v-text-field__details {
+            bottom: 4px;
+        }
+    }
+
+    &.v-text-field--enclosed {
+        .v-text-field__slot {
+            margin-right: -0.75rem;
+
+            textarea {
+                padding-right: 0.75rem;
+            }
+        }
+    }
+
+    &.v-text-field--box,
+    &.v-text-field--enclosed {
+        .v-text-field__prefix,
+        textarea {
+            margin-top: 1.5rem;
+        }
+
+        &.v-text-field--single-line {
+            .v-text-field__prefix,
+            textarea {
+                margin-top: 0.75rem;
+            }
+
+            .v-label {
+                top: 18px;
+            }
+
+            &.v-text-field--outline {
+                .v-input__control {
+                    padding-top: 0;
+                }
+            }
+        }
+    }
+
+    &.v-text-field--solo {
+        align-items: flex-start;
+
+        // Essentially revert styles
+        // applied by v-text-field
+        .v-input__prepend-inner,
+        .v-input__prepend-outer,
+        .v-input__append-inner,
+        .v-input__append-outer {
+            align-self: flex-start;
+            margin-top: 1rem;
+        }
+    }
+
+    &--auto-grow {
+        textarea {
+            overflow: hidden;
+        }
+    }
+
+    &--no-resize {
+        textarea {
+            resize: none;
+        }
+    }
+}

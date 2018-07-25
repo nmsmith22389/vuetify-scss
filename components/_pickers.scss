@@ -1,0 +1,101 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-picker-title($material) {
+    background: map-deep-get($material, picker, title);
+}
+
+@include theme(light, 'v-picker__title') {
+    @include v-picker-title($material-light);
+}
+
+@include theme(dark, 'v-picker__title') {
+    @include v-picker-title($material-dark);
+}
+
+@mixin v-picker-body($material) {
+    background: map-deep-get($material, picker, body);
+}
+
+@include theme(light, 'v-picker__body') {
+    @include v-picker-body($material-light);
+}
+
+@include theme(dark, 'v-picker__body') {
+    @include v-picker-body($material-dark);
+}
+
+.v-picker {
+    border-radius: $card-border-radius;
+    contain: layout style;
+    display: inline-flex;
+    flex-direction: column;
+    vertical-align: top;
+
+    &--full-width {
+        display: flex;
+    }
+
+    &__title {
+        border-top-left-radius: $card-border-radius;
+        border-top-right-radius: $card-border-radius;
+        color: #ffffff;
+        padding: 1rem;
+    }
+
+    &__title__btn {
+        transition: $primary-transition;
+
+        &.active {
+            opacity: 1;
+        }
+
+        &:not(.active) {
+            cursor: pointer;
+            opacity: 0.6;
+
+            &:hover {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__body {
+        align-items: center;
+        display: flex;
+        flex: 1 0 auto;
+        flex-direction: column;
+        height: auto;
+        overflow: hidden;
+        position: relative;
+        z-index: 0;
+
+        > div {
+            width: 100%;
+
+            &.fade-transition-leave-active {
+                position: absolute;
+            }
+        }
+    }
+
+    &--landscape {
+        .v-picker__title {
+            border-bottom-right-radius: 0;
+            border-top-right-radius: 0;
+            height: 100%;
+            left: 0;
+            position: absolute;
+            top: 0;
+            width: 10.625rem;
+            z-index: 1;
+        }
+
+        .v-picker__body,
+        .v-picker__actions {
+            margin-left: 10.625rem;
+        }
+    }
+}

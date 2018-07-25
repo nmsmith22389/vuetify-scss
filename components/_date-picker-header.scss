@@ -1,0 +1,55 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-date-picker-header($material) {
+    .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) {
+        strong:not(:hover) {
+            color: map-deep-get($material, text, primary) !important;
+        }
+    }
+
+    .v-date-picker-header__value--disabled strong {
+        color: map-deep-get($material, text, disabled);
+    }
+}
+
+@include theme(light, 'v-date-picker-header') {
+    @include v-date-picker-header($material-light);
+}
+
+@include theme(dark, 'v-date-picker-header') {
+    @include v-date-picker-header($material-dark);
+}
+
+.v-date-picker-header {
+    align-items: center;
+    display: flex;
+    justify-content: space-between;
+    padding: 0.25rem 1rem;
+    position: relative;
+
+    .v-btn {
+        margin: 0;
+        z-index: auto;
+    }
+
+    .v-icon {
+        cursor: pointer;
+        user-select: none;
+    }
+}
+
+.v-date-picker-header__value {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    text-align: center;
+
+    strong {
+        cursor: pointer;
+        display: block;
+        transition: $primary-transition;
+        width: 100%;
+    }
+}

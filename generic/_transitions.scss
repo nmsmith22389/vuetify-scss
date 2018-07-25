@@ -1,0 +1,261 @@
+// stylelint-disable declaration-no-important
+// Component specific transitions
+.bottom-sheet-transition {
+    &-enter {
+        transform: translateY(100%);
+    }
+
+    &-leave-to {
+        transform: translateY(100%);
+    }
+}
+
+.carousel-transition {
+    &-enter {
+        transform: translate(100%, 0);
+    }
+
+    &-leave,
+    &-leave-to {
+        position: absolute;
+        top: 0;
+        transform: translate(-100%, 0);
+    }
+}
+
+.carousel-reverse-transition {
+    &-enter {
+        transform: translate(-100%, 0);
+    }
+
+    &-leave,
+    &-leave-to {
+        position: absolute;
+        top: 0;
+        transform: translate(100%, 0);
+    }
+}
+
+.dialog-transition {
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: scale(0.5);
+    }
+
+    &-enter-to,
+    &-leave {
+        opacity: 1;
+    }
+}
+
+.dialog-bottom-transition {
+    &-enter,
+    &-leave-to {
+        transform: translateY(100%);
+    }
+}
+
+.picker-transition,
+.picker-reverse-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: 0.3s map-get($transition, linear-out-slow-in);
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+
+    &-enter-to {
+        transition: translate(0, 0);
+    }
+
+    &-leave,
+    &-leave-active,
+    &-leave-to {
+        position: absolute !important;
+    }
+}
+
+.picker-transition {
+    &-enter {
+        transform: translate(0, 100%);
+    }
+
+    &-leave-to {
+        transform: translate(0, -100%);
+    }
+}
+
+.picker-reverse-transition {
+    &-enter {
+        transform: translate(0, -100%);
+    }
+
+    &-leave-to {
+        transform: translate(0, 100%);
+    }
+}
+
+.picker-title-transition {
+    &-enter-to,
+    &-leave {
+        transform: translate(0, 0);
+    }
+
+    &-enter {
+        transform: translate(-100%, 0);
+    }
+
+    &-leave-to {
+        opacity: 0;
+        transform: translate(100%, 0);
+    }
+
+    &-leave,
+    &-leave-to,
+    &-leave-active {
+        position: absolute !important;
+    }
+}
+
+.tab-transition {
+    &-enter {
+        transform: translate(100%, 0);
+    }
+
+    &-leave,
+    &-leave-active {
+        position: absolute;
+        top: 0;
+    }
+
+    &-leave-to {
+        position: absolute;
+        transform: translate(-100%, 0);
+    }
+}
+
+.tab-reverse-transition {
+    &-enter {
+        transform: translate(-100%, 0);
+    }
+
+    &-leave,
+    &-leave-to {
+        position: absolute;
+        top: 0;
+        transform: translate(100%, 0);
+    }
+}
+
+// Generic transitions
+.scale-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $secondary-transition;
+    }
+
+    &-enter,
+    &-leave,
+    &-leave-to {
+        opacity: 0;
+        transform: scale(0);
+    }
+}
+
+.message-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+
+    &-leave,
+    &-leave-active {
+        position: absolute;
+    }
+}
+
+.slide-y-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(-1rem);
+    }
+}
+
+.slide-y-reverse-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateY(1rem);
+    }
+}
+
+.slide-x-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateX(-1rem);
+    }
+}
+
+.slide-x-reverse-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+        transform: translateX(1rem);
+    }
+}
+
+.fade-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        opacity: 0;
+    }
+}
+
+.fab-transition {
+    &-enter-active,
+    &-leave-active {
+        transition: $primary-transition;
+    }
+
+    &-enter,
+    &-leave-to {
+        transform: scale(0) rotate(-45deg);
+    }
+}

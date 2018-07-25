@@ -1,0 +1,400 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin fa-icon($material) {
+    color: map-deep-get($material, icons, active);
+
+    &.v-icon--disabled {
+        color: map-deep-get($material, icons, inactive) !important;
+    }
+}
+
+@include theme(light, 'svg-inline--fa') {
+    @include fa-icon($material-light);
+}
+
+@include theme(dark, 'svg-inline--fa') {
+    @include fa-icon($material-dark);
+}
+
+.svg-inline--fa {
+    display: inline-block;
+    font-size: 1em;
+    -moz-osx-font-smoothing: grayscale;
+    -webkit-font-smoothing: antialiased;
+    font-style: normal;
+    font-variant: normal;
+    line-height: 1;
+    text-rendering: auto;
+
+    &.v-icon--disabled {
+        pointer-events: none;
+    }
+
+    @for $width from 1 through 20 {
+        &.fa-w-#{$width} {
+            width: 0.0625em * $width;
+        }
+    }
+
+    &.fa-pull-left {
+        margin-right: 0.3em;
+        width: auto;
+    }
+
+    &.fa-pull-right {
+        margin-left: 0.3em;
+        width: auto;
+    }
+
+    &.fa-border {
+        height: 1.5em;
+    }
+
+    &.fa-li {
+        width: 2em;
+    }
+
+    &.fa-fw {
+        width: 1.25em;
+    }
+
+    &.fa-stack-1x {
+        height: 1em;
+        width: 1em;
+    }
+
+    &.fa-stack-2x {
+        height: 2em;
+        width: 2em;
+    }
+}
+
+svg:not(:root).svg-inline--fa {
+    overflow: visible;
+}
+
+//* Variables
+//* --------------------------
+
+$fa-font-size-base: 1rem !default;
+$fa-css-prefix: fa !default;
+$fa-version: '5.1.0' !default;
+$fa-border-color: #eeeeee !default;
+$fa-inverse: #ffffff !default;
+$fa-li-width: 2em !default;
+
+//* Base Class Definition
+//* -------------------------
+
+// .#{$fa-css-prefix},
+// .fas,
+// .far,
+// .fal,
+// .fab {
+//    moved to .svg-inline--fa
+// }
+
+//* Icon Layers
+//* -------------------------
+
+.fa-layers {
+    display: inline-block;
+    height: 1em;
+    position: relative;
+    text-align: center;
+    vertical-align: -0.125em;
+    width: 1em;
+
+    svg.svg-inline--fa {
+        bottom: 0;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        transform-origin: center center;
+    }
+
+    &-text,
+    &-counter {
+        display: inline-block;
+        position: absolute;
+        text-align: center;
+    }
+
+    &-text {
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%, -50%);
+        transform-origin: center center;
+    }
+
+    &-counter {
+        background-color: #ff253a;
+        border-radius: 1em;
+        box-sizing: border-box;
+        color: #ffffff;
+        height: 1.5em;
+        line-height: 1;
+        max-width: 5em;
+        min-width: 1.5em;
+        overflow: hidden;
+        padding: 0.25em;
+        right: 0;
+        text-overflow: ellipsis;
+        top: 0;
+        transform: scale(0.25);
+        transform-origin: top right;
+    }
+
+    &-bottom {
+        &-right {
+            bottom: 0;
+            right: 0;
+            top: auto;
+            transform: scale(0.25);
+            transform-origin: bottom right;
+        }
+
+        &-left {
+            bottom: 0;
+            left: 0;
+            right: auto;
+            top: auto;
+            transform: scale(0.25);
+            transform-origin: bottom left;
+        }
+    }
+
+    &-top {
+        &-right {
+            right: 0;
+            top: 0;
+            transform: scale(0.25);
+            transform-origin: top right;
+        }
+
+        &-left {
+            left: 0;
+            right: auto;
+            top: 0;
+            transform: scale(0.25);
+            transform-origin: top left;
+        }
+    }
+}
+
+//* Icon Sizes
+//* -------------------------
+
+// makes the font 33% larger relative to the icon container
+.#{$fa-css-prefix}-lg {
+    font-size: (4em / 3);
+    line-height: (3em / 4);
+    vertical-align: -0.0667em;
+}
+
+.#{$fa-css-prefix}-xs {
+    font-size: 0.75em;
+}
+
+.#{$fa-css-prefix}-sm {
+    font-size: 0.875em;
+}
+
+@for $i from 1 through 10 {
+    .#{$fa-css-prefix}-#{$i}x {
+        font-size: $i * 1em;
+    }
+}
+
+//* Fixed Width Icons
+//* -------------------------
+
+.#{$fa-css-prefix}-fw {
+    text-align: center;
+    width: (20em / 16);
+}
+
+//* List Icons
+//* -------------------------
+
+.#{$fa-css-prefix}-ul {
+    list-style-type: none;
+    margin-left: $fa-li-width * 5/4;
+    padding-left: 0;
+
+    > li {
+        position: relative;
+    }
+}
+
+.#{$fa-css-prefix}-li {
+    left: -$fa-li-width;
+    line-height: inherit;
+    position: absolute;
+    text-align: center;
+    width: $fa-li-width;
+}
+
+//* Bordered & Pulled
+//* -------------------------
+
+.#{$fa-css-prefix}-border {
+    border: solid 0.08em $fa-border-color;
+    border-radius: 0.1em;
+    padding: 0.2em 0.25em 0.15em;
+}
+
+.#{$fa-css-prefix}-pull-left {
+    float: left;
+}
+
+.#{$fa-css-prefix}-pull-right {
+    float: right;
+}
+
+.#{$fa-css-prefix},
+.fas,
+.far,
+.fal,
+.fab,
+.svg-inline--fa {
+    &.#{$fa-css-prefix}-pull-left {
+        margin-right: 0.3em;
+    }
+
+    &.#{$fa-css-prefix}-pull-right {
+        margin-left: 0.3em;
+    }
+}
+
+//* Animated Icons
+//* --------------------------
+
+.#{$fa-css-prefix}-spin {
+    animation: fa-spin 2s infinite linear;
+}
+
+.#{$fa-css-prefix}-pulse {
+    animation: fa-spin 1s infinite steps(8);
+}
+
+@keyframes fa-spin {
+    0% {
+        transform: rotate(0deg);
+    }
+
+    100% {
+        transform: rotate(360deg);
+    }
+}
+
+//* Rotated & Flipped Icons
+//* -------------------------
+
+@mixin fa-icon-rotate($degrees, $rotation) {
+    transform: rotate($degrees);
+}
+
+@mixin fa-icon-flip($horiz, $vert, $rotation) {
+    transform: scale($horiz, $vert);
+}
+
+.#{$fa-css-prefix}-rotate-90 {
+    @include fa-icon-rotate(90deg, 1);
+}
+
+.#{$fa-css-prefix}-rotate-180 {
+    @include fa-icon-rotate(180deg, 2);
+}
+
+.#{$fa-css-prefix}-rotate-270 {
+    @include fa-icon-rotate(270deg, 3);
+}
+
+.#{$fa-css-prefix}-flip-horizontal {
+    @include fa-icon-flip(-1, 1, 0);
+}
+
+.#{$fa-css-prefix}-flip-vertical {
+    @include fa-icon-flip(1, -1, 2);
+}
+
+.#{$fa-css-prefix}-flip-horizontal.#{$fa-css-prefix}-flip-vertical {
+    @include fa-icon-flip(-1, -1, 2);
+}
+
+//* Hook for IE8-9
+//* -------------------------
+
+:root {
+    .#{$fa-css-prefix}-rotate-90,
+    .#{$fa-css-prefix}-rotate-180,
+    .#{$fa-css-prefix}-rotate-270,
+    .#{$fa-css-prefix}-flip-horizontal,
+    .#{$fa-css-prefix}-flip-vertical {
+        filter: none;
+    }
+}
+
+//* Stacked Icons
+//* -------------------------
+
+.#{$fa-css-prefix}-stack {
+    display: inline-block;
+    height: 2em;
+    line-height: 2em;
+    position: relative;
+    vertical-align: middle;
+    width: 2em;
+}
+
+.#{$fa-css-prefix}-stack-1x,
+.#{$fa-css-prefix}-stack-2x {
+    left: 0;
+    position: absolute;
+    text-align: center;
+    width: 100%;
+}
+
+.#{$fa-css-prefix}-stack-1x {
+    line-height: inherit;
+}
+
+.#{$fa-css-prefix}-stack-2x {
+    font-size: 2em;
+}
+
+.#{$fa-css-prefix}-inverse {
+    color: $fa-inverse;
+}
+
+//* Screen Readers
+//* -------------------------
+
+.sr-only {
+    border: 0;
+    clip: rect(0, 0, 0, 0);
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    padding: 0;
+    position: absolute;
+    width: 1px;
+}
+
+.sr-only-focusable {
+    &:active,
+    &:focus {
+        clip: auto;
+        height: auto;
+        margin: 0;
+        overflow: visible;
+        position: static;
+        width: auto;
+    }
+}

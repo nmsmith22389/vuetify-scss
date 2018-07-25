@@ -1,0 +1,99 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+
+.v-menu {
+    display: block;
+    position: relative;
+    vertical-align: middle;
+
+    &--inline {
+        display: inline-block;
+    }
+
+    &__activator {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        height: 100%;
+        position: relative;
+
+        * {
+            cursor: pointer;
+        }
+
+        &--disabled {
+            pointer-events: none;
+        }
+    }
+
+    &__content {
+        @include elevation(8);
+        border-radius: 2px;
+        contain: content;
+        display: inline-block;
+        max-width: 80%;
+        overflow-x: hidden;
+        overflow-y: auto;
+        position: absolute;
+        // This is required for an issue on Chrome 65
+        // that prevents scrolling after a menu is opened
+        will-change: transform;
+
+        &--active {
+            pointer-events: none;
+        }
+
+        > .v-card {
+            backface-visibility: hidden;
+            contain: content;
+        }
+    }
+
+    > .v-menu__content {
+        max-width: none;
+    }
+
+    &-transition {
+        &-enter {
+            .v-list__tile {
+                min-width: 0;
+                pointer-events: none;
+            }
+
+            &.v-menu__content--auto {
+                .v-list__tile {
+                    opacity: 0;
+                    transform: translateY(-15px);
+                }
+
+                .v-list__tile--active {
+                    opacity: 1;
+                    pointer-events: auto;
+                    transform: none !important;
+                }
+            }
+        }
+
+        &-enter-to {
+            .v-list__tile {
+                pointer-events: auto;
+                transition-delay: 0.1s;
+            }
+        }
+
+        &-leave-active,
+        &-leave-to {
+            pointer-events: none;
+        }
+
+        &-enter,
+        &-leave-to {
+            opacity: 0;
+        }
+
+        &-enter-active,
+        &-leave-active {
+            transition: all 0.3s map-get($transition, fast-in-fast-out);
+        }
+    }
+}

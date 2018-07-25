@@ -1,0 +1,38 @@
+@import '../bootstrap';
+
+@mixin v-date-picker-title-rtl {
+    .v-picker__title__btn {
+        text-align: right;
+    }
+}
+
+@include rtl('v-date-picker-title') {
+    @include v-date-picker-title-rtl;
+}
+
+.v-date-picker-title {
+    display: flex;
+    flex-flow: column wrap;
+    justify-content: space-between;
+    line-height: 1;
+}
+
+.v-date-picker-title__year {
+    align-items: center;
+    display: inline-flex;
+    font-size: 0.875rem;
+    font-weight: font-weight(medium);
+    margin-bottom: 0.5rem;
+}
+
+.v-date-picker-title__date {
+    font-size: 2.125rem;
+    font-weight: font-weight(medium);
+    overflow: hidden;
+    position: relative;
+    text-align: left;
+
+    > div {
+        position: relative;
+    }
+}

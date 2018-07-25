@@ -1,0 +1,333 @@
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-slider($material) {
+    .v-slider__track,
+    .v-slider__track-fill {
+        background: map-deep-get($material, slider, inactive);
+    }
+
+    .v-slider__track__container {
+        &::after {
+            border: 1px solid map-deep-get($material, text, primary);
+        }
+    }
+
+    .v-slider__ticks {
+        border-color: map-deep-get($material, text, primary);
+        color: map-deep-get($material, text, secondary);
+    }
+
+    &:not(.v-input--is-dirty) {
+        .v-slider__thumb-label {
+            background: map-deep-get($material, slider, inactive);
+        }
+
+        .v-slider__thumb {
+            border: 3px solid map-deep-get($material, slider, inactive);
+        }
+
+        &.v-input--slider--is-active {
+            .v-slider__thumb {
+                border: 3px solid map-deep-get($material, slider, active);
+            }
+        }
+    }
+
+    &.v-input--is-disabled {
+        .v-slider__thumb {
+            border: 5px solid map-deep-get($material, slider, disabled);
+        }
+    }
+
+    &.v-input--is-disabled.v-input--is-dirty {
+        .v-slider__thumb {
+            background: map-deep-get($material, slider, disabled);
+        }
+    }
+
+    &.v-input--slider--is-active {
+        .v-slider__track {
+            background: map-deep-get($material, slider, active);
+        }
+    }
+}
+
+@mixin v-slider-rtl {
+    .v-label {
+        margin-left: 1rem;
+        margin-right: 0;
+    }
+}
+
+@include theme(light, 'v-input--slider') {
+    @include v-slider($material-light);
+}
+
+@include theme(dark, 'v-input--slider') {
+    @include v-slider($material-dark);
+}
+
+@include rtl('v-input--slider') {
+    @include v-slider-rtl;
+}
+
+// Input Group
+.v-input--slider {
+    &:not(.v-input--slider--thumb-label) {
+        margin-top: 0;
+    }
+
+    &.v-input--is-focused {
+        .v-slider__thumb-container--is-active:not(.v-slider__thumb-container--show-label) {
+            &::before {
+                opacity: 0.2;
+                transform: scale(1);
+            }
+        }
+
+        .v-slider__track {
+            transition: none;
+        }
+
+        &.v-input--slider--ticks {
+            .v-slider {
+                &__track__container::after,
+                .v-slider__tick {
+                    opacity: 1;
+                }
+            }
+        }
+    }
+
+    &.v-input--slider--ticks {
+        .v-slider__ticks.v-slider__ticks--always-show {
+            opacity: 1;
+        }
+
+        &-labels {
+            .v-input__slot {
+                margin-bottom: 1rem;
+            }
+        }
+    }
+
+    &.v-input--is-readonly {
+        pointer-events: none;
+    }
+
+    &.v-input--is-disabled {
+        .v-slider__thumb {
+            transform: translateY(-50%) scale(0.45);
+        }
+
+        &.v-input--is-dirty {
+            .v-slider__thumb {
+                border: 0 solid transparent;
+            }
+        }
+    }
+
+    .v-input__slot > *:first-child:not(:only-child) {
+        margin-right: 1rem;
+    }
+}
+
+// Slider
+.v-slider {
+    align-items: center;
+    cursor: default;
+    display: flex;
+    flex: 1;
+    height: 2rem;
+    outline: none;
+    position: relative;
+    user-select: none;
+
+    input {
+        cursor: default;
+        opacity: 0;
+        padding: 0;
+        width: 100%;
+    }
+
+    // Thumb/Track/Ticks
+    &__track__container {
+        height: 0.125rem;
+        left: 0;
+        overflow: hidden;
+        pointer-events: none;
+        position: absolute;
+        top: 50%;
+        transform: translateY(-50%);
+        width: 100%;
+
+        &::after {
+            content: '';
+            height: 0.125rem;
+            opacity: 0;
+            position: absolute;
+            right: 0;
+            top: 0;
+            transition: 0.3s map-get($transition, swing);
+            width: 0.125rem;
+        }
+    }
+
+    &__track,
+    &__thumb,
+    &__ticks {
+        position: absolute;
+        top: 0;
+    }
+
+    &__track {
+        height: 0.125rem;
+        left: 0;
+        overflow: hidden;
+        transform-origin: right;
+        transition: 0.3s map-get($transition, swing);
+        width: 100%;
+
+        &-fill {
+            height: 0.125rem;
+            left: 0;
+            position: absolute;
+            transform-origin: left;
+            transition: 0.3s map-get($transition, swing);
+            width: 100%;
+        }
+    }
+
+    &__ticks-container {
+        height: 0.125rem;
+        left: 0;
+        position: absolute;
+        top: 50%;
+        transform: translate(0, -50%);
+        width: 100%;
+    }
+
+    &__ticks {
+        border-style: solid;
+        opacity: 0;
+        transition: 0.3s map-get($transition, swing);
+
+        > span {
+            position: absolute;
+            top: 0.5rem;
+            transform: translateX(-50%);
+            user-select: none;
+            white-space: nowrap;
+        }
+
+        &:first-child > span {
+            transform: translateX(0);
+        }
+
+        &:last-child > span {
+            transform: translateX(-100%);
+        }
+    }
+
+    &:not(.v-input--is-dirty) {
+        .v-slider__ticks:first-child {
+            border-color: transparent;
+        }
+    }
+
+    &__thumb-container {
+        position: absolute;
+        top: 50%;
+        transition: 0.3s map-get($transition, swing);
+
+        &::before {
+            background: currentColor;
+            border-radius: 50%;
+            color: inherit;
+            content: '';
+            height: 2rem;
+            left: -1rem;
+            opacity: 0;
+            overflow: hidden;
+            pointer-events: none;
+            position: absolute;
+            top: -1rem;
+            transform: scale(0.2);
+            transition: $ripple-animation-transition;
+            width: 2rem;
+            will-change: transform, opacity;
+        }
+    }
+
+    &__thumb {
+        background: transparent;
+        border-radius: 50%;
+        height: 1.5rem;
+        left: -0.75rem;
+        top: 50%;
+        transform: translateY(-50%) scale(0.6);
+        transition: 0.3s map-get($transition, swing);
+        user-select: none;
+        width: 1.5rem;
+    }
+
+    // Thumb Label
+    &--is-active {
+        .v-slider__thumb-container--is-active {
+            .v-slider__thumb {
+                transform: translateY(-50%) scale(1);
+            }
+
+            &.v-slider__thumb-container--show-label {
+                .v-slider__thumb {
+                    transform: translateY(-50%) scale(0);
+                }
+            }
+        }
+
+        .v-slider__ticks-container {
+            .v-slider__ticks {
+                opacity: 1;
+            }
+        }
+    }
+
+    &__thumb-label__container {
+        left: 0;
+        position: absolute;
+        top: 0;
+        transition: 0.3s map-get($transition, fast-in-fast-out);
+    }
+
+    &__thumb-label {
+        align-items: center;
+        border-radius: 50% 50% 0;
+        bottom: 100%;
+        color: #ffffff;
+        display: flex;
+        font-size: 0.75rem;
+        height: 2rem;
+        justify-content: center;
+        left: 0;
+        position: absolute;
+        // Needed for IE11 which does not
+        // process translateY(calc(-20% - 0.75rem))
+        // or translate(-50%, calc(-20% - 0.75rem))
+        transform: translateY(-20%) translateY(-0.75rem) translateX(-50%)
+            rotate(45deg);
+        transition: 0.3s map-get($transition, fast-in-fast-out);
+        user-select: none;
+        width: 2rem;
+
+        > * {
+            transform: rotate(-45deg);
+        }
+    }
+
+    &__track,
+    &__track-fill {
+        position: absolute;
+    }
+}

@@ -1,0 +1,60 @@
+@import '../bootstrap';
+
+.v-badge {
+    display: inline-block;
+    position: relative;
+
+    &__badge {
+        align-items: center;
+        border-radius: $badge-border-radius;
+        color: $badge-color;
+        display: flex;
+        flex-flow: row wrap;
+        font-size: $badge-font-size;
+        height: $badge-height;
+        justify-content: center;
+        position: absolute;
+        right: -($badge-width);
+        top: -($badge-height / 2);
+        transition: $primary-transition;
+        width: $badge-width;
+
+        .icon {
+            font-size: $badge-font-size;
+        }
+    }
+
+    &--overlap {
+        .v-badge__badge {
+            right: -0.5rem;
+            top: -0.5rem;
+        }
+
+        &.v-badge--left {
+            .v-badge__badge {
+                left: -0.5rem;
+                right: initial;
+            }
+        }
+
+        &.v-badge--bottom {
+            .v-badge__badge {
+                bottom: -0.5rem;
+                top: initial;
+            }
+        }
+    }
+
+    &--left {
+        .v-badge__badge {
+            left: -($badge-width);
+        }
+    }
+
+    &--bottom {
+        .v-badge__badge {
+            bottom: -($badge-height / 2);
+            top: initial;
+        }
+    }
+}

@@ -1,0 +1,76 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+
+.v-progress-circular {
+    display: inline-flex;
+    position: relative;
+    vertical-align: middle;
+
+    svg {
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        margin: auto;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 100%;
+        z-index: 0;
+    }
+
+    &--indeterminate {
+        svg {
+            animation: $progress-circular-rotate-animation;
+            transform-origin: center center;
+            transition: $process-circular-intermediate-svg-transition;
+        }
+
+        .v-progress-circular__overlay {
+            animation: $progress-circular-rotate-dash;
+            stroke-dasharray: 80, 200;
+            stroke-dashoffset: 0;
+            stroke-linecap: round;
+        }
+    }
+
+    &__underlay {
+        stroke: $progress-circular-underlay-stroke;
+        z-index: 1;
+    }
+
+    &__overlay {
+        stroke: currentColor;
+        transition: $progress-circular-overlay-transition;
+        z-index: 2;
+    }
+
+    &__info {
+        left: 50%;
+        position: absolute;
+        top: 50%;
+        transform: translate(-50%, -50%);
+    }
+
+    @keyframes progress-circular-dash {
+        0% {
+            stroke-dasharray: 1, 200;
+            stroke-dashoffset: 0;
+        }
+
+        50% {
+            stroke-dasharray: 100, 200;
+            stroke-dashoffset: -15px;
+        }
+
+        100% {
+            stroke-dasharray: 100, 200;
+            stroke-dashoffset: -125px;
+        }
+    }
+
+    @keyframes progress-circular-rotate {
+        100% {
+            transform: rotate(360deg);
+        }
+    }
+}

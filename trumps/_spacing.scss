@@ -1,0 +1,69 @@
+// stylelint-disable declaration-no-important
+.mx-auto {
+    margin-left: auto !important;
+    margin-right: auto !important;
+}
+
+@each $level, $spacer in $spacers {
+    $i: index($spacers, ($level $spacer)) - 1;
+
+    .mt-#{$i} {
+        margin-top: map-get($spacer, y) !important;
+    }
+
+    .mr-#{$i} {
+        margin-right: map-get($spacer, x) !important;
+    }
+
+    .mb-#{$i} {
+        margin-bottom: map-get($spacer, y) !important;
+    }
+
+    .ml-#{$i} {
+        margin-left: map-get($spacer, x) !important;
+    }
+
+    .mx-#{$i} {
+        margin-left: map-get($spacer, x) !important;
+        margin-right: map-get($spacer, x) !important;
+    }
+
+    .my-#{$i} {
+        margin-bottom: map-get($spacer, y) !important;
+        margin-top: map-get($spacer, y) !important;
+    }
+
+    .ma-#{$i} {
+        margin: map-get($spacer, y) map-get($spacer, x) !important;
+    }
+
+    .pt-#{$i} {
+        padding-top: map-get($spacer, y) !important;
+    }
+
+    .pr-#{$i} {
+        padding-right: map-get($spacer, x) !important;
+    }
+
+    .pb-#{$i} {
+        padding-bottom: map-get($spacer, y) !important;
+    }
+
+    .pl-#{$i} {
+        padding-left: map-get($spacer, x) !important;
+    }
+
+    .px-#{$i} {
+        padding-left: map-get($spacer, x) !important;
+        padding-right: map-get($spacer, x) !important;
+    }
+
+    .py-#{$i} {
+        padding-bottom: map-get($spacer, y) !important;
+        padding-top: map-get($spacer, y) !important;
+    }
+
+    .pa-#{$i} {
+        padding: map-get($spacer, y) map-get($spacer, x) !important;
+    }
+}

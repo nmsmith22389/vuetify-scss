@@ -1,0 +1,45 @@
+@import 'settings/theme';
+
+@mixin app($theme: light) {
+    .application {
+        @if ($theme == light) {
+            &.theme--light {
+                @content;
+            }
+        } @else {
+            &.theme--dark {
+                @content;
+            }
+        }
+    }
+}
+
+@mixin theme-light($name) {
+    .theme--light .#{$name},
+    .application .theme--light.#{$name} {
+        @content;
+    }
+}
+
+@mixin theme-dark($name) {
+    .theme--dark .#{$name},
+    .application .theme--dark.#{$name} {
+        @content;
+    }
+}
+
+@mixin theme($theme: light, $name: null) {
+    @if (not $name) or ($name == '') or ($name == 0) or ($name == ()) or (length($name) == 0) {
+        @error ('Name parameter expected for mixin: theme().');
+    }
+
+    @if ($theme == light) {
+        @include theme-light($name) {
+            @content;
+        }
+    } @else {
+        @include theme-dark($name) {
+            @content;
+        }
+    }
+}

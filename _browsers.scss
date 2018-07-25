@@ -1,0 +1,6 @@
+@mixin firefox() {
+    // stylelint-disable-next-line function-url-quotes
+    @-moz-document url-prefix() {
+        @content;
+    }
+}

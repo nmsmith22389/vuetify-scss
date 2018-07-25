@@ -1,0 +1,9 @@
+ul,
+ol {
+    padding-left: map-deep-get($spacers, four, x);
+
+    // TODO: Do I need?
+    // &--unstyled {
+    //     list-style-type: none;
+    // }
+}

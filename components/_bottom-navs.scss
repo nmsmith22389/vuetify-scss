@@ -1,0 +1,121 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-bottom-nav($material) {
+    background-color: map-get($material, cards);
+}
+
+@include theme(light, 'v-bottom-nav') {
+    @include v-bottom-nav($material-light);
+}
+
+@include theme(dark, 'v-bottom-nav') {
+    @include v-bottom-nav($material-dark);
+}
+
+.v-bottom-nav {
+    bottom: 0;
+    box-shadow: 0 0.1875rem 0.875rem 0.125rem rgba(#000000, 0.12);
+    display: flex;
+    justify-content: center;
+    left: 0;
+    transform: translate(0, 60px);
+    transition: all 0.4s map-get($transition, swing);
+    width: 100%;
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--active {
+        transform: translate(0, 0);
+    }
+
+    &--fixed {
+        position: fixed;
+        z-index: 4;
+    }
+
+    .v-btn {
+        background: transparent !important;
+        border-radius: 0;
+        box-shadow: none !important;
+        // https://github.com/vuetifyjs/vuetify/issues/4643
+        flex-shrink: 1;
+        font-weight: font-weight(regular);
+        height: 100%;
+        margin: 0;
+        max-width: 10.5rem;
+        min-width: 5rem;
+        opacity: 0.5;
+        padding: 0.375rem 0 0.625rem;
+        text-transform: none;
+        width: 100%;
+
+        .v-btn__content {
+            flex-direction: column-reverse;
+            font-size: 0.75rem;
+            white-space: nowrap;
+            will-change: font-size;
+
+            i.v-icon {
+                color: inherit;
+                margin-bottom: 0.25rem;
+                transition: all 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
+            }
+
+            span {
+                line-height: 1;
+            }
+        }
+
+        &--active {
+            opacity: 1;
+            padding-top: 0.375rem;
+
+            &::before {
+                background-color: transparent;
+            }
+
+            .v-btn__content {
+                font-size: 0.875rem;
+
+                .v-icon {
+                    transform: none;
+                }
+            }
+        }
+
+        &:not(.v-btn--active) {
+            filter: grayscale(100%);
+        }
+    }
+
+    &--shift {
+        .v-btn__content {
+            font-size: 0.875rem;
+        }
+
+        .v-btn {
+            max-width: 6rem;
+            min-width: 3.5rem;
+            transition: all 0.3s;
+
+            &--active {
+                max-width: 10.5rem;
+                min-width: 6rem;
+            }
+
+            &:not(.v-btn--active) .v-btn__content {
+                .v-icon {
+                    transform: scale(1, 1) translate(0, 10px);
+                }
+
+                span {
+                    color: transparent;
+                }
+            }
+        }
+    }
+}

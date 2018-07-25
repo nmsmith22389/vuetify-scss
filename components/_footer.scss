@@ -1,0 +1,44 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-footer($material) {
+    background: map-get($material, app-bar);
+    color: map-deep-get($material, text, primary);
+}
+
+@include theme(light, 'v-footer') {
+    @include v-footer($material-light);
+}
+
+@include theme(dark, 'v-footer') {
+    @include v-footer($material-dark);
+}
+
+.v-footer {
+    align-items: center;
+    display: flex;
+    flex: 0 1 auto !important; // Don't let devs break their code
+    min-height: $footer-height;
+    transition: 0.2s map-get($transition, fast-out-slow-in);
+
+    &--absolute,
+    &--fixed {
+        bottom: 0;
+        left: 0;
+        width: 100%;
+        z-index: 3;
+    }
+
+    &--inset {
+        z-index: 2;
+    }
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--fixed {
+        position: fixed;
+    }
+}

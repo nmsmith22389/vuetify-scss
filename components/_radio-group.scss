@@ -1,0 +1,29 @@
+@import '../bootstrap';
+@import '../theme';
+
+.v-input--radio-group {
+    .v-radio {
+        margin-bottom: 0.5rem;
+    }
+
+    &__input {
+        display: flex;
+        width: 100%;
+
+        > .v-label {
+            padding-bottom: 0.5rem;
+        }
+    }
+
+    &--row {
+        .v-input--radio-group__input {
+            flex-flow: row wrap;
+        }
+    }
+
+    &--column {
+        .v-input--radio-group__input {
+            flex-direction: column;
+        }
+    }
+}

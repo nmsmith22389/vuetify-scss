@@ -1,0 +1,162 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-navigation-drawer($material) {
+    background-color: map-get($material, cards);
+
+    &:not(.v-navigation-drawer--floating) {
+        .v-navigation-drawer__border {
+            background-color: map-get($material, dividers);
+        }
+    }
+
+    .v-divider {
+        background-color: map-get($material, dividers);
+    }
+}
+
+@include theme(light, 'v-navigation-drawer') {
+    @include v-navigation-drawer($material-light);
+}
+
+@include theme(dark, 'v-navigation-drawer') {
+    @include v-navigation-drawer($material-dark);
+}
+
+.v-navigation-drawer {
+    @include bootable;
+
+    display: block;
+    left: 0;
+    max-width: 100%;
+    -webkit-overflow-scrolling: touch;
+    overflow-x: hidden;
+    overflow-y: auto;
+    pointer-events: auto;
+    top: 0;
+    will-change: transform;
+    z-index: 3;
+
+    &[data-booted='true'] {
+        // Work around for Safari bug. See https://github.com/vuetifyjs/vuetify/issues/2773
+        // We really want transition-property: all but must exclude max-height.
+        transition-property: background, background-color, border, border-bottom,
+            border-bottom-color, border-bottom-width, border-color, border-left,
+            border-left-color, border-left-width, border-right,
+            border-right-color, border-right-width, border-top, border-top-color,
+            border-top-width, border-width, bottom, box-shadow, color, height,
+            left, margin, margin-bottom, margin-left, margin-right, margin-top,
+            max-width, min-height, min-width, opacity, padding, padding-bottom,
+            padding-left, padding-right, padding-top, right, top, transform,
+            transform-origin, width;
+    }
+
+    &__border {
+        height: 100%;
+        position: absolute;
+        right: 0;
+        top: 0;
+        width: 1px;
+    }
+
+    &.v-navigation-drawer--right {
+        &::after {
+            left: 0;
+            right: initial;
+        }
+    }
+
+    &--right {
+        left: auto;
+        right: 0;
+
+        > .v-navigation-drawer__border {
+            left: 0;
+            right: auto;
+        }
+    }
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--fixed {
+        position: fixed;
+    }
+
+    &--floating::after {
+        display: none;
+    }
+
+    &--mini-variant {
+        overflow: hidden;
+
+        .v-list__group__header__prepend-icon {
+            flex: 1 0 auto;
+            justify-content: center;
+            width: 100%;
+        }
+
+        .v-list__tile__action,
+        .v-list__tile__avatar {
+            justify-content: center;
+            min-width: 3rem;
+        }
+
+        .v-list__tile__content,
+        .v-list__tile::after {
+            opacity: 0;
+        }
+
+        .subheader,
+        .divider,
+        .v-list--group {
+            display: none !important;
+        }
+    }
+
+    &--temporary,
+    &--is-mobile {
+        z-index: 6;
+
+        &:not(.v-navigation-drawer--close) {
+            @include elevation(16);
+        }
+    }
+
+    .v-list {
+        background: inherit;
+    }
+
+    > .v-list {
+        .v-list__tile {
+            font-weight: $navigation-drawer-item-font-weight;
+            transition: none;
+
+            &--active {
+                .v-list__tile__title {
+                    color: inherit;
+                }
+            }
+        }
+
+        .v-list--group {
+            .v-list__tile {
+                font-weight: $navigation-drawer-group-item-font-weight;
+            }
+
+            &__header--active {
+                &::after {
+                    background: transparent;
+                }
+            }
+        }
+    }
+
+    > .v-list:not(.v-list--dense) {
+        .v-list__tile {
+            font-size: $navigation-drawer-item-font-size;
+        }
+    }
+}

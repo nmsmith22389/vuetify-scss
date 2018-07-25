@@ -1,0 +1,383 @@
+// stylelint-disable declaration-no-important
+@import 'theme';
+@import '../tools/helpers/all';
+
+// ============================================================
+// Vuetify variables
+// ============================================================
+
+$color-pack: true !default;
+
+// Grid
+// ============================================================
+//@ material.io/guidelines/layout/responsive-ui.html#responsive-ui-breakpoints,
+//* Desktop gets a 16dp reduction
+$grid-breakpoints: (
+    xs: 0,
+    sm: 600px,
+    md: 960px,
+    lg: 1280px - 16px,
+    xl: 1920px - 16px,
+) !default;
+
+$grid-gutter: 0.5rem;
+$grid-columns: 12 !default;
+$grid-gutters: (
+    xs: $grid-gutter / 4,
+    sm: $grid-gutter / 2,
+    md: $grid-gutter,
+    lg: $grid-gutter * 2,
+    xl: $grid-gutter * 3,
+) !default;
+
+$container-max-widths: (
+    md: map-get($grid-breakpoints, md),
+    lg: map-get($grid-breakpoints, lg),
+    xl: map-get($grid-breakpoints, xl),
+) !default;
+
+// Display
+// ============================================================
+$display-breakpoints: (
+    xs-only:
+        'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
+    sm-only:
+        'only screen and (min-width: #{map-get($grid-breakpoints, sm)}) and (max-width: #{(map-get($grid-breakpoints, md)  - 1)})',
+    sm-and-down:
+        'only screen and (max-width: #{(map-get($grid-breakpoints, md) - 1)})',
+    sm-and-up:
+        'only screen and (min-width: #{map-get($grid-breakpoints, sm)})',
+    md-only:
+        'only screen and (min-width: #{map-get($grid-breakpoints, md)}) and (max-width: #{(map-get($grid-breakpoints, lg)  - 1)})',
+    md-and-down:
+        'only screen and (max-width: #{(map-get($grid-breakpoints, lg) - 1)})',
+    md-and-up:
+        'only screen and (min-width: #{map-get($grid-breakpoints, md)})',
+    lg-only:
+        'only screen and (min-width: #{map-get($grid-breakpoints, lg)}) and (max-width: #{(map-get($grid-breakpoints, xl) - 1)})',
+    lg-and-down:
+        'only screen and (max-width: (#{map-get($grid-breakpoints, xl)} - 1))',
+    lg-and-up:
+        'only screen and (min-width: #{map-get($grid-breakpoints, lg)})',
+    xl-only:
+        'only screen and (min-width: #{map-get($grid-breakpoints, xl)})',
+) !default;
+
+// Spacing
+// ============================================================
+$spacer: 1rem !default;
+$spacer-x: $spacer !default;
+$spacer-y: $spacer !default;
+$spacers: (
+    zero: (
+        x: 0,
+        y: 0,
+    ),
+    one: (
+        x: $spacer-x * 0.25,
+        y: $spacer-y * 0.25,
+    ),
+    two: (
+        x: $spacer-x * 0.5,
+        y: $spacer-y * 0.5,
+    ),
+    three: (
+        x: $spacer-x,
+        y: $spacer-y,
+    ),
+    four: (
+        x: $spacer-x * 1.5,
+        y: $spacer-y * 1.5,
+    ),
+    five: (
+        x: $spacer-x * 3,
+        y: $spacer-y * 3,
+    ),
+) !default;
+
+$font-weights: (
+    thin: 100,
+    light: 300,
+    regular: 400,
+    medium: 500,
+    bold: 700,
+    black: 900,
+) !default;
+
+// Headings
+// ============================================================
+$headings: (
+    h1: (
+        size: 7rem,
+        weight: 300,
+        line-height: 1.1,
+        letter-spacing: -0.04em,
+        font-family: $heading-font-family,
+    ),
+    h2: (
+        size: 3.5rem,
+        weight: 400,
+        line-height: 1.35,
+        letter-spacing: -0.02em,
+        font-family: $heading-font-family,
+    ),
+    h3: (
+        size: 2.8125rem,
+        weight: 400,
+        line-height: 1.1,
+        letter-spacing: normal,
+        font-family: $heading-font-family,
+    ),
+    h4: (
+        size: 2.125rem,
+        weight: 400,
+        line-height: 1.25,
+        letter-spacing: normal,
+        font-family: $heading-font-family,
+    ),
+    h5: (
+        size: 1.5rem,
+        weight: 400,
+        line-height: 1.3,
+        letter-spacing: normal,
+        font-family: $heading-font-family,
+    ),
+    h6: (
+        size: 1.25rem,
+        weight: 500,
+        line-height: 1,
+        letter-spacing: 0.02em,
+        font-family: $heading-font-family,
+    ),
+    subheading: (
+        size: 1rem,
+        weight: 400,
+    ),
+    body-2: (
+        size: 0.875rem,
+        weight: 500,
+    ),
+    body-1: (
+        size: 0.875rem,
+        weight: 400,
+    ),
+    caption: (
+        size: 0.75rem,
+        weight: 400,
+    ),
+    button: (
+        size: 0.875rem,
+        weight: 500,
+    ),
+) !default;
+
+// Transitions
+$transition: (
+    fast-out-slow-in: cubic-bezier(0.4, 0, 0.2, 1),
+    linear-out-slow-in: cubic-bezier(0, 0, 0.2, 1),
+    fast-out-linear-in: cubic-bezier(0.4, 0, 1, 1),
+    ease-in-out: cubic-bezier(0.4, 0, 0.6, 1),
+    fast-in-fast-out: cubic-bezier(0.25, 0.8, 0.25, 1),
+    swing: cubic-bezier(0.25, 0.8, 0.5, 1),
+) !default;
+
+$primary-transition: 0.3s map-get($transition, swing) !default;
+$secondary-transition: 0.2s map-get($transition, ease-in-out) !default;
+
+// Components
+// ============================================================
+
+// Alerts
+$alert-color: inherit !default;
+$alert-border-radius: 0 !default;
+$alert-border-width: 0.25rem 0 0 0 !default;
+$alert-font-size: $font-size-root !default;
+$alert-icon-color: rgba(map-get($material-light, fg-color), 0.3) !default;
+$alert-icon-font-size: 1.5rem !default;
+$alert-padding: 1rem !default;
+$alert-margin: map-deep-get($spacers, one, y) auto !default;
+$alert-outline-border-width: 1px !default;
+$alert-outline-border-style: solid !default;
+
+// Badges
+$badge-border-radius: 50% !default;
+$badge-color: map-get($material-dark, fg-color) !default;
+$badge-font-family: $body-font-family !default;
+$badge-font-size: 0.875rem !default;
+$badge-height: 1.375rem !default;
+$badge-top: 0 !default;
+$badge-right: 0 !default;
+$badge-width: 1.375rem !default;
+
+// Breadcrumbs
+$breadcrumbs-flex: 0 1 auto !default;
+$breadcrumbs-padding: 1.125rem 0.75rem !default;
+$breadcrumbs-even-child-padding: 0 0.75rem !default;
+$breadcrumbs-item-font-size: 0.875rem !default;
+$breadcrumbs-item-large-font-size: 1rem !default;
+$breadcrumbs-margin: 0 !default;
+$breadcrumbs-padding: 0 0.875rem !default;
+
+// Buttons
+
+// Base
+$button-border-radius: 0.125rem !default;
+$button-color: map-get($material-light, fg-color) !default;
+$button-background-color: #999999 !default;
+$button-height: 2.25rem !default;
+$button-font-size: 0.875rem !default;
+$button-font-weight: 500 !default;
+$button-margin-y: 0.375rem !default;
+$button-margin-x: 0.5rem !default;
+$button-margin: $button-margin-y $button-margin-x !default;
+$button-min-width: 5.5rem !default;
+$button-small-padding: 0 0.5rem !default;
+$button-padding: 0 1rem !default;
+$button-large-padding: 0 2rem !default;
+$button-text-transform: uppercase !default;
+
+$button-small-height: 1.75rem !default;
+$button-small-font-size: 0.8125rem !default;
+
+$button-large-height: 2.75rem !default;
+$button-large-font-size: 0.9375rem !default;
+
+$button-floating-width: 3.5rem !default;
+$button-floating-icon-height: 1.5rem !default;
+$button-floating-icon-width: 1.5rem !default;
+$button-floating-small-width: 2.5rem !default;
+$button-floating-large-width: 4.5rem !default;
+$button-floating-small-icon-width: 1.125rem !default;
+$button-floating-large-icon-width: 1.875rem !default;
+
+// Card
+$card-border-radius: 0.125rem !default;
+
+// Chip
+$chip-border-radius: 1.75rem !default;
+$chip-close-margin: 0 0.125rem 0 0.5rem !default;
+$chip-font-size: 0.8125rem !default;
+$chip-label-border-radius: $card-border-radius !default;
+$chip-icon-font-size: 1.25rem !default;
+$chip-padding: 0 0.75rem !default;
+$chip-removeable-padding: 0 0.25rem 0 0.75rem !default;
+$chip-outline-background: transparent !important !default;
+$chip-outline-color: map-get($grey, base) !default;
+$chip-height: 2rem !default;
+$chip-margin: 0.25rem !default;
+$chip-small-height: 1.625rem !default;
+$chip-small-font-size: 1.25rem !default;
+$chip-icon-offset: 0.75rem !default;
+$chip-icon-negative-offset: -0.5rem !default;
+
+// Collapsible
+$expansion-panel-collapse-height: 3rem !default;
+$collapsible-transition-height: 0.23s !default;
+
+// Footer
+$footer-height: 2.25rem !default;
+
+// Lists
+//  list fonts and weights */
+// stylelint-disable function-comma-newline-after
+$list-tile-font-size: map-deep-get(
+    $headings,
+    subheading,
+    size
+) !default; // 16px - the mdc scss uses subheading to configure like this
+$list-tile-font-weight: map-deep-get(
+    $headings,
+    subheading,
+    weight
+) !default; // 400
+// stylelint-enable function-comma-newline-after
+
+$list-action-text-font-size: 0.75rem !default; // this is for the stacked actions
+$list-action-text-font-color: map-get($grey, base) !default;
+
+$list-sub-title-font-size: ($list-tile-font-size - 0.125rem) !default; // 14px
+
+$subheader-height-font-size: ($list-tile-font-size - 0.125rem) !default; // 14px
+$subheader-font-weight: map-get($font-weights, medium) !default; // 500
+
+//   list spacing*/
+$list-left-padding: 1rem !default;
+$list-right-padding: 1rem !default;
+$list-top-padding: 0.5rem !default;
+$list-bottom-padding: 0.5rem !default;
+
+$list-item-right-margin: 3.5rem !default;
+$list-item-left-padding: 4.5rem !default;
+$list-item-avatar-triple-margin-top: -1.125rem !default;
+$list-item-single-height: 3rem !default;
+$list-item-double-height: 4.5rem !default;
+$list-item-triple-height: 5.5rem !default;
+$list-item-avatar-single-height: 3.5rem !default;
+
+$subheader-inset-margin: $list-item-right-margin !default;
+
+//   list dense overrides */
+$list-item-dense-font-size: ($list-tile-font-size - 0.1875rem) !default; //13px
+$subheader-dense-font-size: $list-item-dense-font-size !default;
+$list-item-dense-icon-font-size: 1.375rem !default;
+$list-item-dense-avatar-triple-margin-top: -0.875rem !default;
+$list-item-dense-top-padding: $list-top-padding / 2 !default;
+$list-item-dense-single-height: $list-item-single-height - 0.5rem !default; //40px
+$list-item-dense-double-height: $list-item-double-height - 0.75rem !default; //60px
+$list-item-dense-triple-height: $list-item-triple-height - 0.75rem !default; //76px
+
+$list-item-dense-avatar-single-height: $list-item-single-height !default; //48px the dense concept was to take avatars to a normal single item height
+$list-item-dense-avatar-height: 2.375rem !default;
+
+$list-dense-subheader-height: $list-item-dense-single-height !default;
+$list-dense-subheader-group-height: $list-dense-subheader-height !default; //the subheader under a group menu
+
+// Pickers
+$time-picker-number-font-size: 1rem !default;
+$time-picker-indicator-size: 2.5rem !default;
+
+// Toolbar
+$toolbar-height: 3.5rem !default;
+$toolbar-item-padding: 0 1rem !default;
+$toolbar-padding-y: 0 !default;
+$toolbar-padding-x: 1rem !default;
+
+// Progress Circular
+$progress-circular-rotate-animation: progress-circular-rotate 1.4s linear
+    infinite !default;
+$progress-circular-rotate-dash: progress-circular-dash 1.4s ease-in-out infinite !default;
+$process-circular-intermediate-svg-transition: all 0.2s ease-in-out !default;
+$progress-circular-underlay-stroke: rgba(
+    map-get($material-light, fg-color),
+    0.1
+) !default;
+$progress-circular-overlay-transition: all 0.6s ease-in-out !default;
+
+// Navigation drawer
+$navigation-drawer-item-font-size: 0.875rem !default;
+$navigation-drawer-item-font-weight: map-get($font-weights, medium) !default;
+$navigation-drawer-group-item-font-weight: map-get(
+    $font-weights,
+    regular
+) !default;
+
+// Snackbar
+$snackbar-color: #ffffff !default;
+$snackbar-background-color: #323232 !default;
+$snackbar-corner-offset: 1.5rem !default;
+
+// Tab
+$tab-text-transform: uppercase !default;
+
+// Text Input
+$input-group-padding: 1.125rem 0 0 !default;
+$input-font-size: 1rem !default;
+$input-height: 1.875rem !default;
+$input-group-text-field-label-top: 1.125rem !default;
+
+// Directives
+// ============================================================
+
+// Ripple animation
+$ripple-animation-transition: 0.3s map-get($transition, linear-out-slow-in) !default;
+$ripple-animation-visible-opacity: 0.15 !default;

@@ -1,0 +1,151 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-select($material) {
+    // Needs an explicit color to override
+    // higher level color
+    &__selections {
+        color: map-deep-get($material, text, primary);
+    }
+
+    &.v-input--is-disabled {
+        .v-select__selections {
+            color: map-deep-get($material, text, disabled);
+        }
+    }
+
+    .v-chip--disabled,
+    .v-select__selection--disabled {
+        color: map-deep-get($material, text, disabled);
+    }
+
+    &.v-text-field--solo-inverted.v-input--is-focused {
+        .v-select__selections {
+            color: map-deep-get($material, inputs, solo-inverted-focused-text);
+        }
+    }
+}
+
+@include theme(light, 'v-select') {
+    @include v-select($material-light);
+}
+
+@include theme(dark, 'v-select') {
+    @include v-select($material-dark);
+}
+
+.v-select {
+    cursor: pointer;
+    position: relative;
+
+    .v-menu {
+        flex: 1 1 auto;
+        width: 100%;
+    }
+
+    .v-chip {
+        flex: 0 1 auto;
+    }
+
+    .fade-transition-leave-active {
+        left: 0;
+        position: absolute;
+    }
+
+    &.v-input--is-dirty {
+        ::placeholder {
+            color: transparent !important;
+        }
+    }
+
+    &.v-text-field--enclosed:not(.v-text-field--single-line) {
+        .v-select__selections {
+            padding-top: 1.5rem;
+        }
+    }
+
+    &.v-text-field {
+        input {
+            flex: 1 1; // Doesn't resize on IE11 with 3rd param
+            margin-top: 0;
+            min-width: 0;
+            pointer-events: none;
+            position: relative;
+        }
+    }
+
+    &.v-select--is-menu-active {
+        .v-input__icon--append .v-icon {
+            transform: rotate(180deg);
+        }
+    }
+
+    &.v-select--chips {
+        input {
+            margin: 0;
+        }
+
+        .v-select__selections {
+            min-height: 2.625rem;
+        }
+
+        &.v-select--chips--small {
+            .v-select__selections {
+                min-height: 2rem;
+            }
+        }
+
+        &:not(.v-text-field--single-line) {
+            &.v-text-field--box,
+            &.v-text-field--enclosed {
+                .v-select__selections {
+                    min-height: 4.25rem;
+                }
+
+                &.v-select--chips--small {
+                    .v-select__selections {
+                        min-height: 3.5rem;
+                    }
+                }
+            }
+        }
+    }
+
+    &__selections {
+        align-items: center;
+        display: flex;
+        flex: 1 1 auto;
+        flex-wrap: wrap;
+        line-height: 1.125rem;
+    }
+
+    &__selection {
+        max-width: 90%;
+
+        &--comma {
+            align-items: center;
+            display: inline-flex;
+            margin: 0.4375rem 0.25rem 0.4375rem 0;
+        }
+    }
+
+    &__slot {
+        align-items: center;
+        display: flex;
+        height: 100%;
+        width: 100%;
+    }
+
+    &:not(.v-text-field--single-line) {
+        .v-select__slot {
+            // If an input is a direct child
+            // there is no selections div
+            // and we must move input to
+            // the end of the container
+            > input {
+                align-self: flex-end;
+            }
+        }
+    }
+}

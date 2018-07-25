@@ -1,0 +1,70 @@
+// stylelint-disable declaration-no-important, font-weight-notation
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-system-bar($material) {
+    background-color: map-deep-get($material, status-bar, regular);
+    color: map-deep-get($material, text, secondary);
+
+    .v-icon {
+        color: map-deep-get($material, text, secondary);
+    }
+
+    &--lights-out {
+        background-color: map-deep-get(
+            $material,
+            status-bar,
+            lights-out
+        ) !important;
+    }
+}
+
+@include theme(light, 'v-system-bar') {
+    @include v-system-bar($material-light);
+}
+
+@include theme(dark, 'v-system-bar') {
+    @include v-system-bar($material-dark);
+}
+
+.v-system-bar {
+    align-items: center;
+    display: flex;
+    font-size: map-deep-get($headings, body-2, size);
+    font-weight: map-deep-get($headings, body-2, weight);
+    padding: 0 0.5rem;
+
+    .v-icon {
+        font-size: map-deep-get($headings, subheading, size);
+    }
+
+    &--fixed,
+    &--absolute {
+        left: 0;
+        top: 0;
+        width: 100%;
+        z-index: 3;
+    }
+
+    &--fixed {
+        position: fixed;
+    }
+
+    &--absolute {
+        position: absolute;
+    }
+
+    &--status {
+        .v-icon {
+            margin-right: 0.25rem;
+        }
+    }
+
+    &--window {
+        .v-icon {
+            font-size: map-deep-get($headings, h6, size);
+            margin-right: 0.5rem;
+        }
+    }
+}

@@ -1,0 +1,206 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-tabs__bar($material) {
+    background-color: map-get($material, cards);
+
+    .v-tabs__div {
+        color: map-deep-get($material, tabs, active);
+    }
+
+    .v-tabs__item--disabled {
+        color: map-deep-get($material, buttons, disabled);
+    }
+}
+
+@include theme(light, 'v-tabs__bar') {
+    @include v-tabs__bar($material-light);
+}
+
+@include theme(dark, 'v-tabs__bar') {
+    @include v-tabs__bar($material-dark);
+}
+
+.v-tabs {
+    position: relative;
+}
+
+.v-tabs__bar {
+    position: relative;
+}
+
+.v-tabs__icon {
+    align-items: center;
+    cursor: pointer;
+    display: inline-flex;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    user-select: none;
+    width: 2rem;
+
+    &--prev {
+        left: 0.25rem;
+    }
+
+    &--next {
+        right: 0.25rem;
+    }
+}
+
+.v-tabs__wrapper {
+    contain: content;
+    display: flex;
+    overflow: hidden;
+
+    &--show-arrows {
+        margin-left: 2.5rem;
+        margin-right: 2.5rem;
+
+        .v-tabs__container--align-with-title {
+            padding-left: 1rem;
+
+            @media #{map-get($display-breakpoints, xs-only)} {
+                padding-left: 1.5rem;
+            }
+        }
+    }
+}
+
+.v-tabs__container {
+    display: flex;
+    flex: 1 0 auto;
+    height: 3rem;
+    list-style-type: none;
+    position: relative;
+    transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
+    white-space: nowrap;
+
+    &--overflow {
+        .v-tabs__div {
+            flex: 1 0 auto;
+        }
+    }
+
+    &--grow {
+        .v-tabs__div {
+            flex: 1 0 auto;
+            max-width: none;
+        }
+    }
+
+    &--icons-and-text {
+        height: 4.5rem;
+
+        .v-tabs__item {
+            flex-direction: column-reverse;
+
+            .v-icon {
+                margin-bottom: 0.375rem;
+            }
+        }
+    }
+
+    &--align-with-title {
+        padding-left: 3.5rem;
+    }
+
+    &--fixed-tabs,
+    &--icons-and-text {
+        .v-tabs__div {
+            min-width: 4.5rem;
+
+            @media #{map-get($display-breakpoints, sm-and-up)} {
+                min-width: 10rem;
+            }
+        }
+    }
+
+    &--fixed-tabs {
+        .v-tabs__div {
+            @media #{map-get($display-breakpoints, xs-only)} {
+                flex: 1 0 auto;
+            }
+        }
+    }
+
+    &--centered,
+    &--fixed-tabs,
+    &--right {
+        > .v-tabs__div:first-child {
+            margin-left: auto;
+        }
+
+        .v-tabs__slider-wrapper + .v-tabs__div {
+            margin-left: auto;
+        }
+    }
+
+    &--centered,
+    &--fixed-tabs {
+        > .v-tabs__div:last-child {
+            margin-right: auto;
+        }
+    }
+}
+
+.v-tabs__div {
+    align-items: center;
+    display: inline-flex;
+    flex: 0 1 auto;
+    font-size: 0.875rem;
+    font-weight: font-weight(medium);
+    height: inherit;
+    line-height: normal;
+    max-width: 16.5rem;
+    text-align: center;
+    text-transform: $tab-text-transform;
+    vertical-align: middle;
+}
+
+.v-tabs__item {
+    align-items: center;
+    color: inherit;
+    display: flex;
+    flex: 1 1 auto;
+    height: 100%;
+    justify-content: center;
+    max-width: inherit;
+    padding: 0.375rem 0.75rem;
+    text-decoration: none;
+    transition: $primary-transition;
+    user-select: none;
+    white-space: normal;
+
+    &:not(.v-tabs__item--active) {
+        opacity: 0.7;
+    }
+
+    &--disabled {
+        pointer-events: none;
+    }
+}
+
+.v-tabs__slider {
+    height: 0.125rem;
+    width: 100%;
+
+    &-wrapper {
+        bottom: 0;
+        margin: 0 !important;
+        position: absolute;
+        transition: $primary-transition;
+    }
+}
+
+.v-tabs__items {
+    overflow: hidden;
+    position: relative;
+}
+
+.v-tabs__content {
+    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
+    width: 100%;
+}

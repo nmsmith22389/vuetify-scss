@@ -1,0 +1,111 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-pagination($material) {
+    &__item {
+        background: map-get($material, cards);
+        color: map-get($material, fg-color);
+
+        &--active {
+            color: map-deep-get($material, text, theme);
+        }
+    }
+
+    &__navigation {
+        background: map-get($material, cards);
+
+        .icon {
+            color: rgba(
+                map-get($material, fg-color),
+                map-get($material, active-icon-percent)
+            );
+        }
+    }
+}
+
+@include theme(light, 'v-pagination') {
+    @include v-pagination($material-light);
+}
+
+@include theme(dark, 'v-pagination') {
+    @include v-pagination($material-dark);
+}
+
+.v-pagination {
+    align-items: center;
+    display: inline-flex;
+    list-style-type: none;
+    margin: 0;
+    max-width: 100%;
+    padding: 0;
+
+    > li {
+        align-items: center;
+        display: flex;
+    }
+
+    &--circle {
+        .v-pagination__item,
+        .v-pagination__more,
+        .v-pagination__navigation {
+            border-radius: 50%;
+        }
+    }
+
+    &--disabled {
+        opacity: 0.6;
+        pointer-events: none;
+    }
+
+    &__item {
+        @include elevation(2);
+        align-items: center;
+        background: transparent;
+        border-radius: 4px;
+        display: inline-flex;
+        font-size: $button-font-size;
+        height: 2.125rem;
+        justify-content: center;
+        margin: 0.3rem;
+        text-decoration: none;
+        transition: 0.3s map-get($transition, linear-out-slow-in);
+        width: 2.125rem;
+
+        &--active {
+            @include elevation(4);
+        }
+    }
+
+    &__navigation {
+        @include elevation(2);
+        align-items: center;
+        border-radius: 4px;
+        display: inline-flex;
+        height: 2rem;
+        justify-content: center;
+        margin: 0.3rem 0.625rem;
+        text-decoration: none;
+        width: 2rem;
+
+        .v-icon {
+            font-size: 2rem;
+            transition: $secondary-transition;
+            vertical-align: middle;
+        }
+
+        &--disabled {
+            opacity: 0.6;
+            pointer-events: none;
+        }
+    }
+
+    &__more {
+        align-items: flex-end;
+        display: inline-flex;
+        height: 2rem;
+        justify-content: center;
+        margin: 0.3rem;
+        width: 2rem;
+    }
+}

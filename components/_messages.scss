@@ -1,0 +1,40 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-messages($material) {
+    color: map-deep-get($material, text, secondary);
+}
+
+@mixin v-messages-rtl {
+    text-align: right;
+}
+
+@include theme(light, 'v-messages') {
+    @include v-messages($material-light);
+}
+
+@include theme(dark, 'v-messages') {
+    @include v-messages($material-dark);
+}
+
+@include rtl('v-messages') {
+    @include v-messages-rtl;
+}
+
+.v-messages {
+    flex: 1 1 auto;
+    font-size: 0.75rem;
+    min-height: 0.75rem;
+    min-width: 1px; // Ensure takes up space with no messages and inside of flex
+    position: relative;
+
+    &__message {
+        hyphens: auto;
+        line-height: 1;
+        overflow-wrap: break-word;
+        word-break: break-word;
+        word-wrap: break-word;
+    }
+}

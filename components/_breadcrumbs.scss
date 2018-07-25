@@ -1,0 +1,67 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-breadcrumbs($material) {
+    li.v-breadcrumbs__divider,
+    li:last-child .v-breadcrumbs__item,
+    li .v-breadcrumbs__item--disabled {
+        color: map-deep-get($material, text, disabled);
+    }
+}
+
+@include theme(light, 'v-breadcrumbs') {
+    @include v-breadcrumbs($material-light);
+}
+@include theme(dark, 'v-breadcrumbs') {
+    @include v-breadcrumbs($material-dark);
+}
+
+.v-breadcrumbs {
+    align-items: center;
+    display: flex;
+    flex: $breadcrumbs-flex;
+    flex-wrap: wrap;
+    list-style-type: none;
+    margin: $breadcrumbs-margin;
+    padding: $breadcrumbs-padding;
+
+    li {
+        align-items: center;
+        display: inline-flex;
+        font-size: $breadcrumbs-item-font-size;
+
+        .v-icon {
+            font-size: $breadcrumbs-item-large-font-size;
+        }
+
+        &:last-child a {
+            cursor: default;
+            pointer-events: none;
+        }
+
+        &:nth-child(even) {
+            padding: $breadcrumbs-even-child-padding;
+        }
+    }
+
+    &--large {
+        li {
+            font-size: $breadcrumbs-item-large-font-size;
+
+            .v-icon {
+                font-size: $breadcrumbs-item-large-font-size;
+            }
+        }
+    }
+
+    &__item {
+        align-items: center;
+        display: inline-flex;
+        text-decoration: none;
+        transition: $primary-transition;
+
+        &--disabled {
+            pointer-events: none;
+        }
+    }
+}

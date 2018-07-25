@@ -1,0 +1,51 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-icon($material) {
+    color: map-deep-get($material, icons, active);
+
+    &.v-icon--disabled {
+        color: map-deep-get($material, icons, inactive) !important;
+    }
+}
+
+@include theme(light, 'v-icon') {
+    @include v-icon($material-light);
+}
+
+@include theme(dark, 'v-icon') {
+    @include v-icon($material-dark);
+}
+
+.v-icon:not(.svg-inline--fa) {
+    align-items: center;
+    display: inline-flex;
+    font-feature-settings: 'liga';
+    font-size: 1.5rem;
+    justify-content: center;
+    line-height: 1;
+    transition: $primary-transition;
+    vertical-align: text-bottom;
+
+    &.v-icon.v-icon--link {
+        cursor: pointer;
+    }
+
+    &.v-icon--large {
+        font-size: 2.5rem;
+    }
+
+    &.v-icon--medium {
+        font-size: 2rem;
+    }
+
+    &.v-icon--x-large {
+        font-size: 3rem;
+    }
+
+    &.v-icon--disabled {
+        pointer-events: none;
+    }
+}

@@ -1,0 +1,69 @@
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-btn-toggle($material) {
+    background: map-get($material, cards);
+
+    .v-btn {
+        color: map-deep-get($material, text, primary);
+
+        &.v-btn--active:not(:last-child):not([data-only-child]) {
+            border-right-color: map-deep-get($material, buttons, disabled);
+        }
+    }
+}
+
+@include theme(light, 'v-btn-toggle') {
+    @include v-btn-toggle($material-light);
+}
+
+@include theme(dark, 'v-btn-toggle') {
+    @include v-btn-toggle($material-dark);
+}
+
+.v-btn-toggle {
+    border-radius: 2px;
+    display: inline-flex;
+    transition: $primary-transition;
+    will-change: background, box-shadow;
+
+    .v-btn {
+        border-radius: 0;
+        justify-content: center;
+        margin: 0;
+        min-width: auto;
+        opacity: 0.4;
+        padding: 0 0.5rem;
+        width: auto;
+
+        &:not(:last-child) {
+            border-right: 1px solid transparent;
+        }
+
+        &::after {
+            display: none;
+        }
+
+        &.v-btn--active {
+            opacity: 1;
+        }
+
+        span + .v-icon {
+            font-size: initial;
+            margin-left: 0.625rem;
+        }
+
+        &:first-child {
+            border-radius: 2px 0 0 2px;
+        }
+
+        &:last-child {
+            border-radius: 0 2px 2px 0;
+        }
+    }
+
+    &--selected {
+        @include elevation(2);
+    }
+}

@@ -1,0 +1,65 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../browsers';
+@import '../theme';
+
+.application {
+    display: flex;
+
+    &--is-rtl {
+        direction: rtl;
+    }
+
+    &--wrap {
+        backface-visibility: hidden;
+        display: flex;
+        flex: 1 1 auto;
+        flex-direction: column;
+        max-width: 100%;
+        min-height: 100vh;
+        position: relative;
+    }
+}
+
+@mixin application($material) {
+    background: map-get($material, background);
+    color: map-deep-get($material, text, primary);
+
+    a {
+        cursor: pointer;
+    }
+
+    .text {
+        &--primary {
+            color: map-deep-get($material, text, primary) !important;
+        }
+
+        &--secondary {
+            color: map-deep-get($material, text, secondary) !important;
+        }
+
+        &--disabled {
+            color: map-deep-get($material, text, disabled) !important;
+        }
+    }
+}
+
+@include app(light) {
+    @include application($material-light);
+}
+
+@include app(dark) {
+    @include application($material-dark);
+}
+
+@include firefox() {
+    @media print {
+        .application {
+            display: block;
+
+            &--wrap {
+                display: block;
+            }
+        }
+    }
+}

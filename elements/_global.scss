@@ -1,0 +1,22 @@
+html {
+    font-size: $font-size-root;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: hidden;
+    -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+    text-rendering: optimizeLegibility;
+}
+
+body {
+    font-size: map-deep-get($headings, body-1, size);
+    font-weight: map-deep-get($headings, body-1, weight);
+}
+
+.application {
+    font-family: $body-font-family;
+    line-height: $line-height-root;
+}
+
+::-ms-clear ::-ms-reveal {
+    display: none;
+}

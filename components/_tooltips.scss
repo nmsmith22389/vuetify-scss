@@ -1,0 +1,29 @@
+@import '../bootstrap';
+
+.v-tooltip {
+    position: relative;
+
+    &__content {
+        @include elevation(2);
+        background: map-get($grey, darken-2);
+        border-radius: 2px;
+        color: #ffffff;
+        display: inline-block;
+        font-size: 0.75rem;
+        padding: 0.3125rem 0.5rem;
+        position: absolute;
+        text-transform: initial;
+        transition: 0.15s map-get($transition, swing);
+        width: auto;
+
+        &[class*='-active'] {
+            pointer-events: none;
+        }
+    }
+
+    @media #{map-get($display-breakpoints, sm-and-down)} {
+        .v-tooltip__content {
+            padding: 0.625rem 1rem;
+        }
+    }
+}

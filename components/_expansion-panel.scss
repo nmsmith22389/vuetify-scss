@@ -1,0 +1,136 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-expansion-panel($material) {
+    .v-expansion-panel__container {
+        background-color: map-get($material, cards);
+        border-top: 1px solid
+            rgba(
+                map-get($material, fg-color),
+                map-get($material, divider-percent)
+            );
+        color: map-deep-get($material, text, primary);
+
+        .v-expansion-panel__header {
+            .v-expansion-panel__header__icon {
+                .v-icon {
+                    color: map-deep-get($material, icons, active);
+                }
+            }
+        }
+
+        &--disabled {
+            color: map-deep-get($material, text, disabled);
+        }
+    }
+
+    &--focusable {
+        .v-expansion-panel__container {
+            &:focus {
+                background-color: map-deep-get(
+                    $material,
+                    expansion-panels,
+                    focus
+                );
+            }
+        }
+    }
+}
+
+@include theme(light, 'v-expansion-panel') {
+    @include v-expansion-panel($material-light);
+}
+
+@include theme(dark, 'v-expansion-panel') {
+    @include v-expansion-panel($material-dark);
+}
+
+.v-expansion-panel {
+    @include elevation(1);
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    list-style-type: none;
+    padding: 0;
+    text-align: left;
+    width: 100%;
+
+    &__container {
+        flex: 1 0 100%;
+        max-width: 100%;
+        outline: none;
+        transition: $primary-transition;
+
+        &:first-child {
+            border-top: none !important;
+        }
+
+        .v-expansion-panel__header__icon {
+            margin-left: auto;
+        }
+
+        &--disabled {
+            .v-expansion-panel__header {
+                pointer-events: none;
+            }
+        }
+
+        &--active {
+            > .v-expansion-panel__header {
+                .v-expansion-panel__header__icon .v-icon {
+                    transform: rotate(-180deg);
+                }
+            }
+        }
+    }
+
+    &__header {
+        align-items: center;
+        cursor: pointer;
+        display: flex;
+        height: 3rem;
+        padding: 0.75rem 1.5rem;
+        position: relative;
+
+        > *:not(.v-expansion-panel__header__icon) {
+            flex: 1 1 auto;
+        }
+    }
+
+    &__body {
+        transition: $primary-transition;
+
+        .v-card {
+            @include elevation(0);
+            border-radius: 0;
+        }
+    }
+
+    &--popout,
+    &--inset {
+        @include elevation(0);
+
+        .v-expansion-panel__container--active {
+            @include elevation(3);
+            margin: map-deep-get($spacers, three, x);
+        }
+
+        .v-expansion-panel__container {
+            max-width: 95%;
+        }
+    }
+
+    &--popout {
+        .v-expansion-panel__container--active {
+            max-width: 100%;
+        }
+    }
+
+    &--inset {
+        .v-expansion-panel__container--active {
+            max-width: 85%;
+        }
+    }
+}

@@ -1,0 +1,28 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-subheader($material) {
+    color: map-deep-get($material, text, secondary);
+}
+
+@include theme(light, 'v-subheader') {
+    @include v-subheader($material-light);
+}
+
+@include theme(dark, 'v-subheader') {
+    @include v-subheader($material-dark);
+}
+
+.v-subheader {
+    align-items: center;
+    display: flex;
+    font-size: map-deep-get($headings, body-2, size);
+    // stylelint-disable-next-line font-weight-notation
+    font-weight: map-deep-get($headings, body-2, weight);
+    height: $list-item-single-height;
+    padding: 0 $list-right-padding 0 $list-left-padding;
+
+    &--inset {
+        margin-left: $subheader-inset-margin;
+    }
+}

@@ -1,0 +1,61 @@
+// stylelint-disable declaration-no-important
+@mixin global-color($color_name, $color_value) {
+    .#{$color_name} {
+        background-color: $color_value !important;
+        border-color: $color_value !important;
+    }
+
+    .#{$color_name}--text {
+        color: $color_value !important;
+
+        input,
+        textarea {
+            caret-color: $color_value !important;
+        }
+    }
+}
+
+@mixin global-color-accent($color_name, $color_value, $color_type) {
+    .#{$color_name} {
+        &.#{$color_type} {
+            background-color: $color_value !important;
+            border-color: $color_value !important;
+        }
+    }
+
+    .#{$color_name}--text {
+        &.text--#{$color_type} {
+            color: $color_value !important;
+
+            input,
+            textarea {
+                caret-color: $color_value !important;
+            }
+        }
+    }
+}
+
+// Put the loop in a function so it can't leak
+@mixin create-global-colors {
+    @each $color_name, $color_value in $shades {
+        @include global-color($color_name, $color_value);
+    }
+
+    @if $color-pack {
+        @each $color_name, $color_color in $colors {
+            @each $color_type, $color_value in $color_color {
+                @if $color_type == 'base' {
+                    @include global-color($color_name, $color_value);
+                } @else if $color_type != 'shades' {
+                    @include global-color-accent(
+                        $color_name,
+                        $color_value,
+                        $color_type
+                    );
+                }
+            }
+        }
+    }
+}
+
+@include create-global-colors;

@@ -1,0 +1,20 @@
+// stylelint-disable declaration-no-important
+@import '../bootstrap';
+
+.v-form {
+    > .container {
+        padding: map-get($grid-gutters, lg);
+
+        > .layout > .flex {
+            padding: (map-get($grid-gutters, lg) / 2);
+        }
+
+        > .layout:only-child {
+            margin: -(map-get($grid-gutters, lg) / 2);
+        }
+
+        > .layout:not(:only-child) {
+            margin: auto (-(map-get($grid-gutters, lg) / 2));
+        }
+    }
+}

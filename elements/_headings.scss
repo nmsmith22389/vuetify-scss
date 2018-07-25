@@ -1,0 +1,13 @@
+@import '../theme';
+
+@mixin heading($material) {
+    color: map-deep-get($material, text, primary);
+}
+
+@include theme(light, 'heading') {
+    @include heading($material-light);
+}
+
+@include theme(dark, 'heading') {
+    @include heading($material-dark);
+}
