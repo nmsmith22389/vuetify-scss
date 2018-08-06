@@ -2,11 +2,11 @@
 @import '../theme';
 
 @mixin v-small-dialog($material) {
-    &__content {
+    .v-small-dialog__content {
         background: map-get($material, cards);
     }
 
-    &__actions {
+    .v-small-dialog__actions {
         background: map-get($material, cards);
     }
 

@@ -1,0 +1,31 @@
+@import '../bootstrap';
+
+.v-image {
+    z-index: 0;
+
+    &__image,
+    &__placeholder {
+        height: 100%;
+        left: 0;
+        position: absolute;
+        top: 0;
+        width: 100%;
+        z-index: -1;
+    }
+
+    &__image {
+        background-repeat: no-repeat;
+
+        &--preload {
+            filter: blur(2px);
+        }
+
+        &--contain {
+            background-size: contain;
+        }
+
+        &--cover {
+            background-size: cover;
+        }
+    }
+}
