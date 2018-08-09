@@ -8,8 +8,8 @@
   "scripts": {
     "lint": "stylelint '**/*.scss' --syntax=scss; exit 0",
     "lint:fix": "stylelint '**/*.scss' --syntax=scss --fix; exit 0",
-    "prepublishOnly": "npm run lint",
-    "test": "npm run lint",
+    "prepublishOnly": "stylelint '**/*.scss' --syntax=scss",
+    "test": "stylelint '**/*.scss' --syntax=scss",
     "release": "standard-version"
   },
   "repository": {
