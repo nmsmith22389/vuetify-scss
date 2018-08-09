@@ -1,5 +1,9 @@
 # vuetify-scss
 
+[![npm](https://img.shields.io/npm/v/vuetify-scss.svg?label=version)](https://www.npmjs.com/package/vuetify-scss)
+[![npm](https://img.shields.io/npm/dt/vuetify-scss.svg)](https://www.npmjs.com/package/vuetify-scss)
+[![GitHub issues](https://img.shields.io/github/issues/nmsmith22389/vuetify-scss.svg)](https://github.com/nmsmith22389/vuetify-scss/issues)
+
 All of the Vuetify styles converted into Sass. **No more Stylus!** 🎉
 
 ## Getting Started
