@@ -1,6 +1,6 @@
 {
   "name": "vuetify-scss",
-  "version": "1.0.2",
+  "version": "1.0.3",
   "description": "All of the Vuetify styles converted into Sass. No more Stylus!",
   "main": "main.scss",
   "style": "main.scss",
@@ -8,8 +8,8 @@
   "scripts": {
     "lint": "stylelint '**/*.scss' --syntax=scss; exit 0",
     "lint:fix": "stylelint '**/*.scss' --syntax=scss --fix; exit 0",
-    "prepublishOnly": "npm run lint",
-    "test": "npm run lint",
+    "prepublishOnly": "stylelint '**/*.scss' --syntax=scss",
+    "test": "stylelint '**/*.scss' --syntax=scss",
     "release": "standard-version"
   },
   "repository": {

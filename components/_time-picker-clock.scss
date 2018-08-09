@@ -93,7 +93,7 @@
             left: 50%;
             position: absolute;
             top: 100%;
-            transform: translate(calc(-50%, - 1px), -50%);
+            transform: translate(calc(-50% - 1px), -50%);
             width: 0.5rem;
         }
     }
