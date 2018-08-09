@@ -1,19 +1,5 @@
 @import 'settings/theme';
 
-@mixin app($theme: light) {
-    .application {
-        @if ($theme == light) {
-            &.theme--light {
-                @content;
-            }
-        } @else {
-            &.theme--dark {
-                @content;
-            }
-        }
-    }
-}
-
 @mixin theme-light($name) {
     .theme--light .#{$name},
     .application .theme--light.#{$name} {

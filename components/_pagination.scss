@@ -3,7 +3,7 @@
 @import '../theme';
 
 @mixin v-pagination($material) {
-    &__item {
+    .v-pagination__item {
         background: map-get($material, cards);
         color: map-get($material, fg-color);
 
@@ -12,10 +12,10 @@
         }
     }
 
-    &__navigation {
+    .v-pagination__navigation {
         background: map-get($material, cards);
 
-        .icon {
+        .v-icon {
             color: rgba(
                 map-get($material, fg-color),
                 map-get($material, active-icon-percent)

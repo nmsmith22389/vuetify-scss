@@ -5,7 +5,7 @@
 @mixin v-select($material) {
     // Needs an explicit color to override
     // higher level color
-    &__selections {
+    .v-select__selections {
         color: map-deep-get($material, text, primary);
     }
 
@@ -109,6 +109,13 @@
                     }
                 }
             }
+        }
+    }
+
+    &.v-text-field--reverse {
+        .v-select__slot,
+        .v-select__selections {
+            flex-direction: row-reverse;
         }
     }
 
