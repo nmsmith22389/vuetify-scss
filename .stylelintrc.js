@@ -1,4 +1,5 @@
 module.exports = {
+    defaultSeverity: 'warning',
     extends: 'stylelint-config-sass-guidelines',
     rules: {
         'declaration-property-value-blacklist': null,
