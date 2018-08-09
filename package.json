@@ -1,42 +1,42 @@
 {
-    "name": "vuetify-scss",
-    "version": "1.0.1",
-    "description": "All of the Vuetify styles converted into Sass. No more Stylus!",
-    "main": "main.scss",
-    "style": "main.scss",
-    "sass": "main.scss",
-    "scripts": {
-        "lint": "stylelint '**/*.scss' --syntax=scss; exit 0",
-        "lint:fix": "stylelint '**/*.scss' --syntax=scss --fix; exit 0",
-        "prepublishOnly": "npm run lint",
-        "test": "npm run lint",
-        "release": "standard-version"
-    },
-    "repository": {
-        "type": "git",
-        "url": "git+https://github.com/nmsmith22389/vuetify-scss.git"
-    },
-    "keywords": [
-        "vuetify",
-        "scss",
-        "sass",
-        "css",
-        "vue"
-    ],
-    "author": {
-        "name": "Neil Smith",
-        "email": "nmsmith22389@gmail.com"
-    },
-    "license": "MIT",
-    "bugs": {
-        "url": "https://github.com/nmsmith22389/vuetify-scss/issues"
-    },
-    "homepage": "https://github.com/nmsmith22389/vuetify-scss#readme",
-    "peerDependencies": {
-        "vuetify": "~1.1.1"
-    },
-    "devDependencies": {
-        "stylelint": "^9.3.0",
-        "stylelint-config-sass-guidelines": "^5.0.0"
-    }
+  "name": "vuetify-scss",
+  "version": "1.0.2",
+  "description": "All of the Vuetify styles converted into Sass. No more Stylus!",
+  "main": "main.scss",
+  "style": "main.scss",
+  "sass": "main.scss",
+  "scripts": {
+    "lint": "stylelint '**/*.scss' --syntax=scss; exit 0",
+    "lint:fix": "stylelint '**/*.scss' --syntax=scss --fix; exit 0",
+    "prepublishOnly": "npm run lint",
+    "test": "npm run lint",
+    "release": "standard-version"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/nmsmith22389/vuetify-scss.git"
+  },
+  "keywords": [
+    "vuetify",
+    "scss",
+    "sass",
+    "css",
+    "vue"
+  ],
+  "author": {
+    "name": "Neil Smith",
+    "email": "nmsmith22389@gmail.com"
+  },
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/nmsmith22389/vuetify-scss/issues"
+  },
+  "homepage": "https://github.com/nmsmith22389/vuetify-scss#readme",
+  "peerDependencies": {
+    "vuetify": "~1.1.1"
+  },
+  "devDependencies": {
+    "stylelint": "^9.3.0",
+    "stylelint-config-sass-guidelines": "^5.0.0"
+  }
 }
