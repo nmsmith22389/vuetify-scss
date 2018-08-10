@@ -380,5 +380,5 @@ $input-group-text-field-label-top: 1.125rem !default;
 // ============================================================
 
 // Ripple animation
-$ripple-animation-transition: 0.4s map-get($transition, linear-out-slow-in) !default;
+$ripple-animation-transition: 0.3s map-get($transition, linear-out-slow-in) !default;
 $ripple-animation-visible-opacity: 0.15 !default;

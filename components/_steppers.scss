@@ -55,8 +55,8 @@
     }
 
     .v-stepper__header {
-        .v-divider {
-            border-color: rgba(
+        .divider {
+            background: rgba(
                 map-get($material, fg-color),
                 map-get($material, divider-percent)
             );

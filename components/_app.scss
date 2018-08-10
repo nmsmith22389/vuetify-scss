@@ -44,11 +44,11 @@
     }
 }
 
-@include theme(light, 'application') {
+@include app(light) {
     @include application($material-light);
 }
 
-@include theme(dark, 'application') {
+@include app(dark) {
     @include application($material-dark);
 }
 
