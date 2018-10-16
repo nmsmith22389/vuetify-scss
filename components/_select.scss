@@ -35,8 +35,11 @@
 }
 
 .v-select {
-    cursor: pointer;
     position: relative;
+
+    .v-input__slot {
+        cursor: pointer;
+    }
 
     .v-menu {
         flex: 1 1 auto;
