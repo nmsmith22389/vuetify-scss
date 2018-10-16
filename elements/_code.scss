@@ -1,9 +1,9 @@
-// stylelint-disable color-named
 code,
 kbd {
     border-radius: 3px;
     display: inline-block;
     font-size: 85%;
+    // stylelint-disable-next-line color-named
     font-weight: font-weight(black);
     white-space: pre-wrap;
 

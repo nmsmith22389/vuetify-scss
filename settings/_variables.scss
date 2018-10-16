@@ -1,4 +1,3 @@
-// stylelint-disable declaration-no-important
 @import 'theme';
 @import '../tools/helpers/all';
 
@@ -280,7 +279,6 @@ $footer-height: 2.25rem !default;
 
 // Lists
 //  list fonts and weights */
-// stylelint-disable function-comma-newline-after
 $list-tile-font-size: map-deep-get(
     $headings,
     subheading,
@@ -291,7 +289,6 @@ $list-tile-font-weight: map-deep-get(
     subheading,
     weight
 ) !default; // 400
-// stylelint-enable function-comma-newline-after
 
 $list-action-text-font-size: 0.75rem !default; // this is for the stacked actions
 $list-action-text-font-color: map-get($grey, base) !default;

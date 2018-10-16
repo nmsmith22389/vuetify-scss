@@ -1,4 +1,3 @@
-// stylelint-disable scss/at-function-pattern
 // @import '../../settings/variables';
 // @import '../../settings/theme';
 
@@ -6,6 +5,7 @@
     @return $num / ($num * 0 + 1);
 }
 
+// stylelint-disable-next-line scss/at-function-pattern
 @function -vy-to-rem($value, $base: null) {
     // Check if the value is a number
     @if type-of($value) != 'number' {

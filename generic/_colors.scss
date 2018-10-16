@@ -1,4 +1,3 @@
-// stylelint-disable declaration-no-important
 @mixin global-color($color_name, $color_value) {
     .#{$color_name} {
         background-color: $color_value !important;

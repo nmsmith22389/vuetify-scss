@@ -1,4 +1,3 @@
-// stylelint-disable declaration-no-important
 @each $size, $width in $grid-breakpoints {
     @media all and (min-width: $width) {
         .text-#{$size}-left {

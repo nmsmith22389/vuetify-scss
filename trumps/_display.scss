@@ -1,4 +1,3 @@
-// stylelint-disable declaration-no-important
 @each $size, $media_query in $display-breakpoints {
     .hidden {
         &-#{$size} {
