@@ -37,7 +37,7 @@
 .v-select {
     position: relative;
 
-    .v-input__slot {
+    > .v-input__control > .v-input__slot {
         cursor: pointer;
     }
 
