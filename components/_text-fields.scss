@@ -205,7 +205,8 @@
         }
     }
 
-    .v-input__slot {
+    > .v-input__control > .v-input__slot {
+        cursor: text;
         transition: background $primary-transition;
 
         &::before,
