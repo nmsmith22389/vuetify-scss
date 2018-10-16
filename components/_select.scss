@@ -112,6 +112,13 @@
         }
     }
 
+    &.v-text-field--reverse {
+        .v-select__slot,
+        .v-select__selections {
+            flex-direction: row-reverse;
+        }
+    }
+
     &__selections {
         align-items: center;
         display: flex;
