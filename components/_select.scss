@@ -1,11 +1,10 @@
-// stylelint-disable declaration-no-important
 @import '../bootstrap';
 @import '../theme';
 
 @mixin v-select($material) {
     // Needs an explicit color to override
     // higher level color
-    .v-select__selections {
+    &__selections {
         color: map-deep-get($material, text, primary);
     }
 

@@ -17,7 +17,6 @@
     align-items: center;
     display: flex;
     font-size: map-deep-get($headings, body-2, size);
-    // stylelint-disable-next-line font-weight-notation
     font-weight: map-deep-get($headings, body-2, weight);
     height: $list-item-single-height;
     padding: 0 $list-right-padding 0 $list-left-padding;

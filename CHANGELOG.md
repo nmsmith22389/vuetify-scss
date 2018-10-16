@@ -2,6 +2,21 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.0.4"></a>
+## [1.0.4](https://github.com/nmsmith22389/vuetify-scss/compare/v1.0.3...v1.0.4) (2018-10-16)
+
+
+### Bug Fixes
+
+* **vuetify:** updated styles to match vuetify@v1.1.10 ([c9981e3](https://github.com/nmsmith22389/vuetify-scss/commit/c9981e3))
+
+
+### Reverts
+
+* fix(vuetify): updated styles to match vuetify@v1.2.0-beta.0 ([5d9f0e3](https://github.com/nmsmith22389/vuetify-scss/commit/5d9f0e3))
+
+
+
 <a name="1.0.3"></a>
 ## [1.0.3](https://github.com/nmsmith22389/vuetify-scss/compare/v1.0.2...v1.0.3) (2018-08-09)
 

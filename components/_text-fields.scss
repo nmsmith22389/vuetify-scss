@@ -15,12 +15,12 @@
     &.v-input--is-disabled {
         .v-input__slot::before {
             border-image: repeating-linear-gradient(
-                to right,
-                map-deep-get($material, text, disabled) 0,
-                map-deep-get($material, text, disabled) 2px,
-                transparent 2px,
-                transparent 4px
-            )
+                    to right,
+                    map-deep-get($material, text, disabled) 0,
+                    map-deep-get($material, text, disabled) 2px,
+                    transparent 2px,
+                    transparent 4px
+                )
                 1 repeat;
         }
     }
@@ -193,6 +193,7 @@
     .v-label {
         max-width: 90%;
         overflow: hidden;
+        pointer-events: none;
         text-overflow: ellipsis;
         top: 6px;
         transform-origin: top left;
