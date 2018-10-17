@@ -57,8 +57,12 @@
         width: 1.5rem;
 
         input {
+            cursor: pointer;
+            height: 100%;
             opacity: 0;
             position: absolute;
+            user-select: none;
+            width: 100%;
         }
 
         // Sibling selector to avoid targeting v-radio-group's label
