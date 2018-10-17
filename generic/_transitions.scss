@@ -67,10 +67,6 @@
         opacity: 0;
     }
 
-    &-enter-to {
-        transition: translate(0, 0);
-    }
-
     &-leave,
     &-leave-active,
     &-leave-to {
