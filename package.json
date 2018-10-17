@@ -33,7 +33,7 @@
   },
   "homepage": "https://github.com/nmsmith22389/vuetify-scss#readme",
   "peerDependencies": {
-    "vuetify": "~1.2.2"
+    "vuetify": "~1.2.4"
   },
   "devDependencies": {
     "stylelint": "^9.3.0",
