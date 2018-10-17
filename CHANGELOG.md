@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.3"></a>
+## [1.1.3](https://github.com/nmsmith22389/vuetify-scss/compare/v1.1.2...v1.1.3) (2018-10-17)
+
+
+### Bug Fixes
+
+* **px to rem:** changed some pixel values to rem ([d7109d2](https://github.com/nmsmith22389/vuetify-scss/commit/d7109d2))
+* **vuetify:** updated styles to match vuetify@v1.2.4 ([a216ef9](https://github.com/nmsmith22389/vuetify-scss/commit/a216ef9))
+
+
+
 <a name="1.1.2"></a>
 ## [1.1.2](https://github.com/nmsmith22389/vuetify-scss/compare/v1.1.1...v1.1.2) (2018-10-17)
 
