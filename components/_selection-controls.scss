@@ -73,13 +73,15 @@
     }
 
     &__ripple {
+        // TODO: Use rem-calc() for these pixel values when the function is stable
         cursor: pointer;
-        height: 3rem;
+        height: 2.125rem;
         left: -0.75rem;
+        margin: 0.4375rem;
         position: absolute;
         top: calc(50% - 1.5rem);
         transition: inherit;
-        width: 3rem;
+        width: 2.125rem;
 
         &::before {
             border-radius: 50%;
@@ -93,6 +95,10 @@
             transform: scale(0.2);
             transform-origin: center center;
             transition: inherit;
+        }
+
+        .v-ripple__container {
+            transform: scale(1.4);
         }
     }
 
