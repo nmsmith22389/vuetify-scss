@@ -37,7 +37,12 @@
     list-style-type: none;
     margin: 0;
     max-width: 100%;
-    padding: 0;
+
+    // TODO: Use rem-calc() for these two values when the function is stable
+    min-width: 2.125rem;
+    padding: 0 0.3125rem;
+
+    width: auto;
 
     > li {
         align-items: center;
