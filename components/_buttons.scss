@@ -427,7 +427,7 @@
 
 // Theme
 // stylelint-disable-next-line
-.v-btn {
+.v-btn:not(.v-btn--outline) {
     &.primary,
     &.secondary,
     &.accent,

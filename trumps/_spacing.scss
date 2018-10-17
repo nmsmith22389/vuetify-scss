@@ -1,6 +1,36 @@
+.ma-auto {
+    // NOTE: Switched to shorthand even though Vuetify does the longhand (is there a diff??)
+    // margin-bottom: auto !important;
+    // margin-left: auto !important;
+    // margin-right: auto !important;
+    // margin-top: auto !important;
+    margin: auto !important;
+}
+
+.my-auto {
+    margin-bottom: auto !important;
+    margin-top: auto !important;
+}
+
 .mx-auto {
     margin-left: auto !important;
     margin-right: auto !important;
+}
+
+.mt-auto {
+    margin-top: auto;
+}
+
+.mr-auto {
+    margin-right: auto;
+}
+
+.mb-auto {
+    margin-bottom: auto;
+}
+
+.ml-auto {
+    margin-left: auto;
 }
 
 @each $level, $spacer in $spacers {

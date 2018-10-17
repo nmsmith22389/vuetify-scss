@@ -4,7 +4,7 @@
 @mixin v-select($material) {
     // Needs an explicit color to override
     // higher level color
-    &__selections {
+    .v-select__selections {
         color: map-deep-get($material, text, primary);
     }
 
@@ -39,11 +39,6 @@
 
     > .v-input__control > .v-input__slot {
         cursor: pointer;
-    }
-
-    .v-menu {
-        flex: 1 1 auto;
-        width: 100%;
     }
 
     .v-chip {
@@ -142,6 +137,7 @@
     &__slot {
         align-items: center;
         display: flex;
+        position: relative;
         width: 100%;
     }
 

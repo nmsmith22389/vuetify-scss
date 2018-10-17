@@ -142,6 +142,24 @@
     }
 }
 
+.align-self {
+    &-start {
+        align-self: flex-start;
+    }
+
+    &-end {
+        align-self: flex-end;
+    }
+
+    &-center {
+        align-self: center;
+    }
+
+    &-baseline {
+        align-self: baseline;
+    }
+}
+
 .align-content {
     &-start {
         align-content: flex-start;
@@ -183,6 +201,24 @@
 
     &-space-between {
         justify-content: space-between;
+    }
+}
+
+.justify-self {
+    &-start {
+        justify-self: flex-start;
+    }
+
+    &-end {
+        justify-self: flex-end;
+    }
+
+    &-center {
+        justify-self: center;
+    }
+
+    &-baseline {
+        justify-self: baseline;
     }
 }
 
@@ -235,6 +271,7 @@
     display: inline-flex !important;
 }
 
+// TODO: Remove this in v2.0 (╯°□°）╯︵ ┻━┻
 .d-flex,
 .d-inline-flex {
     > * {
