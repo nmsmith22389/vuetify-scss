@@ -2,6 +2,18 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.1.0"></a>
+# [1.1.0](https://github.com/nmsmith22389/vuetify-scss/compare/v1.0.8...v1.1.0) (2018-10-17)
+
+
+### Bug Fixes
+
+* **font-awesome:** commented out fa-icon component ([1c7a173](https://github.com/nmsmith22389/vuetify-scss/commit/1c7a173))
+* **vuetify:** updated styles to match vuetify@v1.2.0 ([53d9958](https://github.com/nmsmith22389/vuetify-scss/commit/53d9958))
+* fixed various inconsistencies and bugs in styles ([3afa80c](https://github.com/nmsmith22389/vuetify-scss/commit/3afa80c))
+
+
+
 <a name="1.0.8"></a>
 ## [1.0.8](https://github.com/nmsmith22389/vuetify-scss/compare/v1.0.7...v1.0.8) (2018-10-17)
 
