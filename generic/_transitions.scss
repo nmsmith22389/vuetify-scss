@@ -204,13 +204,6 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-    }
-
-    &-enter {
-        transform: translateY(-1rem);
-    }
-
-    &-leave-to {
         transform: translateY(1rem);
     }
 }

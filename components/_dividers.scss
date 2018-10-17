@@ -32,14 +32,18 @@
         align-self: stretch;
         border: solid;
         border-width: 0 thin 0 0;
-        display: inline;
-        height: auto;
+        display: inline-flex;
+        height: inherit;
         max-height: 100%;
         max-width: 0;
+        min-height: 100%;
+        vertical-align: text-bottom;
         width: 0;
 
         &.v-divider--inset {
+            margin-top: 0.5rem;
             max-height: calc(100% - 1rem);
+            min-height: 0;
         }
     }
 }
