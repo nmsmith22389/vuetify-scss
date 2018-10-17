@@ -21,6 +21,7 @@
     height: 0;
     max-height: 0;
     max-width: 100%;
+    transition: inherit;
 
     &--inset:not(.v-divider--vertical) {
         margin-left: 4.5rem;
@@ -28,9 +29,11 @@
     }
 
     &--vertical {
+        align-self: stretch;
         border: solid;
         border-width: 0 thin 0 0;
-        height: 100%;
+        display: inline;
+        height: auto;
         max-height: 100%;
         max-width: 0;
         width: 0;

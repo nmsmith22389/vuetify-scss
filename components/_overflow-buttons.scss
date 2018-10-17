@@ -41,11 +41,8 @@
 .v-overflow-btn {
     margin-top: 0.75rem;
 
-    &:not(.v-overflow-btn--editable) {
-        .v-menu__activator,
-        .v-menu__activator * {
-            cursor: pointer;
-        }
+    &:not(.v-overflow-btn--editable) > .v-input__control > .v-input__slot {
+        cursor: pointer;
     }
 
     .v-select__slot {

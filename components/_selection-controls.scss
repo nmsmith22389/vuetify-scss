@@ -31,12 +31,17 @@
 }
 
 .v-input--selection-controls {
-    padding: 0.25rem 0;
+    margin-top: $input-top-spacing;
+    padding-top: 0.25rem;
 
     .v-input__append-outer,
     .v-input__prepend-outer {
         margin-bottom: 0;
         margin-top: 0;
+    }
+
+    .v-input__slot {
+        margin-bottom: 0.75rem;
     }
 
     &__input {
@@ -46,7 +51,8 @@
         height: 1.5rem;
         margin-right: 0.5rem;
         position: relative;
-        transition: color 0.2s cubic-bezier(0.25, 0.8, 0.25, 1), transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: color 0.2s cubic-bezier(0.25, 0.8, 0.25, 1),
+            transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         user-select: none;
         width: 1.5rem;
 

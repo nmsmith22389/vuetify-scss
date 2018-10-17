@@ -5,12 +5,8 @@
     }
 
     .#{$color_name}--text {
+        caret-color: $color_value !important;
         color: $color_value !important;
-
-        input,
-        textarea {
-            caret-color: $color_value !important;
-        }
     }
 }
 
@@ -24,12 +20,8 @@
 
     .#{$color_name}--text {
         &.text--#{$color_type} {
+            caret-color: $color_value !important;
             color: $color_value !important;
-
-            input,
-            textarea {
-                caret-color: $color_value !important;
-            }
         }
     }
 }

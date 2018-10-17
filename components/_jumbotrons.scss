@@ -2,7 +2,7 @@
 @import '../theme';
 
 @mixin v-jumbotron($material) {
-    &__content {
+    .v-jumbotron__content {
         color: map-deep-get($material, text, primary);
     }
 }

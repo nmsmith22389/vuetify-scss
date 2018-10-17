@@ -47,10 +47,6 @@
     &__title__btn {
         transition: $primary-transition;
 
-        &.active {
-            opacity: 1;
-        }
-
         &:not(.active) {
             cursor: pointer;
             opacity: 0.6;
@@ -58,6 +54,14 @@
             &:hover {
                 opacity: 1;
             }
+        }
+
+        &--readonly {
+            pointer-events: none;
+        }
+
+        &--active {
+            opacity: 1;
         }
     }
 

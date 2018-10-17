@@ -52,7 +52,7 @@
 .v-list {
     list-style-type: none;
     padding: $list-top-padding 0 $list-bottom-padding;
-    transition: height 0.3s map-get($transition, fast-out-slow-in);
+    transition: $primary-transition;
 
     .v-input {
         .v-messages {
@@ -63,6 +63,11 @@
     .v-input,
     .v-input__slot {
         margin: 0;
+    }
+
+    // TODO: Remove for List rewrite v2.0
+    > div {
+        transition: inherit;
     }
 
     &__tile {
@@ -138,6 +143,11 @@
 
             .v-radio.v-radio {
                 margin: 0;
+            }
+
+            // QoL when using selection controls in actions
+            .v-input--selection-controls {
+                padding: 0;
             }
 
             &-text {

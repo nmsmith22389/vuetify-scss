@@ -2,14 +2,6 @@
 @import '../theme';
 
 @mixin v-small-dialog($material) {
-    &__content {
-        background: map-get($material, cards);
-    }
-
-    &__actions {
-        background: map-get($material, cards);
-    }
-
     a {
         color: rgba(
             map-get($material, fg-color),
@@ -24,6 +16,26 @@
 
 @include theme(dark, 'v-small-dialog') {
     @include v-small-dialog($material-dark);
+}
+
+@mixin content-actions($material) {
+    background: map-get($material, cards);
+}
+
+@include theme(light, 'v-small-dialog__content') {
+    @include content-actions($material-light);
+}
+
+@include theme(dark, 'v-small-dialog__content') {
+    @include content-actions($material-dark);
+}
+
+@include theme(light, 'v-small-dialog__actions') {
+    @include content-actions($material-light);
+}
+
+@include theme(dark, 'v-small-dialog__actions') {
+    @include content-actions($material-dark);
 }
 
 .v-small-dialog {

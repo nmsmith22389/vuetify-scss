@@ -5,6 +5,10 @@
 .application {
     display: flex;
 
+    a {
+        cursor: pointer;
+    }
+
     &--is-rtl {
         direction: rtl;
     }
@@ -24,10 +28,6 @@
     background: map-get($material, background);
     color: map-deep-get($material, text, primary);
 
-    a {
-        cursor: pointer;
-    }
-
     .text {
         &--primary {
             color: map-deep-get($material, text, primary) !important;
@@ -43,11 +43,11 @@
     }
 }
 
-@include app(light) {
+@include theme(light, 'application') {
     @include application($material-light);
 }
 
-@include app(dark) {
+@include theme(dark, 'application') {
     @include application($material-dark);
 }
 
