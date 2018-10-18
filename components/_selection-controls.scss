@@ -40,6 +40,11 @@
         margin-top: 0;
     }
 
+    .v-input__control {
+        flex-grow: 0;
+        width: auto;
+    }
+
     .v-input__slot {
         margin-bottom: 0.75rem;
     }
@@ -51,8 +56,8 @@
         height: 1.5rem;
         margin-right: 0.5rem;
         position: relative;
-        transition: color 0.2s cubic-bezier(0.25, 0.8, 0.25, 1),
-            transform 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
+        transition-property: color, transform;
         user-select: none;
         width: 1.5rem;
 
@@ -74,6 +79,7 @@
 
     &__ripple {
         // TODO: Use rem-calc() for these pixel values when the function is stable
+        border-radius: 50%;
         cursor: pointer;
         height: 2.125rem;
         left: -0.75rem;
@@ -84,7 +90,7 @@
         width: 2.125rem;
 
         &::before {
-            border-radius: 50%;
+            border-radius: inherit;
             bottom: 0;
             content: '';
             left: 0;

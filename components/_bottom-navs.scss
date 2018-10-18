@@ -13,7 +13,7 @@
     @include v-bottom-nav($material-dark);
 }
 
-.v-bottom-nav {
+.v-item-group.v-bottom-nav {
     bottom: 0;
     box-shadow: 0 0.1875rem 0.875rem 0.125rem rgba(#000000, 0.12);
     display: flex;

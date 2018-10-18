@@ -1,0 +1,97 @@
+@import '../bootstrap';
+@import '../theme';
+
+// Theme
+@mixin v-treeview($material) {
+    color: map-deep-get($material, text, primary);
+
+    &--hoverable .v-treeview-node__root:hover,
+    .v-treeview-node--active {
+        background: map-get($material, dividers);
+    }
+}
+
+@include theme(light, 'v-treeview') {
+    @include v-treeview($material-light);
+}
+
+@include theme(dark, 'v-treeview') {
+    @include v-treeview($material-dark);
+}
+
+.v-treeview {
+    > .v-treeview-node {
+        margin-left: 0;
+
+        &--leaf {
+            margin-left: 1.375rem;
+        }
+    }
+
+    &-node {
+        margin-left: 1.625rem;
+
+        &--click {
+            > .v-treeview-node__root,
+            > .v-treeview-node__root > .v-treeview-node__content > * {
+                cursor: pointer;
+                user-select: none;
+            }
+        }
+
+        &--leaf {
+            margin-left: 3.25rem;
+        }
+
+        &__root {
+            align-items: center;
+            display: flex;
+            height: 2.125rem;
+        }
+
+        &__content {
+            align-items: center;
+            display: flex;
+            flex-grow: 1;
+            flex-shrink: 0;
+
+            // TODO: this is temporary fix for d-flex * shenanigans
+            .v-btn {
+                flex-grow: 0 !important;
+                flex-shrink: 1 !important;
+            }
+        }
+
+        &__label {
+            flex-grow: 1;
+            flex-shrink: 0;
+            font-size: 1.2rem;
+            margin-left: 0.375rem;
+
+            .v-icon {
+                padding-right: 0.5rem;
+            }
+        }
+
+        &__checkbox {
+            user-select: none;
+        }
+
+        &__toggle {
+            transform: rotate(-90deg);
+            user-select: none;
+
+            &--open {
+                transform: none;
+            }
+
+            &--loading {
+                animation: progress-circular-rotate 1s linear infinite;
+            }
+        }
+
+        &__children {
+            transition: all $treeview-transition;
+        }
+    }
+}

@@ -193,13 +193,3 @@
         transition: $primary-transition;
     }
 }
-
-.v-tabs__items {
-    overflow: hidden;
-    position: relative;
-}
-
-.v-tabs__content {
-    transition: transform 0.4s cubic-bezier(0.86, 0, 0.07, 1);
-    width: 100%;
-}

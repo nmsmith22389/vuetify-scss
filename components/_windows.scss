@@ -1,0 +1,69 @@
+@import '../bootstrap';
+
+.v-window {
+    &__container {
+        position: relative;
+        transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+
+        &--is-active {
+            overflow: hidden;
+        }
+    }
+
+    &-x-transition,
+    &-x-reverse-transition,
+    &-y-transition,
+    &-y-reverse-transition {
+        &-enter-active,
+        &-leave-active {
+            transition: 0.3s cubic-bezier(0.25, 0.8, 0.5, 1);
+        }
+
+        &-leave,
+        &-leave-to {
+            position: absolute !important;
+            top: 0;
+            width: 100%;
+        }
+    }
+
+    &-x-transition {
+        &-enter {
+            transform: translateX(100%);
+        }
+
+        &-leave-to {
+            transform: translateX(-100%);
+        }
+    }
+
+    &-x-reverse-transition {
+        &-enter {
+            transform: translateX(-100%);
+        }
+
+        &-leave-to {
+            transform: translateX(100%);
+        }
+    }
+
+    &-y-transition {
+        &-enter {
+            transform: translateY(100%);
+        }
+
+        &-leave-to {
+            transform: translateY(-100%);
+        }
+    }
+
+    &-y-reverse-transition {
+        &-enter {
+            transform: translateY(-100%);
+        }
+
+        &-leave-to {
+            transform: translateY(100%);
+        }
+    }
+}

@@ -18,17 +18,9 @@
 
 .v-carousel {
     @include elevation(2);
-    height: 500px;
     overflow: hidden;
     position: relative;
     width: 100%;
-
-    &__item {
-        position: absolute;
-        top: 0;
-        transition: 0.3s map-get($transition, swing);
-        width: 100%;
-    }
 
     &__prev,
     &__next {
@@ -72,6 +64,10 @@
         position: absolute;
         width: 100%;
         z-index: 1;
+
+        > .v-item-group {
+            flex: 0 1 auto;
+        }
 
         &__item {
             margin: 0 0.5rem !important;

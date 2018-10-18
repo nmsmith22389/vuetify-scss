@@ -1,0 +1,239 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-timeline($material) {
+    &::before {
+        background: $material.dividers;
+
+        .v-timeline-item {
+            &__dot {
+                background: $material.cards;
+
+                .v-card {
+                    &::before {
+                        border-right-color: $shadow-key-ambient-opacity;
+                    }
+                }
+            }
+        }
+    }
+}
+
+@include theme(light, 'v-timeline') {
+    @include v-timeline($material-light);
+}
+
+@include theme(dark, 'v-timeline') {
+    @include v-timeline($material-dark);
+}
+
+@mixin timeline-dots($dot-size, $inner-dot-size, $inner-dot-margin) {
+    height: $dot-size;
+    left: 'calc(50% - #{$dot-size / 2})';
+    width: $dot-size;
+
+    .v-timeline-item__inner-dot {
+        height: $inner-dot-size;
+        margin: $inner-dot-margin;
+        width: $inner-dot-size;
+    }
+}
+
+.v-timeline-item {
+    display: flex;
+    flex-direction: row-reverse;
+    padding-bottom: 1.5rem;
+
+    &:nth-child(odd):not(.v-timeline-item--right),
+    &--left {
+        flex-direction: row;
+
+        .v-card::before,
+        .v-card::after {
+            left: 100%;
+            transform: rotate(180deg);
+        }
+
+        .v-timeline-item__opposite {
+            margin-left: 6rem;
+            text-align: left;
+        }
+    }
+
+    &:nth-child(even):not(.v-timeline-item--left),
+    &--right {
+        .v-card::before,
+        .v-card::after {
+            right: 100%;
+        }
+
+        .v-timeline-item__opposite {
+            margin-right: 6rem;
+            text-align: right;
+        }
+    }
+
+    &__dot,
+    &__inner-dot {
+        border-radius: 50%;
+    }
+
+    &__dot {
+        @include elevation(1);
+        @include timeline-dots(
+            $timeline-dot-regular-size,
+            $timeline-inner-dot-regular-size,
+            $timeline-inner-dot-regular-margin
+        );
+        align-self: center;
+        position: absolute;
+
+        &--small {
+            @include timeline-dots(
+                $timeline-dot-small-size,
+                $timeline-inner-dot-small-size,
+                $timeline-inner-dot-small-margin
+            );
+        }
+
+        &--large {
+            @include timeline-dots(
+                $timeline-dot-large-size,
+                $timeline-inner-dot-large-size,
+                $timeline-inner-dot-large-margin
+            );
+        }
+    }
+
+    &__inner-dot {
+        align-items: center;
+        display: flex;
+        justify-content: center;
+    }
+
+    &__body {
+        flex: 1 1 100%;
+        height: 100%;
+        max-width: calc(50% - 3rem);
+        position: relative;
+    }
+
+    .v-card {
+        &::before,
+        &::after {
+            border-bottom: $timeline-wedge-size solid transparent;
+            border-right: $timeline-wedge-size solid #000000;
+            border-top: $timeline-wedge-size solid transparent;
+            content: '';
+            position: absolute;
+            top: 'calc(50% - #{$timeline-wedge-size}';
+        }
+
+        &::after {
+            border-right-color: inherit;
+        }
+
+        &::before {
+            top: 'calc(50% - #{$timeline-wedge-size} + 2px)';
+        }
+    }
+
+    &__opposite {
+        align-self: center;
+        flex: 1 1 auto;
+        max-width: calc(50% - 3rem);
+    }
+
+    &--fill-dot {
+        .v-timeline-item__inner-dot {
+            height: inherit;
+            margin: 0;
+            width: inherit;
+        }
+    }
+}
+
+.v-timeline {
+    padding-top: 1.5rem;
+    position: relative;
+
+    &::before {
+        bottom: 0;
+        content: '';
+        height: 100%;
+        left: calc(50% - 1px);
+        position: absolute;
+        top: 0;
+        width: 0.125rem;
+    }
+
+    &--align-top {
+        .v-timeline-item {
+            position: relative;
+
+            &__dot {
+                top: 0.375rem;
+
+                &--small {
+                    top: 0.75rem;
+                }
+
+                &--large {
+                    top: 0;
+                }
+            }
+
+            .v-card {
+                &::before {
+                    top: 'calc(0% + #{$timeline-wedge-size} + 2px)';
+                }
+
+                &::after {
+                    top: 'calc(0% + #{$timeline-wedge-size})';
+                }
+            }
+        }
+    }
+
+    &--dense {
+        &::before {
+            left: 1.125rem; // -1 for line width
+        }
+
+        .v-timeline-item {
+            &:nth-child(odd):not(.v-timeline-item--right),
+            &--left {
+                flex-direction: row-reverse;
+
+                .v-card {
+                    &::before,
+                    &::after {
+                        left: -$timeline-wedge-size;
+                        right: initial;
+                        transform: none;
+                    }
+                }
+            }
+
+            &__dot {
+                left: 0;
+            }
+
+            &__dot--small {
+                left: 0.4375rem; // -1 for line width
+            }
+
+            &__dot--large {
+                left: -0.4375rem;
+            }
+
+            &__body {
+                max-width: calc(100% - 4rem);
+            }
+
+            &__opposite {
+                display: none;
+            }
+        }
+    }
+}

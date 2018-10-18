@@ -19,7 +19,7 @@ $grid-breakpoints: (
     xl: 1920px - 16px,
 ) !default;
 
-$grid-gutter: 0.5rem;
+$grid-gutter: 0.5rem !default;
 $grid-columns: 12 !default;
 $grid-gutters: (
     xs: $grid-gutter / 4,
@@ -374,12 +374,32 @@ $input-height: 1.875rem !default;
 $input-group-text-field-label-top: 1.125rem !default;
 
 // Inputs
-$input-top-spacing: 1rem;
-$text-field-active-label-height: 0.75rem;
+$input-top-spacing: 1rem !default;
+$text-field-active-label-height: 0.75rem !default;
+
+// Timeline
+$timeline-wedge-size: 10px !default;
+$timeline-dot-small-size: 24px !default;
+$timeline-dot-regular-size: 38px !default;
+$timeline-dot-large-size: 52px !default;
+
+$timeline-inner-dot-small-size: 18px !default;
+$timeline-inner-dot-small-margin: 3px !default;
+$timeline-inner-dot-regular-size: 30px !default;
+$timeline-inner-dot-regular-margin: 4px !default;
+$timeline-inner-dot-large-size: 42px !default;
+$timeline-inner-dot-large-margin: 5px !default;
 
 // Directives
 // ============================================================
 
 // Ripple animation
-$ripple-animation-transition: 0.4s map-get($transition, linear-out-slow-in) !default;
+$ripple-animation-transition-in: transform 0.25s
+        map-get($transition, fast-out-slow-in),
+    opacity 0.1s map-get($transition, fast-out-slow-in) !default;
+$ripple-animation-transition-out: opacity 0.3s
+    map-get($transition, fast-out-slow-in) !default;
 $ripple-animation-visible-opacity: 0.15 !default;
+
+// Treeview transition
+$treeview-transition: 0.2s map-get($transition, linear-out-slow-in) !default;
