@@ -47,11 +47,11 @@
     &__title__btn {
         transition: $primary-transition;
 
-        &:not(.active) {
+        &:not(.v-picker__title__btn--active) {
             cursor: pointer;
             opacity: 0.6;
 
-            &:hover {
+            &:hover:not(:focus) {
                 opacity: 1;
             }
         }

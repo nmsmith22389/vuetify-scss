@@ -73,15 +73,19 @@
         opacity: 0.6;
         position: absolute;
         right: 0.125rem;
+        // TODO: Replace 7px with a rem-calc() when the func is done
         top: calc(50% - 7px);
     }
 
     &__thumb {
         @include elevation(4);
+        align-items: center;
         border-radius: 50%;
+        display: flex;
         height: 1.25rem;
+        justify-content: center;
         position: relative;
-        top: calc(50% - 10px);
+        top: calc(50% - 0.625rem);
         width: 1.25rem;
     }
 
@@ -91,7 +95,7 @@
 
     .v-input--selection-controls__ripple {
         left: -0.875rem;
-        top: calc(50% - 24px);
+        top: calc(50% - 1.5rem);
     }
 
     &.v-input--is-dirty {

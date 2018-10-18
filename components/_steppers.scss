@@ -98,12 +98,23 @@
     }
 }
 
+@mixin v-stepper-rtl() {
+    .v-stepper__step__step {
+        margin-left: 0.75rem;
+        margin-right: 0;
+    }
+}
+
 @include theme(light, 'v-stepper') {
     @include v-stepper($material-light);
 }
 
 @include theme(dark, 'v-stepper') {
     @include v-stepper($material-dark);
+}
+
+@include rtl('v-stepper') {
+    @include v-stepper-rtl;
 }
 
 .v-stepper {

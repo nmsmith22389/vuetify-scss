@@ -199,13 +199,13 @@
         overflow: hidden;
         pointer-events: none;
         text-overflow: ellipsis;
-        top: 6px;
+        top: 0.375rem;
         transform-origin: top left;
         white-space: nowrap;
 
         &--active {
             max-width: 100%;
-            transform: translateY(-18px) scale(0.75);
+            transform: translateY(-1.125rem) scale(0.75);
         }
     }
 
@@ -299,10 +299,10 @@
         }
 
         .v-label {
-            top: 18px;
+            top: 1.125rem;
 
             &--active {
-                transform: translateY(-6px) scale(0.75);
+                transform: translateY(-0.375rem) scale(0.75);
             }
         }
     }
@@ -353,7 +353,7 @@
         }
 
         .v-label {
-            top: calc(50% - 10px);
+            top: calc(50% - 0.625rem);
         }
 
         .v-input__control {
@@ -422,7 +422,7 @@
 
     &.v-text-field--solo {
         .v-label {
-            top: calc(50% - 10px);
+            top: calc(50% - 0.625rem);
         }
 
         .v-input__control {
