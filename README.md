@@ -11,6 +11,7 @@ All of the Vuetify styles converted into Sass. **No more Stylus!** 🎉
     - [Installing](#installing)
 - [Usage](#usage)
     - [Changing variables](#changing-variables)
+    - [Vuetify Compatibility](#vuetify-compatibility)
 - [Info](#info)
     - [Changes](#changes)
     - [Versioning](#versioning)
@@ -60,7 +61,11 @@ Example:
 @import '~vuetify-scss';
 ```
 
+### Vuetify Compatibility
+To find out which version of [vuetify-scss][vuetify-scss] corresponds to which version of [vuetify][vuetify], see the [compatibility table][compatibility].
+
 ## Info
+
 ### Changes
 To see a list of each version and it's changes, check out the [releases][releases] page.
 
@@ -85,6 +90,8 @@ This project is licensed under the MIT License - see the [LICENSE.md][license] f
 All thanks goes to [Vuetify][vuetify] for their amazing framework!
 
 [vuetify]: https://vuetifyjs.com/
+[vuetify-scss]: https://github.com/nmsmith22389/vuetify-scss/
+[compatibility]: COMPATIBILITY.md
 [releases]: https://github.com/nmsmith22389/vuetify-scss/releases
 [tags]: https://github.com/nmsmith22389/vuetify-scss/tags
 [contributors]: https://github.com/nmsmith22389/vuetify-scss/graphs/contributors
