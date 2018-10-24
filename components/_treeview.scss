@@ -86,6 +86,7 @@
             }
 
             &--loading {
+                // stylelint-disable-next-line no-unknown-animations
                 animation: progress-circular-rotate 1s linear infinite;
             }
         }
