@@ -10,7 +10,7 @@
     "lint:fix": "stylelint '**/*.scss' --syntax=scss --fix; exit 0",
     "prepublishOnly": "stylelint '**/*.scss' --syntax=scss",
     "test": "stylelint '**/*.scss' --syntax=scss",
-    "release": "standard-version"
+    "release": "standard-version -m 'build(release): %s'"
   },
   "repository": {
     "type": "git",
