@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.1"></a>
+## [1.2.1](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.0...v1.2.1) (2018-10-24)
+
+
+### Bug Fixes
+
+* **vuetify:** fixed variable typos in `components/_timeline.scss` ([c289582](https://github.com/nmsmith22389/vuetify-scss/commit/c289582))
+
+
+
 <a name="1.2.0"></a>
 # [1.2.0](https://github.com/nmsmith22389/vuetify-scss/compare/v1.1.7...v1.2.0) (2018-10-18)
 
