@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.3"></a>
+## [1.2.3](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.2...v1.2.3) (2018-10-24)
+
+
+### Bug Fixes
+
+* **vuetify:** fixed a typo created by the last bug fix ([fda5d80](https://github.com/nmsmith22389/vuetify-scss/commit/fda5d80)), closes [#8](https://github.com/nmsmith22389/vuetify-scss/issues/8)
+
+
+
 <a name="1.2.2"></a>
 ## [1.2.2](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.1...v1.2.2) (2018-10-24)
 
