@@ -253,7 +253,7 @@
             position: absolute;
             top: -1rem;
             transform: scale(0.2);
-            transition: $ripple-animation-transition;
+            transition: $primary-transition;
             width: 2rem;
             will-change: transform, opacity;
         }
