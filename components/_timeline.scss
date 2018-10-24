@@ -3,11 +3,11 @@
 
 @mixin v-timeline($material) {
     &::before {
-        background: map-get($material, $dividers);
+        background: map-get($material, dividers);
 
         .v-timeline-item {
             &__dot {
-                background: map-get($material, $cards);
+                background: map-get($material, cards);
 
                 .v-card {
                     &::before {
