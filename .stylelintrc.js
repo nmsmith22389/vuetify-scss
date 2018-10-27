@@ -16,6 +16,7 @@ module.exports = {
         'selector-no-qualifying-type': null,
 
         'scss/at-mixin-pattern': null,
+        'scss/at-function-pattern': null,
 
         // ---- FROM OLD .stylelintrc.js ----
         //* Function
