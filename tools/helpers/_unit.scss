@@ -1,64 +1,47 @@
 // @import '../../settings/variables';
 // @import '../../settings/theme';
 
-@function strip-unit($num) {
-    @return $num / ($num * 0 + 1);
+@function _rem-separator($list, $separator: false) {
+    @if $separator == 'comma' or $separator == 'space' {
+        @return append($list, null, $separator);
+    }
+
+    @if function-exists('list-separator') == true {
+        @return list-separator($list);
+    }
 }
 
-// stylelint-disable-next-line scss/at-function-pattern
-@function -vy-to-rem($value, $base: null) {
-    // Check if the value is a number
-    @if type-of($value) != 'number' {
-        @warn inspect($value) + ' was passed to rem-calc(), which is not a number.';
-        @return $value;
+@function _rem-convert($to, $values...) {
+    $result: ();
+    $rem-baseline: variable-exists($font-size-root) and $font-size-root or 100%;
+    $separator: _rem-separator($values);
+
+    @if unit($rem-baseline) == '%' {
+        $rem-baseline: ($rem-baseline / 100%) * 16px;
     }
 
-    // Transform em into rem if someone hands over 'em's
-    @if unit($value) == 'em' {
-        $value: strip-unit($value) * 1rem;
+    @each $value in $values {
+        @if type-of($value) == 'number' and unit($value) == 'rem' and $to == 'px' {
+            $result: append($result, $value / 1rem * $rem-baseline, $separator);
+        } @else if type-of($value) == 'number' and unit($value) == 'px' and $to == 'rem' {
+            $result: append($result, $value / $rem-baseline * 1rem, $separator);
+        } @else if type-of($value) == 'list' {
+            $value-separator: _rem-separator($value);
+            $value: _rem-convert($to, $value...);
+            $value: _rem-separator($value, $value-separator);
+            $result: append($result, $value, $separator);
+        } @else {
+            $result: append($result, $value, $separator);
+        }
     }
 
-    // Calculate rem if units for $value is not rem or em
-    @if unit($value) != 'rem' {
-        $value: strip-unit($value) / strip-unit($base) * 1rem;
-    }
-
-    // Turn 0rem into 0
-    @if $value == 0 {
-        $value: 0;
-    }
-
-    @return $value;
+    @return if(length($result) == 1, nth($result, 1), $result);
 }
 
-//* Borrowed from ZURB Foundation :D
-@function rem-calc($values, $base: null) {
-    $rem-values: ();
-    $count: length($values);
-
-    // If no base is defined, defer to the global font size
-    @if $base == null {
-        $base: $font-size-root;
+@function rem($values...) {
+    @if not $convert-to-rem {
+        @return _rem-convert(px, $values...);
+    } @else {
+        @return _rem-convert(rem, $values...);
     }
-
-    // If the base font size is a %, then multiply it by 16px
-    // This is because 100% font size = 16px in most all browsers
-    @if unit($base) == '%' {
-        $base: ($base / 100%) * 16px;
-    }
-
-    // Using rem as base allows correct scaling
-    @if unit($base) == 'rem' {
-        $base: strip-unit($base) * 16px;
-    }
-
-    @if $count == 1 {
-        @return -vy-to-rem($values, $base);
-    }
-
-    @for $i from 1 through $count {
-        $rem-values: append($rem-values, -vy-to-rem(nth($values, $i), $base));
-    }
-
-    @return $rem-values;
 }
