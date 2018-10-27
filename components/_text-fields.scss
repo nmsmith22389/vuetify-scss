@@ -205,6 +205,8 @@
 
         &--active {
             max-width: 100%;
+            // NOTE: Added this to make label clickable when there is something in it.
+            pointer-events: initial;
             transform: translateY(-1.125rem) scale(0.75);
         }
     }
