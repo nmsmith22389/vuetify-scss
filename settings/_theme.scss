@@ -4,7 +4,8 @@
 // Theme
 // ============================================================
 $body-font-family: 'Roboto', sans-serif !default;
-$font-size-root: 16px !default;
+$body-font-size: rem(14px) !default;
+$font-size-root: 16px !default; // NOTE: Don't convert this to `rem` because this is used as the base in calculations.
 $convert-to-rem: true !default;
 $line-height-root: 1.5 !default;
 
