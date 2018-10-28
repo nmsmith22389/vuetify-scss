@@ -27,7 +27,7 @@
 }
 
 .v-btn-toggle {
-    border-radius: 2px;
+    border-radius: rem(2px);
     display: inline-flex;
     transition: $primary-transition;
     will-change: background, box-shadow;
@@ -38,11 +38,11 @@
         margin: 0;
         min-width: auto;
         opacity: 0.4;
-        padding: 0 0.5rem;
+        padding: rem(0 8px);
         width: auto;
 
         &:not(:last-child) {
-            border-right: 1px solid transparent;
+            border-right: rem(1px) solid transparent;
         }
 
         &::after {
@@ -55,15 +55,15 @@
 
         span + .v-icon {
             font-size: initial;
-            margin-left: 0.625rem;
+            margin-left: rem(10px);
         }
 
         &:first-child {
-            border-radius: 2px 0 0 2px;
+            border-radius: rem(2px 0 0 2px);
         }
 
         &:last-child {
-            border-radius: 0 2px 2px 0;
+            border-radius: rem(0 2px 2px 0);
         }
     }
 

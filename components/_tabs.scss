@@ -38,14 +38,14 @@
     position: absolute;
     top: 0;
     user-select: none;
-    width: 2rem;
+    width: rem(32px);
 
     &--prev {
-        left: 0.25rem;
+        left: rem(4px);
     }
 
     &--next {
-        right: 0.25rem;
+        right: rem(4px);
     }
 }
 
@@ -55,14 +55,14 @@
     overflow: hidden;
 
     &--show-arrows {
-        margin-left: 2.5rem;
-        margin-right: 2.5rem;
+        margin-left: rem(40px);
+        margin-right: rem(40px);
 
         .v-tabs__container--align-with-title {
-            padding-left: 1rem;
+            padding-left: rem(16px);
 
             @media #{map-get($display-breakpoints, xs-only)} {
-                padding-left: 1.5rem;
+                padding-left: rem(24px);
             }
         }
     }
@@ -71,7 +71,7 @@
 .v-tabs__container {
     display: flex;
     flex: 1 0 auto;
-    height: 3rem;
+    height: rem(48px);
     list-style-type: none;
     position: relative;
     transition: transform 0.6s cubic-bezier(0.86, 0, 0.07, 1);
@@ -91,28 +91,28 @@
     }
 
     &--icons-and-text {
-        height: 4.5rem;
+        height: rem(72px);
 
         .v-tabs__item {
             flex-direction: column-reverse;
 
             .v-icon {
-                margin-bottom: 0.375rem;
+                margin-bottom: rem(6px);
             }
         }
     }
 
     &--align-with-title {
-        padding-left: 3.5rem;
+        padding-left: rem(56px);
     }
 
     &--fixed-tabs,
     &--icons-and-text {
         .v-tabs__div {
-            min-width: 4.5rem;
+            min-width: rem(72px);
 
             @media #{map-get($display-breakpoints, sm-and-up)} {
-                min-width: 10rem;
+                min-width: rem(160px);
             }
         }
     }
@@ -149,11 +149,11 @@
     align-items: center;
     display: inline-flex;
     flex: 0 1 auto;
-    font-size: 0.875rem;
+    font-size: rem(14px);
     font-weight: font-weight(medium);
     height: inherit;
     line-height: normal;
-    max-width: 16.5rem;
+    max-width: rem(264px);
     text-align: center;
     text-transform: $tab-text-transform;
     vertical-align: middle;
@@ -167,7 +167,7 @@
     height: 100%;
     justify-content: center;
     max-width: inherit;
-    padding: 0.375rem 0.75rem;
+    padding: rem(6px 12px);
     text-decoration: none;
     transition: $primary-transition;
     user-select: none;
@@ -183,7 +183,7 @@
 }
 
 .v-tabs__slider {
-    height: 0.125rem;
+    height: rem(2px);
     width: 100%;
 
     &-wrapper {

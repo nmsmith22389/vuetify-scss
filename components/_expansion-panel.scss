@@ -5,7 +5,7 @@
 @mixin v-expansion-panel($material) {
     .v-expansion-panel__container {
         background-color: map-get($material, cards);
-        border-top: 1px solid
+        border-top: rem(1px) solid
             rgba(
                 map-get($material, fg-color),
                 map-get($material, divider-percent)
@@ -89,8 +89,8 @@
         align-items: center;
         cursor: pointer;
         display: flex;
-        min-height: 3rem;
-        padding: 0.75rem 1.5rem;
+        min-height: rem(48px);
+        padding: rem(12px 24px);
         position: relative;
 
         > *:not(.v-expansion-panel__header__icon) {

@@ -46,7 +46,7 @@
         position: absolute;
         right: 0;
         top: 0;
-        width: 1px;
+        width: rem(1px);
     }
 
     &.v-navigation-drawer--right {
@@ -90,7 +90,7 @@
         .v-list__tile__action,
         .v-list__tile__avatar {
             justify-content: center;
-            min-width: 3rem;
+            min-width: rem(48px);
         }
 
         .v-list__tile__content,

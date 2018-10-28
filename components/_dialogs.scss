@@ -3,7 +3,7 @@
 .v-dialog {
     @include elevation(24);
     border-radius: $card-border-radius;
-    margin: 1.5rem;
+    margin: rem(24px);
     overflow-y: auto;
     pointer-events: auto;
     transition: 0.3s map-get($transition, fast-in-fast-out);

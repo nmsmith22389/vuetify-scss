@@ -20,7 +20,7 @@
 
 .v-chip {
     align-items: center;
-    border: 1px solid transparent;
+    border: rem(1px) solid transparent;
     border-radius: $chip-border-radius;
     display: inline-flex;
     font-size: $chip-font-size;
@@ -52,8 +52,8 @@
     .v-avatar {
         // Important is needed to account for new avatar structure
         height: $chip-height !important;
-        margin-left: -0.75rem;
-        margin-right: 0.5rem;
+        margin-left: rem(-12px);
+        margin-right: rem(8px);
         min-width: $chip-height;
         width: $chip-height !important;
 
@@ -126,7 +126,7 @@
         > .v-icon {
             color: inherit !important;
             cursor: pointer;
-            font-size: 1.25rem;
+            font-size: rem(20px);
             opacity: 0.5;
 
             &:hover {

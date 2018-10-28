@@ -56,16 +56,16 @@
         align-items: center;
         display: flex;
         justify-content: center;
-        padding: 0.625rem;
+        padding: rem(10px);
     }
 
     &__hand {
         bottom: 50%;
-        height: calc(50% - 0.25rem);
-        left: calc(50% - 1px);
+        height: calc(50% - rem(4px));
+        left: calc(50% - rem(1px));
         position: absolute;
         transform-origin: center bottom;
-        width: 0.125rem;
+        width: rem(2px);
         will-change: transform;
         z-index: 1;
 
@@ -74,14 +74,14 @@
             border-color: inherit;
             border-radius: 100%;
             border-style: solid;
-            border-width: 2px;
+            border-width: rem(2px);
             content: '';
-            height: 0.625rem;
+            height: rem(10px);
             left: 50%;
             position: absolute;
-            top: -0.25rem;
+            top: rem(-4px);
             transform: translate(-50%, -50%);
-            width: 0.625rem;
+            width: rem(10px);
         }
 
         &::after {
@@ -90,32 +90,32 @@
             border-radius: 100%;
             border-style: solid;
             content: '';
-            height: 0.5rem;
+            height: rem(8px);
             left: 50%;
             position: absolute;
             top: 100%;
             transform: translate(-50%, -50%);
-            width: 0.5rem;
+            width: rem(8px);
         }
 
         &--inner::after {
-            height: 0.875rem;
+            height: rem(14px);
         }
     }
 }
 
 .v-picker--full-width {
     .v-time-picker-clock__container {
-        max-width: 18.125rem;
+        max-width: rem(290px);
     }
 }
 
 .v-time-picker-clock__inner {
-    bottom: 1.6875rem;
-    left: 1.6875rem;
+    bottom: rem(27px);
+    left: rem(27px);
     position: absolute;
-    right: 1.6875rem;
-    top: 1.6875rem;
+    right: rem(27px);
+    top: rem(27px);
 }
 
 .v-time-picker-clock__item {
@@ -140,13 +140,13 @@
     &::after {
         border-radius: 100%;
         content: '';
-        // height: 0.875rem;
+        // height: rem(14px);
         height: $time-picker-indicator-size;
         left: 50%;
         position: absolute;
         top: 50%;
         transform: translate(-50%, -50%);
-        // width: 0.875rem;
+        // width: rem(14px);
         width: $time-picker-indicator-size;
     }
 

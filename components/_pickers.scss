@@ -41,7 +41,7 @@
         border-top-left-radius: $card-border-radius;
         border-top-right-radius: $card-border-radius;
         color: #ffffff;
-        padding: 1rem;
+        padding: rem(16px);
     }
 
     &__title__btn {
@@ -92,13 +92,13 @@
             left: 0;
             position: absolute;
             top: 0;
-            width: 10.625rem;
+            width: rem(170px);
             z-index: 1;
         }
 
         .v-picker__body,
         .v-picker__actions {
-            margin-left: 10.625rem;
+            margin-left: rem(170px);
         }
     }
 }

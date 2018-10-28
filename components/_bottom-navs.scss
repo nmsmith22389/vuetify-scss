@@ -15,11 +15,11 @@
 
 .v-item-group.v-bottom-nav {
     bottom: 0;
-    box-shadow: 0 0.1875rem 0.875rem 0.125rem rgba(#000000, 0.12);
+    box-shadow: rem(0 3px 14px 2px) rgba(#000000, 0.12);
     display: flex;
     justify-content: center;
     left: 0;
-    transform: translate(0, 60px);
+    transform: translate(0, rem(60px));
     transition: all 0.4s map-get($transition, swing);
     width: 100%;
 
@@ -45,22 +45,22 @@
         font-weight: font-weight(regular);
         height: 100%;
         margin: 0;
-        max-width: 10.5rem;
-        min-width: 5rem;
+        max-width: rem(168px);
+        min-width: rem(80px);
         opacity: 0.5;
-        padding: 0.375rem 0 0.625rem;
+        padding: rem(8px 12px 10px);
         text-transform: none;
         width: 100%;
 
         .v-btn__content {
             flex-direction: column-reverse;
-            font-size: 0.75rem;
+            font-size: rem(12px);
             white-space: nowrap;
             will-change: font-size;
 
             i.v-icon {
                 color: inherit;
-                margin-bottom: 0.25rem;
+                margin-bottom: rem(4px);
                 transition: all 0.4s cubic-bezier(0.25, 0.8, 0.5, 1);
             }
 
@@ -71,14 +71,14 @@
 
         &--active {
             opacity: 1;
-            padding-top: 0.375rem;
+            padding-top: rem(6px);
 
             &::before {
                 background-color: transparent;
             }
 
             .v-btn__content {
-                font-size: 0.875rem;
+                font-size: rem(14px);
 
                 .v-icon {
                     transform: none;
@@ -93,22 +93,22 @@
 
     &--shift {
         .v-btn__content {
-            font-size: 0.875rem;
+            font-size: rem(14px);
         }
 
         .v-btn {
-            max-width: 6rem;
-            min-width: 3.5rem;
+            max-width: rem(96px);
+            min-width: rem(56px);
             transition: all 0.3s;
 
             &--active {
-                max-width: 10.5rem;
-                min-width: 6rem;
+                max-width: rem(168px);
+                min-width: rem(96px);
             }
 
             &:not(.v-btn--active) .v-btn__content {
                 .v-icon {
-                    transform: scale(1, 1) translate(0, 0.5rem);
+                    transform: scale(1, 1) translate(0, rem(8px));
                 }
 
                 span {

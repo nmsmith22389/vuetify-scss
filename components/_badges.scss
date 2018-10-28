@@ -26,20 +26,20 @@
 
     &--overlap {
         .v-badge__badge {
-            right: -0.5rem;
-            top: -0.5rem;
+            right: rem(-8px);
+            top: rem(-8px);
         }
 
         &.v-badge--left {
             .v-badge__badge {
-                left: -0.5rem;
+                left: rem(-8px);
                 right: initial;
             }
         }
 
         &.v-badge--bottom {
             .v-badge__badge {
-                bottom: -0.5rem;
+                bottom: rem(-8px);
                 top: initial;
             }
         }

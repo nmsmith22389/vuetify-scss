@@ -17,7 +17,7 @@
 
 @mixin v-toolbar-content($direction) {
     &.v-btn--icon {
-        margin-#{$direction}: -0.375rem;
+        margin-#{$direction}: rem(-6px);
     }
 
     &.v-menu .v-menu__activator,
@@ -27,7 +27,7 @@
         }
 
         .v-btn--icon {
-            margin-#{$direction}: -0.375rem;
+            margin-#{$direction}: rem(-6px);
         }
     }
     margin-#{$direction}: 0;
@@ -65,7 +65,7 @@
         white-space: nowrap;
 
         &:not(:first-child) {
-            margin-left: 1.25rem;
+            margin-left: rem(20px);
         }
     }
 
@@ -76,7 +76,7 @@
         padding: 0 map-get($grid-gutters, xl);
 
         .v-btn--icon {
-            margin: 0.375rem;
+            margin: rem(6px);
         }
 
         > *:first-child {
@@ -115,7 +115,7 @@
 
     &__extension {
         > .v-toolbar__title {
-            margin-left: 4.5rem;
+            margin-left: rem(72px);
         }
     }
 

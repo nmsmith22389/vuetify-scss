@@ -20,17 +20,17 @@
 .v-date-picker-title__year {
     align-items: center;
     display: inline-flex;
-    font-size: 0.875rem;
+    font-size: rem(14px);
     font-weight: font-weight(medium);
-    margin-bottom: 0.5rem;
+    margin-bottom: rem(8px);
 }
 
 .v-date-picker-title__date {
-    font-size: 2.125rem;
+    font-size: rem(34px);
     font-weight: font-weight(medium);
-    margin-bottom: -0.5rem;
+    margin-bottom: rem(-8px);
     overflow: hidden;
-    padding-bottom: 0.5rem;
+    padding-bottom: rem(8px);
     position: relative;
     text-align: left;
 

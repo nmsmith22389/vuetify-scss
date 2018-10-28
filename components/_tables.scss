@@ -9,7 +9,7 @@
     thead {
         tr {
             &:first-child {
-                border-bottom: 1px solid
+                border-bottom: rem(1px) solid
                     rgba(
                         map-get($material, fg-color),
                         map-get($material, divider-percent)
@@ -28,7 +28,7 @@
     tbody {
         tr {
             &:not(:last-child) {
-                border-bottom: 1px solid
+                border-bottom: rem(1px) solid
                     rgba(
                         map-get($material, fg-color),
                         map-get($material, divider-percent)
@@ -47,7 +47,7 @@
 
     tfoot {
         tr {
-            border-top: 1px solid
+            border-top: rem(1px) solid
                 rgba(
                     map-get($material, fg-color),
                     map-get($material, divider-percent)
@@ -74,7 +74,7 @@
 
 table.v-table {
     border-collapse: collapse;
-    border-radius: 2px;
+    border-radius: rem(2px);
     border-spacing: 0;
     max-width: 100%;
     width: 100%;
@@ -85,18 +85,18 @@ table.v-table {
         th {
             &:not(:nth-child(1)),
             &:first-child {
-                padding: 0 1.5rem;
+                padding: rem(0 24px);
             }
         }
     }
 
     thead {
         tr {
-            height: 3.5rem;
+            height: rem(56px);
         }
 
         th {
-            font-size: 0.75rem;
+            font-size: rem(12px);
             font-weight: font-weight(medium);
             transition: 0.3s map-get($transition, swing);
             user-select: none;
@@ -120,11 +120,11 @@ table.v-table {
 
         td,
         th {
-            height: 3rem;
+            height: rem(48px);
         }
 
         td {
-            font-size: 0.8125rem;
+            font-size: rem(13px);
             font-weight: font-weight(regular);
         }
     }
@@ -151,10 +151,10 @@ table.v-table {
 
     tfoot {
         tr {
-            height: 3rem;
+            height: rem(48px);
 
             td {
-                padding: 0 1.5rem;
+                padding: rem(0 24px);
             }
         }
     }

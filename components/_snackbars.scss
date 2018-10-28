@@ -4,7 +4,7 @@
     align-items: center;
     color: $snackbar-color;
     display: flex;
-    font-size: 0.875rem;
+    font-size: rem(14px);
     left: 0;
     pointer-events: none;
     position: fixed;
@@ -35,23 +35,23 @@
     &__content {
         align-items: center;
         display: flex;
-        height: 3rem;
+        height: rem(48px);
         justify-content: space-between;
         overflow: hidden;
-        padding: 0.875rem 1.5rem;
+        padding: rem(14px 24px);
         width: 100%;
 
         .v-btn {
             color: $snackbar-color;
             flex: 0 0 auto;
             height: auto;
-            margin: 0 0 0 1.5rem;
+            margin: rem(0 0 0 24px);
             min-width: auto;
-            padding: 0.5rem;
+            padding: rem(8px);
             width: auto;
 
             &__content {
-                margin: -0.125rem;
+                margin: rem(-2px);
 
                 &::before {
                     display: none;
@@ -61,23 +61,23 @@
     }
 
     &--multi-line &__content {
-        height: 5rem;
-        padding: 1.5rem;
+        height: rem(80px);
+        padding: rem(24px);
     }
 
     &--vertical &__content {
         // https://stackoverflow.com/questions/35111090/text-in-a-flex-container-doesnt-wrap-in-ie11
         align-items: stretch;
         flex-direction: column;
-        height: 7rem;
-        padding: 1.5rem 1.5rem 0.875rem;
+        height: rem(112px);
+        padding: rem(24px 24px 14px);
 
         .v-btn {
             // specificity
             &.v-btn {
                 justify-content: flex-end;
                 margin-left: 0;
-                margin-top: 1.5rem;
+                margin-top: rem(24px);
                 padding: 0;
             }
 
@@ -96,10 +96,10 @@
 @media #{map-get($display-breakpoints, sm-and-up)} {
     .v-snack {
         &__wrapper {
-            border-radius: 2px;
+            border-radius: rem(2px);
             margin: 0 auto;
-            max-width: 35.5rem;
-            min-width: 18rem;
+            max-width: rem(568px);
+            min-width: rem(288px);
             width: auto;
 
             .v-snack--left & {
@@ -125,7 +125,7 @@
         }
 
         &__content .v-btn:first-of-type {
-            margin-left: 3rem;
+            margin-left: rem(42px);
         }
     }
 }
@@ -157,7 +157,7 @@
     &-leave-to {
         &.v-snack.v-snack--top {
             // Extra 8px to hide the bottom shadow
-            transform: translateY(calc(-100% - 0.5rem));
+            transform: translateY(calc(-100% - rem(8px)));
         }
 
         &.v-snack.v-snack--bottom {

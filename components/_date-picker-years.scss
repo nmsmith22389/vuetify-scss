@@ -1,9 +1,9 @@
 @import '../bootstrap';
 
 .v-date-picker-years {
-    font-size: 1rem;
+    font-size: rem(16px);
     font-weight: font-weight(regular);
-    height: 17.875rem;
+    height: rem(286px);
     list-style-type: none;
     overflow: auto;
     padding: 0;
@@ -11,13 +11,13 @@
 
     li {
         cursor: pointer;
-        padding: 0.5rem 0;
+        padding: rem(8px 0);
         transition: none;
 
         &.active {
-            font-size: 1.625rem;
+            font-size: rem(26px);
             font-weight: font-weight(medium);
-            padding: 0.625rem 0;
+            padding: rem(10px 0);
         }
 
         &:hover {
@@ -28,6 +28,6 @@
 
 .v-picker--landscape {
     .v-date-picker-years {
-        height: 17.875rem;
+        height: rem(286px);
     }
 }

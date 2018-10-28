@@ -89,7 +89,7 @@
 
     &--vertical {
         .v-stepper__content:not(:last-child) {
-            border-left: 1px solid
+            border-left: rem(1px) solid
                 rgba(
                     map-get($material, fg-color),
                     map-get($material, divider-percent)
@@ -100,7 +100,7 @@
 
 @mixin v-stepper-rtl() {
     .v-stepper__step__step {
-        margin-left: 0.75rem;
+        margin-left: rem(12px);
         margin-right: 0;
     }
 }
@@ -127,12 +127,12 @@
         align-items: stretch;
         display: flex;
         flex-wrap: wrap;
-        height: 4.5rem;
+        height: rem(72px);
         justify-content: space-between;
 
         .v-divider {
             align-self: center;
-            margin: 0 -1rem;
+            margin: rem(0 -16px);
         }
     }
 
@@ -145,16 +145,16 @@
         align-items: center;
         border-radius: 50%;
         display: inline-flex;
-        font-size: 0.75rem;
-        height: 1.5rem;
+        font-size: rem(12px);
+        height: rem(24px);
         justify-content: center;
-        margin-right: 0.5rem;
-        min-width: 1.5rem;
+        margin-right: rem(8px);
+        min-width: rem(24px);
         transition: 0.3s map-get($transition, fast-in-fast-out);
-        width: 1.5rem;
+        width: rem(24px);
 
         .v-icon {
-            font-size: 1.125rem;
+            font-size: rem(18px);
         }
     }
 
@@ -162,7 +162,7 @@
         align-items: center;
         display: flex;
         flex-direction: row;
-        padding: 1.5rem;
+        padding: rem(24px);
         position: relative;
 
         &--active {
@@ -182,7 +182,7 @@
 
                 .v-icon {
                     color: inherit;
-                    font-size: 1.5rem;
+                    font-size: rem(24px);
                 }
             }
 
@@ -205,7 +205,7 @@
         text-align: left;
 
         small {
-            font-size: 0.75rem;
+            font-size: rem(12px);
             font-weight: font-weight(light);
             text-shadow: none;
         }
@@ -218,7 +218,7 @@
 
     &__content {
         flex: 1 0 auto;
-        padding: 1.5rem 1.5rem 1rem;
+        padding: rem(24px 24px 16px);
         top: 0;
         // Chrome has an issue with overflow hidden for rendering
         // Originally used translateZ but this messes up fixed
@@ -228,7 +228,7 @@
         width: 100%;
 
         > .v-btn {
-            margin: 1.5rem 0.5rem 0.5rem 0;
+            margin: rem(24px 8px 8px 0);
         }
     }
 
@@ -240,20 +240,20 @@
     }
 
     &--vertical {
-        padding-bottom: 2.25rem;
+        padding-bottom: rem(36px);
 
         .v-stepper__content {
-            margin: -0.5rem -2.25rem -1rem 2.25rem;
-            padding: 1rem 3.75rem 1rem 1.4375rem;
+            margin: rem(-8px -36px -16px 36px);
+            padding: rem(16px 60px 16px 23px);
             width: auto;
         }
 
         .v-stepper__step {
-            padding: 1.5rem 1.5rem 1rem;
+            padding: rem(24px 24px 16px);
         }
 
         .v-stepper__step__step {
-            margin-right: 0.75rem;
+            margin-right: rem(12px);
         }
     }
 
@@ -263,13 +263,13 @@
 
             .v-divider {
                 align-self: flex-start;
-                margin: 2.1875rem -4.1875rem 0;
+                margin: rem(35px -67px 0);
             }
         }
 
         .v-stepper__step {
             align-items: center;
-            flex-basis: 10.9375rem;
+            flex-basis: rem(175px);
             flex-direction: column;
             justify-content: flex-start;
 
@@ -279,7 +279,7 @@
         }
 
         .v-stepper__step__step {
-            margin-bottom: 0.6875rem;
+            margin-bottom: rem(11px);
             margin-right: 0;
         }
     }

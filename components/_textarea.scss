@@ -18,11 +18,11 @@
 @mixin v-textarea-rtl {
     &.v-text-field--enclosed {
         .v-text-field__slot {
-            margin-left: -0.75rem;
+            margin-left: rem(-12px);
             margin-right: 0;
 
             textarea {
-                padding-left: 0.75rem;
+                padding-left: rem(12px);
                 padding-right: 0;
             }
         }
@@ -44,17 +44,17 @@
 .v-textarea {
     textarea {
         flex: 1 1 auto;
-        line-height: 1.125rem;
+        line-height: rem(18px);
         max-width: 100%;
-        min-height: 2rem;
+        min-height: rem(32px);
         outline: none;
-        padding: 0.4375rem 0 0.5rem;
+        padding: rem(7px 0 8px);
         width: 100%;
     }
 
     .v-text-field__prefix {
         align-self: start;
-        padding-top: 0.25rem;
+        padding-top: rem(4px);
     }
 
     &.v-text-field--full-width,
@@ -66,16 +66,16 @@
         }
 
         .v-text-field__details {
-            bottom: 0.25rem;
+            bottom: rem(4px);
         }
     }
 
     &.v-text-field--enclosed {
         .v-text-field__slot {
-            margin-right: -0.75rem;
+            margin-right: rem(-12px);
 
             textarea {
-                padding-right: 0.75rem;
+                padding-right: rem(12px);
             }
         }
     }
@@ -84,17 +84,17 @@
     &.v-text-field--enclosed {
         .v-text-field__prefix,
         textarea {
-            margin-top: 1.5rem;
+            margin-top: rem(24px);
         }
 
         &.v-text-field--single-line {
             .v-text-field__prefix,
             textarea {
-                margin-top: 0.75rem;
+                margin-top: rem(12px);
             }
 
             .v-label {
-                top: 1.125rem;
+                top: rem(18px);
             }
 
             &.v-text-field--outline {
@@ -115,7 +115,7 @@
         .v-input__append-inner,
         .v-input__append-outer {
             align-self: flex-start;
-            margin-top: 1rem;
+            margin-top: rem(16px);
         }
     }
 

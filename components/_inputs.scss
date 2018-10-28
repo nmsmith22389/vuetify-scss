@@ -36,18 +36,18 @@
     align-items: flex-start;
     display: flex;
     flex: 1 1 auto;
-    font-size: 1rem;
+    font-size: rem(1rem);
     text-align: left;
 
     .v-progress-linear {
         left: 0;
         margin: 0;
         position: absolute;
-        top: calc(100% - 1px);
+        top: calc(100% - rem(1px));
     }
 
     input {
-        max-height: 2rem;
+        max-height: rem(32px);
     }
 
     input,
@@ -64,16 +64,16 @@
     }
 
     .v-label {
-        height: 1.25rem;
-        line-height: 1.25rem;
+        height: rem(20px);
+        line-height: rem(20px);
     }
 
     &__append-outer,
     &__prepend-outer {
         display: inline-flex;
         line-height: 1;
-        margin-bottom: 0.25rem;
-        margin-top: 0.25rem;
+        margin-bottom: rem(4px);
+        margin-top: rem(4px);
 
         .v-icon {
             user-select: none;
@@ -81,11 +81,11 @@
     }
 
     &__append-outer {
-        margin-left: 0.5625rem;
+        margin-left: rem(9px);
     }
 
     &__prepend-outer {
-        margin-right: 0.5625rem;
+        margin-right: rem(9px);
     }
 
     &__control {
@@ -101,10 +101,10 @@
         align-items: center;
         display: inline-flex;
         flex: 1 0 auto;
-        height: 1.5rem;
+        height: rem(24px);
         justify-content: center;
-        min-width: 1.5rem;
-        width: 1.5rem;
+        min-width: rem(24px);
+        width: rem(24px);
 
         &--clear {
             border-radius: 50%;
@@ -115,7 +115,7 @@
         align-items: center;
         color: inherit;
         display: flex;
-        margin-bottom: 0.5rem;
+        margin-bottom: rem(8px);
         min-height: inherit;
         position: relative;
         transition: $primary-transition;

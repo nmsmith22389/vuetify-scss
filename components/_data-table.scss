@@ -25,7 +25,7 @@
 
     .v-datatable__actions {
         background-color: map-get($material, cards);
-        border-top: 1px solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
+        border-top: rem(1px) solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
         color: rgba(map-get($material, fg-color), map-get($material, secondary-text-percent));
     }
 }
@@ -50,7 +50,7 @@
 
             i {
                 display: inline-block;
-                font-size: 1rem;
+                font-size: rem(16px);
                 opacity: 0;
                 transition: 0.3s map-get($transition, swing);
             }
@@ -84,26 +84,26 @@
     align-items: center;
     display: flex;
     flex-wrap: wrap-reverse;
-    font-size: 0.75rem;
+    font-size: rem(12px);
     justify-content: flex-end;
 
     .v-btn {
         color: inherit;
 
         &:last-of-type {
-            margin-left: 0.875rem;
+            margin-left: rem(14px);
         }
     }
 
     &__range-controls {
         align-items: center;
         display: flex;
-        min-height: 3rem;
+        min-height: rem(48px);
     }
 
     &__pagination {
         display: block;
-        margin: 0 2rem 0 1.5rem;
+        margin: rem(0 32px 0 24px);
         text-align: center;
     }
 
@@ -111,12 +111,12 @@
         align-items: center;
         display: flex;
         justify-content: flex-end;
-        margin-right: 0.875rem;
+        margin-right: rem(14px);
         white-space: nowrap;
 
         .v-select {
             flex: 0 1 0;
-            margin: 0.8125rem 0 0.8125rem 2.125rem;
+            margin: rem(13px 0 13px 34px);
             padding: 0;
             position: initial;
 
@@ -125,7 +125,7 @@
             }
 
             .v-select__selection--comma {
-                font-size: 0.75rem;
+                font-size: rem(12px);
             }
         }
     }
@@ -159,7 +159,7 @@
         padding: 0 !important;
 
         &--expanded {
-            border-bottom: 1px solid rgba(0, 0, 0, 0.12);
+            border-bottom: rem(1px) solid rgba(0, 0, 0, 0.12);
         }
     }
 
