@@ -179,7 +179,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateY(-1rem);
+        transform: translateY(rem(-15px));
     }
 
     &-leave,
@@ -194,7 +194,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateY(-1rem);
+        transform: translateY(rem(-15px));
     }
 }
 
@@ -204,7 +204,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateY(1rem);
+        transform: translateY(rem(15px));
     }
 }
 
@@ -217,11 +217,11 @@
     }
 
     &-enter {
-        transform: translateY(-1rem);
+        transform: translateY(rem(-15px));
     }
 
     &-leave-to {
-        transform: translateY(1rem);
+        transform: translateY(rem(15px));
     }
 }
 
@@ -234,11 +234,11 @@
     }
 
     &-enter {
-        transform: translateY(1rem);
+        transform: translateY(rem(15px));
     }
 
     &-leave-to {
-        transform: translateY(-1rem);
+        transform: translateY(rem(-15px));
     }
 }
 
@@ -251,11 +251,11 @@
     }
 
     &-enter {
-        transform: translateX(-1rem);
+        transform: translateX(rem(-15px));
     }
 
     &-leave-to {
-        transform: translateX(1rem);
+        transform: translateX(rem(15px));
     }
 }
 
@@ -268,11 +268,11 @@
     }
 
     &-enter {
-        transform: translateX(1rem);
+        transform: translateX(rem(15px));
     }
 
     &-leave-to {
-        transform: translateX(-1rem);
+        transform: translateX(rem(-15px));
     }
 }
 
@@ -282,7 +282,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateX(-1rem);
+        transform: translateX(rem(-15px));
     }
 }
 
@@ -292,7 +292,7 @@
     &-enter,
     &-leave-to {
         opacity: 0;
-        transform: translateX(1rem);
+        transform: translateX(rem(15px));
     }
 }
 
