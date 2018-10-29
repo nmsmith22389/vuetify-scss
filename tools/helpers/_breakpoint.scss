@@ -14,9 +14,9 @@
 }
 
 @mixin breakpoint($value) {
-    $str: breakpoint($value);
+    $str: if(map-has-key($display-breakpoints, $value), breakpoint($value), '');
 
-    @if $str == '' {
+    @if not $str or $str == '' {
         @content;
     } @else {
         @media #{$str} {
