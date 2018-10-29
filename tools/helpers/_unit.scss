@@ -39,7 +39,7 @@
 }
 
 @function rem($values...) {
-    @if not $convert-to-rem {
+    @if not $values-use-rem {
         @return _rem-convert(px, $values...);
     } @else {
         @return _rem-convert(rem, $values...);
