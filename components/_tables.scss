@@ -38,7 +38,8 @@
 
     tfoot {
         tr {
-            border-top: rem(1px) solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
+            border-top: rem(1px) solid
+                rgba(map-get($material, fg-color), map-get($material, divider-percent));
         }
     }
 }
