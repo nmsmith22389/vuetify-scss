@@ -313,8 +313,7 @@
         // Needed for IE11 which does not
         // process translateY(calc(-20% - 12px))
         // or translate(-50%, calc(-20% - 12px))
-        transform: translateY(-20%) translateY(rem(-12px)) translateX(-50%)
-            rotate(45deg);
+        transform: translateY(-20%) translateY(rem(-12px)) translateX(-50%) rotate(45deg);
         transition: 0.3s map-get($transition, fast-in-fast-out);
         user-select: none;
         width: rem(32px);

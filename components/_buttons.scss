@@ -14,11 +14,7 @@
         }
 
         &:not(.v-btn--icon):not(.v-btn--flat) {
-            background-color: map-deep-get(
-                $material,
-                buttons,
-                focused
-            ) !important;
+            background-color: map-deep-get($material, buttons, focused) !important;
         }
     }
 

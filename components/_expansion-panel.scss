@@ -6,10 +6,7 @@
     .v-expansion-panel__container {
         background-color: map-get($material, cards);
         border-top: rem(1px) solid
-            rgba(
-                map-get($material, fg-color),
-                map-get($material, divider-percent)
-            );
+            rgba(map-get($material, fg-color), map-get($material, divider-percent));
         color: map-deep-get($material, text, primary);
 
         .v-expansion-panel__header {
@@ -28,11 +25,7 @@
     &--focusable {
         .v-expansion-panel__container {
             &:focus {
-                background-color: map-deep-get(
-                    $material,
-                    expansion-panels,
-                    focus
-                );
+                background-color: map-deep-get($material, expansion-panels, focus);
             }
         }
     }

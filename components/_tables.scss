@@ -10,18 +10,12 @@
         tr {
             &:first-child {
                 border-bottom: rem(1px) solid
-                    rgba(
-                        map-get($material, fg-color),
-                        map-get($material, divider-percent)
-                    );
+                    rgba(map-get($material, fg-color), map-get($material, divider-percent));
             }
         }
 
         th {
-            color: rgba(
-                map-get($material, text-color),
-                map-get($material, secondary-text-percent)
-            );
+            color: rgba(map-get($material, text-color), map-get($material, secondary-text-percent));
         }
     }
 
@@ -29,10 +23,7 @@
         tr {
             &:not(:last-child) {
                 border-bottom: rem(1px) solid
-                    rgba(
-                        map-get($material, fg-color),
-                        map-get($material, divider-percent)
-                    );
+                    rgba(map-get($material, fg-color), map-get($material, divider-percent));
             }
 
             &[active] {
@@ -47,11 +38,7 @@
 
     tfoot {
         tr {
-            border-top: rem(1px) solid
-                rgba(
-                    map-get($material, fg-color),
-                    map-get($material, divider-percent)
-                );
+            border-top: rem(1px) solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
         }
     }
 }

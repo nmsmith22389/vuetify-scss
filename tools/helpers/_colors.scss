@@ -1,15 +1,7 @@
 @function get-color($palette-key, $shade-key: base) {
     //@ Cast everything into strings.
-    $palette-key: if(
-        type-of($palette-key) != string,
-        #{$palette-key},
-        $palette-key
-    );
-    $shade-key: if(
-        type-of($shade-key) != string,
-        #{$shade-key},
-        $shade-key
-    );
+    $palette-key: if(type-of($palette-key) != string, #{$palette-key}, $palette-key);
+    $shade-key: if(type-of($shade-key) != string, #{$shade-key}, $shade-key);
 
     //@ Error if palette doesn't exist.
     @if (not map-has-key($colors, $palette-key)) {

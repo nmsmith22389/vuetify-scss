@@ -6,7 +6,10 @@
     thead {
         .column.sortable {
             i {
-                color: rgba(map-get($material, fg-color), map-get($material, disabledORhints-text-percent));
+                color: rgba(
+                    map-get($material, fg-color),
+                    map-get($material, disabledORhints-text-percent)
+                );
             }
 
             &:hover {
@@ -17,7 +20,10 @@
                 color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
 
                 i {
-                    color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
+                    color: rgba(
+                        map-get($material, fg-color),
+                        map-get($material, primary-text-percent)
+                    );
                 }
             }
         }
@@ -25,7 +31,8 @@
 
     .v-datatable__actions {
         background-color: map-get($material, cards);
-        border-top: rem(1px) solid rgba(map-get($material, fg-color), map-get($material, divider-percent));
+        border-top: rem(1px) solid
+            rgba(map-get($material, fg-color), map-get($material, divider-percent));
         color: rgba(map-get($material, fg-color), map-get($material, secondary-text-percent));
     }
 }

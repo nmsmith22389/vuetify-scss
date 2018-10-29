@@ -15,10 +15,7 @@
         background: map-get($material, cards);
 
         .v-icon {
-            color: rgba(
-                map-get($material, fg-color),
-                map-get($material, active-icon-percent)
-            );
+            color: rgba(map-get($material, fg-color), map-get($material, active-icon-percent));
         }
     }
 }

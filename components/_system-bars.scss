@@ -11,11 +11,7 @@
     }
 
     &--lights-out {
-        background-color: map-deep-get(
-            $material,
-            status-bar,
-            lights-out
-        ) !important;
+        background-color: map-deep-get($material, status-bar, lights-out) !important;
     }
 }
 

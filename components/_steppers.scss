@@ -5,12 +5,16 @@
     background: map-get($material, bg-color);
 
     .v-stepper__step {
-        &:not(.v-stepper__step--active):not(.v-stepper__step--complete):not(.v-stepper__step--error) {
-            .v-stepper__step__step {
-                background: rgba(
-                    map-get($material, fg-color),
-                    map-get($material, disabledORhints-text-percent)
-                );
+        &:not(.v-stepper__step--active) {
+            &:not(.v-stepper__step--complete) {
+                &:not(.v-stepper__step--error) {
+                    .v-stepper__step__step {
+                        background: rgba(
+                            map-get($material, fg-color),
+                            map-get($material, disabledORhints-text-percent)
+                        );
+                    }
+                }
             }
         }
 
@@ -55,24 +59,15 @@
 
     .v-stepper__header {
         .v-divider {
-            border-color: rgba(
-                map-get($material, fg-color),
-                map-get($material, divider-percent)
-            );
+            border-color: rgba(map-get($material, fg-color), map-get($material, divider-percent));
         }
     }
 
     .v-stepper__label {
-        color: rgba(
-            map-get($material, fg-color),
-            map-get($material, disabledORhints-text-percent)
-        );
+        color: rgba(map-get($material, fg-color), map-get($material, disabledORhints-text-percent));
 
         small {
-            color: rgba(
-                map-get($material, fg-color),
-                map-get($material, secondary-text-percent)
-            );
+            color: rgba(map-get($material, fg-color), map-get($material, secondary-text-percent));
         }
     }
 
@@ -90,10 +85,7 @@
     &--vertical {
         .v-stepper__content:not(:last-child) {
             border-left: rem(1px) solid
-                rgba(
-                    map-get($material, fg-color),
-                    map-get($material, divider-percent)
-                );
+                rgba(map-get($material, fg-color), map-get($material, divider-percent));
         }
     }
 }

@@ -44,19 +44,11 @@
 
         &.v-input--is-focused {
             .v-input__slot {
-                background: map-deep-get(
-                    $material,
-                    inputs,
-                    solo-inverted-focused
-                );
+                background: map-deep-get($material, inputs, solo-inverted-focused);
 
                 .v-label,
                 input {
-                    color: map-deep-get(
-                        $material,
-                        inputs,
-                        solo-inverted-focused-text
-                    );
+                    color: map-deep-get($material, inputs, solo-inverted-focused-text);
                 }
             }
         }

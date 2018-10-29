@@ -3,10 +3,7 @@
 
 @mixin v-dataiterator($material) {
     .v-data-iterator__actions {
-        color: rgba(
-            map-get($material, fg-color),
-            map-get($material, secondary-text-percent)
-        );
+        color: rgba(map-get($material, fg-color), map-get($material, secondary-text-percent));
 
         &__select {
             .v-select {

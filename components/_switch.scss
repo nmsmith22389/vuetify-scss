@@ -13,21 +13,11 @@
 
     &.v-input--is-disabled {
         .v-input--switch__thumb {
-            color: map-deep-get(
-                $material,
-                selection-controls,
-                thumb,
-                disabled
-            ) !important;
+            color: map-deep-get($material, selection-controls, thumb, disabled) !important;
         }
 
         .v-input--switch__track {
-            color: map-deep-get(
-                $material,
-                selection-controls,
-                track,
-                disabled
-            ) !important;
+            color: map-deep-get($material, selection-controls, track, disabled) !important;
         }
     }
 }

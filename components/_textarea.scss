@@ -5,11 +5,7 @@
     &.v-text-field--solo-inverted.v-text-field--solo {
         &.v-input--is-focused {
             textarea {
-                color: map-deep-get(
-                    $material,
-                    inputs,
-                    solo-inverted-focused-text
-                );
+                color: map-deep-get($material, inputs, solo-inverted-focused-text);
             }
         }
     }
