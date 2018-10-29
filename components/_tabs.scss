@@ -61,7 +61,7 @@
         .v-tabs__container--align-with-title {
             padding-left: rem(16px);
 
-            @media #{map-get($display-breakpoints, xs-only)} {
+            @include breakpoint(xs-only) {
                 padding-left: rem(24px);
             }
         }
@@ -111,7 +111,7 @@
         .v-tabs__div {
             min-width: rem(72px);
 
-            @media #{map-get($display-breakpoints, sm-and-up)} {
+            @include breakpoint(sm-and-up) {
                 min-width: rem(160px);
             }
         }
@@ -119,7 +119,7 @@
 
     &--fixed-tabs {
         .v-tabs__div {
-            @media #{map-get($display-breakpoints, xs-only)} {
+            @include breakpoint(xs-only) {
                 flex: 1 0 auto;
             }
         }

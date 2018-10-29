@@ -93,7 +93,7 @@
     }
 }
 
-@media #{map-get($display-breakpoints, sm-and-up)} {
+@include breakpoint(sm-and-up) {
     .v-snack {
         &__wrapper {
             border-radius: rem(2px);

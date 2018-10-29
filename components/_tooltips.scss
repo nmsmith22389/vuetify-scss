@@ -3,6 +3,12 @@
 .v-tooltip {
     position: relative;
 
+    @include breakpoint(sm-and-down) {
+        .v-tooltip__content {
+            padding: rem(10px 16px);
+        }
+    }
+
     &__content {
         @include elevation(2);
         background: map-get($grey, darken-2);
@@ -18,12 +24,6 @@
 
         &[class*='-active'] {
             pointer-events: none;
-        }
-    }
-
-    @media #{map-get($display-breakpoints, sm-and-down)} {
-        .v-tooltip__content {
-            padding: rem(10px 16px);
         }
     }
 }

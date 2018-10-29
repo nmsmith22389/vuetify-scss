@@ -277,7 +277,7 @@
     }
 }
 
-@media #{map-get($display-breakpoints, sm-and-down)} {
+@include breakpoint(sm-and-down) {
     .v-stepper:not(.v-stepper--vertical) {
         .v-stepper__label {
             display: none;
