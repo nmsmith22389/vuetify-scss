@@ -3,11 +3,16 @@
 
 // Theme
 // ============================================================
-$body-font-family: 'Roboto', sans-serif !default;
-$body-font-size: rem(14px) !default;
+//
+
+//* What all the rem calculations are based off of.
 // NOTE: Don't convert this to `rem` because this is used as the base in calculations.
+//! This must be first otherwise the other `rem()` calls will fail.
 $font-size-root: 16px !default;
+$body-font-size: rem(14px) !default;
 $line-height-root: 1.5 !default;
+$body-font-family: 'Roboto', sans-serif !default;
+
 
 // Material Design - https://material.io/guidelines/style/color.html#color-usability
 // ============================================================

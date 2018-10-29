@@ -1,6 +1,10 @@
 // @import '../../settings/variables';
 // @import '../../settings/theme';
 
+// If true, use rem in styles instead of px.
+// NOTE: Has to be here because its used in the variables and theme files.
+$values-use-rem: true !default;
+
 @function _rem-separator($list, $separator: false) {
     @if $separator == 'comma' or $separator == 'space' {
         @return append($list, null, $separator);
@@ -13,7 +17,7 @@
 
 @function _rem-convert($to, $values...) {
     $result: ();
-    $rem-baseline: variable-exists($font-size-root) and $font-size-root or 100%;
+    $rem-baseline: variable-exists('font-size-root') and $font-size-root or 100%;
     $separator: _rem-separator($values);
 
     @if unit($rem-baseline) == '%' {
