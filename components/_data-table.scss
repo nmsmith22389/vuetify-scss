@@ -5,7 +5,7 @@
 @mixin v-datatable($material) {
     thead {
         .column.sortable {
-            i {
+            .v-icon {
                 color: rgba(
                     map-get($material, fg-color),
                     map-get($material, disabledORhints-text-percent)
@@ -19,7 +19,7 @@
             &.active {
                 color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
 
-                i {
+                .v-icon {
                     color: rgba(
                         map-get($material, fg-color),
                         map-get($material, primary-text-percent)
@@ -55,7 +55,7 @@
             cursor: pointer;
             outline: 0;
 
-            i {
+            .v-icon {
                 display: inline-block;
                 font-size: rem(16px);
                 opacity: 0;
@@ -64,7 +64,7 @@
 
             &:focus,
             &:hover {
-                i {
+                .v-icon {
                     opacity: 0.6;
                 }
             }
@@ -72,12 +72,12 @@
             &.active {
                 transform: none;
 
-                i {
+                .v-icon {
                     opacity: 1;
                 }
 
                 &.desc {
-                    i {
+                    .v-icon {
                         transform: rotate(-180deg);
                     }
                 }

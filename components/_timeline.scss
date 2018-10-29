@@ -57,6 +57,12 @@
         .v-timeline-item__opposite {
             margin-left: rem(96px);
             text-align: left;
+
+            .v-card::before,
+            .v-card::after {
+                left: rem(-10px);
+                transform: rotate(0);
+            }
         }
     }
 
@@ -70,6 +76,12 @@
         .v-timeline-item__opposite {
             margin-right: rem(96px);
             text-align: right;
+
+            .v-card::before,
+            .v-card::after {
+                right: rem(-10px);
+                transform: rotate(180deg);
+            }
         }
     }
 

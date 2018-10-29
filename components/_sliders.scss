@@ -111,7 +111,7 @@
         }
     }
 
-    &.v-input--is-readonly {
+    &.v-input--is-readonly .v-input__control {
         pointer-events: none;
     }
 

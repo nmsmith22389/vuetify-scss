@@ -59,13 +59,10 @@
 
     &__item {
         @include elevation(2);
-        align-items: center;
         background: transparent;
         border-radius: rem(4px);
-        display: inline-flex;
         font-size: $button-font-size;
         height: rem(34px);
-        justify-content: center;
         margin: rem(0.3rem);
         text-decoration: none;
         transition: 0.3s map-get($transition, linear-out-slow-in);
