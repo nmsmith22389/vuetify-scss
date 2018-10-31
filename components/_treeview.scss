@@ -11,12 +11,37 @@
     }
 }
 
+@mixin v-treeview-rtl() {
+    > .v-treeview-node {
+        margin-right: 0;
+
+        &--leaf {
+            margin-left: 0;
+            margin-right: rem(24px);
+        }
+    }
+
+    &-node {
+        margin-left: 0;
+        margin-right: rem(26px);
+
+        &--leaf {
+            margin-left: 0;
+            margin-right: rem(50px);
+        }
+    }
+}
+
 @include theme(light, 'v-treeview') {
     @include v-treeview($material-light);
 }
 
 @include theme(dark, 'v-treeview') {
     @include v-treeview($material-dark);
+}
+
+@include rtl('v-treeview') {
+    @include v-treeview-rtl;
 }
 
 .v-treeview {

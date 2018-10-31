@@ -21,6 +21,9 @@
 | v1.1.7  | ~v1.2.10                |
 | v1.2.3  | ~v1.3.0                 |
 | v1.2.4  | ~v1.3.2                 |
+| v1.2.6  | ~v1.3.3                 |
+| v1.2.7  | ~v1.3.3                 |
+| v1.2.8  | ~v1.3.4                 |
 
 [vuetify]: https://vuetifyjs.com/
 [vuetify-scss]: https://github.com/nmsmith22389/vuetify-scss/
