@@ -67,7 +67,7 @@
 
     .v-label {
         margin-left: rem(16px);
-        top: calc(50% - rem(10px));
+        top: calc(50% - #{rem(10px)});
     }
 
     .v-input__append-inner {

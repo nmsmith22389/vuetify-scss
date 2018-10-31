@@ -63,7 +63,7 @@
         opacity: 0.6;
         position: absolute;
         right: rem(2px);
-        top: calc(50% - rem(7px));
+        top: calc(50% - #{rem(7px)});
     }
 
     &__thumb {
@@ -74,7 +74,7 @@
         height: rem(20px);
         justify-content: center;
         position: relative;
-        top: calc(50% - rem(10px));
+        top: calc(50% - #{rem(10px)});
         width: rem(20px);
     }
 
@@ -84,7 +84,7 @@
 
     .v-input--selection-controls__ripple {
         left: rem(-14px);
-        top: calc(50% - rem(24px));
+        top: calc(50% - #{rem(24px)});
     }
 
     &.v-input--is-dirty {

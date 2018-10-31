@@ -53,8 +53,8 @@
 
     &__hand {
         bottom: 50%;
-        height: calc(50% - rem(4px));
-        left: calc(50% - rem(1px));
+        height: calc(50% - #{rem(4px)});
+        left: calc(50% - #{rem(1px)});
         position: absolute;
         transform-origin: center bottom;
         width: rem(2px);
