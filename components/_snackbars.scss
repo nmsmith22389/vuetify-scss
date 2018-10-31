@@ -157,7 +157,7 @@
     &-leave-to {
         &.v-snack.v-snack--top {
             // Extra 8px to hide the bottom shadow
-            transform: translateY(calc(-100% - rem(8px)));
+            transform: translateY(calc(-100% - #{rem(8px)}));
         }
 
         &.v-snack.v-snack--bottom {

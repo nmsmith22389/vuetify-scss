@@ -43,7 +43,7 @@
         left: 0;
         margin: 0;
         position: absolute;
-        top: calc(100% - rem(1px));
+        top: calc(100% - #{rem(1px)});
     }
 
     input {

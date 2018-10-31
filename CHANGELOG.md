@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.6"></a>
+## [1.2.6](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.5...v1.2.6) (2018-10-31)
+
+
+### Bug Fixes
+
+* **vuetify:** interpolated `rem()` functions inside `calc()`s ([aff721b](https://github.com/nmsmith22389/vuetify-scss/commit/aff721b))
+
+
+
 <a name="1.2.5"></a>
 ## [1.2.5](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.4...v1.2.5) (2018-10-31)
 
