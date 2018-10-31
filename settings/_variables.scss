@@ -100,7 +100,7 @@ $font-weights: (
 // Headings
 // ============================================================
 $heading-font-family: $body-font-family !default;
-$heading-style-tags: true !default;
+$heading-style-tags: false !default;
 $headings: (
     h1: (
         size: 7rem,
