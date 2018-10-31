@@ -41,12 +41,28 @@
     }
 }
 
+@mixin v-list-rtl() {
+    &__tile {
+        &__title {
+            text-align: right;
+        }
+
+        &__content {
+            text-align: right;
+        }
+    }
+}
+
 @include theme(light, 'v-list') {
     @include v-list($material-light);
 }
 
 @include theme(dark, 'v-list') {
     @include v-list($material-dark);
+}
+
+@include rtl('v-list') {
+    @include v-list-rtl;
 }
 
 .v-list {
