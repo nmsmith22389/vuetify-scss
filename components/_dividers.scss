@@ -24,8 +24,8 @@
     transition: inherit;
 
     &--inset:not(.v-divider--vertical) {
-        margin-left: 4.5rem;
-        width: calc(100% - 4.5rem);
+        margin-left: rem(72px);
+        width: calc(100% - rem(72px));
     }
 
     &--vertical {
@@ -41,8 +41,8 @@
         width: 0;
 
         &.v-divider--inset {
-            margin-top: 0.5rem;
-            max-height: calc(100% - 1rem);
+            margin-top: rem(8px);
+            max-height: calc(100% - rem(16px));
             min-height: 0;
         }
     }

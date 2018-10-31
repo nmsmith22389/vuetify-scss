@@ -14,11 +14,7 @@
         }
 
         &:not(.v-btn--icon):not(.v-btn--flat) {
-            background-color: map-deep-get(
-                $material,
-                buttons,
-                focused
-            ) !important;
+            background-color: map-deep-get($material, buttons, focused) !important;
         }
     }
 
@@ -371,12 +367,12 @@
         .v-icon {
             &--left {
                 line-height: inherit;
-                margin-right: 1rem;
+                margin-right: rem(1rem);
             }
 
             &--right {
                 line-height: inherit;
-                margin-left: 1rem;
+                margin-left: rem(1rem);
             }
         }
     }
@@ -387,7 +383,7 @@
 .v-btn {
     &.v-btn--outline {
         background: transparent !important;
-        border: 1px solid currentColor;
+        border: rem(1px) solid currentColor;
         box-shadow: none;
 
         &:hover {
@@ -403,10 +399,10 @@
     }
 
     &--round {
-        border-radius: 28px;
+        border-radius: rem(28px);
 
         &::after {
-            border-radius: 28px;
+            border-radius: rem(28px);
         }
     }
 }
@@ -416,11 +412,11 @@
 .v-btn {
     .v-icon {
         &--right {
-            margin-left: 1rem;
+            margin-left: rem(16px);
         }
 
         &--left {
-            margin-right: 1rem;
+            margin-right: rem(16px);
         }
     }
 }

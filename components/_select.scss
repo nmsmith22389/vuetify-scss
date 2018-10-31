@@ -58,7 +58,7 @@
 
     &.v-text-field--enclosed:not(.v-text-field--single-line) {
         .v-select__selections {
-            padding-top: 1.5rem;
+            padding-top: rem(24px);
         }
     }
 
@@ -84,12 +84,12 @@
         }
 
         .v-select__selections {
-            min-height: 2.625rem;
+            min-height: rem(42px);
         }
 
         &.v-select--chips--small {
             .v-select__selections {
-                min-height: 2rem;
+                min-height: rem(32px);
             }
         }
 
@@ -97,12 +97,12 @@
             &.v-text-field--box,
             &.v-text-field--enclosed {
                 .v-select__selections {
-                    min-height: 4.25rem;
+                    min-height: rem(68px);
                 }
 
                 &.v-select--chips--small {
                     .v-select__selections {
-                        min-height: 3.5rem;
+                        min-height: rem(56px);
                     }
                 }
             }
@@ -121,7 +121,7 @@
         display: flex;
         flex: 1 1 auto;
         flex-wrap: wrap;
-        line-height: 1.125rem;
+        line-height: rem(18px);
     }
 
     &__selection {
@@ -130,7 +130,7 @@
         &--comma {
             align-items: center;
             display: inline-flex;
-            margin: 0.4375rem 0.25rem 0.4375rem 0;
+            margin: rem(7px 4px 7px 0);
         }
     }
 

@@ -3,10 +3,7 @@
 
 @mixin v-small-dialog($material) {
     a {
-        color: rgba(
-            map-get($material, fg-color),
-            map-get($material, primary-text-percent)
-        );
+        color: rgba(map-get($material, fg-color), map-get($material, primary-text-percent));
     }
 }
 
@@ -44,7 +41,7 @@
     width: 100%;
 
     &__content {
-        padding: 0 1.5rem;
+        padding: rem(0 rem(24px));
     }
 
     &__actions {

@@ -78,7 +78,7 @@ svg:not(:root).svg-inline--fa {
 //* Variables
 //* --------------------------
 
-$fa-font-size-base: 1rem !default;
+$fa-font-size-base: rem(1rem) !default;
 $fa-css-prefix: fa !default;
 $fa-version: '5.1.0' !default;
 $fa-border-color: #eeeeee !default;
@@ -378,12 +378,12 @@ $fa-li-width: 2em !default;
 .sr-only {
     border: 0;
     clip: rect(0, 0, 0, 0);
-    height: 1px;
-    margin: -1px;
+    height: rem(1px);
+    margin: rem(-1px);
     overflow: hidden;
     padding: 0;
     position: absolute;
-    width: 1px;
+    width: rem(1px);
 }
 
 .sr-only-focusable {

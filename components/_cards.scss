@@ -61,22 +61,22 @@
         align-items: center;
         display: flex;
         flex-wrap: wrap;
-        padding: 1rem;
+        padding: rem(16px);
 
         &--primary {
-            padding-top: 1.5rem;
+            padding-top: rem(24px);
         }
     }
 
     &__text {
-        padding: 1rem;
+        padding: rem(16px);
         width: 100%;
     }
 
     &__actions {
         align-items: center;
         display: flex;
-        padding: 0.5rem;
+        padding: rem(8px);
 
         > *,
         .v-btn {
@@ -84,7 +84,7 @@
         }
 
         .v-btn + .v-btn {
-            margin-left: 0.5rem;
+            margin-left: rem(8px);
         }
     }
 }

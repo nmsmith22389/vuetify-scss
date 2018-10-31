@@ -12,7 +12,7 @@
         }
     }
 
-    @media #{map-get($display-breakpoints, sm-and-down)} {
+    @include breakpoint(sm-and-down) {
         padding: map-get($grid-gutters, lg);
     }
 

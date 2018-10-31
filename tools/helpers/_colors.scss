@@ -1,0 +1,52 @@
+@function get-color($palette-key, $shade-key: base) {
+    //@ Cast everything into strings.
+    $palette-key: if(type-of($palette-key) != string, #{$palette-key}, $palette-key);
+    $shade-key: if(type-of($shade-key) != string, #{$shade-key}, $shade-key);
+
+    //@ Error if palette doesn't exist.
+    @if (not map-has-key($colors, $palette-key)) {
+        @error 'The color \"#{$palette-key}\" was not found in the $colors variable.';
+    }
+
+    //@ Material Design shade number to shade name table.
+    $int-to-shade: (
+        '50': 'lighten-5',
+        '100': 'lighten-4',
+        '200': 'lighten-3',
+        '300': 'lighten-2',
+        '400': 'lighten-1',
+        '500': 'base',
+        '600': 'darken-1',
+        '700': 'darken-2',
+        '800': 'darken-3',
+        '900': 'darken-4',
+        A100: 'accent-1',
+        A200: 'accent-2',
+        A400: 'accent-3',
+        A700: 'accent-4',
+    );
+
+    //@ Fetch palette from maps.
+    $palette: map-get($colors, $palette-key);
+
+    //@ Fetch color from maps.
+    $shade: if(
+        map-has-key($palette, $shade-key),
+        $shade-key,
+        if(
+            map-has-key($int-to-shade, to-upper-case($shade-key)),
+            map-get($int-to-shade, to-upper-case($shade-key)),
+            null
+        )
+    );
+
+    //@ Error if shade doesn't exist.
+    @if not map-has-key($palette, $shade) {
+        @error 'The shade \"#{$shade-key}\" was not found in the \"#{$palette-key}\" palette.';
+    }
+
+    //@ Return color.
+    $color: map-get($palette, $shade);
+
+    @return $color;
+}

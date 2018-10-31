@@ -14,7 +14,7 @@
         max-width: 70%;
         min-width: 0;
 
-        @media #{map-get($display-breakpoints, xs-only)} {
+        @include breakpoint(xs-only) {
             max-width: none;
         }
     }

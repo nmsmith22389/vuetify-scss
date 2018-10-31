@@ -5,11 +5,11 @@
 
     60%,
     80% {
-        margin-left: 2px;
+        margin-left: rem(2px);
     }
 
     70%,
     90% {
-        margin-left: -2px;
+        margin-left: rem(-2px);
     }
 }

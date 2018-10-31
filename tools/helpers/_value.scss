@@ -1,6 +1,10 @@
 // @import '../../settings/variables';
 
 @function map-deep-get($map, $keys...) {
+    @if type-of($map) != 'map' {
+        // stylelint-disable-next-line max-line-length
+        @error 'The argument $map: "#{$map}" is of the incorrect type: "#{type-of($map)}". Type of "map" is required!';
+    }
     @each $key in $keys {
         $map: map-get($map, $key);
     }

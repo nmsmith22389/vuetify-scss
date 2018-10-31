@@ -6,6 +6,7 @@ module.exports = {
         indentation: [4, { ignore: 'value' }],
         'max-nesting-depth': null,
         'function-parentheses-space-inside': 'never-single-line',
+        'max-line-length': [100, { ignore: ['comments'] }],
 
         //! Make sure this actually works... othewise just get rid of it.
         // "selector-class-pattern": "^(?:(?:o|c|u|t|s|is|has|_|js|qa)-)?[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*(?:__[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:--[a-zA-Z0-9]+(?:-[a-zA-Z0-9]+)*)?(?:\\[.+\\])?$",
@@ -16,6 +17,7 @@ module.exports = {
         'selector-no-qualifying-type': null,
 
         'scss/at-mixin-pattern': null,
+        'scss/at-function-pattern': null,
 
         // ---- FROM OLD .stylelintrc.js ----
         //* Function

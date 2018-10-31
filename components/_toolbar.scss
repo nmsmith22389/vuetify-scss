@@ -17,7 +17,7 @@
 
 @mixin v-toolbar-content($direction) {
     &.v-btn--icon {
-        margin-#{$direction}: -0.375rem;
+        margin-#{$direction}: rem(-6px);
     }
 
     &.v-menu .v-menu__activator,
@@ -27,7 +27,7 @@
         }
 
         .v-btn--icon {
-            margin-#{$direction}: -0.375rem;
+            margin-#{$direction}: rem(-6px);
         }
     }
     margin-#{$direction}: 0;
@@ -65,7 +65,7 @@
         white-space: nowrap;
 
         &:not(:first-child) {
-            margin-left: 1.25rem;
+            margin-left: rem(20px);
         }
     }
 
@@ -75,8 +75,12 @@
         display: flex;
         padding: 0 map-get($grid-gutters, xl);
 
+        @include breakpoint(sm-and-down) {
+            padding: 0 map-get($grid-gutters, lg);
+        }
+
         .v-btn--icon {
-            margin: 0.375rem;
+            margin: rem(6px);
         }
 
         > *:first-child {
@@ -95,7 +99,7 @@
         > .v-list:first-child {
             margin-left: -#{map-get($grid-gutters, xl)};
 
-            @media #{map-get($display-breakpoints, sm-and-down)} {
+            @include breakpoint(sm-and-down) {
                 margin-left: -#{map-get($grid-gutters, lg)};
             }
         }
@@ -103,19 +107,15 @@
         > .v-list:last-child {
             margin-right: -#{map-get($grid-gutters, xl)};
 
-            @media #{map-get($display-breakpoints, sm-and-down)} {
+            @include breakpoint(sm-and-down) {
                 margin-right: -#{map-get($grid-gutters, lg)};
             }
-        }
-
-        @media #{map-get($display-breakpoints, sm-and-down)} {
-            padding: 0 map-get($grid-gutters, lg);
         }
     }
 
     &__extension {
         > .v-toolbar__title {
-            margin-left: 4.5rem;
+            margin-left: rem(72px);
         }
     }
 

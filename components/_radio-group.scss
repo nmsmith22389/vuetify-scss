@@ -7,7 +7,7 @@
         width: 100%;
 
         > .v-label {
-            padding-bottom: 0.5rem;
+            padding-bottom: rem(8px);
         }
     }
 
@@ -19,7 +19,7 @@
 
     &--column {
         .v-radio:not(:last-child):not(:only-child) {
-            margin-bottom: 0.5rem;
+            margin-bottom: rem(8px);
         }
 
         .v-input--radio-group__input {

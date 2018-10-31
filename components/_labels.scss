@@ -18,8 +18,8 @@
 }
 
 .v-label {
-    font-size: 1rem;
+    font-size: rem(16px);
     line-height: 1;
-    min-height: 0.5rem;
+    min-height: rem(8px);
     transition: 0.3s map-get($transition, swing);
 }

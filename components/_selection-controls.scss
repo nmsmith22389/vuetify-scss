@@ -13,7 +13,7 @@
 
 @mixin v-selection-control-rtl {
     .v-input--selection-controls__input {
-        margin-left: 0.5rem;
+        margin-left: rem(8px);
         margin-right: 0;
     }
 }
@@ -32,7 +32,7 @@
 
 .v-input--selection-controls {
     margin-top: $input-top-spacing;
-    padding-top: 0.25rem;
+    padding-top: rem(4px);
 
     .v-input__append-outer,
     .v-input__prepend-outer {
@@ -46,20 +46,20 @@
     }
 
     .v-input__slot {
-        margin-bottom: 0.75rem;
+        margin-bottom: rem(12px);
     }
 
     &__input {
         color: inherit;
         display: inline-flex;
         flex: 0 0 auto;
-        height: 1.5rem;
-        margin-right: 0.5rem;
+        height: rem(24px);
+        margin-right: rem(8px);
         position: relative;
         transition: 0.3s cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-property: color, transform;
         user-select: none;
-        width: 1.5rem;
+        width: rem(24px);
 
         input {
             cursor: pointer;
@@ -78,16 +78,15 @@
     }
 
     &__ripple {
-        // TODO: Use rem-calc() for these pixel values when the function is stable
         border-radius: 50%;
         cursor: pointer;
-        height: 2.125rem;
-        left: -0.75rem;
-        margin: 0.4375rem;
+        height: rem(34px);
+        left: rem(-12px);
+        margin: rem(7px);
         position: absolute;
-        top: calc(50% - 1.5rem);
+        top: calc(50% - rem(24px));
         transition: inherit;
-        width: 2.125rem;
+        width: rem(34px);
 
         &::before {
             border-radius: inherit;

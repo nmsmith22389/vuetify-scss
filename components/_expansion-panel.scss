@@ -5,11 +5,8 @@
 @mixin v-expansion-panel($material) {
     .v-expansion-panel__container {
         background-color: map-get($material, cards);
-        border-top: 1px solid
-            rgba(
-                map-get($material, fg-color),
-                map-get($material, divider-percent)
-            );
+        border-top: rem(1px) solid
+            rgba(map-get($material, fg-color), map-get($material, divider-percent));
         color: map-deep-get($material, text, primary);
 
         .v-expansion-panel__header {
@@ -28,11 +25,7 @@
     &--focusable {
         .v-expansion-panel__container {
             &:focus {
-                background-color: map-deep-get(
-                    $material,
-                    expansion-panels,
-                    focus
-                );
+                background-color: map-deep-get($material, expansion-panels, focus);
             }
         }
     }
@@ -89,8 +82,8 @@
         align-items: center;
         cursor: pointer;
         display: flex;
-        min-height: 3rem;
-        padding: 0.75rem 1.5rem;
+        min-height: rem(48px);
+        padding: rem(12px 24px);
         position: relative;
 
         > *:not(.v-expansion-panel__header__icon) {

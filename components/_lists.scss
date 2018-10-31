@@ -78,7 +78,7 @@
         font-weight: $list-tile-font-weight;
         height: $list-item-single-height;
         margin: 0;
-        padding: 0 1rem;
+        padding: rem(0 16px);
         position: relative;
         text-decoration: none;
         transition: $primary-transition;
@@ -103,8 +103,8 @@
         }
 
         &__title {
-            height: 1.5rem;
-            line-height: 1.5rem;
+            height: rem(25px);
+            line-height: rem(24px);
             position: relative;
             text-align: left;
         }
@@ -116,19 +116,19 @@
         &__avatar {
             display: flex;
             justify-content: flex-start;
-            min-width: 3.5rem;
+            min-width: rem(56px);
         }
 
         &__action {
             align-items: center;
             display: flex;
             justify-content: flex-start;
-            min-width: 3.5rem;
+            min-width: rem(56px);
 
             //@ Added for personal QoL
             // TODO: Take out for production!
             &.narrow {
-                min-width: 2.5rem;
+                min-width: rem(40px);
             }
 
             .v-btn {
@@ -137,7 +137,7 @@
                 padding: 0;
 
                 &--icon {
-                    margin: -0.375rem;
+                    margin: rem(-6px);
                 }
             }
 
@@ -291,7 +291,7 @@
         &::before,
         &::after {
             content: '';
-            height: 1px;
+            height: rem(1px);
             left: 0;
             position: absolute;
             transition: $primary-transition;
@@ -310,13 +310,17 @@
             display: flex;
             list-style-type: none;
 
-            > div:not(.v-list__group__header__prepend-icon):not(.v-list__group__header__append-icon) {
-                flex: 1 0 auto;
+            > div {
+                &:not(.v-list__group__header__prepend-icon) {
+                    &:not(.v-list__group__header__append-icon) {
+                        flex: 1 0 auto;
+                    }
+                }
             }
 
             .v-list__group__header__append-icon,
             .v-list__group__header__prepend-icon {
-                padding: 0 1rem;
+                padding: rem(0 16px);
                 user-select: none;
             }
 
@@ -329,15 +333,15 @@
                 }
 
                 .v-list__group__header__prepend-icon {
-                    margin-right: 0.5rem;
-                    padding: 0 0 0 2.5rem;
+                    margin-right: rem(8px);
+                    padding: rem(0 0 0 40px);
                 }
             }
 
             .v-list__group__header__prepend-icon {
                 display: flex;
                 justify-content: flex-start;
-                min-width: 3.5rem;
+                min-width: rem(56px);
             }
 
             &--active {

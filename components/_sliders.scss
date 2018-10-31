@@ -10,7 +10,7 @@
 
     .v-slider__track__container {
         &::after {
-            border: 1px solid map-deep-get($material, text, primary);
+            border: rem(1px) solid map-deep-get($material, text, primary);
         }
     }
 
@@ -25,19 +25,19 @@
         }
 
         .v-slider__thumb {
-            border: 3px solid map-deep-get($material, slider, inactive);
+            border: rem(3px) solid map-deep-get($material, slider, inactive);
         }
 
         &.v-input--slider--is-active {
             .v-slider__thumb {
-                border: 3px solid map-deep-get($material, slider, active);
+                border: rem(3px) solid map-deep-get($material, slider, active);
             }
         }
     }
 
     &.v-input--is-disabled {
         .v-slider__thumb {
-            border: 5px solid map-deep-get($material, slider, disabled);
+            border: rem(5px) solid map-deep-get($material, slider, disabled);
         }
     }
 
@@ -56,7 +56,7 @@
 
 @mixin v-slider-rtl {
     .v-label {
-        margin-left: 1rem;
+        margin-left: rem(16px);
         margin-right: 0;
     }
 }
@@ -106,12 +106,12 @@
 
         &-labels {
             .v-input__slot {
-                margin-bottom: 1rem;
+                margin-bottom: rem(16px);
             }
         }
     }
 
-    &.v-input--is-readonly {
+    &.v-input--is-readonly .v-input__control {
         pointer-events: none;
     }
 
@@ -128,7 +128,7 @@
     }
 
     .v-input__slot > *:first-child:not(:only-child) {
-        margin-right: 1rem;
+        margin-right: rem(16px);
     }
 }
 
@@ -138,7 +138,7 @@
     cursor: default;
     display: flex;
     flex: 1;
-    height: 2rem;
+    height: rem(32px);
     outline: none;
     position: relative;
     user-select: none;
@@ -152,7 +152,7 @@
 
     // Thumb/Track/Ticks
     &__track__container {
-        height: 0.125rem;
+        height: rem(2px);
         left: 0;
         overflow: hidden;
         pointer-events: none;
@@ -163,13 +163,13 @@
 
         &::after {
             content: '';
-            height: 0.125rem;
+            height: rem(2px);
             opacity: 0;
             position: absolute;
             right: 0;
             top: 0;
             transition: 0.3s map-get($transition, swing);
-            width: 0.125rem;
+            width: rem(2px);
         }
     }
 
@@ -181,7 +181,7 @@
     }
 
     &__track {
-        height: 0.125rem;
+        height: rem(2px);
         left: 0;
         overflow: hidden;
         transform-origin: right;
@@ -189,7 +189,7 @@
         width: 100%;
 
         &-fill {
-            height: 0.125rem;
+            height: rem(2px);
             left: 0;
             position: absolute;
             transform-origin: left;
@@ -199,7 +199,7 @@
     }
 
     &__ticks-container {
-        height: 0.125rem;
+        height: rem(2px);
         left: 0;
         position: absolute;
         top: 50%;
@@ -214,7 +214,7 @@
 
         > span {
             position: absolute;
-            top: 0.5rem;
+            top: rem(8px);
             transform: translateX(-50%);
             user-select: none;
             white-space: nowrap;
@@ -245,16 +245,16 @@
             border-radius: 50%;
             color: inherit;
             content: '';
-            height: 2rem;
-            left: -1rem;
+            height: rem(32px);
+            left: rem(-16px);
             opacity: 0;
             overflow: hidden;
             pointer-events: none;
             position: absolute;
-            top: -1rem;
+            top: rem(-16px);
             transform: scale(0.2);
             transition: $primary-transition;
-            width: 2rem;
+            width: rem(32px);
             will-change: transform, opacity;
         }
     }
@@ -262,13 +262,13 @@
     &__thumb {
         background: transparent;
         border-radius: 50%;
-        height: 1.5rem;
-        left: -0.75rem;
+        height: rem(24px);
+        left: rem(-12px);
         top: 50%;
         transform: translateY(-50%) scale(0.6);
         transition: 0.3s map-get($transition, swing);
         user-select: none;
-        width: 1.5rem;
+        width: rem(24px);
     }
 
     // Thumb Label
@@ -305,19 +305,18 @@
         bottom: 100%;
         color: #ffffff;
         display: flex;
-        font-size: 0.75rem;
-        height: 2rem;
+        font-size: rem(12px);
+        height: rem(32px);
         justify-content: center;
         left: 0;
         position: absolute;
         // Needed for IE11 which does not
-        // process translateY(calc(-20% - 0.75rem))
-        // or translate(-50%, calc(-20% - 0.75rem))
-        transform: translateY(-20%) translateY(-0.75rem) translateX(-50%)
-            rotate(45deg);
+        // process translateY(calc(-20% - 12px))
+        // or translate(-50%, calc(-20% - 12px))
+        transform: translateY(-20%) translateY(rem(-12px)) translateX(-50%) rotate(45deg);
         transition: 0.3s map-get($transition, fast-in-fast-out);
         user-select: none;
-        width: 2rem;
+        width: rem(32px);
 
         > * {
             transform: rotate(-45deg);

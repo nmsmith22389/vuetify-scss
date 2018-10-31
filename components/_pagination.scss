@@ -15,10 +15,7 @@
         background: map-get($material, cards);
 
         .v-icon {
-            color: rgba(
-                map-get($material, fg-color),
-                map-get($material, active-icon-percent)
-            );
+            color: rgba(map-get($material, fg-color), map-get($material, active-icon-percent));
         }
     }
 }
@@ -37,10 +34,8 @@
     list-style-type: none;
     margin: 0;
     max-width: 100%;
-
-    // TODO: Use rem-calc() for these two values when the function is stable
-    min-width: 2.125rem;
-    padding: 0 0.3125rem;
+    min-width: rem(34px);
+    padding: rem(0 5px);
 
     width: auto;
 
@@ -64,17 +59,14 @@
 
     &__item {
         @include elevation(2);
-        align-items: center;
         background: transparent;
-        border-radius: 4px;
-        display: inline-flex;
+        border-radius: rem(4px);
         font-size: $button-font-size;
-        height: 2.125rem;
-        justify-content: center;
-        margin: 0.3rem;
+        height: rem(34px);
+        margin: rem(0.3rem);
         text-decoration: none;
         transition: 0.3s map-get($transition, linear-out-slow-in);
-        width: 2.125rem;
+        width: rem(34px);
 
         &--active {
             @include elevation(4);
@@ -84,16 +76,16 @@
     &__navigation {
         @include elevation(2);
         align-items: center;
-        border-radius: 4px;
+        border-radius: rem(4px);
         display: inline-flex;
-        height: 2rem;
+        height: rem(2rem);
         justify-content: center;
-        margin: 0.3rem 0.625rem;
+        margin: rem(0.3rem 10px);
         text-decoration: none;
-        width: 2rem;
+        width: rem(2rem);
 
         .v-icon {
-            font-size: 2rem;
+            font-size: rem(2rem);
             transition: $secondary-transition;
             vertical-align: middle;
         }
@@ -107,9 +99,9 @@
     &__more {
         align-items: flex-end;
         display: inline-flex;
-        height: 2rem;
+        height: rem(2rem);
         justify-content: center;
-        margin: 0.3rem;
-        width: 2rem;
+        margin: rem(0.3rem);
+        width: rem(2rem);
     }
 }

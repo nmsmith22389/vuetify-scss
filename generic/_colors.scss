@@ -38,11 +38,7 @@
                 @if $color_type == 'base' {
                     @include global-color($color_name, $color_value);
                 } @else if $color_type != 'shades' {
-                    @include global-color-accent(
-                        $color_name,
-                        $color_value,
-                        $color_type
-                    );
+                    @include global-color-accent($color_name, $color_value, $color_type);
                 }
             }
         }

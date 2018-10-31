@@ -12,7 +12,7 @@ $red: (
     accent-1: #ff8a80,
     accent-2: #ff5252,
     accent-3: #ff1744,
-    accent-4: #d50000,
+    accent-4: #d50000
 );
 
 $pink: (
@@ -29,7 +29,7 @@ $pink: (
     accent-1: #ff80ab,
     accent-2: #ff4081,
     accent-3: #f50057,
-    accent-4: #c51162,
+    accent-4: #c51162
 );
 
 $purple: (
@@ -46,7 +46,7 @@ $purple: (
     accent-1: #ea80fc,
     accent-2: #e040fb,
     accent-3: #d500f9,
-    accent-4: #aa00ff,
+    accent-4: #aa00ff
 );
 
 $deep-purple: (
@@ -63,7 +63,7 @@ $deep-purple: (
     accent-1: #b388ff,
     accent-2: #7c4dff,
     accent-3: #651fff,
-    accent-4: #6200ea,
+    accent-4: #6200ea
 );
 
 $indigo: (
@@ -80,7 +80,7 @@ $indigo: (
     accent-1: #8c9eff,
     accent-2: #536dfe,
     accent-3: #3d5afe,
-    accent-4: #304ffe,
+    accent-4: #304ffe
 );
 
 $blue: (
@@ -97,7 +97,7 @@ $blue: (
     accent-1: #82b1ff,
     accent-2: #448aff,
     accent-3: #2979ff,
-    accent-4: #2962ff,
+    accent-4: #2962ff
 );
 
 $light-blue: (
@@ -114,7 +114,7 @@ $light-blue: (
     accent-1: #80d8ff,
     accent-2: #40c4ff,
     accent-3: #00b0ff,
-    accent-4: #0091ea,
+    accent-4: #0091ea
 );
 
 $cyan: (
@@ -131,7 +131,7 @@ $cyan: (
     accent-1: #84ffff,
     accent-2: #18ffff,
     accent-3: #00e5ff,
-    accent-4: #00b8d4,
+    accent-4: #00b8d4
 );
 
 $teal: (
@@ -148,7 +148,7 @@ $teal: (
     accent-1: #a7ffeb,
     accent-2: #64ffda,
     accent-3: #1de9b6,
-    accent-4: #00bfa5,
+    accent-4: #00bfa5
 );
 
 $green: (
@@ -165,7 +165,7 @@ $green: (
     accent-1: #b9f6ca,
     accent-2: #69f0ae,
     accent-3: #00e676,
-    accent-4: #00c853,
+    accent-4: #00c853
 );
 
 $light-green: (
@@ -182,7 +182,7 @@ $light-green: (
     accent-1: #ccff90,
     accent-2: #b2ff59,
     accent-3: #76ff03,
-    accent-4: #64dd17,
+    accent-4: #64dd17
 );
 
 $lime: (
@@ -199,7 +199,7 @@ $lime: (
     accent-1: #f4ff81,
     accent-2: #eeff41,
     accent-3: #c6ff00,
-    accent-4: #aeea00,
+    accent-4: #aeea00
 );
 
 $yellow: (
@@ -216,7 +216,7 @@ $yellow: (
     accent-1: #ffff8d,
     accent-2: #ffff00,
     accent-3: #ffea00,
-    accent-4: #ffd600,
+    accent-4: #ffd600
 );
 
 $amber: (
@@ -233,7 +233,7 @@ $amber: (
     accent-1: #ffe57f,
     accent-2: #ffd740,
     accent-3: #ffc400,
-    accent-4: #ffab00,
+    accent-4: #ffab00
 );
 
 $orange: (
@@ -250,7 +250,7 @@ $orange: (
     accent-1: #ffd180,
     accent-2: #ffab40,
     accent-3: #ff9100,
-    accent-4: #ff6d00,
+    accent-4: #ff6d00
 );
 
 $deep-orange: (
@@ -267,7 +267,7 @@ $deep-orange: (
     accent-1: #ff9e80,
     accent-2: #ff6e40,
     accent-3: #ff3d00,
-    accent-4: #dd2c00,
+    accent-4: #dd2c00
 );
 
 $brown: (
@@ -280,7 +280,7 @@ $brown: (
     darken-1: #6d4c41,
     darken-2: #5d4037,
     darken-3: #4e342e,
-    darken-4: #3e2723,
+    darken-4: #3e2723
 );
 
 $blue-grey: (
@@ -293,7 +293,7 @@ $blue-grey: (
     darken-1: #546e7a,
     darken-2: #455a64,
     darken-3: #37474f,
-    darken-4: #263238,
+    darken-4: #263238
 );
 
 $grey: (
@@ -306,34 +306,34 @@ $grey: (
     darken-1: #757575,
     darken-2: #616161,
     darken-3: #424242,
-    darken-4: #212121,
+    darken-4: #212121
 );
 
 $shades: (
     black: #000000,
     white: #ffffff,
-    transparent: transparent,
+    transparent: transparent
 );
 
 $colors: (
-    red: $red,
-    pink: $pink,
-    purple: $purple,
-    deep-purple: $deep-purple,
-    indigo: $indigo,
-    blue: $blue,
-    light-blue: $light-blue,
-    cyan: $cyan,
-    teal: $teal,
-    green: $green,
-    light-green: $light-green,
-    lime: $lime,
-    yellow: $yellow,
-    amber: $amber,
-    orange: $orange,
-    deep-orange: $deep-orange,
-    brown: $brown,
-    blue-grey: $blue-grey,
-    grey: $grey,
-    shades: $shades,
+    'red': $red,
+    'pink': $pink,
+    'purple': $purple,
+    'deep-purple': $deep-purple,
+    'indigo': $indigo,
+    'blue': $blue,
+    'light-blue': $light-blue,
+    'cyan': $cyan,
+    'teal': $teal,
+    'green': $green,
+    'light-green': $light-green,
+    'lime': $lime,
+    'yellow': $yellow,
+    'amber': $amber,
+    'orange': $orange,
+    'deep-orange': $deep-orange,
+    'brown': $brown,
+    'blue-grey': $blue-grey,
+    'grey': $grey,
+    'shades': $shades
 ) !default;

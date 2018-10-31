@@ -3,14 +3,20 @@
 .v-tooltip {
     position: relative;
 
+    @include breakpoint(sm-and-down) {
+        .v-tooltip__content {
+            padding: rem(10px 16px);
+        }
+    }
+
     &__content {
         @include elevation(2);
         background: map-get($grey, darken-2);
-        border-radius: 2px;
+        border-radius: rem(2px);
         color: #ffffff;
         display: inline-block;
-        font-size: 0.75rem;
-        padding: 0.3125rem 0.5rem;
+        font-size: rem(12px);
+        padding: rem(5px 8px);
         position: absolute;
         text-transform: initial;
         transition: 0.15s map-get($transition, swing);
@@ -18,12 +24,6 @@
 
         &[class*='-active'] {
             pointer-events: none;
-        }
-    }
-
-    @media #{map-get($display-breakpoints, sm-and-down)} {
-        .v-tooltip__content {
-            padding: 0.625rem 1rem;
         }
     }
 }
