@@ -84,7 +84,7 @@
         left: rem(-12px);
         margin: rem(7px);
         position: absolute;
-        top: calc(50% - rem(24px));
+        top: calc(50% - #{rem(24px)});
         transition: inherit;
         width: rem(34px);
 

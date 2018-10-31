@@ -25,7 +25,7 @@
 
     &--inset:not(.v-divider--vertical) {
         margin-left: rem(72px);
-        width: calc(100% - rem(72px));
+        width: calc(100% - #{rem(72px)});
     }
 
     &--vertical {
@@ -42,7 +42,7 @@
 
         &.v-divider--inset {
             margin-top: rem(8px);
-            max-height: calc(100% - rem(16px));
+            max-height: calc(100% - #{rem(16px)});
             min-height: 0;
         }
     }
