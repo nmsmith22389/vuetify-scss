@@ -347,7 +347,7 @@
         }
 
         .v-label {
-            top: (50% - #{rem(10px)});
+            top: calc(50% - #{rem(10px)});
         }
 
         .v-input__control {
