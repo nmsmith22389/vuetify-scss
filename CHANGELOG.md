@@ -2,6 +2,34 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.5"></a>
+## [1.2.5](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.4...v1.2.5) (2018-10-31)
+
+
+### Bug Fixes
+
+* **tools/helpers:** added `get-color()` function ([5c9925b](https://github.com/nmsmith22389/vuetify-scss/commit/5c9925b))
+* **tools/helpers:** added type check to `map-deep-get()` ([89a8891](https://github.com/nmsmith22389/vuetify-scss/commit/89a8891))
+* **tools/helpers:** tweaked breakpoint mixin ([e108ade](https://github.com/nmsmith22389/vuetify-scss/commit/e108ade))
+* **vuetify:** added `$body-font-size` variable ([bd71898](https://github.com/nmsmith22389/vuetify-scss/commit/bd71898))
+* **vuetify:** changed `$heading-style-tags` default value to false ([9821dca](https://github.com/nmsmith22389/vuetify-scss/commit/9821dca))
+* **vuetify:** changed heading styles to be generated ([b29c11f](https://github.com/nmsmith22389/vuetify-scss/commit/b29c11f))
+* **vuetify:** changed name of 'convert to rem' variable ([3b7dcb7](https://github.com/nmsmith22389/vuetify-scss/commit/3b7dcb7))
+* **vuetify:** changed styles to use the breakpoint mixin ([6b14be5](https://github.com/nmsmith22389/vuetify-scss/commit/6b14be5))
+* **vuetify:** converted some more pixel values to rem ([0205a9f](https://github.com/nmsmith22389/vuetify-scss/commit/0205a9f))
+* **vuetify:** fixed errors in variable order ([13839f3](https://github.com/nmsmith22389/vuetify-scss/commit/13839f3))
+* **vuetify:** made labels in text fields clickable ([bee6d24](https://github.com/nmsmith22389/vuetify-scss/commit/bee6d24))
+* **vuetify:** removed old variables ([256e74a](https://github.com/nmsmith22389/vuetify-scss/commit/256e74a))
+* **vuetify:** updated styles to match vuetify@v1.3.3 ([c3f766b](https://github.com/nmsmith22389/vuetify-scss/commit/c3f766b))
+
+
+### Features
+
+* **tools/helpers:** added `rem()` function to convert px to rem ([f4db09b](https://github.com/nmsmith22389/vuetify-scss/commit/f4db09b))
+* changed all pixel values  to use `rem()` function ([7d02f17](https://github.com/nmsmith22389/vuetify-scss/commit/7d02f17))
+
+
+
 <a name="1.2.4"></a>
 ## [1.2.4](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.3...v1.2.4) (2018-10-24)
 
