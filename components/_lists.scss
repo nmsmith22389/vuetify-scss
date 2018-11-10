@@ -329,7 +329,8 @@
             > div {
                 &:not(.v-list__group__header__prepend-icon) {
                     &:not(.v-list__group__header__append-icon) {
-                        flex: 1 0 auto;
+                        flex: 1 1 auto;
+                        overflow: hidden;
                     }
                 }
             }
