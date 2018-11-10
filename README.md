@@ -55,7 +55,7 @@ To change the default variables, simply define them before `vuetify-scss` is imp
 
 Example:
 ```scss
-// Your variables file where you override the
+// Your own variables file where you override the
 //  default Vuetify variables.
 @import 'variables';
 
@@ -72,12 +72,12 @@ To find out which version of [vuetify-scss][vuetify-scss] corresponds to which v
 
 Here is a list of the added / changed variables:
 
-| Variable              | Default Value | Description                                                                                                                                                                                                           |
-| --------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
-| `$font-size-root`     | `16px`        | This is the value the [`rem()`](#helper--utility-mixins-and-functions) mixin is based on when converting pixel units to rem.<br>*The original Vuetify behavior of this variable has been moved to `$body-font-size`.* |
-| `$body-font-size`     | `14px`        | This variable dictates the base font size style.<br>*This is the same behavior as `$font-size-root` in the normal Vuetify styles.*                                                                                    |
-| `$heading-style-tags` | `false`       | If true, also styles the `h1` - `h6` tags in addition to the `.display-1`, `.headline`, etc. tags.                                                                                                                    |
-| `$values-use-rem`     | `true`        | If true, all measurements in the styles are converted to rem units, otherwise styles use px units.                                                                                                                    |
+| Variable              | Default Value | Description                                                                                                                                                                                                                                   |
+| --------------------- | ------------- | --------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------------- |
+| `$font-size-root`     | `16px`        | This is the value the [`rem()`](#helper--utility-mixins-and-functions) mixin is based on when converting pixel units to rem. Defines the HTML tag font-size.<br>*To change how the body font-size appears please refer to `$body-font-size`.* |
+| `$body-font-size`     | `14px`        | This variable dictates the body font size style.                                                                                                                                                                                              |
+| `$heading-style-tags` | `false`       | If true, also styles the `h1` - `h6` tags in addition to the `.display-1`, `.headline`, etc. tags.                                                                                                                                            |
+| `$values-use-rem`     | `true`        | If true, all measurements in the styles are converted to rem units, otherwise styles use px units.                                                                                                                                            |
 
 ### Helper / Utility Mixins and Functions
 
