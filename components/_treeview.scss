@@ -29,6 +29,14 @@
             margin-left: 0;
             margin-right: rem(50px);
         }
+
+        &__toggle {
+            transform: rotate(90deg);
+
+            &--open {
+                transform: none;
+            }
+        }
     }
 }
 

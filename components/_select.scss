@@ -56,6 +56,17 @@
         }
     }
 
+    &:not(.v-input--is-dirty) {
+        &:not(.v-input--is-focused) {
+            .v-text-field__prefix {
+                line-height: rem(20px);
+                position: absolute;
+                top: rem(7px);
+                transition: $primary-transition;
+            }
+        }
+    }
+
     &.v-text-field--enclosed:not(.v-text-field--single-line) {
         .v-select__selections {
             padding-top: rem(24px);

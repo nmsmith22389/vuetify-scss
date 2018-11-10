@@ -45,8 +45,10 @@
         width: auto;
     }
 
-    .v-input__slot {
-        margin-bottom: rem(12px);
+    &:not(.v-input--hide-details) {
+        .v-input__slot {
+            margin-bottom: rem(12px);
+        }
     }
 
     &__input {
