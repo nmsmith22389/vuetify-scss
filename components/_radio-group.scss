@@ -6,8 +6,12 @@
         display: flex;
         width: 100%;
 
-        > .v-label {
+        &--column .v-input--radio-group__input > .v-label {
             padding-bottom: rem(8px);
+        }
+
+        &--row .v-input--radio-group__input > .v-label {
+            padding-right: rem(8px);
         }
     }
 
