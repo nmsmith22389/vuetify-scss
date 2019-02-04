@@ -70,17 +70,6 @@
     padding: $list-top-padding 0 $list-bottom-padding;
     transition: $primary-transition;
 
-    .v-input {
-        .v-messages {
-            display: none;
-        }
-    }
-
-    .v-input,
-    .v-input__slot {
-        margin: 0;
-    }
-
     // TODO: Remove for List rewrite v2.0
     > div {
         transition: inherit;

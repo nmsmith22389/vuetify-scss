@@ -13,7 +13,7 @@
             color: map-deep-get($material, buttons, disabled) !important;
         }
 
-        &:not(.v-btn--icon):not(.v-btn--flat) {
+        &:not(.v-btn--icon):not(.v-btn--flat):not(.v-btn--outline) {
             background-color: map-deep-get($material, buttons, focused) !important;
         }
     }
