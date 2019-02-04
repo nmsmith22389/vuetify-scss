@@ -2,27 +2,23 @@
 @import '../theme';
 
 @mixin v-text-field($material) {
-    .v-input__slot::before {
+    > .v-input__control > .v-input__slot::before {
         border-color: map-get($material, input-bottom-line);
     }
 
-    &:not(.v-input--has-state) {
-        .v-input__slot:hover::before {
-            border-color: map-deep-get($material, text, primary);
-        }
+    &:not(.v-input--has-state) > .v-input__control > .v-input__slot:hover::before {
+        border-color: map-deep-get($material, text, primary);
     }
 
-    &.v-input--is-disabled {
-        .v-input__slot::before {
-            border-image: repeating-linear-gradient(
-                    to right,
-                    map-deep-get($material, text, disabled) 0,
-                    map-deep-get($material, text, disabled) rem(2px),
-                    transparent rem(2px),
-                    transparent rem(4px)
-                )
-                1 repeat;
-        }
+    &.v-input--is-disabled > .v-input__control > .v-input__slot::before {
+        border-image: repeating-linear-gradient(
+                to right,
+                map-deep-get($material, text, disabled) 0,
+                map-deep-get($material, text, disabled) rem(2px),
+                transparent rem(2px),
+                transparent rem(4px)
+            )
+            1 repeat;
 
         .v-text-field__prefix,
         .v-text-field__suffix {
@@ -35,32 +31,28 @@
         color: map-deep-get($material, text, secondary);
     }
 
-    &--solo {
-        .v-input__slot {
-            background: map-get($material, cards);
-            border-radius: rem(2px);
-        }
+    &--solo > .v-input__control > .v-input__slot {
+        background: map-get($material, cards);
+        border-radius: rem(2px);
     }
 
     &--solo-inverted.v-text-field--solo {
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             background: map-deep-get($material, inputs, solo-inverted);
         }
 
-        &.v-input--is-focused {
-            .v-input__slot {
-                background: map-deep-get($material, inputs, solo-inverted-focused);
+        &.v-input--is-focused > .v-input__control > .v-input__slot {
+            background: map-deep-get($material, inputs, solo-inverted-focused);
 
-                .v-label,
-                input {
-                    color: map-deep-get($material, inputs, solo-inverted-focused-text);
-                }
+            .v-label,
+            input {
+                color: map-deep-get($material, inputs, solo-inverted-focused-text);
             }
         }
     }
 
     &--box {
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             background: map-deep-get($material, text-fields, box);
         }
 
@@ -78,22 +70,20 @@
             }
         }
 
-        &:not(.v-input--is-focused) {
-            .v-input__slot:hover {
-                background: map-deep-get($material, text-fields, box-hover);
-            }
+        &:not(.v-input--is-focused) > .v-input__control > .v-input__slot:hover {
+            background: map-deep-get($material, text-fields, box-hover);
         }
     }
 
     &--outline {
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             border: rem(2px) solid map-deep-get($material, text, secondary);
         }
 
-        &:not(.v-input--is-focused) {
-            .v-input__slot:hover {
-                border: rem(2px) solid map-deep-get($material, text, primary);
-            }
+        &:not(.v-input--is-focused):not(.v-input--has-state)
+        > .v-input__control
+        > .v-input__slot:hover {
+            border: rem(2px) solid map-deep-get($material, text, primary);
         }
     }
 }
@@ -286,7 +276,7 @@
         }
     }
 
-    &__slot {
+    > .v-input__control > .v-input__slot > .v-text-field__slot {
         display: flex;
         flex: 1 1 auto;
         position: relative;
@@ -296,7 +286,7 @@
     &--outline {
         position: relative;
 
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             align-items: stretch;
             min-height: rem(56px);
         }
@@ -320,15 +310,13 @@
         }
     }
 
-    &--box {
-        .v-input__slot {
-            border-top-left-radius: rem(4px);
-            border-top-right-radius: rem(4px);
+    &--box > .v-input__control > .v-input__slot {
+        border-top-left-radius: rem(4px);
+        border-top-right-radius: rem(4px);
 
-            &::before {
-                border-style: solid;
-                border-width: thin 0;
-            }
+        &::before {
+            border-style: solid;
+            border-width: thin 0;
         }
     }
 
@@ -350,7 +338,7 @@
         }
 
         .v-text-field__details,
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             padding: rem(0 12px);
         }
 
@@ -394,7 +382,7 @@
             transform-origin: top right;
         }
 
-        .v-input__slot,
+        > .v-input__control > .v-input__slot,
         .v-text-field__slot {
             flex-direction: row-reverse;
         }
@@ -403,7 +391,7 @@
     &--solo,
     &--outline,
     &--full-width {
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             &::before,
             &::after {
                 display: none;
@@ -415,7 +403,7 @@
         margin-bottom: rem(16px);
         transition: border $primary-transition;
 
-        .v-input__slot {
+        > .v-input__control > .v-input__slot {
             background: transparent !important;
             border-radius: rem(4px);
         }
@@ -440,7 +428,7 @@
 
         &.v-input--is-focused,
         &.v-input--has-state {
-            .v-input__slot {
+            > .v-input__control > .v-input__slot {
                 border: rem(2px) solid currentColor;
                 transition: border $primary-transition;
             }
@@ -457,10 +445,8 @@
             padding: 0;
         }
 
-        &:not(.v-text-field--solo-flat) {
-            .v-input__slot {
-                @include elevation(2);
-            }
+        &:not(.v-text-field--solo-flat) > .v-input__control > .v-input__slot {
+            @include elevation(2);
         }
 
         .v-text-field__slot {
@@ -479,15 +465,11 @@
         }
     }
 
-    &.v-input--is-focused {
-        .v-input__slot::after {
-            transform: scaleX(1);
-        }
+    &.v-input--is-focused > .v-input__control > .v-input__slot::after {
+        transform: scaleX(1);
     }
 
-    &.v-input--has-state {
-        .v-input__slot::before {
-            border-color: currentColor;
-        }
+    &.v-input--has-state > .v-input__control > .v-input__slot::before {
+        border-color: currentColor;
     }
 }

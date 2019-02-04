@@ -1,5 +1,37 @@
 @import '../bootstrap';
 
+@mixin v-badge-rtl {
+    &__badge {
+        left: -$badge-width;
+        right: initial;
+    }
+
+    &--overlap {
+        .v-badge__badge {
+            left: rem(-8px);
+            right: initial;
+        }
+
+        &.v-badge--left {
+            .v-badge__badge {
+                left: initial;
+                right: rem(-8px);
+            }
+        }
+    }
+
+    &--left {
+        .v-badge__badge {
+            left: initial;
+            right: -$badge-width;
+        }
+    }
+}
+
+@include rtl('v-badge') {
+    @include v-badge-rtl;
+}
+
 .v-badge {
     display: inline-block;
     position: relative;
