@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.2.14"></a>
+## [1.2.14](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.13...v1.2.14) (2019-02-04)
+
+
+### Bug Fixes
+
+* **vuetify:** added missing styles in `text-fields` from vuetify@v1.3.6 ([4941acb](https://github.com/nmsmith22389/vuetify-scss/commit/4941acb))
+* **vuetify:** updated styles to match vuetify@v1.3.10 ([f4d7b74](https://github.com/nmsmith22389/vuetify-scss/commit/f4d7b74))
+
+
+
 <a name="1.2.13"></a>
 ## [1.2.13](https://github.com/nmsmith22389/vuetify-scss/compare/v1.2.12...v1.2.13) (2019-02-04)
 

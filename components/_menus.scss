@@ -59,6 +59,8 @@
             }
 
             &.v-menu__content--auto {
+                transition: none !important;
+
                 .v-list__tile {
                     opacity: 0;
                     transform: translateY(rem(-15px));

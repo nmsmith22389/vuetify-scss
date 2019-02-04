@@ -420,12 +420,26 @@
             border-radius: rem(4px);
         }
 
+        .v-text-field__prefix {
+            max-height: rem(32px);
+        }
+
         .v-input__prepend-outer,
         .v-input__append-outer {
             margin-top: rem(18px); // 2px for border
         }
 
-        &.v-input--is-focused {
+        &.v-input--is-dirty,
+        &.v-input--is-focused,
+        &.v-text-field--placeholder {
+            .v-text-field__prefix {
+                margin-top: rem(22px);
+                transition: $primary-transition;
+            }
+        }
+
+        &.v-input--is-focused,
+        &.v-input--has-state {
             .v-input__slot {
                 border: rem(2px) solid currentColor;
                 transition: border $primary-transition;

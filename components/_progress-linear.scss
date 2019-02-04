@@ -10,13 +10,13 @@
     &__bar {
         height: inherit;
         position: relative;
-        transition: 0.2s map-get($transition, fast-in-slow-out);
+        transition: 0.2s map-get($transition, ease-in-out);
         width: 100%;
         z-index: 1;
 
         &__determinate {
             height: inherit;
-            transition: 0.2s map-get($transition, fast-in-slow-out);
+            transition: 0.2s map-get($transition, ease-in-out);
         }
 
         &__indeterminate {
