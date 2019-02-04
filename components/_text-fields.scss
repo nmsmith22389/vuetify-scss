@@ -210,7 +210,7 @@
         white-space: nowrap;
 
         &--active {
-            max-width: 100%;
+            max-width: 133%;
             // NOTE: Added this to make label clickable when there is something in it.
             pointer-events: initial;
             transform: translateY(rem(-18px)) scale(0.75);
