@@ -23,7 +23,7 @@
 
     &:not(.v-input--is-disabled).v-select.v-text-field {
         input {
-            pointer-events: auto;
+            pointer-events: inherit;
         }
     }
 

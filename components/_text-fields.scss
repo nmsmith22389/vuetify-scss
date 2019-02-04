@@ -438,7 +438,8 @@
             }
         }
 
-        &.v-input--is-focused {
+        &.v-input--is-focused,
+        &.v-input--has-state {
             .v-input__slot {
                 border: rem(2px) solid currentColor;
                 transition: border $primary-transition;
