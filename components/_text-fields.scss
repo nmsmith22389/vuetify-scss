@@ -23,6 +23,11 @@
                 )
                 1 repeat;
         }
+
+        .v-text-field__prefix,
+        .v-text-field__suffix {
+            color: map-deep-get($material, text, disabled);
+        }
     }
 
     &__prefix,
