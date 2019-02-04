@@ -10,12 +10,49 @@
     }
 }
 
+@mixin v-chip-rtl {
+    &__close {
+        margin: $chip-close-margin-rtl;
+    }
+
+    &--removable {
+        .v-chip__content {
+            padding: $chip-removable-padding-rtl;
+        }
+    }
+
+    &--select-multi {
+        margin: $chip-margin 0 $chip-margin $chip-margin;
+    }
+
+    .v-avatar {
+        margin-left: rem(8px);
+        margin-right: rem(-12px);
+    }
+
+    .v-icon {
+        &--right {
+            margin-left: $chip-icon-negative-offset;
+            margin-right: $chip-icon-offset;
+        }
+
+        &--left {
+            margin-left: $chip-icon-offset;
+            margin-right: $chip-icon-negative-offset;
+        }
+    }
+}
+
 @include theme(light, 'v-chip') {
     @include v-chip($material-light);
 }
 
 @include theme(dark, 'v-chip') {
     @include v-chip($material-dark);
+}
+
+@include rtl('v-chip') {
+    @include v-chip-rtl;
 }
 
 .v-chip {

@@ -251,11 +251,11 @@ $card-border-radius: rem(2px) !default;
 // Chip
 $chip-border-radius: rem(28px) !default;
 $chip-close-margin: rem(0 2px 0 8px) !default;
+$chip-close-margin-rtl: rem(0 8px 0 2px) !default;
 $chip-font-size: rem(13px) !default;
 $chip-label-border-radius: $card-border-radius !default;
 $chip-icon-font-size: rem(20px) !default;
 $chip-padding: rem(0 12px) !default;
-$chip-removeable-padding: rem(0 4px 0 12px) !default;
 $chip-outline-background: transparent !important !default;
 $chip-outline-color: map-get($grey, base) !default;
 $chip-height: rem(32px) !default;
@@ -264,6 +264,12 @@ $chip-small-height: rem(24px) !default;
 $chip-small-font-size: rem(20px) !default;
 $chip-icon-offset: rem(12px) !default;
 $chip-icon-negative-offset: rem(-8px) !default;
+// TODO: s/removeable/removable in 2.0
+// invalid name kept to avoid possible breaking change
+$chip-removeable-padding: 0 $chip-margin 0 $chip-icon-offset;
+$chip-removable-padding-rtl: 0 $chip-icon-offset 0 $chip-margin;
+// TODO: remove in 2.0
+$chip-removable-padding: $chip-removeable-padding;
 
 // Collapsible
 $expansion-panel-collapse-height: rem(48px) !default;

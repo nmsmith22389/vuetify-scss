@@ -7,12 +7,25 @@
     color: map-deep-get($material, text, primary);
 }
 
+@mixin v-toolbar-rtl {
+    &__title {
+        &:not(:first-child) {
+            margin-left: 0;
+            margin-right: rem(20px);
+        }
+    }
+}
+
 @include theme(light, 'v-toolbar') {
     @include v-toolbar($material-light);
 }
 
 @include theme(dark, 'v-toolbar') {
     @include v-toolbar($material-dark);
+}
+
+@include rtl('v-toolbar') {
+    @include v-toolbar-rtl;
 }
 
 @mixin v-toolbar-content($direction) {
