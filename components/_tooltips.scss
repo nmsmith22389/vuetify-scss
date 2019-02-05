@@ -17,11 +17,11 @@
         padding: rem(5px 8px);
         position: absolute;
         text-transform: initial;
-        transition: 0.15s map-get($transition, swing);
         width: auto;
 
         &[class*='-active'] {
             pointer-events: none;
+            transition: 0.15s map-get($transition, swing);
         }
     }
 }
