@@ -1,0 +1,27 @@
+@import '../bootstrap';
+@import '../theme';
+
+/* Themes */
+@mixin v-sheet($material) {
+    background-color: map-get($material, cards);
+    border-color: map-get($material, cards);
+    color: map-deep-get($material, text, primary);
+}
+
+@include theme(light, 'v-sheet') {
+    @include v-sheet($material-light);
+}
+
+@include theme(dark, 'v-sheet') {
+    @include v-sheet($material-dark);
+}
+
+.v-sheet {
+    border-radius: $sheet-border-radius;
+    display: block;
+    position: relative;
+
+    &--tile {
+        border-radius: 0;
+    }
+}

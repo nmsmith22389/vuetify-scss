@@ -3,6 +3,10 @@
 
 @mixin v-bottom-nav($material) {
     background-color: map-get($material, cards);
+
+    .v-btn:not(.v-btn--active) {
+        color: map-deep-get($material, text, secondary) !important;
+    }
 }
 
 @include theme(light, 'v-bottom-nav') {
@@ -47,7 +51,6 @@
         margin: 0;
         max-width: rem(168px);
         min-width: rem(80px);
-        opacity: 0.5;
         padding: rem(8px 12px 10px);
         text-transform: none;
         width: 100%;
@@ -70,7 +73,6 @@
         }
 
         &--active {
-            opacity: 1;
             padding-top: rem(6px);
 
             &::before {
@@ -84,10 +86,6 @@
                     transform: none;
                 }
             }
-        }
-
-        &:not(.v-btn--active) {
-            filter: grayscale(100%);
         }
     }
 
@@ -105,16 +103,18 @@
                 max-width: rem(168px);
                 min-width: rem(96px);
             }
+        }
+    }
+}
 
-            &:not(.v-btn--active) .v-btn__content {
-                .v-icon {
-                    transform: scale(1, 1) translate(0, rem(8px));
-                }
+.v-bottom-nav--shift {
+    &:not(.v-btn--active) .v-btn__content {
+        .v-icon {
+            transform: scale(1, 1) translate(0, rem(8px));
+        }
 
-                span {
-                    color: transparent;
-                }
-            }
+        > span:not(.v-badge) {
+            color: transparent;
         }
     }
 }

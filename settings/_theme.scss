@@ -13,7 +13,6 @@ $body-font-size: rem(14px) !default;
 $line-height-root: 1.5 !default;
 $body-font-family: 'Roboto', sans-serif !default;
 
-
 // Material Design - https://material.io/guidelines/style/color.html#color-usability
 // ============================================================
 $material-light: (
@@ -118,8 +117,8 @@ $material-dark: (
     background: #303030,
     cards: #424242,
     chips: (
-        background: #ffffff,
-        color: map-deep-get($material-light, text, primary)
+        background: #555555,
+        color: #ffffff
     ),
     dividers: rgba(#ffffff, 0.12),
     text: (

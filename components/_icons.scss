@@ -28,23 +28,24 @@
     transition: $primary-transition;
     vertical-align: text-bottom;
 
+    &--right {
+        margin-left: map-get($grid-gutters, lg);
+    }
+
+    &--left {
+        margin-right: map-get($grid-gutters, lg);
+    }
+
     &.v-icon.v-icon--link {
         cursor: pointer;
     }
 
-    &.v-icon--large {
-        font-size: rem(2.5rem);
-    }
-
-    &.v-icon--medium {
-        font-size: rem(2rem);
-    }
-
-    &.v-icon--x-large {
-        font-size: rem(3rem);
-    }
-
-    &.v-icon--disabled {
+    &--disabled {
+        opacity: 0.6;
         pointer-events: none;
+    }
+
+    &--is-component {
+        height: rem(24px);
     }
 }

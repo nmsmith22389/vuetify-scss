@@ -38,3 +38,7 @@
         position: relative;
     }
 }
+
+.v-date-picker-title--disabled {
+    pointer-events: none;
+}

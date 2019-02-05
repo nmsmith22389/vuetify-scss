@@ -94,8 +94,8 @@
     &__body {
         transition: $primary-transition;
 
-        .v-card {
-            @include elevation(0);
+        > .v-card {
+            @include elevation(0, true);
             border-radius: 0;
         }
     }
