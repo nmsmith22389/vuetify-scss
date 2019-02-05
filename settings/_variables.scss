@@ -328,7 +328,7 @@ $list-dense-subheader-height: $list-item-dense-single-height !default;
 $list-dense-subheader-group-height: $list-dense-subheader-height !default;
 
 // Paper
-$sheet-border-radius: rem(2px);
+$sheet-border-radius: rem(2px) !default;
 
 // Pickers
 $time-picker-number-font-size: rem(16px) !default;
