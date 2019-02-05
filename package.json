@@ -1,6 +1,6 @@
 {
   "name": "vuetify-scss",
-  "version": "1.3.1",
+  "version": "1.3.2",
   "description": "All of the Vuetify styles converted into Sass. No more Stylus!",
   "main": "main.scss",
   "style": "main.scss",
