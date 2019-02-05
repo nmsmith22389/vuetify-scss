@@ -40,8 +40,7 @@ $container-max-widths: (
 $display-breakpoints: (
     print-only: 'only print',
     screen-only: 'only screen',
-    xs-only:
-        'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
+    xs-only: 'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
     sm-only: 'only screen and (min-width: #{map-get($grid-breakpoints, sm)}) and ' +
         '(max-width: #{(map-get($grid-breakpoints, md)  - 1)})',
     sm-and-down: 'only screen and (max-width: #{(map-get($grid-breakpoints, md) - 1)})',
