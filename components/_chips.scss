@@ -57,7 +57,6 @@
 
 .v-chip {
     align-items: center;
-    border: rem(1px) solid transparent;
     border-radius: $chip-border-radius;
     display: inline-flex;
     font-size: $chip-font-size;
@@ -133,12 +132,17 @@
     // Increase specificity to override theme background
     &#{&}.v-chip--outline {
         background: $chip-outline-background;
-        border-color: currentColor;
+        border: rem(1px) solid currentColor;
         color: $chip-outline-color;
+        height: $chip-height;
+
+        .v-avatar {
+            margin-left: rem(-13px);
+        }
     }
 
     &--small {
-        height: $chip-small-height;
+        height: $chip-small-height !important;
 
         .v-avatar {
             height: $chip-small-height !important;

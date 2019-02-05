@@ -1,5 +1,17 @@
 @import '../bootstrap';
 
+@mixin v-snack-rtl {
+    &__content {
+        .v-btn {
+            margin: rem(0 24px 0 0);
+        }
+    }
+}
+
+@include rtl('v-snack') {
+    @include v-snack-rtl;
+}
+
 .v-snack {
     align-items: center;
     color: $snackbar-color;
@@ -91,6 +103,19 @@
     &--auto-height &__content {
         height: auto;
     }
+}
+
+@mixin v-snack-sm-and-up-rtl {
+    @include breakpoint(sm-and-up) {
+        &__content .v-btn:first-of-type {
+            margin-left: 0;
+            margin-right: rem(42px);
+        }
+    }
+}
+
+@include rtl('v-snack') {
+    @include v-snack-sm-and-up-rtl;
 }
 
 @include breakpoint(sm-and-up) {
