@@ -1,8 +1,6 @@
 @import '../bootstrap';
 
 .v-tooltip {
-    position: relative;
-
     @include breakpoint(sm-and-down) {
         .v-tooltip__content {
             padding: rem(10px 16px);

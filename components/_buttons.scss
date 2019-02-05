@@ -407,20 +407,6 @@
     }
 }
 
-// Button w/ directional Icon
-// stylelint-disable-next-line
-.v-btn {
-    .v-icon {
-        &--right {
-            margin-left: rem(16px);
-        }
-
-        &--left {
-            margin-right: rem(16px);
-        }
-    }
-}
-
 // Theme
 // stylelint-disable-next-line
 .v-btn:not(.v-btn--outline) {

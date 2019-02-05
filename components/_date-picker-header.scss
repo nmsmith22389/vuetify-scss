@@ -3,13 +3,15 @@
 
 @mixin v-date-picker-header($material) {
     .v-date-picker-header__value:not(.v-date-picker-header__value--disabled) {
-        strong:not(:hover) {
-            color: map-deep-get($material, text, primary) !important;
+        button:not(:hover):not(:focus) {
+            color: map-deep-get($material, text, primary);
         }
     }
 
-    .v-date-picker-header__value--disabled strong {
-        color: map-deep-get($material, text, disabled);
+    .v-date-picker-header__value--disabled {
+        button {
+            color: map-deep-get($material, text, disabled);
+        }
     }
 }
 
@@ -45,10 +47,20 @@
     position: relative;
     text-align: center;
 
-    strong {
-        cursor: pointer;
-        display: block;
+    div {
         transition: $primary-transition;
         width: 100%;
     }
+
+    button {
+        cursor: pointer;
+        font-weight: bold;
+        outline: none;
+        padding: 0.5rem;
+        transition: $primary-transition;
+    }
+}
+
+.v-date-picker-header--disabled {
+    pointer-events: none;
 }

@@ -86,7 +86,7 @@
         padding: rem(0 16px);
         position: relative;
         text-decoration: none;
-        transition: $primary-transition;
+        transition: background $primary-transition;
 
         &--link {
             cursor: pointer;
