@@ -31,6 +31,7 @@
     contain: layout style;
     display: inline-flex;
     flex-direction: column;
+    position: relative;
     vertical-align: top;
 
     &--full-width {

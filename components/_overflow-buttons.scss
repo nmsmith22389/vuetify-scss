@@ -40,6 +40,7 @@
 
 .v-overflow-btn {
     margin-top: rem(12px);
+    padding-top: 0;
 
     &:not(.v-overflow-btn--editable) > .v-input__control > .v-input__slot {
         cursor: pointer;
@@ -49,6 +50,7 @@
         height: rem(48px);
 
         input {
+            cursor: pointer;
             margin-left: rem(16px);
         }
     }
@@ -131,6 +133,12 @@
     }
 
     &--editable {
+        .v-select__slot {
+            input {
+                cursor: text;
+            }
+        }
+
         .v-input__append-inner,
         .v-input__append-inner * {
             cursor: pointer;
