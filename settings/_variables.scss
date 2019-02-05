@@ -39,8 +39,8 @@ $container-max-widths: (
 // ============================================================
 $display-breakpoints: (
     print-only: 'only print',
-    screen-only: 'only screen' xs-only:
-        'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
+    screen-only: 'only screen',
+    xs-only: 'only screen and (max-width: #{(map-get($grid-breakpoints, sm) - 1)})',
     sm-only: 'only screen and (min-width: #{map-get($grid-breakpoints, sm)}) and ' +
         '(max-width: #{(map-get($grid-breakpoints, md)  - 1)})',
     sm-and-down: 'only screen and (max-width: #{(map-get($grid-breakpoints, md) - 1)})',
@@ -266,10 +266,10 @@ $chip-icon-offset: rem(12px) !default;
 $chip-icon-negative-offset: rem(-8px) !default;
 // TODO: s/removeable/removable in 2.0
 // invalid name kept to avoid possible breaking change
-$chip-removeable-padding: 0 $chip-margin 0 $chip-icon-offset;
-$chip-removable-padding-rtl: 0 $chip-icon-offset 0 $chip-margin;
+$chip-removeable-padding: 0 $chip-margin 0 $chip-icon-offset !default;
+$chip-removable-padding-rtl: 0 $chip-icon-offset 0 $chip-margin !default;
 // TODO: remove in 2.0
-$chip-removable-padding: $chip-removeable-padding;
+$chip-removable-padding: $chip-removeable-padding !default;
 
 // Collapsible
 $expansion-panel-collapse-height: rem(48px) !default;
@@ -328,7 +328,7 @@ $list-dense-subheader-height: $list-item-dense-single-height !default;
 $list-dense-subheader-group-height: $list-dense-subheader-height !default;
 
 // Paper
-$sheet-border-radius: rem(2px);
+$sheet-border-radius: rem(2px) !default;
 
 // Pickers
 $time-picker-number-font-size: rem(16px) !default;
