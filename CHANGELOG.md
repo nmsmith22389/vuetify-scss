@@ -2,6 +2,17 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.5"></a>
+## [1.3.5](https://github.com/nmsmith22389/vuetify-scss/compare/v1.3.4...v1.3.5) (2019-02-05)
+
+
+### Bug Fixes
+
+* **settings/variables:** added missing `!default` flags ([d2ca49e](https://github.com/nmsmith22389/vuetify-scss/commit/d2ca49e))
+* **settings/variables:** added missing comma ([b123d35](https://github.com/nmsmith22389/vuetify-scss/commit/b123d35)), closes [#10](https://github.com/nmsmith22389/vuetify-scss/issues/10)
+
+
+
 <a name="1.3.4"></a>
 ## [1.3.4](https://github.com/nmsmith22389/vuetify-scss/compare/v1.3.3...v1.3.4) (2019-02-05)
 
