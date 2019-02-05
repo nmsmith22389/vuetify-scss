@@ -17,6 +17,7 @@
 }
 
 .v-card {
+    @include elevation(2);
     text-decoration: none;
 
     > *:first-child:not(.v-btn):not(.v-chip) {
@@ -29,13 +30,17 @@
         border-bottom-right-radius: inherit;
     }
 
+    &--flat {
+        @include elevation(0);
+    }
+
     &--hover {
         cursor: pointer;
         transition: all 0.4s cubic-bezier(0.25, 0.8, 0.25, 1);
         transition-property: box-shadow;
 
         &:hover {
-            @include elevation(8, true);
+            @include elevation(8);
         }
     }
 
