@@ -283,6 +283,7 @@
     }
 
     &--box,
+    &--full-width,
     &--outline {
         position: relative;
 
@@ -344,31 +345,6 @@
 
         .v-text-field__details {
             margin-bottom: rem(8px);
-        }
-    }
-
-    &.v-text-field--full-width {
-        &.v-input {
-            margin-bottom: 0;
-            margin-top: 0;
-        }
-
-        .v-label {
-            top: calc(50% - #{rem(10px)});
-        }
-
-        .v-input__control {
-            padding: rem(12px 0);
-        }
-
-        .v-input__prepend-outer,
-        .v-input__append-outer {
-            margin-top: rem(4px);
-        }
-
-        .v-input__append-inner {
-            align-self: center;
-            margin-top: 0;
         }
     }
 
