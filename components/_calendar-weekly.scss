@@ -1,0 +1,110 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-calendar-weekly($material) {
+    background-color: map-deep-get($material, calendar, background-color);
+
+    .v-calendar-weekly__head-weekday {
+        border-right: map-deep-get($material, calendar, line-color) 1px solid;
+        color: map-deep-get($material, calendar, text-color);
+
+        &.v-past {
+            color: map-deep-get($material, calendar, past-color);
+        }
+
+        &.v-outside {
+            background-color: map-deep-get($material, calendar, outside-background-color);
+        }
+    }
+
+    .v-calendar-weekly__day {
+        border-bottom: map-deep-get($material, calendar, line-color) 1px solid;
+        border-right: map-deep-get($material, calendar, line-color) 1px solid;
+        color: map-deep-get($material, calendar, text-color);
+
+        &.v-outside {
+            background-color: map-deep-get($material, calendar, outside-background-color);
+        }
+    }
+}
+
+@include theme(light, 'v-calendar-weekly') {
+    @include v-calendar-weekly($material-light);
+}
+
+@include theme(dark, 'v-calendar-weekly') {
+    @include v-calendar-weekly($material-dark);
+}
+
+.v-calendar-weekly {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+}
+
+.v-calendar-weekly__head {
+    display: flex;
+    user-select: none;
+}
+
+.v-calendar-weekly__head-weekday {
+    flex: 1 0 rem(20px);
+    font-size: $calendar-weekly-weekday-font-size;
+    padding: $calendar-weekly-weekday-padding;
+    user-select: none;
+}
+
+.v-calendar-weekly__week {
+    display: flex;
+    flex: 1;
+}
+
+.v-calendar-weekly__day {
+    flex: 1;
+    overflow: hidden;
+    padding: $calendar-weekly-day-padding;
+    position: relative;
+    user-select: none;
+    width: 0;
+
+    &.v-present {
+        .v-calendar-weekly__day-label {
+            border: 1px solid currentColor;
+        }
+
+        .v-calendar-weekly__day-month {
+            color: currentColor;
+        }
+    }
+}
+
+.v-calendar-weekly__day-label {
+    border-radius: $calendar-weekly-day-label-radius;
+    box-shadow: none;
+    cursor: pointer;
+    height: $calendar-weekly-day-label-size;
+    left: 0;
+    line-height: $calendar-weekly-day-label-size;
+    position: absolute;
+    text-align: center;
+    text-decoration: none;
+    top: 0;
+    user-select: none;
+    width: $calendar-weekly-day-label-size;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.v-calendar-weekly__day-month {
+    box-shadow: none;
+    height: $calendar-weekly-day-label-size;
+    left: $calendar-weekly-day-month-left;
+    line-height: $calendar-weekly-day-label-size;
+    position: absolute;
+    text-decoration: none;
+    top: 0;
+    user-select: none;
+}
