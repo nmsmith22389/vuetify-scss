@@ -2,6 +2,16 @@
 
 All notable changes to this project will be documented in this file. See [standard-version](https://github.com/conventional-changelog/standard-version) for commit guidelines.
 
+<a name="1.3.6"></a>
+## [1.3.6](https://github.com/nmsmith22389/vuetify-scss/compare/v1.3.5...v1.3.6) (2019-03-21)
+
+
+### Bug Fixes
+
+* **components/icons:** removed `:not` selector from root icon selector ([e7197ab](https://github.com/nmsmith22389/vuetify-scss/commit/e7197ab)), closes [#14](https://github.com/nmsmith22389/vuetify-scss/issues/14)
+
+
+
 <a name="1.3.5"></a>
 ## [1.3.5](https://github.com/nmsmith22389/vuetify-scss/compare/v1.3.4...v1.3.5) (2019-02-05)
 
