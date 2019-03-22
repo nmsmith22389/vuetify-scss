@@ -64,6 +64,10 @@
     &-node {
         margin-left: rem(26px);
 
+        &--excluded {
+            display: none;
+        }
+
         &--click {
             > .v-treeview-node__root,
             > .v-treeview-node__root > .v-treeview-node__content > * {

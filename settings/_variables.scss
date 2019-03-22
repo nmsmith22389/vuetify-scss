@@ -89,12 +89,12 @@ $spacers: (
 ) !default;
 
 $font-weights: (
-    thin: 100,
-    light: 300,
-    regular: 400,
-    medium: 500,
-    bold: 700,
-    black: 900,
+    'thin': 100,
+    'light': 300,
+    'regular': 400,
+    'medium': 500,
+    'bold': 700,
+    'black': 900,
 ) !default;
 
 // Headings
@@ -376,6 +376,23 @@ $timeline-inner-dot-regular-size: rem(30px) !default;
 $timeline-inner-dot-regular-margin: rem(4px) !default;
 $timeline-inner-dot-large-size: rem(42px) !default;
 $timeline-inner-dot-large-margin: rem(5px) !default;
+
+// Calendar
+$calendar-daily-weekday-padding: rem(4px 4px 4px 8px) !default;
+$calendar-daily-weekday-font-size: rem(14px) !default;
+$calendar-daily-day-padding: rem(0 4px 4px 8px) !default;
+$calendar-daily-day-font-size: rem(40px) !default;
+$calendar-daily-day-line-height: rem(40px) !default;
+$calendar-daily-interval-gutter-width: rem(44px) !default;
+$calendar-daily-interval-gutter-top: rem(-6px) !default;
+$calendar-daily-interval-gutter-font-size: rem(10px) !default;
+
+$calendar-weekly-weekday-padding: rem(0 4px 0 4px) !default;
+$calendar-weekly-weekday-font-size: rem(14px) !default;
+$calendar-weekly-day-padding: rem(32px 4px 4px 4px) !default;
+$calendar-weekly-day-label-size: rem(32px) !default;
+$calendar-weekly-day-label-radius: rem(16px) !default;
+$calendar-weekly-day-month-left: rem(36px) !default;
 
 // Directives
 // ============================================================

@@ -162,6 +162,10 @@
     @include transition-default();
 }
 
+.expand-x-transition {
+    @include transition-default();
+}
+
 .scale-transition {
     @include transition-default();
 

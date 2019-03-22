@@ -1,0 +1,146 @@
+@import '../bootstrap';
+@import '../theme';
+
+@mixin v-calendar-daily($material) {
+    background-color: map-deep-get($material, calendar, background-color);
+
+    .v-calendar-daily__intervals-head {
+        border-right: map-deep-get($material, calendar, line-color) 1px solid;
+    }
+
+    .v-calendar-daily_head-day {
+        border-bottom: map-deep-get($material, calendar, line-color) 1px solid;
+        border-right: map-deep-get($material, calendar, line-color) 1px solid;
+        color: map-deep-get($material, calendar, text-color);
+
+        &.v-past {
+            .v-calendar-daily_head-weekday,
+            .v-calendar-daily_head-day-label {
+                color: map-deep-get($material, calendar, past-color);
+            }
+        }
+    }
+
+    .v-calendar-daily__intervals-body {
+        border-right: map-deep-get($material, calendar, line-color) 1px solid;
+
+        .v-calendar-daily__interval-text {
+            color: map-deep-get($material, calendar, interval-color);
+        }
+    }
+
+    .v-calendar-daily__day {
+        border-bottom: map-deep-get($material, calendar, interval-line-color) 1px solid;
+        border-right: map-deep-get($material, calendar, interval-line-color) 1px solid;
+    }
+
+    .v-calendar-daily__day-interval {
+        border-top: map-deep-get($material, calendar, interval-line-color) 1px solid;
+
+        &:first-child {
+            border-top: none !important;
+        }
+    }
+}
+
+@include theme(light, 'v-calendar-daily') {
+    @include v-calendar-daily($material-light);
+}
+
+@include theme(dark, 'v-calendar-daily') {
+    @include v-calendar-daily($material-dark);
+}
+
+.v-calendar-daily {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    overflow: hidden;
+}
+
+.v-calendar-daily__head {
+    display: flex;
+    flex: none;
+}
+
+.v-calendar-daily__intervals-head {
+    flex: none;
+    width: $calendar-daily-interval-gutter-width;
+}
+
+.v-calendar-daily_head-day {
+    flex: 1 1 auto;
+    width: 0;
+}
+
+.v-calendar-daily_head-weekday {
+    font-size: $calendar-daily-weekday-font-size;
+    padding: $calendar-daily-weekday-padding;
+    user-select: none;
+}
+
+.v-calendar-daily_head-day-label {
+    cursor: pointer;
+    font-size: $calendar-daily-day-font-size;
+    line-height: $calendar-daily-day-line-height;
+    padding: $calendar-daily-day-padding;
+    user-select: none;
+
+    &:hover {
+        text-decoration: underline;
+    }
+}
+
+.v-calendar-daily__body {
+    display: flex;
+    flex: 1 1 60%;
+    flex-direction: column;
+    overflow: hidden;
+    position: relative;
+}
+
+.v-calendar-daily__scroll-area {
+    align-items: flex-start;
+    display: flex;
+    flex: 1 1 auto;
+    overflow-y: scroll;
+}
+
+.v-calendar-daily__pane {
+    align-items: flex-start;
+    display: flex;
+    flex: none;
+    overflow-y: hidden;
+    width: 100%;
+}
+
+.v-calendar-daily__day-container {
+    display: flex;
+    flex: 1;
+    height: 100%;
+    width: 100%;
+}
+
+.v-calendar-daily__intervals-body {
+    flex: none;
+    user-select: none;
+    width: $calendar-daily-interval-gutter-width;
+}
+
+.v-calendar-daily__interval {
+    border-bottom: none;
+    text-align: center;
+}
+
+.v-calendar-daily__interval-text {
+    display: block;
+    font-size: $calendar-daily-interval-gutter-font-size;
+    position: relative;
+    top: $calendar-daily-interval-gutter-top;
+}
+
+.v-calendar-daily__day {
+    flex: 1;
+    position: relative;
+    width: 0;
+}

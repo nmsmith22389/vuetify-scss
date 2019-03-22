@@ -34,6 +34,7 @@
 <!-- | v1.3.2  | ~v1.4.2                 | -->
 <!-- | v1.3.3  | ~v1.4.3                 | -->
 | v1.3.6  | ~v1.4.4                 |
+| v1.4.0  | ~v1.5.0                 |
 
 [vuetify]: https://vuetifyjs.com/
 [vuetify-scss]: https://github.com/nmsmith22389/vuetify-scss/
