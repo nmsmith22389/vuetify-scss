@@ -216,7 +216,7 @@ $material-dark: (
         interval-color: map-get($grey, lighten-3),
         interval-line-color: map-get($grey, darken-2),
         text-color: map-get($shades, 'white'),
-        past-color: rgba(map-get($shades, 'white'), .50)
+        past-color: rgba(map-get($shades, 'white'), 0.5)
     )
 ) !default;
 
