@@ -15,7 +15,8 @@ $body-font-family: 'Roboto', sans-serif !default;
 
 // Material Design - https://material.io/guidelines/style/color.html#color-usability
 // ============================================================
-$material-light: (
+$material-light: () !default;
+$material-light: map-merge((
     status-bar: (
         regular: map-get($grey, lighten-2),
         lights-out: rgba(map-get($shades, 'white'), 0.7)
@@ -115,9 +116,10 @@ $material-light: (
         text-color: map-get($shades, 'black'),
         past-color: rgba(map-get($shades, 'black'), 0.38)
     )
-) !default;
+), $material-light);
 
-$material-dark: (
+$material-dark: () !default;
+$material-dark: map-merge((
     status-bar: (
         regular: map-get($shades, 'black'),
         lights-out: rgba(map-get($shades, 'black'), 0.2)
@@ -218,7 +220,7 @@ $material-dark: (
         text-color: map-get($shades, 'white'),
         past-color: rgba(map-get($shades, 'white'), 0.5)
     )
-) !default;
+), $material-dark);
 
 // Default Material Theme
 // ============================================================
