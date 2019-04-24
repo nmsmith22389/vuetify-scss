@@ -83,7 +83,7 @@
         &__root {
             align-items: center;
             display: flex;
-            height: rem(34px);
+            min-height: rem(34px);
         }
 
         &__content {
