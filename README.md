@@ -110,7 +110,10 @@ See the [pull request template][pull request] for guidlines.
 
 ### Authors
 
-* **Neil Smith** - *Creator*
+| [![Neil Smith](https://github.com/nmsmith22389.png?size=70)](https://github.com/nmsmith22389) |
+| :-------------------------------------------------------------------------------------------: |
+|                                        **Neil Smith**                                         |
+|                                           *Creator*                                           |
 
 See also the list of [contributors][contributors] who participated in this project.
 
