@@ -7,19 +7,20 @@
 All of the Vuetify styles converted into Sass. **No more Stylus!** 🎉
 
 - [Getting Started](#getting-started)
-    - [Prerequisites](#prerequisites)
-    - [Installing](#installing)
+  - [Prerequisites](#prerequisites)
+  - [Installing](#installing)
 - [Usage](#usage)
-    - [Changing variables](#changing-variables)
-    - [Vuetify Compatibility](#vuetify-compatibility)
-    - [Added / Changed Variables](#added--changed-variables)
-    - [Helper / Utility Mixins and Functions](#helper--utility-mixins-and-functions)
+  - [Changing variables](#changing-variables)
+  - [Vuetify Compatibility](#vuetify-compatibility)
+  - [Added / Changed Variables](#added--changed-variables)
+  - [Helper / Utility Mixins and Functions](#helper--utility-mixins-and-functions)
 - [Info](#info)
-    - [Changes](#changes)
-    - [Versioning](#versioning)
-    - [Authors](#authors)
-    - [License](#license)
-    - [Acknowledgments](#acknowledgments)
+  - [Changes](#changes)
+  - [Versioning](#versioning)
+  - [Contributing](#contributing)
+  - [Authors](#authors)
+  - [License](#license)
+  - [Acknowledgments](#acknowledgments)
 
 ## Getting Started
 
@@ -102,6 +103,11 @@ This project uses the [Angular commit convention][angular convention] and is aut
 
 We use [SemVer][semver] for versioning. For the versions available, see the [tags on this repository][tags].
 
+### Contributing
+See the [pull request template][pull request] for guidlines.
+
+**Make sure to always branch off of** `develop` **and NOT** `master`**!**
+
 ### Authors
 
 * **Neil Smith** - *Creator*
@@ -121,6 +127,7 @@ All thanks goes to [Vuetify][vuetify] for their amazing framework!
 [compatibility]: COMPATIBILITY.md
 [releases]: https://github.com/nmsmith22389/vuetify-scss/releases
 [tags]: https://github.com/nmsmith22389/vuetify-scss/tags
+[pull request]: PULL_REQUEST_TEMPLATE.md
 [contributors]: https://github.com/nmsmith22389/vuetify-scss/graphs/contributors
 [license]: LICENSE.md
 [angular convention]: https://github.com/conventional-changelog/conventional-changelog/blob/master/packages/conventional-changelog-angular/README.md
