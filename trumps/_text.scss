@@ -51,6 +51,7 @@
 }
 
 .text-truncate {
+    line-height: 1.1 !important;
     overflow: hidden !important;
     text-overflow: ellipsis !important;
     white-space: nowrap !important;
