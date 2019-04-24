@@ -191,7 +191,7 @@
             height: 100%;
             margin: 0;
 
-            :not(:only-child) {
+            > :not(:only-child) {
                 transition: $primary-transition;
 
                 &:first-child {
@@ -217,7 +217,7 @@
 
         &.v-btn--active {
             .v-btn__content {
-                :not(:only-child) {
+                > :not(:only-child) {
                     &:first-child {
                         opacity: 0;
                         transform: rotate(45deg);

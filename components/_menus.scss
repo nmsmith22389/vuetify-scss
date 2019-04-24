@@ -35,6 +35,10 @@
             pointer-events: none;
         }
 
+        &--fixed {
+            position: fixed;
+        }
+
         > .v-card {
             backface-visibility: hidden;
             contain: content;
