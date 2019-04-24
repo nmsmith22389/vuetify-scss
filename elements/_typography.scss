@@ -29,6 +29,7 @@ $_heading-classes-large: (h1, h2, h3, h4, h5, h6) !default;
         font-size: map-get($props, size) !important;
         font-weight: map-get($props, weight);
         @if index($_heading-classes-large, $heading) {
+            font-family: map-get($props, font-family) !important;
             letter-spacing: map-get($props, letter-spacing) !important;
             line-height: map-get($props, line-height) !important;
         }
